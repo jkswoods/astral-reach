@@ -1,6 +1,6 @@
 # Astral Reach
 
-![Astral Reach — build the next voyage](assets/brand/banner.svg)
+![Astral Reach — build the next voyage](assets/brand/banner-cinematic-v2.png)
 
 <p class="mod-lead">Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.</p>
 

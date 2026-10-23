@@ -4,7 +4,7 @@ Gather resources, build full-size rockets and use finite fuel for a paid expedit
 
 **[Read the player guide](https://jkswoods.github.io/astral-reach/)** · [Rockets and scale](docs/rockets.md) · [Launch platform](docs/launch-platform.md) · [Gallery](docs/gallery.md)
 
-![Astral Reach — Build the next voyage](docs/assets/brand/banner.svg)
+![Astral Reach — Build the next voyage](docs/assets/brand/banner-cinematic-v2.png)
 
 ![Kestrel Stack at its full native height](docs/assets/screenshots/kestrel-full.png)
 
