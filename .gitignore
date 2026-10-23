@@ -1,0 +1,9 @@
+/build/
+/site/
+/.cache/
+/.publication-policy.json
+__pycache__/
+.DS_Store
+*.log
+*.jar
+*.zip
