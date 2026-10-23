@@ -28,6 +28,6 @@ Explore [rockets and scale](rockets.md), build the [launch platform](launch-plat
 
 The project targets **Hytale 0.7.\*** and remains a **development build**. This repository currently publishes documentation and curated media, with no public playable JAR download.
 
-The established resource, construction and paid Lune route has local gameplay checks. A new candidate adds sustained third-person ascent, ignition smoke, engine fire, Kestrel booster return and a space-only orbital map. Native testing found an ignition crash in that new prototype, which is being investigated; the gallery shows the earlier locally tested build. Human listening, comfort and real multiplayer acceptance remain open.
+The established resource, construction and paid Lune route has local gameplay checks. A new candidate adds sustained third-person ascent, ignition smoke, engine fire, Kestrel booster return and a space-only orbital map. The ignition crash has been repaired, and local flights have reached orbit with the booster sequence and a 3D navigation view. Physical boarding, upper-stage landing and the latest ore art are still being tested; see [development status](status.md). Human listening, comfort and real multiplayer acceptance remain open.
 
 See [development status](status.md) and [installation](installation.md) before trying a supplied candidate. The [original 66-model workshop](https://astral-reach-space-workshop.serina610406.chatgpt.site/) remains a separate art catalogue, including future planets and fleet designs beyond the playable route.

@@ -24,6 +24,10 @@ These images show the development mod running in Hytale 0.7.4. Click a photograp
 
 <figure><a href="../assets/screenshots/takeoff-ascent.png"><img src="../assets/screenshots/takeoff-ascent.png" alt="Odyssey climbing higher above the launch site"></a><figcaption>A later frame from that same native departure. It demonstrates lift-off, while the new cinematic flight remains under development.</figcaption></figure>
 
+## Native orbital view
+
+<figure><a href="../assets/screenshots/kestrel-orbit-sun.png"><img src="../assets/screenshots/kestrel-orbit-sun.png" alt="Kestrel upper ship against a black star field and bright sun in Hytale"></a><figcaption>A native Hytale 0.7.4 orbital frame from the newer local flight build, captured after reloading a paid journey. This establishes the in-game sky and upper ship; the latest physical boarding and lunar descent remain under test.</figcaption></figure>
+
 ## The Lune route
 
 <figure><a href="../assets/screenshots/lune-beacon.png"><img src="../assets/screenshots/lune-beacon.png" alt="Return beacon on Lune's grey surface"></a><figcaption>The current destination is Lune. Its return beacon uses the saved home location.</figcaption></figure>

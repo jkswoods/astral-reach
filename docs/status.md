@@ -10,11 +10,15 @@ The ships shown in the gallery retain their actual large dimensions. Current col
 
 ## New flight candidate
 
-The next local candidate implements a sustained third-person launch, ignition smoke, attached engine fire, a fading atmosphere, a star-filled orbital view with a bright sun, and space-only orbital navigation. Kestrel's sequence separates its upper ship and shows a booster flip and home-pad return before navigation.
+Local Hytale 0.7.4 flights now show sustained third-person ascent, ignition smoke, engine fire, a fading atmosphere, stars and a bright sun. Kestrel separates its upper ship in space and returns its booster to the launch pad before orbital navigation. A later test extended that sequence to 90 seconds.
 
-The prototype compiles against the pinned 0.7.3 APIs and has isolated asset and saved-state checks. **Native 0.7.4 testing currently finds a client crash at ignition.** The tested disconnect recovery restored the full 8,000-unit reservation. The cause is being isolated; the longer ascent, camera and orbital controls have not passed the complete native flight.
+The native orbital view now contains three-dimensional bodies with rotation, tilt, zoom, pan and resource-route selection. Lune remains reachable; later landing routes remain locked. Camera and passenger presentation still need polish.
 
-The current photographs show the earlier locally tested launch-platform build, `0.2.0-dev` with artifact hash beginning `5f722a35`. It uses a short departure to Lune. The new prototype is not presented as a completed native acceptance result.
+The earlier ignition crash has been repaired. The next candidate adds physical crew boarding, an upper-stage descent and return flight on Lune, broad crater basins with rolling regolith in newly generated terrain, and raised mineral deposits with distinct fracture shapes. **The complete boarded landing and return sequence and revised ore appearance have not passed their native gameplay checks.** Keep using the documented established route only with its matching supplied build and backup.
+
+The candidate compiles against pinned 0.7.3 APIs and passes isolated asset, recipe, terrain and saved-state checks on 0.7.3 and 0.7.4. Those checks establish integration; they do not replace a complete in-game flight or human visual and listening acceptance.
+
+Gallery captions identify the earlier launch-platform photographs and the newer native orbital view separately.
 
 ## Open limits
 

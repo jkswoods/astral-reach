@@ -38,4 +38,4 @@ The original model collection establishes this intended chain:
 | Vesper | Iridium + sulfur | Radiation Core | In development |
 | Umbra | Aetherium + void quartz | Fold Beacon | In development |
 
-The new flight candidate presents those bodies in an interactive orbital map after reaching space. Lune is its available landing choice; later routes show their progression gates and remain locked. Native verification of that new map and extended flight is pending. The Fold Beacon is the intended terminal reward for this system, rather than a sixth implemented destination.
+The new flight candidate presents those bodies in an interactive orbital map after reaching space. Lune is its available landing choice; later routes show their progression gates and remain locked. Local native checks cover the 3D map controls and extended ascent. The complete physical boarding and upper-stage landing sequence is still under test. The Fold Beacon is the intended terminal reward for this system, rather than a sixth implemented destination.

@@ -22,7 +22,7 @@ Choose **Open flight control** at the console. Deposit eight full cells for **8,
 
 Choose **Prepare and launch round trip**. Flight preparation checks the arrival site before taking payment. The locally tested launch-platform build then shows a short departure and transfers you to Lune.
 
-A separate flight prototype adds a longer third-person ascent and orbital map. It currently has an ignition crash under investigation and is not the verified route described here. See [development status](status.md) before trying a supplied candidate.
+A separate flight prototype adds a longer third-person ascent and orbital map. Its longer ascent and orbital controls now have local gameplay checks; physical boarding and upper-stage landing remain under test. It is a different build from the established route described here. See [development status](status.md) before trying a supplied candidate.
 
 ## Bring the next voyage home
 

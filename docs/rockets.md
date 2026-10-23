@@ -21,10 +21,10 @@ Kestrel combines a silver booster with a dark-tiled orbital ship, broad flaps, u
 
 <figure><a href="../assets/screenshots/kestrel-player-scale.png"><img src="../assets/screenshots/kestrel-player-scale.png" alt="A player avatar standing near Kestrel's large lower stage and platform"></a><figcaption>A ground-level player reference beside the lower stage. Perspective makes nearby objects larger; use the dimension diagram above for a true shared scale.</figcaption></figure>
 
-The new flight candidate gives Kestrel a separate booster and upper ship. Its intended sequence shows separation, the booster's flip and home-pad landing, then the orbital ship in space before navigation opens. Native visual acceptance of that new sequence is pending.
+The new flight candidate gives Kestrel a separate booster and upper ship. Its locally tested sequence shows separation in space, the booster's flip and home-pad landing, then the orbital ship in space before navigation opens. The latest 90-second flight adds a longer ballistic fall and braking approach. Human visual and comfort acceptance remain pending.
 
 ## Current flight limits
 
-Both supported plans currently serve Lune. The spacecraft use decorative full-size exteriors and a compact control anchor; there is no enterable cabin or aerodynamic freeflight. The new third-person ascent and orbital-navigation candidate is described on [development status](status.md).
+Both supported plans currently serve Lune. The spacecraft use decorative full-size exteriors and a compact control anchor; there is no walkable cabin or aerodynamic freeflight. Automatic passenger boarding and upper-stage landing are being tested in the latest candidate. The new third-person ascent and orbital-navigation candidate is described on [development status](status.md).
 
 The model workshop also contains the independent Kestrel upper ship, Peregrine explorer, Wren lander and additional infrastructure. Their presence in the art catalogue does not make them selectable playable vehicles. Peregrine is wider than the supported 25-block pad.
