@@ -26,7 +26,7 @@ These images show the development mod running in Hytale 0.7.4. Click a photograp
 
 ## Native orbital view
 
-<figure><a href="../assets/screenshots/kestrel-orbit-sun.png"><img src="../assets/screenshots/kestrel-orbit-sun.png" alt="Kestrel upper ship against a black star field and bright sun in Hytale"></a><figcaption>A native Hytale 0.7.4 orbital frame from the newer local flight build, captured after reloading a paid journey. This establishes the in-game sky and upper ship; the latest physical boarding and lunar descent remain under test.</figcaption></figure>
+<figure><a href="../assets/screenshots/kestrel-orbit-sun.png"><img src="../assets/screenshots/kestrel-orbit-sun.png" alt="Kestrel upper ship against a black star field and bright sun in Hytale"></a><figcaption>A native Hytale 0.7.4 orbital frame from the newer local flight build, captured after reloading a paid journey. This establishes the in-game sky and upper ship; the latest passenger attachment and lunar landing presentation remain under refinement.</figcaption></figure>
 
 ## The Lune route
 

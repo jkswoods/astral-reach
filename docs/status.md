@@ -14,7 +14,9 @@ Local Hytale 0.7.4 flights now show sustained third-person ascent, ignition smok
 
 The native orbital view now contains three-dimensional bodies with rotation, tilt, zoom, pan and resource-route selection. Lune remains reachable; later landing routes remain locked. Camera and passenger presentation still need polish.
 
-The earlier ignition crash has been repaired. The next candidate adds physical crew boarding, an upper-stage descent and return flight on Lune, broad crater basins with rolling regolith in newly generated terrain, and raised mineral deposits with distinct fracture shapes. **The complete boarded landing and return sequence and revised ore appearance have not passed their native gameplay checks.** Keep using the documented established route only with its matching supplied build and backup.
+The earlier ignition crash has been repaired. New native tests have completed an upper-stage descent and touchdown on Lune, disembarkation, and the paid upper-stage ascent and home approach. The normal saved home state cleared the journey and spent its protected return reserve once. Broad crater basins, rolling regolith and the four revised raised mineral deposits have also been inspected in Hytale.
+
+**Passenger presentation remains under repair.** Players reported the character body lagging behind the ship, jitter on foot on Lune and weak-looking landing-leg connections. A duplicate ship above the landing site was reproduced; the repair passed a normal lunar reload with one ship. The latest candidate adds native acknowledged player movement, closer lunar landing sites and stronger hull-mounted landing gear. Its full flight, on-foot movement and final visual checks are still pending. Keep each candidate with its matching backup.
 
 The candidate compiles against pinned 0.7.3 APIs and passes isolated asset, recipe, terrain and saved-state checks on 0.7.3 and 0.7.4. Those checks establish integration; they do not replace a complete in-game flight or human visual and listening acceptance.
 
