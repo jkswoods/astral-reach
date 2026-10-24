@@ -1,10 +1,14 @@
 # Astral Reach
 
-Build a launch site. Raise a full-size rocket. Bring the next voyage home.
+Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.
 
 **[Read the player guide](https://jkswoods.github.io/astral-reach/)** · [Rockets and scale](docs/rockets.md) · [Launch platform](docs/launch-platform.md) · [Gallery](docs/gallery.md)
 
+![Astral Reach — Build the next voyage](docs/assets/brand/banner-cinematic-v2.png)
+
 ![Kestrel Stack at its full native height](docs/assets/screenshots/kestrel-full.png)
+
+*Native Hytale 0.7.4 development capture: the full-size Kestrel Stack above its launch platform. Latest boarding and landing work remains under test.*
 
 Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. The current playable slice connects home-world nickel and oil shale, four fueled processors, a 25×25 multiblock launch site, ghost-blueprint construction and a paid expedition to Lune for titanium and aluminium.
 
