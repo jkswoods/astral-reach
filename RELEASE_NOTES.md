@@ -1,3 +1,5 @@
+Includes the mod logo in the world creation and world settings mod list.
+
 ## Experimental Alpha
 
 Corrected Alpha packaging: includes the full MIT license and generated-audio terms notice inside the JAR. Gameplay source and assets are unchanged from the first Alpha.
