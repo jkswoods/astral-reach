@@ -60,8 +60,8 @@
   },
   "minify": false,
   "logo": {
-    "light": "/assets/hytale0.7/brand/logo.svg",
-    "dark": "/assets/hytale0.7/brand/logo.svg",
+    "light": "/assets/hytale0.7/brand/logo.png",
+    "dark": "/assets/hytale0.7/brand/logo.png",
     "href": "/",
     "alt": "Astral Reach",
     "height": "56px"
