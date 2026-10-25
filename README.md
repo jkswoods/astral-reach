@@ -2,7 +2,7 @@
 
 Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.
 
-**[Read the player guide](https://jkswoods.github.io/astral-reach/)** · [Rockets and scale](docs/rockets.md) · [Launch platform](docs/launch-platform.md) · [Gallery](docs/gallery.md)
+**[Read the player guide](https://jkswoods.github.io/astral-reach/)** · [Rockets and scale](https://jkswoods.github.io/astral-reach/hytale0.7/rockets/) · [Launch platform](https://jkswoods.github.io/astral-reach/hytale0.7/launch-platform/) · [Gallery](https://jkswoods.github.io/astral-reach/hytale0.7/gallery/)
 
 ![Astral Reach — Build the next voyage](docs/assets/brand/banner-cinematic-v2.png)
 
@@ -17,21 +17,19 @@ Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. Th
 | Odyssey Heavy | 97.33 blocks | 16.96 blocks | 25×25 blocks |
 | Kestrel Stack | 123.19 blocks | 19.31 blocks | 25×25 blocks |
 
-This repository contains the **player documentation, original guide branding and curated gameplay screenshots**. It does not currently distribute a playable JAR. The guide covers the 0.2.0-dev candidate; local client checks used Hytale 0.7.4. Public documentation is available while the mod remains a development build. See [development status](docs/status.md) before trying a candidate.
+This branch contains the **runtime mod source and original assets**; versioned player documentation lives on `docs`. It does not currently distribute a playable JAR. The guide covers the 0.2.0-dev candidate; local client checks used Hytale 0.7.4. Public documentation is available while the mod remains a development build. See [development status](https://jkswoods.github.io/astral-reach/hytale0.7/status/) before trying a candidate.
 
 The [original model workshop](https://astral-reach-space-workshop.serina610406.chatgpt.site/) is a separate, earlier collection of 66 editable assets and proposed planets. Its model catalogue includes future content beyond the current playable route.
 
-To build this guide locally:
+The [versioned player guide](https://jkswoods.github.io/astral-reach/) is maintained on the separate [`docs` branch](https://github.com/jkswoods/astral-reach/tree/docs). In that checkout, run `npm ci --ignore-scripts`, `npm run build` and `npm run check`. Select `docs` when manually dispatching its Pages workflow.
 
-```sh
-python -m pip install -r requirements-docs.txt
-python -m mkdocs build --strict
-```
-
-The generated guide is written to `build/player-site/`. The Pages workflow publishes it when manually dispatched; pull requests validate the documentation build.
-
-Astral Reach is an independent project and is not affiliated with or endorsed by Hytale or Hypixel Studios. See [credits and notices](docs/notices.md).
+Astral Reach is an independent project and is not affiliated with or endorsed by Hytale or Hypixel Studios. See [credits and notices](https://jkswoods.github.io/astral-reach/hytale0.7/notices/).
 
 ## Compatibility and builds
 
-Current source targets Hytale `>=0.7.3 <0.8.0` and uses the `hytale0.7` support branch. See [build and release instructions](docs/build-and-release.md) for the SDK pin, candidate checks, versioned filenames and CurseForge workflow.
+Current source targets Hytale `>=0.7.3 <0.8.0` and uses the `hytale0.7` support branch. See [build and release instructions](https://jkswoods.github.io/astral-reach/hytale0.7/build-and-release/) for the SDK pin, candidate checks, versioned filenames and CurseForge workflow.
+
+## Contributing
+
+See [the contribution guide](CONTRIBUTING.md) for feature and bug-fix PR targets.
+Maintainers handle forward/back ports, and support-branch PRs require owner approval.
