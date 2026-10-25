@@ -1,6 +1,8 @@
 ## Experimental Alpha
 
-First public runtime build on the Hytale 0.7 support line: home-world nickel/oil shale, fueled native processing, finite propellant, full-size Odyssey/Kestrel rockets, joined launch-platform construction and the Lune route.
+Corrected Alpha packaging: includes the full MIT license and generated-audio terms notice inside the JAR. Gameplay source and assets are unchanged from the first Alpha.
+
+Hytale 0.7 runtime: home-world nickel/oil shale, fueled native processing, finite propellant, full-size Odyssey/Kestrel rockets, joined launch-platform construction and the Lune route.
 
 Compiled against pinned Hytale 0.7.3 APIs; representative local gameplay checks used 0.7.4. The declared range does not certify every future 0.7 patch. Requires Java 25.
 

@@ -19,6 +19,7 @@ core=sorted((ROOT/'src/main/java/dev/astralreach/core').glob('*.java'));test=sor
 run([JDK/'bin/javac','--release','25','-Xlint:all','-d',classes,*core]);run([JDK/'bin/javac','--release','25','-Xlint:all','-cp',classes,'-d',tests,*test])
 result=subprocess.check_output([str(JDK/'bin/java'),'-ea','-cp',str(classes)+os.pathsep+str(tests),'dev.astralreach.core.CoreTests'],text=True);(reports/'core.txt').write_text(result);print(result.strip())
 run([JDK/'bin/javac','--release','25','-Xlint:all','-cp',str(classes)+os.pathsep+str(SERVER),'-d',classes,*native])
+assert (ROOT/'src/main/resources/LICENSE').read_bytes()==(ROOT/'LICENSE').read_bytes(),'Packaged license must match the repository license'
 out=ROOT/'build/libs'/filename(config(ROOT/'release.json'));out.parent.mkdir(parents=True,exist_ok=True)
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for folder in [classes,ROOT/'src/main/resources']:
