@@ -4,7 +4,7 @@ title: "Development status"
 
 # Development status {#development-status}
 
-Astral Reach is a **0.2.0-dev development project for Hytale 0.7.\***. This public repository distributes the player guide and curated media. It currently contains no playable JAR download and is not a production mod release.
+Astral Reach is a **development project for Hytale 0.7**. This guide describes the support branch and its known limits. Available files and their release notes are listed separately on [GitHub releases](https://github.com/jkswoods/astral-reach/releases).
 
 ## Established playable slice {#established-playable-slice}
 

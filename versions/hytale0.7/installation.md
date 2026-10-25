@@ -4,9 +4,11 @@ title: "Installation"
 
 # Installation {#installation}
 
-Astral Reach targets **Hytale 0.7.\***. The guide describes the **0.2.0-dev development candidate**. It compiles against the official 0.7.3 server APIs; local gameplay checks use the 0.7.4 client. Other patches in the 0.7 family have not all been tested. A dedicated server needs Java 25.
+This guide follows the **Hytale 0.7 support line**. Published files can lag behind branch changes; read the chosen file’s release notes for the features it includes.
 
-There is currently **no public playable JAR download in this repository**. It publishes the player guide and screenshots while the mod is in development. Use a candidate supplied by the project only, and keep its exact version when reporting a problem.
+This guide covers Astral Reach development on the **Hytale 0.7** support line. It compiles against the official 0.7.3 server APIs; local gameplay checks use the 0.7.4 client. Other patches in the 0.7 family have not all been tested. A dedicated server needs Java 25.
+
+Check [GitHub releases](https://github.com/jkswoods/astral-reach/releases) for files marked compatible with your Hytale game version. If no matching file is available, use the support branch’s build instructions or wait for a compatible release. Keep the identity of the file you actually installed when reporting a problem.
 
 ## Try a development candidate {#try-a-development-candidate}
 

@@ -17,7 +17,7 @@ These ships are deliberately large. Plan the launch site around the complete sil
 
 A copper-orange core, two ivory strap-on boosters, crew capsule and escape tower give Odyssey its heavy-launcher silhouette. Its initial parts and fuel come from the home-world chain. It reaches the current paid Lune route without destination minerals.
 
-<figure><a href="/assets/hytale0.7/screenshots/odyssey-full.png"><img src="/assets/hytale0.7/screenshots/odyssey-full.png" alt="Odyssey Heavy's full 97-block native silhouette on the wide launch platform"></a><figcaption>Odyssey at its complete native height. The 25×25 pad and separate console sit beneath the engine cluster. Native 0.2.0-dev launch-platform candidate, Hytale 0.7.4.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/odyssey-full.png"><img src="/assets/hytale0.7/screenshots/odyssey-full.png" alt="Odyssey Heavy's full 97-block native silhouette on the wide launch platform"></a><figcaption>Odyssey at its complete native height. The 25×25 pad and separate console sit beneath the engine cluster. Native launch-platform development capture, Hytale 0.7.4.</figcaption></figure>
 
 ## Kestrel Stack {#kestrel-stack}
 

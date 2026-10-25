@@ -10,11 +10,11 @@ title: "Astral Reach"
 
 <div class="ar-stats"><div class="ar-stat"><strong>123.19</strong><span>blocks tall · Kestrel Stack</span></div><div class="ar-stat"><strong>25 × 25</strong><span>blocks · joined launch platform</span></div><div class="ar-stat"><strong>8,000</strong><span>finite fuel units · first round trip</span></div></div>
 
-<figure><a href="/assets/hytale0.7/screenshots/kestrel-full.png"><img src="/assets/hytale0.7/screenshots/kestrel-full.png" alt="The complete 123-block Kestrel Stack above its launch platform in Hytale"></a><figcaption>The full Kestrel Stack, from its engines to its upper fins. Native Hytale 0.7.4, Astral Reach 0.2.0-dev. Open any photograph for its full resolution.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/kestrel-full.png"><img src="/assets/hytale0.7/screenshots/kestrel-full.png" alt="The complete 123-block Kestrel Stack above its launch platform in Hytale"></a><figcaption>The full Kestrel Stack, from its engines to its upper fins. Native Hytale 0.7.4. Open any photograph for its full resolution.</figcaption></figure>
 
 <div class="mod-actions"><a class="mod-button" href="getting-started/">Plan your first expedition</a><a class="mod-button mod-button-secondary" href="status/">Check development status</a></div>
 
-<div class="mod-status"><strong>0.2.0-dev guide · Hytale 0.7.*</strong><br>Documentation and curated media are public. No playable JAR download is published. Captures identify their tested game version; see the development-status page for open flight and acceptance limits.</div>
+<div class="mod-status"><strong>Hytale 0.7 development guide</strong><br>Documentation and curated media describe the support branch. Captures identify their tested game version; see the development-status page for open flight and acceptance limits.</div>
 
 ## From rock to rocket {#from-rock-to-rocket}
 

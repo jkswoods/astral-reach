@@ -22,7 +22,7 @@ Placing the console after a complete pad lets it recognise the direction. If pla
 
 Select **Odyssey Heavy** for the first expedition. Its full-size cyan ghost shows where the rocket will stand. A preview accepts no fuel and cannot launch.
 
-<figure><a href="/assets/hytale0.7/screenshots/launch-blueprint.png"><img src="/assets/hytale0.7/screenshots/launch-blueprint.png" alt="The native construction panel with Odyssey selected and exact required hull, engine, computer and plate quantities"></a><figcaption>The construction panel shows required, supplied and carried materials. This earlier 0.2.0-dev capture has the same construction recipe contract.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/launch-blueprint.png"><img src="/assets/hytale0.7/screenshots/launch-blueprint.png" alt="The native construction panel with Odyssey selected and exact required hull, engine, computer and plate quantities"></a><figcaption>The construction panel shows required, supplied and carried materials. This earlier native capture has the same construction recipe contract.</figcaption></figure>
 
 Choose **Feed needed materials** while carrying the required parts. The console takes only missing quantities. You can supply the plan in stages; paid items and partial work are saved.
 
