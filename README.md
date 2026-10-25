@@ -17,7 +17,7 @@ Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. Th
 | Odyssey Heavy | 97.33 blocks | 16.96 blocks | 25×25 blocks |
 | Kestrel Stack | 123.19 blocks | 19.31 blocks | 25×25 blocks |
 
-This branch contains the **runtime mod source and original assets**; versioned player documentation lives on `docs`. It does not currently distribute a playable JAR. The guide covers the 0.2.0-dev candidate; local client checks used Hytale 0.7.4. Public documentation is available while the mod remains a development build. See [development status](https://jkswoods.github.io/astral-reach/hytale0.7/status/) before trying a candidate.
+This branch contains the **runtime mod source and original assets**; versioned player documentation lives on `docs`. The guide follows the Hytale support branch; local client checks used Hytale 0.7.4. Check [Releases](https://github.com/jkswoods/astral-reach/releases) for compatible published files. Public documentation is available while the mod remains a development build. See [development status](https://jkswoods.github.io/astral-reach/hytale0.7/status/) before trying a candidate.
 
 The [original model workshop](https://astral-reach-space-workshop.serina610406.chatgpt.site/) is a separate, earlier collection of 66 editable assets and proposed planets. Its model catalogue includes future content beyond the current playable route.
 
@@ -33,3 +33,5 @@ Current source targets Hytale `>=0.7.3 <0.8.0` and uses the `hytale0.7` support 
 
 See [the contribution guide](CONTRIBUTING.md) for feature and bug-fix PR targets.
 Maintainers handle forward/back ports, and support-branch PRs require owner approval.
+
+The player guide follows the Hytale support line and is updated independently of mod releases. Select downloads by their game compatibility and read the selected file’s release notes for included changes and artifact checksums.
