@@ -1,0 +1,3 @@
+:root { --pub-accent:#d58a47; --primary-color:#235b7d; --link-color:#235b7d; --link-color-hover:#235b7d; }
+
+.ar-stats{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin:1.5rem 0}.ar-stat strong{display:block;font-size:1.5rem}.ar-stat span{display:block;font-size:.9rem}

@@ -1,0 +1,8 @@
+/* Mod identity overrides for the shared publication layout. */
+:root { --pub-accent: #69bdb6; --pub-accent-ink: #17272d; --pub-link: #22666e; }
+.ar-intro { font-size:1.2rem !important; max-width:64ch; }
+.ar-stats { display:flex; flex-wrap:wrap; gap:24px; margin:32px 0; border-top:1px solid var(--pub-border); padding-top:20px; }
+.ar-stat { flex:1 1 10rem; }
+.ar-stat strong { display:block; font-size:1.65rem; color:var(--pub-ink); line-height:1.25; }
+.ar-stat span { color:var(--pub-muted); font-size:.875rem; }
+.ar-note { border-left:4px solid var(--pub-accent); padding:16px 20px; background:var(--pub-canvas); margin:24px 0; }

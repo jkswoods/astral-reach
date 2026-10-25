@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Overview",
+    "path": "/",
+    "icon": "house"
+  },
+  {
+    "title": "Installation",
+    "path": "/installation",
+    "icon": "download"
+  },
+  {
+    "title": "First expedition",
+    "path": "/getting-started",
+    "icon": "rocket"
+  },
+  {
+    "title": "Rockets and scale",
+    "path": "/rockets",
+    "icon": "rocket"
+  },
+  {
+    "title": "Launch platform",
+    "path": "/launch-platform",
+    "icon": "rocket"
+  },
+  {
+    "title": "Machines and propellant",
+    "path": "/machines",
+    "icon": "zap"
+  },
+  {
+    "title": "Recipes",
+    "path": "/recipes",
+    "icon": "book-open"
+  },
+  {
+    "title": "Lune and progression",
+    "path": "/progression",
+    "icon": "chart-no-axes-combined"
+  },
+  {
+    "title": "Gallery",
+    "path": "/gallery",
+    "icon": "images"
+  },
+  {
+    "title": "Configuration and access",
+    "path": "/configuration",
+    "icon": "settings"
+  },
+  {
+    "title": "Troubleshooting",
+    "path": "/troubleshooting",
+    "icon": "circle-help"
+  },
+  {
+    "title": "Development status",
+    "path": "/status",
+    "icon": "history"
+  },
+  {
+    "title": "Credits and notices",
+    "path": "/notices",
+    "icon": "scale"
+  },
+  {
+    "title": "Build and releases",
+    "path": "/build-and-release",
+    "icon": "workflow"
+  }
+]

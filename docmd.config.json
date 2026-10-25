@@ -1,0 +1,87 @@
+{
+  "title": "Astral Reach",
+  "url": "https://jkswoods.github.io/astral-reach/",
+  "base": "/astral-reach/",
+  "src": "docs",
+  "out": "site",
+  "engine": "js",
+  "versions": {
+    "current": "index",
+    "position": "sidebar-top",
+    "all": [
+      {
+        "id": "index",
+        "dir": "docs",
+        "label": "Choose Hytale version"
+      },
+      {
+        "id": "hytale0.7",
+        "dir": "versions/hytale0.7",
+        "label": "Hytale 0.7 (latest)"
+      }
+    ]
+  },
+  "theme": {
+    "appearance": "light",
+    "customCss": [
+      "/assets/publication.css",
+      "/assets/brand.css"
+    ]
+  },
+  "layout": {
+    "optionsMenu": {
+      "components": {
+        "themeSwitch": false,
+        "search": true
+      }
+    },
+    "spa": false
+  },
+  "plugins": {
+    "ai": {
+      "enabled": false,
+      "assistant": false
+    },
+    "analytics": false,
+    "search": {
+      "semantic": false
+    },
+    "git": {
+      "commitHistory": false,
+      "lastUpdated": false,
+      "editLink": false,
+      "branch": "docs"
+    },
+    "seo": {},
+    "sitemap": {}
+  },
+  "markdown": {
+    "breaks": false
+  },
+  "minify": false,
+  "logo": {
+    "light": "/assets/hytale0.7/brand/logo.svg",
+    "dark": "/assets/hytale0.7/brand/logo.svg",
+    "href": "/",
+    "alt": "Astral Reach",
+    "height": "56px"
+  },
+  "security": {
+    "html": "allow"
+  },
+  "redirects": {
+    "/recipes": "/astral-reach/hytale0.7/recipes/",
+    "/notices": "/astral-reach/hytale0.7/notices/",
+    "/build-and-release": "/astral-reach/hytale0.7/build-and-release/",
+    "/troubleshooting": "/astral-reach/hytale0.7/troubleshooting/",
+    "/status": "/astral-reach/hytale0.7/status/",
+    "/rockets": "/astral-reach/hytale0.7/rockets/",
+    "/gallery": "/astral-reach/hytale0.7/gallery/",
+    "/getting-started": "/astral-reach/hytale0.7/getting-started/",
+    "/configuration": "/astral-reach/hytale0.7/configuration/",
+    "/progression": "/astral-reach/hytale0.7/progression/",
+    "/launch-platform": "/astral-reach/hytale0.7/launch-platform/",
+    "/installation": "/astral-reach/hytale0.7/installation/",
+    "/machines": "/astral-reach/hytale0.7/machines/"
+  }
+}
