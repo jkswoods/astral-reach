@@ -1,0 +1,9 @@
+Group { HitTestVisible: false;
+ Group { Anchor: (Left: 28, Top: 28, Width: 700, Height: 84); Background: #0c1822e8; Padding: (Full: 16); LayoutMode: Top;
+  Label { Anchor: (Height: 30); Text: "ASTRAL REACH · SYSTEM MAP"; Style: (FontSize: 25, TextColor: #e4eadd, RenderBold: true); }
+  Label { Anchor: (Height: 24); Text: "Drag to pan · Scroll to zoom · Click a planet"; Style: (FontSize: 17, TextColor: #a4c8cf); }
+ }
+ Group { Anchor: (Left: 28, Bottom: 28, Width: 1000, Height: 55); Background: #0c1822e8; Padding: (Full: 16);
+  Label { Text: "Orbis > Lune > Rustreach > Nacre > Vesper > Umbra   |   Right-click: close · Middle-click: reset"; Style: (FontSize: 17, TextColor: #a4c8cf, Wrap: true); }
+ }
+}

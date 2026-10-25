@@ -1,0 +1,42 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_NickelOre.name"
+  },
+  "Icon": "Icons/Items/AR_NickelOre.png",
+  "Categories": [
+    "Blocks.Ores"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Ore",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "CubeWithModel",
+    "Group": "Stone",
+    "Textures": [
+      {
+        "All": "Blocks/AstralReach/AR_NickelOre.png",
+        "Weight": 1
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "OreIron",
+        "ItemId": "AR_RawNickel"
+      }
+    },
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#87949c",
+    "CustomModel": "Blocks/AstralReach/AR_NickelOre_Outcrops.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_NickelOre_Outcrops.png",
+        "Weight": 1
+      }
+    ],
+    "RandomRotation": "YawStep90"
+  }
+}

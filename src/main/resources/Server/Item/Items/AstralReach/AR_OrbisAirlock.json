@@ -1,0 +1,99 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_OrbisAirlock.name"
+  },
+  "Icon": "Icons/Items/AR_OrbisAirlock.png",
+  "Categories": [
+    "Furniture.Doors"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Oxygen",
+  "DropOnDeath": true,
+  "Scale": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_OrbisBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_OrbisDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_OrbisAirlock.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_OrbisAirlock.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "Door",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "IsDoor": true,
+    "Interactions": {
+      "Use": "Door"
+    },
+    "InteractionHint": "server.interactionHints.openDoor",
+    "State": {
+      "Definitions": {
+        "CloseDoorIn": {
+          "InteractionSoundEventId": "AR_oxygen_valve",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_OrbisAirlock_CloseDoorIn.blockyanim"
+        },
+        "CloseDoorOut": {
+          "InteractionSoundEventId": "AR_oxygen_valve",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_OrbisAirlock_CloseDoorOut.blockyanim"
+        },
+        "DoorBlocked": {},
+        "OpenDoorIn": {
+          "SoundOcclusionOpacity": 0.0,
+          "HitboxType": "Door_Open_In",
+          "InteractionHitboxType": "Door_Open_In_Interaction",
+          "InteractionSoundEventId": "AR_oxygen_valve",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_OrbisAirlock_OpenDoorIn.blockyanim",
+          "InteractionHint": "server.interactionHints.closeDoor"
+        },
+        "OpenDoorOut": {
+          "SoundOcclusionOpacity": 0.0,
+          "HitboxType": "Door_Open_Out",
+          "InteractionHitboxType": "Door_Open_Out_Interaction",
+          "InteractionSoundEventId": "AR_oxygen_valve",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_OrbisAirlock_OpenDoorOut.blockyanim",
+          "InteractionHint": "server.interactionHints.closeDoor"
+        }
+      }
+    },
+    "SoundOcclusionOpacity": 2
+  }
+}

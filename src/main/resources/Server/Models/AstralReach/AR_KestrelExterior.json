@@ -1,0 +1,38 @@
+{
+  "Model": "Items/AstralReach/AR_KestrelExterior.blockymodel",
+  "Texture": "Items/AstralReach/AR_KestrelExterior.png",
+  "MinScale": 32,
+  "MaxScale": 32,
+  "HitBox": {
+    "Min": {
+      "X": -0.30173125,
+      "Y": -0.0,
+      "Z": -0.2015625
+    },
+    "Max": {
+      "X": 0.30173125,
+      "Y": 5.849640625,
+      "Z": 0.2015625
+    }
+  },
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "Items/AstralReach/AR_KestrelExterior_Idle.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0
+        }
+      ]
+    },
+    "Launching": {
+      "Animations": [
+        {
+          "Animation": "Items/AstralReach/AR_KestrelExterior_Launch.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0
+        }
+      ]
+    }
+  }
+}

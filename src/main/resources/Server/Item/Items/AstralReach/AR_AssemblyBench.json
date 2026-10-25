@@ -1,0 +1,83 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_AssemblyBench.name"
+  },
+  "Icon": "Icons/Items/AR_AssemblyBench.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 0.548198,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Workbench",
+        "Categories": [
+          "Workbench_Crafting"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_NavigationConsole.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_NavigationConsole.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_AssemblyBench",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Bench": {
+      "Type": "Crafting",
+      "Id": "AstralAssembly",
+      "DescriptiveLabel": "server.astralreach.AR_AssemblyBench.name",
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0.0
+        }
+      ],
+      "Categories": [
+        {
+          "Id": "AR_Components",
+          "Name": "server.astralreach.components",
+          "Icon": "Icons/CraftingCategories/AstralReach/Components.png"
+        }
+      ],
+      "CompletedSoundEventId": "AR_metal_handle"
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    }
+  }
+}

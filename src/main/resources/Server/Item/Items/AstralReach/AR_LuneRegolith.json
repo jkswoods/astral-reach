@@ -1,0 +1,34 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_LuneRegolith.name"
+  },
+  "Icon": "Icons/Items/AR_LuneRegolith.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Ore",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Textures": [
+      {
+        "All": "Blocks/AstralReach/AR_LuneRegolith.png",
+        "Weight": 1
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "ItemId": "AR_LuneRegolith"
+      }
+    },
+    "BlockSoundSetId": "AR_LunarDust",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#87949c"
+  }
+}

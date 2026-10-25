@@ -1,0 +1,103 @@
+{
+  "RenderMode": "BlendLinear",
+  "ParticleRotationInfluence": "Billboard",
+  "LinearFiltering": false,
+  "LightInfluence": 0.4,
+  "MaxConcurrentParticles": 50,
+  "ParticleLifeSpan": {
+    "Min": 2.5,
+    "Max": 4
+  },
+  "SpawnRate": {
+    "Min": 50,
+    "Max": 50
+  },
+  "SpawnBurst": true,
+  "TotalParticles": {
+    "Min": 40,
+    "Max": 50
+  },
+  "Shape": "Sphere",
+  "EmitOffset": {
+    "X": {
+      "Min": 0,
+      "Max": 3
+    },
+    "Y": {
+      "Min": 0,
+      "Max": 0.6
+    },
+    "Z": {
+      "Min": 0,
+      "Max": 3
+    }
+  },
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 3,
+      "Max": 7
+    },
+    "Pitch": {
+      "Min": 3,
+      "Max": 18
+    },
+    "Yaw": {
+      "Min": -180,
+      "Max": 180
+    }
+  },
+  "Attractors": [
+    {
+      "DampingMultiplier": {
+        "X": 0.985,
+        "Y": 0.99,
+        "Z": 0.985
+      },
+      "LinearAcceleration": {
+        "Y": 0.5
+      }
+    }
+  ],
+  "Particle": {
+    "Texture": "Particles/Textures/AstralReach/LaunchSmoke.png",
+    "FrameSize": {
+      "Width": 64,
+      "Height": 64
+    },
+    "ScaleRatioConstraint": "OneToOne",
+    "InitialAnimationFrame": {
+      "Opacity": 0.8,
+      "Scale": {
+        "X": {
+          "Min": 2,
+          "Max": 4
+        }
+      },
+      "Color": "#d3d3c9"
+    },
+    "Animation": {
+      "0": {
+        "Opacity": 0.7
+      },
+      "30": {
+        "Opacity": 0.65,
+        "Scale": {
+          "X": {
+            "Min": 6,
+            "Max": 9
+          }
+        }
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 10,
+            "Max": 15
+          }
+        },
+        "Color": "#898f94"
+      }
+    }
+  }
+}

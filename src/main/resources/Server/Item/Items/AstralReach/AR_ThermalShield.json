@@ -1,0 +1,35 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_ThermalShield.name"
+  },
+  "Icon": "Icons/Items/AR_ThermalShield.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 12
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralPress"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 20
+  },
+  "Model": "Items/AstralReach/AR_ThermalShield.blockymodel",
+  "Texture": "Items/AstralReach/AR_ThermalShield.png"
+}

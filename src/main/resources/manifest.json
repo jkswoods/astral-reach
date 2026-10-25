@@ -1,0 +1,10 @@
+{
+  "Group": "AstralReach",
+  "Name": "AstralReach",
+  "Version": "0.2.0-dev.1",
+  "Description": "Private development candidate: original space-industrial resources, native processing and paid orbital progression.",
+  "Main": "dev.astralreach.hytale.AstralReachPlugin",
+  "ServerVersion": ">=0.7.3 <0.8.0",
+  "Dependencies": {},
+  "IncludesAssetPack": true
+}

@@ -1,0 +1,13 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AR_EngineMouth"
+    },
+    {
+      "SpawnerId": "AR_EngineFire"
+    }
+  ],
+  "CullDistance": 384,
+  "BoundingRadius": 55,
+  "IsImportant": true
+}

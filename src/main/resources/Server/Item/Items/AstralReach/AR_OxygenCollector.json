@@ -1,0 +1,107 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_OxygenCollector.name"
+  },
+  "Icon": "Icons/Items/AR_OxygenCollector.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Oxygen",
+  "DropOnDeath": true,
+  "Scale": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_OxygenCollector.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_OxygenCollector.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_OxygenCollector",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Bench": {
+      "Type": "Processing",
+      "Id": "AstralOxygen",
+      "AllowNoInputProcessing": false,
+      "Input": [
+        {
+          "FilterValidIngredients": true
+        }
+      ],
+      "Fuel": [
+        {
+          "ResourceTypeId": "Fuel",
+          "Icon": "Icons/Processing/FuelSlotIcon.png"
+        }
+      ],
+      "OutputSlotsCount": 2,
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0
+        }
+      ],
+      "LocalOpenSoundEventId": "AR_oxygen_valve_inventory",
+      "CompletedSoundEventId": "AR_oxygen_valve"
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {},
+        "ProcessingBenchBlock": {}
+      }
+    },
+    "Interactions": {
+      "Use": "Open_Processing_Bench"
+    },
+    "State": {
+      "Definitions": {
+        "Processing": {
+          "Looping": true,
+          "CustomModelAnimation": "Blocks/AstralReach/AR_OxygenCollector_Processing.blockyanim",
+          "AmbientSoundEventId": "AR_oxygen_compress"
+        },
+        "ProcessCompleted": {}
+      }
+    }
+  }
+}

@@ -6,6 +6,6 @@ Hytale and Hypixel Studios belong to their respective owners. Astral Reach is an
 
 The original project and original guide assets use the [MIT license](https://github.com/jkswoods/astral-reach/blob/main/LICENSE). This does not grant rights to third-party game assets shown in screenshots.
 
-Sound families were generated through the ElevenLabs connection and exported for quiet native game playback. Generated recordings remain subject to the generating account's applicable ElevenLabs terms. This documentation repository does not distribute those recordings.
+Sound families were generated through the ElevenLabs connection and exported for quiet native game playback. Generated recordings remain subject to the generating account's applicable ElevenLabs terms. This source repository includes the original runtime sound exports and sanitized asset provenance; original source takes and detailed generation records remain private.
 
 The guide is built with MkDocs and its Read the Docs theme. Its search runs in the browser.

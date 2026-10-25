@@ -1,0 +1,114 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_MasonryWorkbench.name"
+  },
+  "Icon": "Icons/Items/AR_MasonryWorkbench.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_MasonryWorkbench.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_MasonryWorkbench.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_MasonryWorkbench",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Bench": {
+      "Type": "Crafting",
+      "Id": "AstralMasonry",
+      "DescriptiveLabel": "server.astralreach.AR_MasonryWorkbench.name",
+      "Categories": [
+        {
+          "Id": "AR_OrbisDecor",
+          "Name": "server.astralreach.decor.Orbis",
+          "Icon": "Icons/CraftingCategories/AstralReach/OrbisDecor.png"
+        },
+        {
+          "Id": "AR_LuneDecor",
+          "Name": "server.astralreach.decor.Lune",
+          "Icon": "Icons/CraftingCategories/AstralReach/LuneDecor.png"
+        },
+        {
+          "Id": "AR_RustreachDecor",
+          "Name": "server.astralreach.decor.Rustreach",
+          "Icon": "Icons/CraftingCategories/AstralReach/RustreachDecor.png"
+        },
+        {
+          "Id": "AR_NacreDecor",
+          "Name": "server.astralreach.decor.Nacre",
+          "Icon": "Icons/CraftingCategories/AstralReach/NacreDecor.png"
+        },
+        {
+          "Id": "AR_VesperDecor",
+          "Name": "server.astralreach.decor.Vesper",
+          "Icon": "Icons/CraftingCategories/AstralReach/VesperDecor.png"
+        },
+        {
+          "Id": "AR_UmbraDecor",
+          "Name": "server.astralreach.decor.Umbra",
+          "Icon": "Icons/CraftingCategories/AstralReach/UmbraDecor.png"
+        }
+      ],
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0
+        }
+      ],
+      "CompletedSoundEventId": "AR_masonry_complete",
+      "LocalOpenSoundEventId": "AR_suit_latch",
+      "LocalCloseSoundEventId": "AR_suit_latch"
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    }
+  }
+}

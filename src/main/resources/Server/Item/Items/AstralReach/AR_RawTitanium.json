@@ -1,0 +1,15 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_RawTitanium.name"
+  },
+  "Icon": "Icons/Items/AR_RawTitanium.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Model": "Items/AstralReach/AR_RawTitanium.blockymodel",
+  "Texture": "Items/AstralReach/AR_RawTitanium.png"
+}

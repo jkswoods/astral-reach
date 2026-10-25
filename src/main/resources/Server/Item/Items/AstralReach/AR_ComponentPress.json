@@ -1,0 +1,111 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_ComponentPress.name"
+  },
+  "Icon": "Icons/Items/AR_ComponentPress.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_ComponentPress.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_ComponentPress.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_ComponentPress",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Bench": {
+      "Type": "Processing",
+      "Id": "AstralPress",
+      "AllowNoInputProcessing": false,
+      "Input": [
+        {
+          "FilterValidIngredients": true
+        },
+        {
+          "FilterValidIngredients": true
+        },
+        {
+          "FilterValidIngredients": true
+        },
+        {
+          "FilterValidIngredients": true
+        }
+      ],
+      "Fuel": [
+        {
+          "ResourceTypeId": "Fuel",
+          "Icon": "Icons/Processing/FuelSlotIcon.png"
+        }
+      ],
+      "OutputSlotsCount": 4,
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0.0
+        }
+      ],
+      "LocalOpenSoundEventId": "AR_metal_handle_inventory",
+      "CompletedSoundEventId": "AR_metal_handle"
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {},
+        "ProcessingBenchBlock": {}
+      }
+    },
+    "Interactions": {
+      "Use": "Open_Processing_Bench"
+    },
+    "State": {
+      "Definitions": {
+        "Processing": {
+          "Looping": true,
+          "AmbientSoundEventId": "AR_component_press_loop",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_ComponentPress_Processing.blockyanim"
+        },
+        "ProcessCompleted": {}
+      }
+    }
+  }
+}

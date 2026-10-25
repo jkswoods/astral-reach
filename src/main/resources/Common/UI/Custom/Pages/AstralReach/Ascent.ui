@@ -1,0 +1,8 @@
+$C = "../../Common.ui";
+Group {
+ Group { Anchor: (Top: 30, Left: 40, Width: 600, Height: 110); LayoutMode: Top; Padding: (Full: 15); Background: #0d1721b0;
+  Label { Anchor: (Height: 22); Text: "ASTRAL REACH · FLIGHT"; Style: (FontSize: 15, TextColor: #a9d5d4); }
+  Label #Stage { Anchor: (Height: 56); Text: "IGNITION"; Style: (FontSize: 24, TextColor: #f1eedf, Wrap: true); }
+ }
+ $C.@SecondaryTextButton #Abort { Anchor: (Bottom: 30, Right: 40, Width: 270, Height: 38); Text: "Abort and recover propellant"; }
+}

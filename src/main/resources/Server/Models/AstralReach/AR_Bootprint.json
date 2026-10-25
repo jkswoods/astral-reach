@@ -1,0 +1,20 @@
+{
+  "Model": "Items/AstralReach/AR_Bootprint.blockymodel",
+  "Texture": "Items/AstralReach/AR_Bootprint.png",
+  "MinScale": 32,
+  "MaxScale": 32,
+  "HitBox": {
+    "Min": {
+      "X": -0.09,
+      "Y": 0,
+      "Z": -0.15
+    },
+    "Max": {
+      "X": 0.09,
+      "Y": 0.01,
+      "Z": 0.15
+    }
+  },
+  "AnimationSets": {},
+  "Particles": []
+}

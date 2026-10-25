@@ -1,0 +1,142 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_SuitWorkbench.name"
+  },
+  "Icon": "Icons/Items/AR_SuitWorkbench.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_SuitWorkbench.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_SuitWorkbench.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_SuitWorkbench",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Bench": {
+      "Type": "Crafting",
+      "Id": "AstralSuit",
+      "DescriptiveLabel": "server.astralreach.AR_SuitWorkbench.name",
+      "Categories": [
+        {
+          "Id": "AR_SurveySuits",
+          "Name": "server.astralreach.suits.Survey",
+          "Icon": "Icons/CraftingCategories/AstralReach/SurveySuits.png"
+        },
+        {
+          "Id": "AR_ThermalSuits",
+          "Name": "server.astralreach.suits.Thermal",
+          "Icon": "Icons/CraftingCategories/AstralReach/ThermalSuits.png"
+        },
+        {
+          "Id": "AR_DeepSpaceSuits",
+          "Name": "server.astralreach.suits.DeepSpace",
+          "Icon": "Icons/CraftingCategories/AstralReach/DeepSpaceSuits.png"
+        }
+      ],
+      "CompletedSoundEventId": "AR_suit_bench",
+      "LocalOpenSoundEventId": "AR_suit_latch",
+      "LocalCloseSoundEventId": "AR_suit_latch",
+      "BenchUpgradeSoundEventId": "AR_suit_latch",
+      "BenchUpgradeCompletedSoundEventId": "AR_suit_bench",
+      "TierLevels": [
+        {
+          "CraftingTimeReductionModifier": 0,
+          "UpgradeRequirement": {
+            "Material": [
+              {
+                "ItemId": "AR_TitaniumIngot",
+                "Quantity": 8
+              },
+              {
+                "ItemId": "AR_AluminiumIngot",
+                "Quantity": 8
+              },
+              {
+                "ItemId": "AR_CopperCoil",
+                "Quantity": 4
+              }
+            ],
+            "TimeSeconds": 8
+          }
+        },
+        {
+          "CraftingTimeReductionModifier": 0.1,
+          "UpgradeRequirement": {
+            "Material": [
+              {
+                "ItemId": "AR_ThermalShield",
+                "Quantity": 1
+              },
+              {
+                "ItemId": "AR_TitaniumIngot",
+                "Quantity": 16
+              },
+              {
+                "ItemId": "AR_AluminiumIngot",
+                "Quantity": 12
+              }
+            ],
+            "TimeSeconds": 8
+          }
+        },
+        {
+          "CraftingTimeReductionModifier": 0.2
+        }
+      ]
+    },
+    "BlockEntity": {
+      "Components": {
+        "BenchBlock": {}
+      }
+    }
+  }
+}

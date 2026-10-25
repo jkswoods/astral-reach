@@ -1,0 +1,35 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_FramePlate.name"
+  },
+  "Icon": "Icons/Items/AR_FramePlate.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralPress"
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 6
+  },
+  "Model": "Items/AstralReach/AR_FramePlate.blockymodel",
+  "Texture": "Items/AstralReach/AR_FramePlate.png"
+}

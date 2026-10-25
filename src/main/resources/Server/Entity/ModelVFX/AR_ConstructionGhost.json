@@ -1,0 +1,15 @@
+{
+  "Opacity": 0.25,
+  "SwitchTo": "PostColor",
+  "PostColor": "#68d8e0",
+  "PostColorOpacity": 0.72,
+  "AnimationRange": {
+    "X": 1.0,
+    "Y": 1.0
+  },
+  "AnimationDuration": 1.0,
+  "UseBloomOnHighlight": false,
+  "HighlightThickness": 0.0,
+  "UseProgessiveHighlight": false,
+  "HighlightColor": "#68d8e0"
+}

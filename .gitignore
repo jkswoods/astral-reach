@@ -7,3 +7,12 @@ __pycache__/
 *.log
 *.jar
 *.zip
+
+build/
+.cache/
+candidate/
+*.pyc
+cf-*.json
+cf-request.env
+candidate-run.json
+curseforge-upload.json

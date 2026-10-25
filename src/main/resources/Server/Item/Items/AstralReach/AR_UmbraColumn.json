@@ -1,0 +1,56 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_UmbraColumn.name"
+  },
+  "Icon": "Icons/Items/AR_UmbraColumn.png",
+  "Categories": [
+    "Blocks.Deco"
+  ],
+  "MaxStack": 16,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_UmbraBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_UmbraDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_UmbraColumn.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_UmbraColumn.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_MasonryColumn",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e"
+  }
+}

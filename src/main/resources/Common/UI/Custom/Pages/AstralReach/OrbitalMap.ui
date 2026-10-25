@@ -1,0 +1,13 @@
+$C = "../../Common.ui";
+Group {
+ Group { Anchor: (Right: 30, Width: 370, Height: 470); Background: #12222af5; Padding: (Full: 24); LayoutMode: Top;
+  Label #Selected { Anchor: (Height: 62); Style: (FontSize: 27, TextColor: #f0eada, Wrap: true, RenderBold: true); }
+  Label #Resources { Anchor: (Height: 64); Style: (FontSize: 18, TextColor: #a9d5d4, Wrap: true); }
+  Label #Route { Anchor: (Height: 150); Style: (FontSize: 17, TextColor: #c5d4d8, Wrap: true); }
+  Label #Reserve { Anchor: (Height: 40); Style: (FontSize: 17, TextColor: #d8b77c); }
+  $C.@TextButton #Land { Anchor: (Height: 44); Text: "Land on Lune"; }
+  $C.@TextButton #Home { Anchor: (Height: 44); Text: "Return to Orbis"; }
+  Group { Anchor: (Height: 10); }
+  $C.@SecondaryTextButton #Close { Anchor: (Height: 40); Text: "Back to map"; }
+ }
+}

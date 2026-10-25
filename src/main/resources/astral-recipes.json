@@ -1,0 +1,1343 @@
+{
+  "AR_AssemblyBench": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Workbench",
+        "Categories": [
+          "Workbench_Crafting"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_OrbitalSmelter": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_ComponentPress": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 10
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_FuelRefinery": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_PropellantConditioner": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_NickelIngot": {
+    "Input": [
+      {
+        "ItemId": "AR_RawNickel",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralSmelter"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "AR_TitaniumIngot": {
+    "Input": [
+      {
+        "ItemId": "AR_RawTitanium",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralSmelter"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 10
+  },
+  "AR_AluminiumIngot": {
+    "Input": [
+      {
+        "ItemId": "AR_RawAluminium",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralSmelter"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "AR_FramePlate": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralPress"
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 6
+  },
+  "AR_CopperCoil": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralPress"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_CrudeFuel": {
+    "Input": [
+      {
+        "ItemId": "AR_OilShale",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralRefinery"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "AR_EmptyFuelCell": {
+    "Input": [
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_PropellantCell": {
+    "Input": [
+      {
+        "ItemId": "AR_CrudeFuel",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_EmptyFuelCell",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralConditioner"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "AR_PressureHullPart": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_OrbitalEnginePart": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_FlightComputer": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_OdysseyHeavy": {
+    "Input": [
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_OrbitalEnginePart",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 16
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 15
+  },
+  "AR_LaunchDeck": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_LaunchPadModule": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_LaunchConsole": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_ThermalShield": {
+    "Input": [
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 12
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralPress"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 20
+  },
+  "AR_Survey_Head": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Survey_Chest": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Survey_Hands": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Survey_Legs": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Thermal_Head": {
+    "Input": [
+      {
+        "ItemId": "AR_Survey_Head",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_ThermalSuits"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Thermal_Chest": {
+    "Input": [
+      {
+        "ItemId": "AR_Survey_Chest",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_ThermalSuits"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Thermal_Hands": {
+    "Input": [
+      {
+        "ItemId": "AR_Survey_Hands",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_ThermalSuits"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_Thermal_Legs": {
+    "Input": [
+      {
+        "ItemId": "AR_Survey_Legs",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_ThermalSuits"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_DeepSpace_Head": {
+    "Input": [
+      {
+        "ItemId": "AR_Thermal_Head",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_DeepSpaceSuits"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_DeepSpace_Chest": {
+    "Input": [
+      {
+        "ItemId": "AR_Thermal_Chest",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_ThermalShield",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_DeepSpaceSuits"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_DeepSpace_Hands": {
+    "Input": [
+      {
+        "ItemId": "AR_Thermal_Hands",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_DeepSpaceSuits"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_DeepSpace_Legs": {
+    "Input": [
+      {
+        "ItemId": "AR_Thermal_Legs",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_DeepSpaceSuits"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_SuitWorkbench": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_EmptyOxygenCanister": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_OxygenCanister": {
+    "Input": [
+      {
+        "ItemId": "AR_EmptyOxygenCanister",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralOxygen"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 30
+  },
+  "AR_OxygenCollector": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_OxygenDiffuser": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_OrbisBricks": {
+    "Input": [
+      {
+        "ItemId": "Rock_Stone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_OrbisDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  },
+  "AR_OrbisColumn": {
+    "Input": [
+      {
+        "ItemId": "AR_OrbisBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_OrbisDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_OrbisAirlock": {
+    "Input": [
+      {
+        "ItemId": "AR_OrbisBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_OrbisDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_LuneBricks": {
+    "Input": [
+      {
+        "ItemId": "AR_LuneStone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_LuneDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  },
+  "AR_LuneColumn": {
+    "Input": [
+      {
+        "ItemId": "AR_LuneBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_LuneDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_LuneAirlock": {
+    "Input": [
+      {
+        "ItemId": "AR_LuneBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_LuneDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_RustreachBricks": {
+    "Input": [
+      {
+        "ItemId": "AR_RustreachStone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_RustreachDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  },
+  "AR_RustreachColumn": {
+    "Input": [
+      {
+        "ItemId": "AR_RustreachBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_RustreachDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_RustreachAirlock": {
+    "Input": [
+      {
+        "ItemId": "AR_RustreachBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_RustreachDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_NacreBricks": {
+    "Input": [
+      {
+        "ItemId": "AR_NacreStone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_NacreDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  },
+  "AR_NacreColumn": {
+    "Input": [
+      {
+        "ItemId": "AR_NacreBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_NacreDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_NacreAirlock": {
+    "Input": [
+      {
+        "ItemId": "AR_NacreBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_NacreDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_VesperBricks": {
+    "Input": [
+      {
+        "ItemId": "AR_VesperStone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_VesperDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  },
+  "AR_VesperColumn": {
+    "Input": [
+      {
+        "ItemId": "AR_VesperBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_VesperDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_VesperAirlock": {
+    "Input": [
+      {
+        "ItemId": "AR_VesperBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_VesperDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_UmbraBricks": {
+    "Input": [
+      {
+        "ItemId": "AR_UmbraStone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_UmbraDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  },
+  "AR_UmbraColumn": {
+    "Input": [
+      {
+        "ItemId": "AR_UmbraBricks",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_UmbraDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "AR_UmbraAirlock": {
+    "Input": [
+      {
+        "ItemId": "AR_UmbraBricks",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_UmbraDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "AR_MasonryWorkbench": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 6
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  }
+}

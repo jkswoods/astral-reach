@@ -1,0 +1,31 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_TitaniumIngot.name"
+  },
+  "Icon": "Icons/Items/AR_TitaniumIngot.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_RawTitanium",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralSmelter"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 10
+  },
+  "Model": "Items/AstralReach/AR_TitaniumIngot.blockymodel",
+  "Texture": "Items/AstralReach/AR_TitaniumIngot.png"
+}

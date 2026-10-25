@@ -1,0 +1,31 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_CopperCoil.name"
+  },
+  "Icon": "Icons/Items/AR_CopperCoil.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralPress"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "Model": "Items/AstralReach/AR_CopperCoil.blockymodel",
+  "Texture": "Items/AstralReach/AR_CopperCoil.png"
+}

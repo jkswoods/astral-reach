@@ -1,0 +1,35 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_PropellantCell.name"
+  },
+  "Icon": "Icons/Items/AR_PropellantCell.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_CrudeFuel",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_EmptyFuelCell",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralConditioner"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "Model": "Items/AstralReach/AR_PropellantCell.blockymodel",
+  "Texture": "Items/AstralReach/AR_PropellantCell.png"
+}

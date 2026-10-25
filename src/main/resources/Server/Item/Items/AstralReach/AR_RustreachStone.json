@@ -1,0 +1,34 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_RustreachStone.name"
+  },
+  "Icon": "Icons/Items/AR_RustreachStone.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Ore",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Textures": [
+      {
+        "All": "Blocks/AstralReach/AR_RustreachStone.png",
+        "Weight": 1
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "ItemId": "AR_RustreachStone"
+      }
+    },
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#87949c"
+  }
+}

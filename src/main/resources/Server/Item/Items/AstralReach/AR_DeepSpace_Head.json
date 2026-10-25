@@ -1,0 +1,88 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_DeepSpace_Head.name"
+  },
+  "Icon": "Icons/Items/AR_DeepSpace_Head.png",
+  "Model": "Items/AstralReach/AR_DeepSpace_Head.blockymodel",
+  "Texture": "Items/AstralReach/AR_DeepSpace_Head.png",
+  "Categories": [
+    "Items.Armors"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Suit",
+  "DropOnDeath": true,
+  "Quality": "Rare",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_Thermal_Head",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_DeepSpaceSuits"
+        ],
+        "RequiredTierLevel": 3
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    }
+  },
+  "Armor": {
+    "ArmorSlot": "Head",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "EarAccessory",
+      "Ear",
+      "Haircut",
+      "FacialHair",
+      "HeadAccessory",
+      "FaceAccessory"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.045,
+          "CalculationType": "Percent"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "AstralSuit"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Model": "Items/AstralReach/AR_MapNacre.blockymodel",
+  "Texture": "Items/AstralReach/AR_MapNacre.png",
+  "MinScale": 32,
+  "MaxScale": 32,
+  "HitBox": {
+    "Min": {
+      "X": -0.03125,
+      "Y": -0.03125,
+      "Z": -0.03125
+    },
+    "Max": {
+      "X": 0.03125,
+      "Y": 0.03125,
+      "Z": 0.03125
+    }
+  },
+  "AnimationSets": {},
+  "Particles": []
+}

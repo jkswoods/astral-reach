@@ -1,0 +1,22 @@
+$C = "../../Common.ui";
+$C.@PageOverlay {
+ $C.@Container #FlightPanel { Anchor: (Width: 640, Height: 540);
+  #Title { $C.@Title #RocketTitle { @Text = "Astral Reach"; } }
+  #Content { Padding: (Full: 24); LayoutMode: Top;
+   Label #Status { Anchor: (Height: 45); Style: (FontSize: 20, TextColor: #b6dbd7, Wrap: true); }
+   Label #Route { Anchor: (Height: 76); Style: (FontSize: 16, TextColor: #b7cbd2, Wrap: true); }
+   Group #Fuel { Anchor: (Height: 126); LayoutMode: Top;
+    Group #FillRow { Anchor: (Height: 88); LayoutMode: Top;
+     Label { Anchor: (Height: 38); Text: "Load the missing fuel. Empty canisters return to your inventory."; Style: (FontSize: 14, TextColor: #b7cbd2, Wrap: true); }
+     $C.@TextButton #Fill { Anchor: (Height: 36); Text: "Load trip fuel"; }
+    }
+    $C.@SecondaryTextButton #Drain { Anchor: (Height: 36); Text: "Recover one cell of propellant"; }
+   }
+   $C.@TextButton #Rebuild { Anchor: (Height: 42); Text: "Supply missing parts and rebuild"; }
+   Group { Anchor: (Height: 12); }
+   $C.@TextButton #Launch { Anchor: (Height: 42); Text: "Launch for Lune"; }
+   Group { Anchor: (Height: 10); }
+   $C.@SecondaryTextButton #Close { Anchor: (Height: 36); Text: "Close"; }
+  }
+ }
+}

@@ -1,0 +1,1 @@
+Group { Anchor: (Width: 48, Height: 48); Background: #15232d; ItemSlot #Icon { Anchor: (Full: 2); ShowQuantity: false; } Label #Quantity { Anchor: (Right: 3, Bottom: 2, Width: 42, Height: 16); Style: (FontSize: 13, TextColor: #e5eceb, HorizontalAlignment: End); } }

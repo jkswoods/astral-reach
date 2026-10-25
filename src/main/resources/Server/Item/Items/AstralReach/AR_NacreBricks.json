@@ -1,0 +1,53 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_NacreBricks.name"
+  },
+  "Icon": "Icons/Items/AR_NacreBricks.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Ore",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Group": "Stone",
+    "Textures": [
+      {
+        "All": "Blocks/AstralReach/AR_NacreBricks.png",
+        "Weight": 1
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "ItemId": "AR_NacreBricks"
+      }
+    },
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#87949c"
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_NacreStone",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_NacreDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 4
+  }
+}

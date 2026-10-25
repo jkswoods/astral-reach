@@ -31,3 +31,7 @@ python -m mkdocs build --strict
 The generated guide is written to `build/player-site/`. The Pages workflow publishes it when manually dispatched; pull requests validate the documentation build.
 
 Astral Reach is an independent project and is not affiliated with or endorsed by Hytale or Hypixel Studios. See [credits and notices](docs/notices.md).
+
+## Compatibility and builds
+
+Current source targets Hytale `>=0.7.3 <0.8.0` and uses the `hytale0.7` support branch. See [build and release instructions](docs/build-and-release.md) for the SDK pin, candidate checks, versioned filenames and CurseForge workflow.

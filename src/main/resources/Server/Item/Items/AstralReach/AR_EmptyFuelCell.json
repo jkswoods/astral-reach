@@ -1,0 +1,38 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_EmptyFuelCell.name"
+  },
+  "Icon": "Icons/Items/AR_EmptyFuelCell.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 2,
+    "TimeSeconds": 4
+  },
+  "Model": "Items/AstralReach/AR_EmptyFuelCell.blockymodel",
+  "Texture": "Items/AstralReach/AR_EmptyFuelCell.png"
+}

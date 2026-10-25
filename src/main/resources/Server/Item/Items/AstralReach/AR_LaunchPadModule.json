@@ -1,0 +1,75 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_LaunchPadModule.name"
+  },
+  "Icon": "Icons/Items/AR_LaunchPadModule.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 0.25,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_LaunchPadModule_Compact.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_LaunchPadModule_Compact.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_LaunchPadModule",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "CustomModelScale": 2,
+    "State": {
+      "Definitions": {
+        "Formed": {
+          "CustomModel": "Blocks/AstralReach/AR_LaunchPadInset_Compact.blockymodel",
+          "CustomModelScale": 2,
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_LaunchPadInset_Compact.png",
+              "Weight": 1
+            }
+          ]
+        }
+      }
+    }
+  }
+}

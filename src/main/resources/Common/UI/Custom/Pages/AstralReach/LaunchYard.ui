@@ -1,0 +1,34 @@
+$C = "../../Common.ui";
+$C.@PageOverlay {
+ $C.@Container #YardPanel { Anchor: (Width: 830, Height: 650);
+  #Title { $C.@Title { @Text = "Launch Platform"; } }
+  #Content { Padding: (Full: 20); LayoutMode: Top;
+   Label #Status { Anchor: (Height: 36); Style: (FontSize: 20, TextColor: #b6dbd7, Wrap: true); }
+   Label #Footprint { Anchor: (Height: 40); Style: (FontSize: 15, TextColor: #b7cbd2, Wrap: true); }
+   Group #Plans { Anchor: (Height: 40); LayoutMode: Left;
+    $C.@TextButton #Odyssey { Anchor: (Width: 270, Height: 36); Text: "Odyssey Heavy"; }
+    Group { Anchor: (Width: 10); }
+    $C.@SecondaryTextButton #Kestrel { Anchor: (Width: 270, Height: 36); Text: "Kestrel Stack"; }
+    Group { Anchor: (Width: 10); }
+    $C.@SecondaryTextButton #Rotate { Anchor: (Width: 180, Height: 36); Text: "Rotate pad"; }
+   }
+   Label #Blueprint { Anchor: (Height: 48); Style: (FontSize: 16, TextColor: #c5d4d8, Wrap: true); }
+   Group #Material0 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
+   Group #Material1 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
+   Group #Material2 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
+   Group #Material3 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
+   Group #Material4 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
+   Group { Anchor: (Height: 44); LayoutMode: Left;
+    $C.@TextButton #Deposit { Anchor: (Width: 230, Height: 38); Text: "Supply needed parts"; }
+    Group { Anchor: (Width: 10); }
+    $C.@SecondaryTextButton #Build { Anchor: (Width: 170, Height: 38); Text: "Retry construction"; }
+    Group { Anchor: (Width: 10); }
+    $C.@SecondaryTextButton #Cancel { Anchor: (Width: 265, Height: 38); Text: "Return supplied parts"; }
+    $C.@TextButton #Flight { Anchor: (Width: 230, Height: 38); Text: "Open flight control"; }
+   }
+   Label #Recovery { Anchor: (Height: 34); Style: (FontSize: 16, TextColor: #d8b77c, Wrap: true); }
+   Label #Help { Anchor: (Height: 42); Text: "Supply the remaining parts from your inventory. Building takes 10 seconds, then fireworks mark completion."; Style: (FontSize: 14, TextColor: #b7cbd2, Wrap: true); }
+   $C.@SecondaryTextButton #Close { Anchor: (Width: 180, Height: 36); Text: "Close"; }
+  }
+ }
+}

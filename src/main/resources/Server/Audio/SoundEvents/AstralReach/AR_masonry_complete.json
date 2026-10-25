@@ -1,0 +1,16 @@
+{
+  "AudioCategory": "AudioCat_Ambient",
+  "Volume": -3,
+  "MaxDistance": 6,
+  "StartAttenuationDistance": 1,
+  "MaxInstance": 4,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/masonry_complete.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

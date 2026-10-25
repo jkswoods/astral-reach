@@ -1,0 +1,8 @@
+$C = "../../Common.ui";
+Group { HitTestVisible: false;
+ Group { Anchor: (Right: 28, Bottom: 150, Width: 320, Height: 100); Background: #101d27dc; Padding: (Full: 14); LayoutMode: Top;
+  Label #Oxygen { Anchor: (Height: 27); Text: "OXYGEN"; Style: (FontSize: 20, TextColor: #c8e7df, RenderBold: true); }
+  $C.@ProgressBar #OxygenFill { Anchor: (Height: 8); Value: 0; }
+  Label #Environment { Anchor: (Height: 38); Style: (FontSize: 15, TextColor: #adc3c7, Wrap: true); }
+ }
+}

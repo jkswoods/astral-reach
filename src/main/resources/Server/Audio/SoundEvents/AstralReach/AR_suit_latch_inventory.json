@@ -1,0 +1,13 @@
+{
+  "AudioCategory": "AR_SuitInterior",
+  "Volume": -4,
+  "MaxInstance": 3,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/suit_latch_inventory.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

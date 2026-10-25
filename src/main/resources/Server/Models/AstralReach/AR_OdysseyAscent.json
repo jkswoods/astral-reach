@@ -1,0 +1,39 @@
+{
+  "Model": "Items/AstralReach/AR_OdysseyAscent.blockymodel",
+  "Texture": "Items/AstralReach/AR_OdysseyExterior.png",
+  "MinScale": 32,
+  "MaxScale": 32,
+  "HitBox": {
+    "Min": {
+      "X": -2,
+      "Y": -0.1,
+      "Z": -2
+    },
+    "Max": {
+      "X": 2,
+      "Y": 10,
+      "Z": 2
+    }
+  },
+  "AnimationSets": {
+    "Idle": {
+      "Animations": [
+        {
+          "Animation": "Items/AstralReach/AR_OdysseyExterior_Idle.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0
+        }
+      ]
+    },
+    "Launching": {
+      "Animations": [
+        {
+          "Animation": "Items/AstralReach/AR_OdysseyAscent_Launch.blockyanim",
+          "Looping": false,
+          "BlendingDuration": 0
+        }
+      ]
+    }
+  },
+  "Particles": []
+}

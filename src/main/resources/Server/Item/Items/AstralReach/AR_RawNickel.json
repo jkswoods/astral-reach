@@ -1,0 +1,15 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_RawNickel.name"
+  },
+  "Icon": "Icons/Items/AR_RawNickel.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Model": "Items/AstralReach/AR_RawNickel.blockymodel",
+  "Texture": "Items/AstralReach/AR_RawNickel.png"
+}

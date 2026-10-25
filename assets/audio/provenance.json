@@ -1,0 +1,414 @@
+{
+  "runtime_exports": [
+    {
+      "cue": "orbital_smelter_loop",
+      "duration_seconds": 6.0,
+      "filters": "highpass=f=35,lowpass=f=10000,volume=-15dB",
+      "binding": "Only native ProcessingBench Processing state; no loop on idle, ProcessCompleted, missing inputs or full output",
+      "asset_ids": [
+        "AR_OrbitalSmelter"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/orbital_smelter_loop.ogg",
+      "sha256": "dfaa0d29042b60b027d38e4e31bbc752052a593cf45e7abc37c4edbfd73e84ec"
+    },
+    {
+      "cue": "component_press_loop",
+      "duration_seconds": 4.0,
+      "filters": "highpass=f=35,lowpass=f=10000,volume=-15dB",
+      "binding": "Only native ProcessingBench Processing state; no loop on idle, ProcessCompleted, missing inputs or full output",
+      "asset_ids": [
+        "AR_ComponentPress"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/component_press_loop.ogg",
+      "sha256": "85bb27112346466bde54d2f617a59223c077bad8d958d3b4cfe4383f8ea3400e"
+    },
+    {
+      "cue": "propellant_pump_loop",
+      "duration_seconds": 6.0,
+      "filters": "highpass=f=35,lowpass=f=10000,volume=20dB",
+      "binding": "Only native ProcessingBench Processing state; no loop on idle, ProcessCompleted, missing inputs or full output",
+      "asset_ids": [
+        "AR_FuelRefinery",
+        "AR_PropellantConditioner"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/propellant_pump_loop.ogg",
+      "sha256": "023647106838152b45593e776145db6911e52fb677c4913002c3443c2526d3e6"
+    },
+    {
+      "cue": "rocket_hatch",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A large space rocket crew hatch closing and locking: short hydraulic slide, heavy metal latch seating, soft pressure seal hiss, reassuring restrained mechanical finish. Single clean dry science-fiction game sound, no voices, no music, no alarm, not explosive.",
+      "duration_seconds": 2,
+      "prompt_influence": 0.7,
+      "loop": false,
+      "filters": "highpass=f=30,lowpass=f=9000,volume=-12dB",
+      "binding": "actual crew boarding",
+      "assets": [
+        "AR_OdysseyHeavy",
+        "AR_KestrelStack",
+        "AR_CrewSeat",
+        "AR_OdysseyShipLanded",
+        "AR_KestrelShipLanded"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/rocket_hatch.ogg",
+      "sha256": "c2b50d9cf649562d56e6bef5d2dd4a0a5f5d87a47c0deeed94fdfbfeae32e39a"
+    },
+    {
+      "cue": "stage_separation",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A heavy orbital rocket stage separation mechanism releasing: deep brief metal clamp clunk followed by a short pneumatic push and small structural rattle. Single precise dry mechanical game cue, restrained volume, no voices, no music, no explosion.",
+      "duration_seconds": 1.5,
+      "prompt_influence": 0.7,
+      "loop": false,
+      "filters": "highpass=f=30,lowpass=f=9000,volume=-12dB",
+      "binding": "actual space separation once",
+      "assets": [
+        "AR_OdysseyHeavy",
+        "AR_KestrelStack",
+        "AR_CrewSeat",
+        "AR_OdysseyShipLanded",
+        "AR_KestrelShipLanded"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/stage_separation.ogg",
+      "sha256": "34bd5f790d82ceeed6713a103c1696dfa63db40bcfca3bb87f6fc4a8350ba250"
+    },
+    {
+      "cue": "rocket_touchdown",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A large reusable rocket gently touching down on a launch pad: landing legs compress with a deep cushioned metal thud, hydraulic settling hiss and brief cooling creak. Soft controlled successful landing, no crash, no explosion, no voices, no music. Clean game sound effect.",
+      "duration_seconds": 2.5,
+      "prompt_influence": 0.7,
+      "loop": false,
+      "filters": "highpass=f=30,lowpass=f=9000,volume=-12dB",
+      "binding": "actual completed landing once",
+      "assets": [
+        "AR_OdysseyHeavy",
+        "AR_KestrelStack",
+        "AR_CrewSeat",
+        "AR_OdysseyShipLanded",
+        "AR_KestrelShipLanded"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/rocket_touchdown.ogg",
+      "sha256": "3d7118ae5997052456c142884c77b619556d75a96bdc1ac21a39d7f9b96b76a4"
+    },
+    {
+      "cue": "suit_latch",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "Quiet close-miked spacesuit seal: a padded fabric pull, two compact metal locking clicks and a soft pressure hiss. Warm hand-built sci-fi equipment, no voice, music, alarm, bright beeps or bass boom. One short complete action with a clean tail.",
+      "settings": {
+        "duration_seconds": 1.6,
+        "prompt_influence": 0.7,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/suit_latch.ogg",
+      "sha256": "21f763c6bad49b1fb4a37965169e8b6482d0bb2c9cc4721251787cbafe2e294e"
+    },
+    {
+      "cue": "suit_latch",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "Quiet close-miked spacesuit seal: a padded fabric pull, two compact metal locking clicks and a soft pressure hiss. Warm hand-built sci-fi equipment, no voice, music, alarm, bright beeps or bass boom. One short complete action with a clean tail.",
+      "settings": {
+        "duration_seconds": 1.6,
+        "prompt_influence": 0.7,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/suit_latch_inventory.ogg",
+      "sha256": "6135fd9c644bb392f600697c17f9878d0d0d6c4265cbdaba63d1565a969a79c5"
+    },
+    {
+      "cue": "suit_bench",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "Compact spacesuit fabrication bench completes a job: restrained servo movement, fabric tension, a small metal clasp and a gentle pneumatic release. Close workshop sound, quiet and tactile. No voice, music, beeps, alarm, long idle hum or dramatic impact.",
+      "settings": {
+        "duration_seconds": 2.2,
+        "prompt_influence": 0.7,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/suit_bench.ogg",
+      "sha256": "f7799095adf8a7597ac143026632f9707524ed1d222cca71ffd09c672a560b37"
+    },
+    {
+      "cue": "suit_bench",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "Compact spacesuit fabrication bench completes a job: restrained servo movement, fabric tension, a small metal clasp and a gentle pneumatic release. Close workshop sound, quiet and tactile. No voice, music, beeps, alarm, long idle hum or dramatic impact.",
+      "settings": {
+        "duration_seconds": 2.2,
+        "prompt_influence": 0.7,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/suit_bench_inventory.ogg",
+      "sha256": "6a15dd27cb18b6f40d9f4eb56961cbae57cef423a3f0d6716c9e1d76473c2352"
+    },
+    {
+      "cue": "lunar_step",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One soft muffled heavy astronaut boot pressing into fine dry lunar powder, heard through the suit structure: muted gritty crunch, short dull sole contact, tiny cloth rustle. Very close and restrained, no open-air reverb, voice, music, wind or impact boom.",
+      "settings": {
+        "duration_seconds": 0.6,
+        "prompt_influence": 0.7,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=1100,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/lunar_step.ogg",
+      "sha256": "801a08b2209e1fce5c78980a3603caf51a2c3180710eeb75271d465795a926a7"
+    },
+    {
+      "cue": "lunar_step",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One soft muffled heavy astronaut boot pressing into fine dry lunar powder, heard through the suit structure: muted gritty crunch, short dull sole contact, tiny cloth rustle. Very close and restrained, no open-air reverb, voice, music, wind or impact boom.",
+      "settings": {
+        "duration_seconds": 0.6,
+        "prompt_influence": 0.7,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=1100,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/lunar_step_inventory.ogg",
+      "sha256": "3f0ef0665a7e4d44f0de6659a982a30dd38ec4980000b975d1ad9a572a389eae"
+    },
+    {
+      "cue": "lunar_mine",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One short mining pick contact heard inside a sealed astronaut suit: muted low-mid tool shudder through the glove and arm, dry compact mineral crunch, small fabric and wrist joint movement. Dull intimate vibration, no ringing metal, air crack, echo, wind, voice, music or bass boom.",
+      "settings": {
+        "duration_seconds": 0.8,
+        "prompt_influence": 0.8,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=1100,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/lunar_mine.ogg",
+      "sha256": "e49bb7df746f4d587999a56f49cf8c0d8f38ef7eb2bc396257e90607a9bf0d20"
+    },
+    {
+      "cue": "lunar_mine",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One short mining pick contact heard inside a sealed astronaut suit: muted low-mid tool shudder through the glove and arm, dry compact mineral crunch, small fabric and wrist joint movement. Dull intimate vibration, no ringing metal, air crack, echo, wind, voice, music or bass boom.",
+      "settings": {
+        "duration_seconds": 0.8,
+        "prompt_influence": 0.8,
+        "loop": false
+      },
+      "filters": "highpass=f=70,lowpass=f=1100,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/lunar_mine_inventory.ogg",
+      "sha256": "857506325152036ce394909f129e81f855263cc1f78d4315171ff940ccd9928f"
+    },
+    {
+      "cue": "oxygen_compress",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "Quiet compact industrial oxygen compressor for a handcrafted space exploration game. Low reciprocating piston hum, soft intake breath, damped valve ticking at an even rhythm. Close dry machine recording, restrained low mechanical detail. Seamless steady work loop, no startup or ending, no voices, no music, no alarm.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_compress.ogg",
+      "sha256": "145a73f5d9ac4065a1bc28d1c6e043fb90a89187ba345dde63a29de75f4c6033"
+    },
+    {
+      "cue": "oxygen_compress",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "Quiet compact industrial oxygen compressor for a handcrafted space exploration game. Low reciprocating piston hum, soft intake breath, damped valve ticking at an even rhythm. Close dry machine recording, restrained low mechanical detail. Seamless steady work loop, no startup or ending, no voices, no music, no alarm.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_compress_inventory.ogg",
+      "sha256": "8bbbf0a069e5538493caf004babee71946880282392b19cb0b3d44116f4880a6"
+    },
+    {
+      "cue": "oxygen_diffuse",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A small life support oxygen diffuser operating steadily. Gentle low fan whirr and subtle filtered air regulator hiss, soft warm mechanical vibration, quiet unobtrusive base machine. Close dry recording without reverb, seamless steady loop, no speech, no music, no high whistle.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_diffuse.ogg",
+      "sha256": "4d28ce5fcb7a9f92e08fbba08b90d1e742fffa0668b87f50bc96bae7a795a4ae"
+    },
+    {
+      "cue": "oxygen_diffuse",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A small life support oxygen diffuser operating steadily. Gentle low fan whirr and subtle filtered air regulator hiss, soft warm mechanical vibration, quiet unobtrusive base machine. Close dry recording without reverb, seamless steady loop, no speech, no music, no high whistle.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_diffuse_inventory.ogg",
+      "sha256": "e630927a9e0dfd7186a0e29e8bebe8daec8e374f75d2dd26fe6d36512095ed90"
+    },
+    {
+      "cue": "oxygen_valve",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One reusable space suit oxygen canister coupling: heavy glove turns a small metal valve, firm latch clack, short soft pressure hiss then clean stop. Dry intimate mechanical sound, muted through a helmet, no voice, no music, no echo, no loud impact.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_valve.ogg",
+      "sha256": "cbc6820c2f4b877656955a483dfed7a8d7c1586c9538248c6ba26198bd87d0c2"
+    },
+    {
+      "cue": "oxygen_valve",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One reusable space suit oxygen canister coupling: heavy glove turns a small metal valve, firm latch clack, short soft pressure hiss then clean stop. Dry intimate mechanical sound, muted through a helmet, no voice, no music, no echo, no loud impact.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_valve_inventory.ogg",
+      "sha256": "5e1d5c0bf9654197d7ea16428f0c52ae4b61ff33456d9f94979725cb501ba2f9"
+    },
+    {
+      "cue": "oxygen_warning",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One restrained in-helmet life support low oxygen notification, two soft low electronic pulses with a tiny relay tick. Calm and clearly audible but not shrill, dry near-ear interface tone, no voice, no music, no alarm siren, no reverb.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_warning.ogg",
+      "sha256": "22933f6cc0880f318dd68f2864e2e6e1902d77fac3063a4229299255e3fae69c"
+    },
+    {
+      "cue": "oxygen_warning",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "One restrained in-helmet life support low oxygen notification, two soft low electronic pulses with a tiny relay tick. Calm and clearly audible but not shrill, dry near-ear interface tone, no voice, no music, no alarm siren, no reverb.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/oxygen_warning_inventory.ogg",
+      "sha256": "581c84e39866b4cc5080cc6b8a475e16e773a7fa6b4d47b4fc74dfa1a7baaf36"
+    },
+    {
+      "cue": "masonry_complete",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A compact stone fabrication workbench finishes one cut: a short low abrasive wheel grind against dense basalt, restrained motor whirr and a final muted mechanical clamp release. Dry close game machine sound, no room echo, no voices, no music, no loud crash. One discrete two-second crafting completion.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/masonry_complete.ogg",
+      "sha256": "8203aae302ef63a8385e4888f3b27911981f51488b757a99765f3a72508bb8a2"
+    },
+    {
+      "cue": "masonry_complete",
+      "model_id": "eleven_text_to_sound_v2",
+      "prompt": "A compact stone fabrication workbench finishes one cut: a short low abrasive wheel grind against dense basalt, restrained motor whirr and a final muted mechanical clamp release. Dry close game machine sound, no room echo, no voices, no music, no loud crash. One discrete two-second crafting completion.",
+      "filters": "highpass=f=70,lowpass=f=2600,volume=-10dB",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/masonry_complete_inventory.ogg",
+      "sha256": "39bccfa6ecf3f8be967e3d394377ab51a9d4b7ad270dee93e9ad6b0ac6d386d7"
+    },
+    {
+      "cue": "rocket_ignition",
+      "model_id": "eleven_text_to_sound_v2",
+      "filters": "highpass=f=30,lowpass=f=9000,volume=-12dB",
+      "binding": "actual server ignition/Launching only; stops on cancellation, orbital transfer, idle, unload or removal",
+      "assets": [
+        "AR_OdysseyHeavy",
+        "AR_KestrelStack",
+        "AR_KestrelBooster",
+        "AR_KestrelShip"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/rocket_ignition.ogg",
+      "sha256": "a4d2954df5abc100b8914e953ea9d81b0b6d1b17b2a4d32fc4450875f92a5a0e"
+    },
+    {
+      "cue": "rocket_thrust_loop",
+      "model_id": "eleven_text_to_sound_v2",
+      "filters": "highpass=f=30,lowpass=f=9000,volume=-14dB",
+      "binding": "actual server ignition/Launching only; stops on cancellation, orbital transfer, idle, unload or removal",
+      "assets": [
+        "AR_OdysseyHeavy",
+        "AR_KestrelStack",
+        "AR_KestrelBooster",
+        "AR_KestrelShip"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/rocket_thrust_loop.ogg",
+      "sha256": "b856babd0708df948e8e298cc713a0ad6ec7884ae27f302b3d30dae8db845335"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/stone_handle.ogg",
+      "sha256": "08fbe33cc68d5ec7a1c838c24347635833ac1a66bc5c05dad677074f0c940d99"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/ore_handle_inventory.ogg",
+      "sha256": "cf070df64df5d7f46928fe2d0a1a88fe20f7b0e005b5ba1ba9638cbc7075bae7"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/crystal_handle.ogg",
+      "sha256": "b769b062d41bb10b97fec90a85d1ae3ad78ef49cef1eab8415c77d899668cd7c"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/stone_handle_inventory.ogg",
+      "sha256": "ef308617b7a9916bb1f277337e5476a373a67e5837f2ba482e69a844b49fa524"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/metal_handle_inventory.ogg",
+      "sha256": "04cfff7ab3717e5ccd6048c41dcc2f44027b1b21226ffa92d54dabd0516d6b45"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/crystal_handle_inventory.ogg",
+      "sha256": "0ee68157b887d85a4bad0c57c83b883e0ec7aaa70ba1e28acf075086e8724aca"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/rocket_build_complete.ogg",
+      "sha256": "8a2234915ed3dd92cc095fdbe89b38f36e96171dff5c5c991aa0a2691881788b"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/metal_handle.ogg",
+      "sha256": "1f57147762a27e51a97938c5aa3e8ee710c095d5f7dc58595581db23b10f8611"
+    },
+    {
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "runtime": "Common/Sounds/AstralReach/ore_handle.ogg",
+      "sha256": "50c3cc366b82b422f47c8685ec201977fff393e8260423318a09ffd05b0059c6"
+    }
+  ],
+  "notice": "Original generated recordings; subject to the generating account\u2019s ElevenLabs terms. Detailed source takes and generation provenance retained privately."
+}

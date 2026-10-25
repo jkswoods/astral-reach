@@ -1,0 +1,88 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_Survey_Head.name"
+  },
+  "Icon": "Icons/Items/AR_Survey_Head.png",
+  "Model": "Items/AstralReach/AR_Survey_Head.blockymodel",
+  "Texture": "Items/AstralReach/AR_Survey_Head.png",
+  "Categories": [
+    "Items.Armors"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Suit",
+  "DropOnDeath": true,
+  "Quality": "Uncommon",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Fabric_Scrap_Linen",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    }
+  },
+  "Armor": {
+    "ArmorSlot": "Head",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "EarAccessory",
+      "Ear",
+      "Haircut",
+      "FacialHair",
+      "HeadAccessory",
+      "FaceAccessory"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.015,
+          "CalculationType": "Percent"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "AstralSuit"
+    ]
+  }
+}

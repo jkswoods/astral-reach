@@ -1,0 +1,85 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_Thermal_Chest.name"
+  },
+  "Icon": "Icons/Items/AR_Thermal_Chest.png",
+  "Model": "Items/AstralReach/AR_Thermal_Chest.blockymodel",
+  "Texture": "Items/AstralReach/AR_Thermal_Chest.png",
+  "Categories": [
+    "Items.Armors"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Suit",
+  "DropOnDeath": true,
+  "Quality": "Rare",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_Survey_Chest",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 3
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_ThermalSuits"
+        ],
+        "RequiredTierLevel": 2
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 6
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    },
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "EquipItem"
+        }
+      ]
+    }
+  },
+  "Armor": {
+    "ArmorSlot": "Chest",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "Undertop",
+      "Overtop",
+      "Cape"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.03,
+          "CalculationType": "Percent"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "AstralSuit"
+    ]
+  }
+}

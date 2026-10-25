@@ -1,0 +1,16 @@
+{
+  "AudioCategory": "AR_SuitInterior",
+  "Volume": -3,
+  "MaxDistance": 6,
+  "StartAttenuationDistance": 1,
+  "MaxInstance": 4,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/suit_bench.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AR_IgnitionSmoke"
+    }
+  ],
+  "CullDistance": 384,
+  "BoundingRadius": 35,
+  "IsImportant": true
+}

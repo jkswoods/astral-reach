@@ -1,0 +1,42 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_OrbitalEnginePart.name"
+  },
+  "Icon": "Icons/Items/AR_OrbitalEnginePart.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "Model": "Items/AstralReach/AR_OrbitalEnginePart.blockymodel",
+  "Texture": "Items/AstralReach/AR_OrbitalEnginePart.png"
+}

@@ -1,0 +1,31 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_CrudeFuel.name"
+  },
+  "Icon": "Icons/Items/AR_CrudeFuel.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_OilShale",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralRefinery"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "Model": "Items/AstralReach/AR_CrudeFuel.blockymodel",
+  "Texture": "Items/AstralReach/AR_CrudeFuel.png"
+}

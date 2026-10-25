@@ -1,0 +1,42 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_TitaniumOre.name"
+  },
+  "Icon": "Icons/Items/AR_TitaniumOre.png",
+  "Categories": [
+    "Blocks.Ores"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Ore",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "CubeWithModel",
+    "Group": "Stone",
+    "Textures": [
+      {
+        "All": "Blocks/AstralReach/AR_TitaniumOre.png",
+        "Weight": 1
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "OreIron",
+        "ItemId": "AR_RawTitanium"
+      }
+    },
+    "BlockSoundSetId": "AR_LunarDust",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#87949c",
+    "CustomModel": "Blocks/AstralReach/AR_TitaniumOre_Outcrops.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_TitaniumOre_Outcrops.png",
+        "Weight": 1
+      }
+    ],
+    "RandomRotation": "YawStep90"
+  }
+}

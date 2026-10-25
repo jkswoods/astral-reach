@@ -1,0 +1,42 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_EmptyOxygenCanister.name"
+  },
+  "Icon": "Icons/Items/AR_EmptyOxygenCanister.png",
+  "Model": "Items/AstralReach/AR_EmptyOxygenCanister.blockymodel",
+  "Texture": "Items/AstralReach/AR_EmptyOxygenCanister.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Oxygen",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  }
+}

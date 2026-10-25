@@ -1,0 +1,12 @@
+$C = "../../Common.ui";
+Group { Background: #061019b0;
+ Group { Anchor: (Width: 560, Height: 430); Background: #152430f8; Padding: (Full: 26); LayoutMode: Top;
+  Label { Anchor: (Height: 40); Text: "OXYGEN DIFFUSER"; Style: (FontSize: 27, TextColor: #e5e9de, RenderBold: true); }
+  Label #Status { Anchor: (Height: 90); Style: (FontSize: 19, TextColor: #9ed6d2, Wrap: true); }
+  Label { Anchor: (Height: 65); Text: "8-block radius · 4 canisters maximum · One full canister: about 22 min with one person."; Style: (FontSize: 17, TextColor: #b6c8cc, Wrap: true); }
+  $C.@TextButton #Load { Anchor: (Height: 42); Text: "Load one oxygen canister"; }
+  $C.@SecondaryTextButton #Collect { Anchor: (Height: 42); Text: "Collect all canisters"; }
+  $C.@SecondaryTextButton #Toggle { Anchor: (Height: 42); Text: "Switch on / off"; }
+  $C.@SecondaryTextButton #Close { Anchor: (Height: 42); Text: "Close"; }
+ }
+}

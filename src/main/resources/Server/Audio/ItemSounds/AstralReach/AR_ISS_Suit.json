@@ -1,0 +1,6 @@
+{
+  "SoundEvents": {
+    "Drag": "AR_suit_latch_inventory",
+    "Drop": "AR_suit_latch_inventory"
+  }
+}

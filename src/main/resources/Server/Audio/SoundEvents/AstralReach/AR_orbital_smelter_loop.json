@@ -1,0 +1,17 @@
+{
+  "Volume": -3,
+  "Pitch": 0,
+  "StartAttenuationDistance": 2,
+  "MaxDistance": 12,
+  "MaxInstance": 4,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/orbital_smelter_loop.ogg"
+      ],
+      "Volume": 0,
+      "Looping": true
+    }
+  ]
+}

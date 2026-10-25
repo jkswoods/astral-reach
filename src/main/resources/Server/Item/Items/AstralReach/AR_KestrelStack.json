@@ -1,0 +1,58 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_KestrelStack.name"
+  },
+  "Icon": "Icons/Items/AR_KestrelStack.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 0.010147,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_ReturnBeacon.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_ReturnBeacon.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_KestrelStack",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "CustomModelScale": 1,
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_OpenRocket"
+          }
+        ]
+      }
+    },
+    "CustomModelAnimation": "Blocks/AstralReach/AR_ReturnBeacon_Stationary.blockyanim",
+    "State": {
+      "Definitions": {
+        "Launching": {
+          "Looping": false
+        },
+        "Away": {}
+      }
+    }
+  },
+  "Model": "Items/AstralReach/AR_KestrelStack.blockymodel",
+  "Texture": "Items/AstralReach/AR_KestrelStack.png"
+}

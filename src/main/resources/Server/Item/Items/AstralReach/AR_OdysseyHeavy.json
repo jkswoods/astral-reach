@@ -1,0 +1,89 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_OdysseyHeavy.name"
+  },
+  "Icon": "Icons/Items/AR_OdysseyHeavy.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 0.012844,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_OrbitalEnginePart",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 16
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 15
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_ReturnBeacon.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_ReturnBeacon.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_OdysseyHeavy",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "CustomModelScale": 1,
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_OpenRocket"
+          }
+        ]
+      }
+    },
+    "CustomModelAnimation": "Blocks/AstralReach/AR_ReturnBeacon_Stationary.blockyanim",
+    "State": {
+      "Definitions": {
+        "Launching": {
+          "Looping": false
+        },
+        "Away": {}
+      }
+    }
+  },
+  "Model": "Items/AstralReach/AR_OdysseyHeavy.blockymodel",
+  "Texture": "Items/AstralReach/AR_OdysseyHeavy.png"
+}

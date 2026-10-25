@@ -1,0 +1,13 @@
+{
+  "AudioCategory": "AudioCat_Ambient",
+  "Volume": -4,
+  "MaxInstance": 3,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/masonry_complete_inventory.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

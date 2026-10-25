@@ -1,0 +1,46 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_ReturnBeacon.name"
+  },
+  "Icon": "Icons/Items/AR_ReturnBeacon.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Scale": 0.641026,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_ReturnBeacon.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_ReturnBeacon.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_ReturnBeacon",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_OpenRocket"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Volume": -3,
+  "Pitch": 0,
+  "MaxDistance": 14,
+  "StartAttenuationDistance": 2,
+  "MaxInstance": 3,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/ore_handle.ogg"
+      ],
+      "Volume": 0,
+      "Looping": false
+    }
+  ]
+}

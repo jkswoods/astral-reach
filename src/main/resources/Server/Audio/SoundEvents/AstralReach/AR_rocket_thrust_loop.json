@@ -1,0 +1,17 @@
+{
+  "Volume": -3,
+  "Pitch": 0,
+  "MaxDistance": 256,
+  "StartAttenuationDistance": 8,
+  "MaxInstance": 2,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/rocket_thrust_loop.ogg"
+      ],
+      "Volume": 0,
+      "Looping": true
+    }
+  ]
+}

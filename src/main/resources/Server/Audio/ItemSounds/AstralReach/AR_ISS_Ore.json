@@ -1,0 +1,6 @@
+{
+  "SoundEvents": {
+    "Drag": "AR_ore_handle_inventory",
+    "Drop": "AR_ore_handle_inventory"
+  }
+}

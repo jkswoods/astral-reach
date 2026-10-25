@@ -1,0 +1,86 @@
+{
+  "RenderMode": "BlendLinear",
+  "ParticleRotationInfluence": "Billboard",
+  "LinearFiltering": false,
+  "LightInfluence": 0,
+  "UseEmitDirection": false,
+  "EmitOffset": {
+    "Y": {
+      "Min": -1.5,
+      "Max": -1.5
+    }
+  },
+  "ParticleRotateWithSpawner": true,
+  "MaxConcurrentParticles": 12,
+  "ParticleLifeSpan": {
+    "Min": 0.15,
+    "Max": 0.24
+  },
+  "SpawnRate": {
+    "Min": 60,
+    "Max": 75
+  },
+  "InitialVelocity": {
+    "Speed": {
+      "Min": 2,
+      "Max": 5
+    },
+    "Pitch": {
+      "Min": -91,
+      "Max": -89
+    },
+    "Yaw": {
+      "Min": -180,
+      "Max": 180
+    }
+  },
+  "Particle": {
+    "Texture": "Particles/Textures/AstralReach/EngineFire.png",
+    "FrameSize": {
+      "Width": 32,
+      "Height": 64
+    },
+    "ScaleRatioConstraint": "None",
+    "InitialAnimationFrame": {
+      "Opacity": 1,
+      "Scale": {
+        "X": {
+          "Min": 1.5,
+          "Max": 2
+        },
+        "Y": {
+          "Min": 1.5,
+          "Max": 2
+        }
+      },
+      "Color": "#efffff"
+    },
+    "Animation": {
+      "0": {
+        "Opacity": 1
+      },
+      "70": {
+        "Opacity": 1,
+        "Color": "#ffffff"
+      },
+      "100": {
+        "Opacity": 0,
+        "Scale": {
+          "X": {
+            "Min": 1.5,
+            "Max": 2
+          },
+          "Y": {
+            "Min": 1.1,
+            "Max": 1.5
+          }
+        }
+      }
+    }
+  },
+  "SpawnBurst": true,
+  "TotalParticles": {
+    "Min": 2,
+    "Max": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "AudioCategory": "AudioCat_Ambient",
+  "Volume": -4,
+  "MaxInstance": 3,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/oxygen_diffuse_inventory.ogg"
+      ],
+      "Looping": true
+    }
+  ]
+}

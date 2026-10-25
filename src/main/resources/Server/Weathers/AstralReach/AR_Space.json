@@ -1,0 +1,85 @@
+{
+  "Stars": "Sky/AstralReach/Stars.png",
+  "Clouds": [
+    {
+      "Texture": "Sky/AstralReach/Stars.png",
+      "Colors": [
+        {
+          "Hour": 0,
+          "Color": "#ffffffff"
+        }
+      ],
+      "Speeds": [
+        {
+          "Hour": 0,
+          "Value": 0
+        }
+      ]
+    }
+  ],
+  "Moons": [],
+  "SkyTopColors": [
+    {
+      "Hour": 0,
+      "Color": "#000104ff"
+    }
+  ],
+  "SkyBottomColors": [
+    {
+      "Hour": 0,
+      "Color": "#01030aff"
+    }
+  ],
+  "SkySunsetColors": [
+    {
+      "Hour": 0,
+      "Color": "#00000000"
+    }
+  ],
+  "FogColors": [
+    {
+      "Hour": 0,
+      "Color": "#01030a"
+    }
+  ],
+  "FogDensities": [
+    {
+      "Hour": 0,
+      "Value": 0
+    }
+  ],
+  "FogDistance": [
+    10000,
+    20000
+  ],
+  "SunColors": [
+    {
+      "Hour": 0,
+      "Color": "#ffffff"
+    }
+  ],
+  "SunGlowColors": [
+    {
+      "Hour": 0,
+      "Color": "#ffffe6d0"
+    }
+  ],
+  "SunScales": [
+    {
+      "Hour": 0,
+      "Value": 2.5
+    }
+  ],
+  "SunlightColors": [
+    {
+      "Hour": 0,
+      "Color": "#fff8ed"
+    }
+  ],
+  "SunlightDampingMultipliers": [
+    {
+      "Hour": 0,
+      "Value": 1
+    }
+  ]
+}

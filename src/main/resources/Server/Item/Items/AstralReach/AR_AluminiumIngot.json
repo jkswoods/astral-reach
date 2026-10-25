@@ -1,0 +1,31 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_AluminiumIngot.name"
+  },
+  "Icon": "Icons/Items/AR_AluminiumIngot.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_RawAluminium",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralSmelter"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "Model": "Items/AstralReach/AR_AluminiumIngot.blockymodel",
+  "Texture": "Items/AstralReach/AR_AluminiumIngot.png"
+}

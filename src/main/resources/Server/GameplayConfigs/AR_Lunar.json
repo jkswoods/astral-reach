@@ -1,0 +1,7 @@
+{
+  "Parent": "Default",
+  "World": {
+    "DaytimeDurationSeconds": 1800,
+    "NighttimeDurationSeconds": 1800
+  }
+}

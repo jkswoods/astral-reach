@@ -1,0 +1,31 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_NickelIngot.name"
+  },
+  "Icon": "Icons/Items/AR_NickelIngot.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_RawNickel",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralSmelter"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 8
+  },
+  "Model": "Items/AstralReach/AR_NickelIngot.blockymodel",
+  "Texture": "Items/AstralReach/AR_NickelIngot.png"
+}

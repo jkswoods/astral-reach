@@ -1,0 +1,168 @@
+{
+  "Stars": "Sky/AstralReach/Stars.png",
+  "Clouds": [
+    {
+      "Texture": "Sky/AstralReach/Stars.png",
+      "Colors": [
+        {
+          "Hour": 0,
+          "Color": "#ffffffff"
+        }
+      ],
+      "Speeds": [
+        {
+          "Hour": 0,
+          "Value": 0
+        }
+      ]
+    }
+  ],
+  "Moons": [
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 0
+    },
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 1
+    },
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 2
+    },
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 3
+    },
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 4
+    },
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 5
+    },
+    {
+      "Texture": "Sky/AstralReach/Orbis.png",
+      "Day": 6
+    }
+  ],
+  "SkyTopColors": [
+    {
+      "Hour": 0,
+      "Color": "#000104ff"
+    }
+  ],
+  "SkyBottomColors": [
+    {
+      "Hour": 0,
+      "Color": "#01030aff"
+    }
+  ],
+  "SkySunsetColors": [
+    {
+      "Hour": 0,
+      "Color": "#00000000"
+    }
+  ],
+  "FogColors": [
+    {
+      "Hour": 0,
+      "Color": "#01030a"
+    }
+  ],
+  "FogDensities": [
+    {
+      "Hour": 0,
+      "Value": 0
+    }
+  ],
+  "FogDistance": [
+    10000,
+    20000
+  ],
+  "SunColors": [
+    {
+      "Hour": 0,
+      "Color": "#ffffff"
+    }
+  ],
+  "SunGlowColors": [
+    {
+      "Hour": 0,
+      "Color": "#ffffe6d0"
+    }
+  ],
+  "SunScales": [
+    {
+      "Hour": 0,
+      "Value": 1.7
+    }
+  ],
+  "SunlightColors": [
+    {
+      "Hour": 0,
+      "Color": "#a2b3d0"
+    },
+    {
+      "Hour": 6,
+      "Color": "#fff3dc"
+    },
+    {
+      "Hour": 17,
+      "Color": "#fff3dc"
+    },
+    {
+      "Hour": 20,
+      "Color": "#a2b3d0"
+    }
+  ],
+  "SunlightDampingMultipliers": [
+    {
+      "Hour": 0,
+      "Value": 0.06
+    },
+    {
+      "Hour": 4,
+      "Value": 0.06
+    },
+    {
+      "Hour": 6,
+      "Value": 0.85
+    },
+    {
+      "Hour": 8,
+      "Value": 1
+    },
+    {
+      "Hour": 17,
+      "Value": 1
+    },
+    {
+      "Hour": 19,
+      "Value": 0.06
+    },
+    {
+      "Hour": 23,
+      "Value": 0.06
+    }
+  ],
+  "MoonScales": [
+    {
+      "Hour": 0,
+      "Value": 5
+    }
+  ],
+  "MoonColors": [
+    {
+      "Hour": 0,
+      "Color": "#ffffffff"
+    }
+  ],
+  "MoonGlowColors": [
+    {
+      "Hour": 0,
+      "Color": "#467fa133"
+    }
+  ]
+}
