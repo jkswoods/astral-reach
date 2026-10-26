@@ -5,81 +5,81 @@ $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 62); Label { Text: "DES
 Group { Anchor: (Left: 20, Right: 20, Top: 82, Height: 680); LayoutMode: Left;
 $A.@Section { Anchor: (Width: 320); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "ROUTES"; Style: $A.@Heading; } } Group { Anchor: (Left: 12, Right: 12, Top: 60, Bottom: 12); LayoutMode: Top;
 Button #RouteOrbis { Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #ChosenOrbis { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
- Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Orbis.png"; HitTestVisible: false; }
+ Group #ChosenOrbis { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
+ Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_Orbis.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "Orbis"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "Home"; Style: (FontSize: 17, TextColor: #99adc1); } } Group { Anchor: (Height: 9); }
 Button #RouteLune { Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #ChosenLune { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
- Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Lune.png"; HitTestVisible: false; }
+ Group #ChosenLune { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
+ Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_Lune.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "Lune"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "Available"; Style: (FontSize: 17, TextColor: #78ccc8); } } Group { Anchor: (Height: 9); }
 Button #RouteRustreach { Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #ChosenRustreach { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
- Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Rustreach.png"; HitTestVisible: false; }
+ Group #ChosenRustreach { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
+ Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_Rustreach.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "Rustreach"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "Future route"; Style: (FontSize: 17, TextColor: #99adc1); } } Group { Anchor: (Height: 9); }
 Button #RouteNacre { Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #ChosenNacre { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
- Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Nacre.png"; HitTestVisible: false; }
+ Group #ChosenNacre { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
+ Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_Nacre.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "Nacre"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "Future route"; Style: (FontSize: 17, TextColor: #99adc1); } } Group { Anchor: (Height: 9); }
 Button #RouteVesper { Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #ChosenVesper { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
- Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Vesper.png"; HitTestVisible: false; }
+ Group #ChosenVesper { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
+ Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_Vesper.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "Vesper"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "Future route"; Style: (FontSize: 17, TextColor: #99adc1); } } Group { Anchor: (Height: 9); }
 Button #RouteUmbra { Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #ChosenUmbra { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
- Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Umbra.png"; HitTestVisible: false; }
+ Group #ChosenUmbra { Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }
+ Group { Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_Umbra.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "Umbra"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "Future route"; Style: (FontSize: 17, TextColor: #99adc1); } } Group { Anchor: (Height: 9); }
 } } Group { Anchor: (Width: 14); }
 $A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } }
-Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 82); Background: "Pages/AstralReach/Art/SystemChart.png";
+Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 82); Background: "Art/SystemChart.png";
 Button #PlanetOrbis { Anchor: (Left: 200, Top: 245, Width: 106, Height: 108); Style: $A.@PlanetStyle;
- Group #RingOrbis { Anchor: (Left: 0, Top: 0, Width: 82, Height: 82); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 76, Height: 76); Background: "Pages/AstralReach/Art/Planet_Orbis.png"; HitTestVisible: false; }
+ Group #RingOrbis { Anchor: (Left: 0, Top: 0, Width: 82, Height: 82); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
+ Group { Anchor: (Left: 3, Top: 3, Width: 76, Height: 76); Background: "Art/Planet_Orbis.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 2, Top: 83, Width: 106, Height: 25); Text: "Orbis"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetLune { Anchor: (Left: 320, Top: 260, Width: 84, Height: 86); Style: $A.@PlanetStyle;
- Group #RingLune { Anchor: (Left: 0, Top: 0, Width: 60, Height: 60); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 54, Height: 54); Background: "Pages/AstralReach/Art/Planet_Lune.png"; HitTestVisible: false; }
+ Group #RingLune { Anchor: (Left: 0, Top: 0, Width: 60, Height: 60); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
+ Group { Anchor: (Left: 3, Top: 3, Width: 54, Height: 54); Background: "Art/Planet_Lune.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 2, Top: 61, Width: 84, Height: 25); Text: "Lune"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetRustreach { Anchor: (Left: 385, Top: 115, Width: 98, Height: 100); Style: $A.@PlanetStyle;
- Group #RingRustreach { Anchor: (Left: 0, Top: 0, Width: 74, Height: 74); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 68, Height: 68); Background: "Pages/AstralReach/Art/Planet_Rustreach.png"; HitTestVisible: false; }
+ Group #RingRustreach { Anchor: (Left: 0, Top: 0, Width: 74, Height: 74); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
+ Group { Anchor: (Left: 3, Top: 3, Width: 68, Height: 68); Background: "Art/Planet_Rustreach.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 2, Top: 75, Width: 98, Height: 25); Text: "Rustreach"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetNacre { Anchor: (Left: 360, Top: 345, Width: 102, Height: 104); Style: $A.@PlanetStyle;
- Group #RingNacre { Anchor: (Left: 0, Top: 0, Width: 78, Height: 78); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 72, Height: 72); Background: "Pages/AstralReach/Art/Planet_Nacre.png"; HitTestVisible: false; }
+ Group #RingNacre { Anchor: (Left: 0, Top: 0, Width: 78, Height: 78); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
+ Group { Anchor: (Left: 3, Top: 3, Width: 72, Height: 72); Background: "Art/Planet_Nacre.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 2, Top: 79, Width: 102, Height: 25); Text: "Nacre"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetVesper { Anchor: (Left: 200, Top: 450, Width: 104, Height: 106); Style: $A.@PlanetStyle;
- Group #RingVesper { Anchor: (Left: 0, Top: 0, Width: 80, Height: 80); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 74, Height: 74); Background: "Pages/AstralReach/Art/Planet_Vesper.png"; HitTestVisible: false; }
+ Group #RingVesper { Anchor: (Left: 0, Top: 0, Width: 80, Height: 80); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
+ Group { Anchor: (Left: 3, Top: 3, Width: 74, Height: 74); Background: "Art/Planet_Vesper.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 2, Top: 81, Width: 104, Height: 25); Text: "Vesper"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetUmbra { Anchor: (Left: 490, Top: 425, Width: 96, Height: 98); Style: $A.@PlanetStyle;
- Group #RingUmbra { Anchor: (Left: 0, Top: 0, Width: 72, Height: 72); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_Umbra.png"; HitTestVisible: false; }
+ Group #RingUmbra { Anchor: (Left: 0, Top: 0, Width: 72, Height: 72); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
+ Group { Anchor: (Left: 3, Top: 3, Width: 66, Height: 66); Background: "Art/Planet_Umbra.png"; HitTestVisible: false; }
  Label { Anchor: (Left: 2, Top: 73, Width: 96, Height: 25); Text: "Umbra"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 }
 $A.@Secondary #Explore { Anchor: (Width: 260, Height: 46, Bottom: 18); Text: "Explore in 3D"; } }
 Group { Anchor: (Width: 14); }
 Group { Anchor: (Width: 392); LayoutMode: Top;
 $A.@Section { Anchor: (Height: 260); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label #Selected { Text: "LUNE"; Style: $A.@Heading; } }
-Group #PreviewOrbis { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_Orbis.png"; }
-Group #PreviewLune { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_Lune.png"; }
-Group #PreviewRustreach { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_Rustreach.png"; }
-Group #PreviewNacre { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_Nacre.png"; }
-Group #PreviewVesper { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_Vesper.png"; }
-Group #PreviewUmbra { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_Umbra.png"; }
+Group #PreviewOrbis { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_Orbis.png"; }
+Group #PreviewLune { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_Lune.png"; }
+Group #PreviewRustreach { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_Rustreach.png"; }
+Group #PreviewNacre { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_Nacre.png"; }
+Group #PreviewVesper { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_Vesper.png"; }
+Group #PreviewUmbra { Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_Umbra.png"; }
 Label #Route { Anchor: (Left: 18, Right: 18, Bottom: 12, Height: 30); Style: $A.@Muted; } }
 Group { Anchor: (Height: 12); }
 $A.@Section { Anchor: (Height: 118); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 38); Label { Text: "RESOURCES"; Style: $A.@Heading; } }
-Group { Anchor: (Left: 16, Right: 16, Top: 54, Height: 52); LayoutMode: Left; Group { Anchor: (Width: 174); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource0 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel0 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } Group { Anchor: (Width: 12); } Group { Anchor: (Width: 174); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource1 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel1 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } } }
+Group { Anchor: (Left: 16, Right: 16, Top: 54, Height: 52); LayoutMode: Left; Group { Anchor: (Width: 174); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource0 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel0 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } Group { Anchor: (Width: 12); } Group { Anchor: (Width: 174); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource1 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel1 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } } }
 Group { Anchor: (Height: 12); }
 $A.@Section { Anchor: (Height: 146); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 38); Label { Text: "EXPEDITION"; Style: $A.@Heading; } }
-Group { Anchor: (Left: 12, Right: 12, Top: 50, Height: 42); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #SuitIcon { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_Survey_Chest"; ShowQuantity: false; } Label #Suit { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #SuitCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Pages/AstralReach/Art/Ready.png"; } }
-Group { Anchor: (Left: 12, Right: 12, Top: 96, Height: 42); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_OxygenCanister"; ShowQuantity: false; } Label #Oxygen { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #OxygenCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Pages/AstralReach/Art/Ready.png"; } } }
+Group { Anchor: (Left: 12, Right: 12, Top: 50, Height: 42); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #SuitIcon { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_Survey_Chest"; ShowQuantity: false; } Label #Suit { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #SuitCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Art/Ready.png"; } }
+Group { Anchor: (Left: 12, Right: 12, Top: 96, Height: 42); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_OxygenCanister"; ShowQuantity: false; } Label #Oxygen { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #OxygenCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Art/Ready.png"; } } }
 Group { Anchor: (Height: 12); }
 $A.@Section { Anchor: (Height: 120); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 38); Label { Text: "RETURN RESERVE"; Style: $A.@Heading; } }
 ItemSlot { Anchor: (Left: 16, Top: 52, Width: 44, Height: 44); ItemId: "AR_PropellantCell"; ShowQuantity: false; } Label #Reserve { Anchor: (Left: 74, Top: 50, Right: 14, Height: 32); Style: (FontSize: 21, TextColor: #e4c37b, RenderBold: true); } Label #Detail { Anchor: (Left: 18, Right: 18, Bottom: 8, Height: 28); Style: (FontSize: 17, TextColor: #9aafc2, Wrap: true); } }

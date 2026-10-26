@@ -4,13 +4,13 @@ r=Path(__file__).resolve().parents[1]/'src/main/resources/Common/UI/Custom/Pages
 @Text = (FontSize: 20, TextColor: #cbd9e1, VerticalAlignment: Center);
 @Muted = (FontSize: 18, TextColor: #9aafc2, VerticalAlignment: Center, Wrap: true);
 @Heading = (FontSize: 21, TextColor: #b8ccdf, RenderBold: true, RenderUppercase: true, VerticalAlignment: Center, LetterSpacing: 1);
-@Window = Group { Background: (TexturePath: "Common/ContainerFullPatch.png", Border: 20); };
-@Header = Group { Background: (TexturePath: "Common/ContainerHeaderNoRunes.png", HorizontalBorder: 35, VerticalBorder: 0); Anchor: (Height: 62); Padding: (Horizontal: 24); };
-@Section = Group { Background: (TexturePath: "Common/ContainerPatch.png", Border: 23); };
-@SectionHeader = Group { Anchor: (Height: 42); Background: (TexturePath: "Common/ContainerHeaderNoRunes.png", HorizontalBorder: 35, VerticalBorder: 0); Padding: (Horizontal: 16); };
+@Window = Group { Background: (TexturePath: "../../Common/ContainerFullPatch.png", Border: 20); };
+@Header = Group { Background: (TexturePath: "../../Common/ContainerHeaderNoRunes.png", HorizontalBorder: 35, VerticalBorder: 0); Anchor: (Height: 62); Padding: (Horizontal: 24); };
+@Section = Group { Background: (TexturePath: "../../Common/ContainerPatch.png", Border: 23); };
+@SectionHeader = Group { Anchor: (Height: 42); Background: (TexturePath: "../../Common/ContainerHeaderNoRunes.png", HorizontalBorder: 35, VerticalBorder: 0); Padding: (Horizontal: 16); };
 @Rule = Group { Anchor: (Height: 1); Background: #3c5266; };
-@RowStyle = ButtonStyle(Default: (Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12)), Hovered: (Background: (TexturePath: "Common/Buttons/Tertiary_Hovered.png", Border: 12)), Pressed: (Background: (TexturePath: "Common/Buttons/Tertiary_Pressed.png", Border: 12)), Sounds: $C.@ButtonSounds);
-@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: (TexturePath: "Common/Buttons/Tertiary_Hovered.png", Border: 12)), Pressed: (Background: (TexturePath: "Common/Buttons/Tertiary_Pressed.png", Border: 12)), Sounds: $C.@ButtonSounds);
+@RowStyle = ButtonStyle(Default: (Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12)), Hovered: (Background: (TexturePath: "../../Common/Buttons/Tertiary_Hovered.png", Border: 12)), Pressed: (Background: (TexturePath: "../../Common/Buttons/Tertiary_Pressed.png", Border: 12)), Sounds: $C.@ButtonSounds);
+@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: (TexturePath: "../../Common/Buttons/Tertiary_Hovered.png", Border: 12)), Pressed: (Background: (TexturePath: "../../Common/Buttons/Tertiary_Pressed.png", Border: 12)), Sounds: $C.@ButtonSounds);
 ''')
 nav=['$C = "../../Common.ui";','$A = "Astral.ui";','$C.@PageOverlay { $A.@Window #Navigation { Anchor: (Width: 1440, Height: 870);',
 '$A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 62); Label { Text: "DESTINATIONS"; Style: (FontSize: 30, TextColor: #e4edf2, RenderBold: true, VerticalAlignment: Center, LetterSpacing: 1); } Label { Anchor: (Right: 0, Width: 230); Text: "ASTRAL REACH"; Style: (FontSize: 20, TextColor: #91abc4, HorizontalAlignment: End, VerticalAlignment: Center); } }',
@@ -19,32 +19,32 @@ nav=['$C = "../../Common.ui";','$A = "Astral.ui";','$C.@PageOverlay { $A.@Window
 planets=['Orbis','Lune','Rustreach','Nacre','Vesper','Umbra']
 for n in planets:
  nav.append(f'''Button #Route{n} {{ Anchor: (Height: 90); Style: $A.@RowStyle;
- Group #Chosen{n} {{ Anchor: (Full: 2); Background: (TexturePath: "Pages/AstralReach/Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }}
- Group {{ Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Pages/AstralReach/Art/Planet_{n}.png"; HitTestVisible: false; }}
+ Group #Chosen{n} {{ Anchor: (Full: 2); Background: (TexturePath: "Art/SelectedFrame.png", Border: 7); HitTestVisible: false; }}
+ Group {{ Anchor: (Left: 8, Top: 11, Width: 66, Height: 66); Background: "Art/Planet_{n}.png"; HitTestVisible: false; }}
  Label {{ Anchor: (Left: 88, Top: 14, Right: 8, Height: 28); Text: "{n}"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }}
  Label {{ Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "{'Home' if n=='Orbis' else 'Available' if n=='Lune' else 'Future route'}"; Style: (FontSize: 17, TextColor: {'#78ccc8' if n=='Lune' else '#99adc1'}); }} }} Group {{ Anchor: (Height: 9); }}''')
 nav+=['} } Group { Anchor: (Width: 14); }',
 '$A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } }',
-'Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 82); Background: "Pages/AstralReach/Art/SystemChart.png";']
+'Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 82); Background: "Art/SystemChart.png";']
 coords={'Orbis':(200,245,76),'Lune':(320,260,54),'Rustreach':(385,115,68),'Nacre':(360,345,72),'Vesper':(200,450,74),'Umbra':(490,425,66)}
 for n,(x,y,size) in coords.items():
  nav.append(f'''Button #Planet{n} {{ Anchor: (Left: {x}, Top: {y}, Width: {size+30}, Height: {size+32}); Style: $A.@PlanetStyle;
- Group #Ring{n} {{ Anchor: (Left: 0, Top: 0, Width: {size+6}, Height: {size+6}); Background: "Pages/AstralReach/Art/SelectionRing.png"; HitTestVisible: false; }}
- Group {{ Anchor: (Left: 3, Top: 3, Width: {size}, Height: {size}); Background: "Pages/AstralReach/Art/Planet_{n}.png"; HitTestVisible: false; }}
+ Group #Ring{n} {{ Anchor: (Left: 0, Top: 0, Width: {size+6}, Height: {size+6}); Background: "Art/SelectionRing.png"; HitTestVisible: false; }}
+ Group {{ Anchor: (Left: 3, Top: 3, Width: {size}, Height: {size}); Background: "Art/Planet_{n}.png"; HitTestVisible: false; }}
  Label {{ Anchor: (Left: 2, Top: {size+7}, Width: {size+30}, Height: 25); Text: "{n}"; Style: (FontSize: 19, TextColor: #d5dfe6); }} }}''')
 nav+=['}', '$C.@SecondaryTextButton #Explore { Anchor: (Width: 260, Height: 46, Bottom: 18); Text: "Explore in 3D"; } }', 'Group { Anchor: (Width: 14); }',
 'Group { Anchor: (Width: 428); LayoutMode: Top;',
 '$A.@Section { Anchor: (Height: 260); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label #Selected { Text: "LUNE"; Style: $A.@Heading; } }']
-for n in planets:nav.append(f'Group #Preview{n} {{ Anchor: (Width: 170, Height: 170, Top: 50); Background: "Pages/AstralReach/Art/Planet_{n}.png"; }}')
+for n in planets:nav.append(f'Group #Preview{n} {{ Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_{n}.png"; }}')
 nav+=['Label #Route { Anchor: (Left: 18, Right: 18, Bottom: 12, Height: 30); Style: $A.@Muted; } }','Group { Anchor: (Height: 12); }',
 '$A.@Section { Anchor: (Height: 118); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 38); Label { Text: "RESOURCES"; Style: $A.@Heading; } }',
 
-'Group { Anchor: (Left: 16, Right: 16, Top: 54, Height: 52); LayoutMode: Left; Group { Anchor: (Width: 174); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource0 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel0 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } Group { Anchor: (Width: 12); } Group { Anchor: (Width: 174); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource1 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel1 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } } }',
+'Group { Anchor: (Left: 16, Right: 16, Top: 54, Height: 52); LayoutMode: Left; Group { Anchor: (Width: 174); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource0 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel0 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } Group { Anchor: (Width: 12); } Group { Anchor: (Width: 174); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Resource1 { Anchor: (Left: 4, Top: 2, Width: 48, Height: 48); ShowQuantity: false; } Label #ResourceLabel1 { Anchor: (Left: 58, Right: 4, Top: 2, Height: 48); Style: (FontSize: 18, TextColor: #d4e0e7, VerticalAlignment: Center); } } } }',
 'Group { Anchor: (Height: 12); }',
 '$A.@Section { Anchor: (Height: 146); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 38); Label { Text: "EXPEDITION"; Style: $A.@Heading; } }',
 
-'Group { Anchor: (Left: 12, Right: 12, Top: 50, Height: 42); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #SuitIcon { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_Survey_Chest"; ShowQuantity: false; } Label #Suit { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #SuitCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Pages/AstralReach/Art/Ready.png"; } }',
-'Group { Anchor: (Left: 12, Right: 12, Top: 96, Height: 42); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_OxygenCanister"; ShowQuantity: false; } Label #Oxygen { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #OxygenCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Pages/AstralReach/Art/Ready.png"; } } }',
+'Group { Anchor: (Left: 12, Right: 12, Top: 50, Height: 42); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #SuitIcon { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_Survey_Chest"; ShowQuantity: false; } Label #Suit { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #SuitCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Art/Ready.png"; } }',
+'Group { Anchor: (Left: 12, Right: 12, Top: 96, Height: 42); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot { Anchor: (Left: 4, Width: 42, Height: 42); ItemId: "AR_OxygenCanister"; ShowQuantity: false; } Label #Oxygen { Anchor: (Left: 58, Right: 40, Top: 2, Height: 38); Style: (FontSize: 19, TextColor: #cbd9e1, VerticalAlignment: Center, Wrap: true); } Group #OxygenCheck { Anchor: (Right: 10, Top: 9, Width: 24, Height: 24); Background: "Art/Ready.png"; } } }',
 'Group { Anchor: (Height: 12); }',
 '$A.@Section { Anchor: (Height: 120); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 38); Label { Text: "RETURN RESERVE"; Style: $A.@Heading; } }',
 'ItemSlot { Anchor: (Left: 16, Top: 52, Width: 44, Height: 44); ItemId: "AR_PropellantCell"; ShowQuantity: false; } Label #Reserve { Anchor: (Left: 74, Top: 50, Right: 14, Height: 32); Style: (FontSize: 21, TextColor: #e4c37b, RenderBold: true); } Label #Detail { Anchor: (Left: 18, Right: 18, Bottom: 8, Height: 28); Style: (FontSize: 17, TextColor: #9aafc2, Wrap: true); } }',
@@ -59,7 +59,7 @@ p=r/'Astral.ui';s=p.read_text();s+='''
 @ButtonLabel = (...$C.@DefaultButtonLabelStyle, FontSize: 20);
 @DisabledLabel = (...@ButtonLabel, TextColor: #7f8c99);
 @Primary = TextButton { Anchor: (Height: 46); Style: (Default: (Background: $C.@DefaultButtonDefaultBackground, LabelStyle: @ButtonLabel), Hovered: (Background: $C.@DefaultButtonHoveredBackground, LabelStyle: @ButtonLabel), Pressed: (Background: $C.@DefaultButtonPressedBackground, LabelStyle: @ButtonLabel), Disabled: (Background: $C.@DefaultButtonDisabledBackground, LabelStyle: @DisabledLabel), Sounds: $C.@ButtonSounds); };
-@Secondary = TextButton { Anchor: (Height: 46); Style: (Default: (Background: (TexturePath: "Common/Buttons/Secondary.png", Border: 12), LabelStyle: @ButtonLabel), Hovered: (Background: (TexturePath: "Common/Buttons/Secondary_Hovered.png", Border: 12), LabelStyle: @ButtonLabel), Pressed: (Background: (TexturePath: "Common/Buttons/Secondary_Pressed.png", Border: 12), LabelStyle: @ButtonLabel), Disabled: (Background: $C.@DefaultButtonDisabledBackground, LabelStyle: @DisabledLabel), Sounds: $C.@ButtonSounds); };
+@Secondary = TextButton { Anchor: (Height: 46); Style: (Default: (Background: (TexturePath: "../../Common/Buttons/Secondary.png", Border: 12), LabelStyle: @ButtonLabel), Hovered: (Background: (TexturePath: "../../Common/Buttons/Secondary_Hovered.png", Border: 12), LabelStyle: @ButtonLabel), Pressed: (Background: (TexturePath: "../../Common/Buttons/Secondary_Pressed.png", Border: 12), LabelStyle: @ButtonLabel), Disabled: (Background: $C.@DefaultButtonDisabledBackground, LabelStyle: @DisabledLabel), Sounds: $C.@ButtonSounds); };
 ''';p.write_text(s)
 p=r/'OrbitalMap.ui';s=p.read_text().replace('Anchor: (Full: 2)','Anchor: (Left: 2, Right: 2, Top: 2, Bottom: 2)').replace('Width: 280','Width: 320').replace('Width: 428','Width: 392').replace('Width: 142','Width: 126').replace('FontSize: 30','FontSize: 36');p.write_text(s)
 # The yard keeps native controls and real server item counts, with a compact completed state.
@@ -153,7 +153,7 @@ $C.@PageOverlay { $A.@Window { Anchor: (Width: 900, Height: 760);
 '''
 for i in range(4):
  oxy+=f'''Group {{ Anchor: (Width: 180); LayoutMode: Top;
- Group {{ Anchor: (Height: 96); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Canister{i} {{ Anchor: (Width: 84, Height: 84); ShowQuantity: false; }} }}
+ Group {{ Anchor: (Height: 96); Background: (TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Canister{i} {{ Anchor: (Width: 84, Height: 84); ShowQuantity: false; }} }}
  $C.@ProgressBar #Charge{i} {{ Anchor: (Height: 10, Left: 8, Right: 8); Value: 0; }} Label #ChargeText{i} {{ Anchor: (Height: 34); Style: (FontSize: 21, TextColor: #b7dae3, HorizontalAlignment: Center, VerticalAlignment: Center); }} }} Group {{ Anchor: (Width: 14); }}\n'''
 oxy+='''   }
   }
