@@ -21,6 +21,7 @@ public final class LaunchYardRegistry implements Resource<EntityStore> {
  }
  final Map<Cell,Yard> yards=new HashMap<>();
  long elapsedMillis;
+ final Map<Cell,String> blocked=new HashMap<>();
  final Map<Cell,Ref<EntityStore>> decks=new HashMap<>(),ghosts=new HashMap<>();
  final Map<Cell,String> ghostPlans=new HashMap<>();
  static final class Celebration {final Cell center;long elapsed;int next=1;Celebration(Cell center){this.center=center;}}

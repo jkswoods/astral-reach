@@ -18,32 +18,35 @@ final class LaunchYardPage extends InteractiveCustomUIPage<RocketPage.Action>{
  static void open(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef p,Cell at){try{LaunchYardService.usable(s,ref,p,at);var player=s.getComponent(ref,Player.getComponentType());if(player!=null)player.getPageManager().openCustomPage(ref,s,new LaunchYardPage(p,at));}catch(IllegalArgumentException ex){AstralReachPlugin.message(p,ex.getMessage());}}
  private static String title(String id){return switch(id){case "AR_PressureHullPart"->"Pressure hull sections";case "AR_OrbitalEnginePart"->"Orbital engine parts";case "AR_FlightComputer"->"Flight computers";case "AR_FramePlate"->"Nickel-steel frame plates";case "AR_ThermalShield"->"Thermal shield";default->id;};}
  private void labels(UICommandBuilder c,Ref<EntityStore>ref,Store<EntityStore>s){
-  var y=LaunchYardService.data(s).yards.get(at);if(y==null)return;var p=y.progress;var world=s.getExternalData().getWorld();var formed=LaunchYardService.formed(s,at,y);
-  String state=!formed?"Incomplete / unloaded pad · "+LaunchYardService.present(world,at,y)+" /25 modules":!y.selected?"Pad formed · select a rocket blueprint":p.phase()==ConstructionProgress.Phase.READY?"Rocket complete · use flight control":p.phase()==ConstructionProgress.Phase.ASSEMBLING?"Construction "+(p.workedMillis()/100)+"% · pauses if the pad or clearance is blocked":"Ghost ready · supply blueprint materials";
-  boolean ready=p.phase()==ConstructionProgress.Phase.READY;c.set("#Status.Text",state);
-  c.set("#Footprint.Text","25 × 25 launch platform · "+LaunchYardService.present(world,at,y)+" / 25 modules · "+y.facing);
-  c.set("#Blueprint.Text",y.selected?p.plan().title+(!y.recovered.isEmpty()?" · recovered parts already included":ready?"":" · full-scale preview"):"Odyssey: first Lune expedition. Kestrel: reusable booster, requires a Thermal Shield.");
-  var player=s.getComponent(ref,Player.getComponentType());var inv=player.getInventory().getCombinedHotbarFirst();
-  var costs=new TreeMap<>(p.plan().materials());int row=0;for(var e:costs.entrySet()){
-   if(p.remaining(e.getKey())==0)continue;
-   int carried=0;for(short slot=0;slot<inv.getCapacity();slot++){var item=inv.getItemStack(slot);if(!com.hypixel.hytale.server.core.inventory.ItemStack.isEmpty(item)&&item.getItemId().equals(e.getKey()))carried+=item.getQuantity();}
-   c.set("#Material"+row+".Visible",y.selected&&p.phase()!=ConstructionProgress.Phase.READY);c.set("#Material"+row+" #Icon.ItemId",e.getKey());c.set("#Material"+row+" #Count.Text",title(e.getKey())+" ×"+p.remaining(e.getKey())+" needed · "+carried+" carried"+(y.recovered.getOrDefault(e.getKey(),0)>0?" · "+y.recovered.get(e.getKey())+" recovered":""));row++;
-  }int materialRows=y.selected&&!ready?row:0;for(;row<5;row++)c.set("#Material"+row+".Visible",false);
-  var bounds=new com.hypixel.hytale.server.core.ui.Anchor();bounds.setWidth(com.hypixel.hytale.server.core.ui.Value.of(830));bounds.setHeight(com.hypixel.hytale.server.core.ui.Value.of(ready?330:!y.selected?430:430+materialRows*38));c.setObject("#YardPanel.Anchor",bounds);
-  c.set("#Footprint.Visible",!ready);c.set("#Help.Visible",!ready);c.set("#Recovery.Visible",y.heldFuel>0);
-  c.set("#Flight.Visible",p.phase()==ConstructionProgress.Phase.READY);
-  c.set("#Deposit.Visible",y.selected&&p.phase()==ConstructionProgress.Phase.PREVIEW);c.set("#Build.Visible",y.selected&&p.funded()&&p.phase()==ConstructionProgress.Phase.PREVIEW);
-  c.set("#Cancel.Visible",y.selected&&p.phase()!=ConstructionProgress.Phase.READY);c.set("#Rotate.Visible",!y.selected);
-  c.set("#Plans.Visible",!y.selected);c.set("#Recovery.Text",y.heldFuel>0?"Saved propellant: "+y.heldFuel+" units · retained for the rebuilt rocket":"");
+  var y=LaunchYardService.data(s).yards.get(at);if(y==null)return;var p=y.progress;boolean formed=LaunchYardService.formed(s,at,y),ready=p.phase()==ConstructionProgress.Phase.READY,working=p.phase()==ConstructionProgress.Phase.ASSEMBLING;
+  String blocked=LaunchYardService.data(s).blocked.get(at);
+  c.set("#Status.Text",!formed?"Pad incomplete":ready?"Rocket complete":working?(blocked==null?"Building · "+(p.workedMillis()/100)+"%":"Construction paused"):y.selected?"Blueprint ready":"Choose a rocket");
+  c.set("#Footprint.Text",LaunchYardService.present(s.getExternalData().getWorld(),at,y)+" of 25 modules · 25 × 25 pad · "+y.facing);
+  c.set("#Blueprint.Text",y.selected?p.plan().title+(!y.recovered.isEmpty()?" · recovered assemblies credited":""):"First expedition: Odyssey Heavy");
+  c.set("#ShipIcon.ItemId",p.plan().artId);c.set("#Rotate.Text","Pad: "+y.facing);c.set("#Plans.Visible",!y.selected);
+  var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();
+  int row=0;boolean anyCarried=false;for(var e:new TreeMap<>(p.plan().materials()).entrySet()){
+   int need=p.remaining(e.getKey());if(need==0||!y.selected||ready)continue;int carried=0;
+   for(short slot=0;slot<inv.getCapacity();slot++){var item=inv.getItemStack(slot);if(!com.hypixel.hytale.server.core.inventory.ItemStack.isEmpty(item)&&item.getItemId().equals(e.getKey()))carried+=item.getQuantity();}
+   anyCarried|=carried>0;String id="#Material"+row;c.set(id+".Visible",true);c.set(id+" #Icon.ItemId",e.getKey());c.set(id+" #Count.Text",title(e.getKey()));c.set(id+" #Needed.Text",Integer.toString(need));c.set(id+" #Carried.Text",Integer.toString(carried));row++;
+  }
+  int rows=row;for(;row<5;row++)c.set("#Material"+row+".Visible",false);c.set("#Materials.Visible",rows>0);NativeUi.height(c,"#Materials",102+rows*52);
+  c.set("#Work.Visible",working);c.set("#WorkText.Text",blocked==null?"Construction · "+(p.workedMillis()/100)+"%":blocked);c.set("#WorkProgress.Value",Math.clamp(p.workedMillis()/10000d,0,1));
+  c.set("#Recovery.Visible",y.heldFuel>0);c.set("#Recovery.Text","Saved propellant: "+NativeUi.number(y.heldFuel)+" units");
+  c.set("#Help.Text",ready?"Use flight control to prepare your next expedition.":!y.selected?"Select a full-scale ghost, then supply the blueprint's parts.":working?"Paid work resumes when the complete site is loaded and clear.":!y.recovered.isEmpty()?"Returned assemblies are included. Supply only the missing parts.":"Supply only missing quantities. Other items stay in your pack.");
+  c.set("#Flight.Visible",ready);c.set("#Deposit.Visible",y.selected&&!ready&&!working&&!p.funded());c.set("#Deposit.Disabled",!formed||!anyCarried);c.set("#Build.Visible",y.selected&&!ready&&!working&&p.funded());c.set("#Cancel.Visible",y.selected&&!ready);
+  int body=170+(!y.selected?72:0)+(rows>0?102+rows*52:0)+(working?78:0)+(y.heldFuel>0?36:0)+48;
+  NativeUi.bounds(c,"#YardPanel",1000,80+body+96);
  }
  @Override public void build(Ref<EntityStore>ref,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){
-  c.append("Pages/AstralReach/LaunchYard.ui");labels(c,ref,s);
+  c.append("Pages/AstralReach/LaunchYard.ui");labels(c,ref,s);NativeUi.cue(s,playerRef);
   for(String key:new String[]{"Odyssey","Kestrel","Rotate","Deposit","Build","Cancel","Flight","Close"})e.addEventBinding(CustomUIEventBindingType.Activating,"#"+key,EventData.of("Action",key),false);
  }
  void refresh(Ref<EntityStore>ref,Store<EntityStore>s){if(dismissed)return;try{LaunchYardService.usable(s,ref,playerRef,at);}catch(IllegalArgumentException ex){close();return;}var c=new UICommandBuilder();labels(c,ref,s);sendUpdate(c,false);}
  @Override public void handleDataEvent(Ref<EntityStore>ref,Store<EntityStore>s,RocketPage.Action event){s.getExternalData().getWorld().execute(()->{
   if(dismissed||!ref.isValid()||ref.getStore()!=s)return;var player=s.getComponent(ref,Player.getComponentType());if(player==null||player.getPageManager().getCustomPage()!=this)return;
   if(event.action.equals("Close")){close();return;}
+  if(Set.of("Odyssey","Kestrel","Rotate").contains(event.action))NativeUi.cue(s,playerRef);
   try{var yard=LaunchYardService.usable(s,ref,playerRef,at);if(event.action.equals("Flight")){if(yard.progress.phase()!=ConstructionProgress.Phase.READY)return;var anchor=LaunchYardService.anchor(at,yard);/* PageManager tears down this page during replacement. A separate close sends a late dismiss for the new page. */RocketPage.open(s,ref,playerRef,anchor);return;}}catch(IllegalArgumentException ex){close();return;}
   LaunchYardService.action(s,ref,playerRef,at,event.action);refresh(ref,s);
  });}

@@ -5,6 +5,10 @@ public final class CoreTests {
  static void check(boolean b,String msg){checks++;if(!b)throw new AssertionError(msg);}
  static void reject(Runnable r,String msg){checks++;try{r.run();throw new AssertionError(msg);}catch(IllegalArgumentException|IllegalStateException expected){}}
  public static void main(String[] args){
+  check(DestinationAccess.canTravel("Orbis",true,0),"Protected home return stays available with a missing suit or depleted oxygen");
+  check(!DestinationAccess.canTravel("Lune",true,0)&&DestinationAccess.canTravel("Lune",true,1),"Lunar landing preserves its existing complete Survey suit gate");
+  check(!DestinationAccess.canTravel("Orbis",false,3)&&!DestinationAccess.canTravel("Lune",false,3),"UI selection never grants an unpaid journey");
+  for(String body:List.of("Rustreach","Nacre","Vesper","Umbra","untrusted"))check(!DestinationAccess.canTravel(body,true,3),"Future and unknown destinations cannot become active travel from UI events");
   check(OxygenSupply.remaining(1200,600,OxygenSupply.rate(false,false))==600,"Half a twenty-minute canister after ten minutes of normal breathing");
   check(OxygenSupply.remaining(1200,600,OxygenSupply.rate(true,false))==0&&OxygenSupply.remaining(1200,800,OxygenSupply.rate(false,true))==0,"Underwater ten-minute and sprint thirteen-minute-twenty budgets");
   check(Math.abs(1200/OxygenSupply.stationRate(1)-1333.333333)<.001&&OxygenSupply.stationRate(3)>OxygenSupply.stationRate(1),"Diffuser upkeep and real occupants consume a finite pool");

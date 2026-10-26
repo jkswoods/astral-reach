@@ -81,7 +81,9 @@ final class LaunchYardService {
  static void tick(Store<EntityStore>s,long millis){tickCelebrations(s,millis);var w=s.getExternalData().getWorld();for(var e:new ArrayList<>(data(s).yards.entrySet())){
   var at=e.getKey();var y=e.getValue();var p=y.progress;boolean formed=formed(s,at,y),active=false;
   if(p.phase()==ConstructionProgress.Phase.READY){var a=anchor(at,y);if(NativeBlocks.get(w,a)!=null&&!NativeBlocks.rocket(w,a)&&!RocketService.data(s).rockets.containsKey(a)){y.progress=new ConstructionProgress(p.plan());y.selected=false;p=y.progress;}}
-  if(p.phase()==ConstructionProgress.Phase.ASSEMBLING&&formed){try{clearance(s,at,y);active=true;}catch(IllegalArgumentException ignored){}p.advance(millis,active);
+  data(s).blocked.remove(at);
+  if(p.phase()==ConstructionProgress.Phase.ASSEMBLING&&!formed)data(s).blocked.put(at,"Restore all 25 loaded pad modules to resume.");
+  if(p.phase()==ConstructionProgress.Phase.ASSEMBLING&&formed){try{clearance(s,at,y);active=true;}catch(IllegalArgumentException ex){data(s).blocked.put(at,ex.getMessage());}p.advance(millis,active);
    if(p.due()&&active){var a=anchor(at,y);if(NativeBlocks.set(w,a,BlockType.getAssetMap().getAsset(p.plan().artId))){
     RocketService.data(s).rockets.put(a,new RocketRegistry.Rocket(y.owner,y.heldFuel,p.plan()));p.complete();y.escrow.clear();y.recovered.clear();y.heldFuel=0;active=false;
     // Persist the claimed flag before emitting any finite, non-authoritative visual/audio effect.

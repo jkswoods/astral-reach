@@ -1,22 +1,31 @@
 $C = "../../Common.ui";
-$C.@PageOverlay {
- $C.@Container #FlightPanel { Anchor: (Width: 640, Height: 540);
-  #Title { $C.@Title #RocketTitle { @Text = "Astral Reach"; } }
-  #Content { Padding: (Full: 24); LayoutMode: Top;
-   Label #Status { Anchor: (Height: 45); Style: (FontSize: 20, TextColor: #b6dbd7, Wrap: true); }
-   Label #Route { Anchor: (Height: 76); Style: (FontSize: 16, TextColor: #b7cbd2, Wrap: true); }
-   Group #Fuel { Anchor: (Height: 126); LayoutMode: Top;
-    Group #FillRow { Anchor: (Height: 88); LayoutMode: Top;
-     Label { Anchor: (Height: 38); Text: "Load the missing fuel. Empty canisters return to your inventory."; Style: (FontSize: 14, TextColor: #b7cbd2, Wrap: true); }
-     $C.@TextButton #Fill { Anchor: (Height: 36); Text: "Load trip fuel"; }
-    }
-    $C.@SecondaryTextButton #Drain { Anchor: (Height: 36); Text: "Recover one cell of propellant"; }
-   }
-   $C.@TextButton #Rebuild { Anchor: (Height: 42); Text: "Supply missing parts and rebuild"; }
-   Group { Anchor: (Height: 12); }
-   $C.@TextButton #Launch { Anchor: (Height: 42); Text: "Launch for Lune"; }
-   Group { Anchor: (Height: 10); }
-   $C.@SecondaryTextButton #Close { Anchor: (Height: 36); Text: "Close"; }
+$A = "Astral.ui";
+$C.@PageOverlay { $A.@Window #FlightPanel { Anchor: (Width: 900, Height: 720);
+ $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Label #RocketTitle { Text: "FLIGHT CONTROL"; Style: (FontSize: 27, TextColor: #e3ebf0, RenderBold: true, VerticalAlignment: Center); } }
+ Group { Anchor: (Left: 26, Right: 26, Top: 80, Bottom: 92); LayoutMode: Top;
+  Label #Status { Anchor: (Height: 44); Style: (FontSize: 23, TextColor: #a3d7d1, RenderBold: true, Wrap: true); }
+  $A.@Section #Fuel { Anchor: (Height: 220);
+   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "ROUND TRIP FUEL"; Style: $A.@Heading; } }
+   ItemSlot { Anchor: (Left: 22, Top: 68, Width: 58, Height: 58); ItemId: "AR_PropellantCell"; ShowQuantity: false; }
+   $C.@ProgressBar #FuelProgress { Anchor: (Left: 100, Right: 22, Top: 64, Height: 20); Value: 0; }
+   Label #FuelCount { Anchor: (Left: 100, Right: 22, Top: 92, Height: 38); Style: (FontSize: 24, TextColor: #c2e2e7, RenderBold: true); }
+   Label #Route { Anchor: (Left: 24, Right: 310, Top: 144, Height: 64); Style: $A.@Muted; }
+   $A.@Secondary #Drain { Anchor: (Right: 22, Top: 156, Width: 270, Height: 44); Text: "Recover one cell"; }
   }
+  Group { Anchor: (Height: 16); }
+  $A.@Section #Preparation { Anchor: (Height: 186);
+   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "PREPARATION"; Style: $A.@Heading; } }
+   ItemSlot { Anchor: (Left: 22, Top: 58, Width: 48, Height: 48); ItemId: "AR_Survey_Chest"; ShowQuantity: false; }
+   Label #Suit { Anchor: (Left: 90, Right: 22, Top: 62, Height: 38); Style: $A.@Text; }
+   $A.@Rule { Anchor: (Left: 22, Right: 22, Top: 118, Height: 1); }
+   ItemSlot { Anchor: (Left: 22, Top: 130, Width: 48, Height: 48); ItemId: "AR_OxygenCanister"; ShowQuantity: false; }
+   Label #Oxygen { Anchor: (Left: 90, Right: 22, Top: 134, Height: 38); Style: $A.@Text; }
+  }
+  Label #Help { Anchor: (Height: 54); Style: $A.@Muted; Text: "Board the rocket and ascend to orbit."; }
  }
-}
+ $A.@Rule { Anchor: (Left: 24, Right: 24, Bottom: 82, Height: 1); }
+ $A.@Secondary #Close { Anchor: (Left: 28, Bottom: 24, Width: 180, Height: 46); Text: "Close"; }
+ $A.@Primary #Fill { Anchor: (Right: 28, Bottom: 24, Width: 420, Height: 46); Text: "Load trip fuel"; }
+ $A.@Primary #Rebuild { Anchor: (Right: 28, Bottom: 24, Width: 420, Height: 46); Text: "Supply missing parts"; }
+ $A.@Primary #Launch { Anchor: (Right: 28, Bottom: 24, Width: 420, Height: 46); Text: "Launch to orbit"; }
+} }

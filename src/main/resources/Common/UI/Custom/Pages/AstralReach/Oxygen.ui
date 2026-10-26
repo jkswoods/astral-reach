@@ -1,12 +1,36 @@
 $C = "../../Common.ui";
-Group { Background: #061019b0;
- Group { Anchor: (Width: 560, Height: 430); Background: #152430f8; Padding: (Full: 26); LayoutMode: Top;
-  Label { Anchor: (Height: 40); Text: "OXYGEN DIFFUSER"; Style: (FontSize: 27, TextColor: #e5e9de, RenderBold: true); }
-  Label #Status { Anchor: (Height: 90); Style: (FontSize: 19, TextColor: #9ed6d2, Wrap: true); }
-  Label { Anchor: (Height: 65); Text: "8-block radius · 4 canisters maximum · One full canister: about 22 min with one person."; Style: (FontSize: 17, TextColor: #b6c8cc, Wrap: true); }
-  $C.@TextButton #Load { Anchor: (Height: 42); Text: "Load one oxygen canister"; }
-  $C.@SecondaryTextButton #Collect { Anchor: (Height: 42); Text: "Collect all canisters"; }
-  $C.@SecondaryTextButton #Toggle { Anchor: (Height: 42); Text: "Switch on / off"; }
-  $C.@SecondaryTextButton #Close { Anchor: (Height: 42); Text: "Close"; }
+$A = "Astral.ui";
+$C.@PageOverlay { $A.@Window { Anchor: (Width: 900, Height: 760);
+ $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Label { Text: "OXYGEN DIFFUSER"; Style: (FontSize: 29, TextColor: #e2eaf0, RenderBold: true, VerticalAlignment: Center); } }
+ Group { Anchor: (Left: 26, Right: 26, Top: 80, Bottom: 92); LayoutMode: Top;
+  Label #Status { Anchor: (Height: 46); Style: (FontSize: 24, TextColor: #9ed7d1, RenderBold: true); }
+  $A.@Section { Anchor: (Height: 220);
+   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label #CanisterCount { Text: "CANISTERS"; Style: $A.@Heading; } }
+   Group { Anchor: (Left: 36, Right: 36, Top: 64, Bottom: 16); LayoutMode: Left;
+Group { Anchor: (Width: 180); LayoutMode: Top;
+ Group { Anchor: (Height: 96); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Canister0 { Anchor: (Width: 84, Height: 84); ShowQuantity: false; } }
+ $C.@ProgressBar #Charge0 { Anchor: (Height: 10, Left: 8, Right: 8); Value: 0; } Label #ChargeText0 { Anchor: (Height: 34); Style: (FontSize: 21, TextColor: #b7dae3, HorizontalAlignment: Center, VerticalAlignment: Center); } } Group { Anchor: (Width: 14); }
+Group { Anchor: (Width: 180); LayoutMode: Top;
+ Group { Anchor: (Height: 96); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Canister1 { Anchor: (Width: 84, Height: 84); ShowQuantity: false; } }
+ $C.@ProgressBar #Charge1 { Anchor: (Height: 10, Left: 8, Right: 8); Value: 0; } Label #ChargeText1 { Anchor: (Height: 34); Style: (FontSize: 21, TextColor: #b7dae3, HorizontalAlignment: Center, VerticalAlignment: Center); } } Group { Anchor: (Width: 14); }
+Group { Anchor: (Width: 180); LayoutMode: Top;
+ Group { Anchor: (Height: 96); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Canister2 { Anchor: (Width: 84, Height: 84); ShowQuantity: false; } }
+ $C.@ProgressBar #Charge2 { Anchor: (Height: 10, Left: 8, Right: 8); Value: 0; } Label #ChargeText2 { Anchor: (Height: 34); Style: (FontSize: 21, TextColor: #b7dae3, HorizontalAlignment: Center, VerticalAlignment: Center); } } Group { Anchor: (Width: 14); }
+Group { Anchor: (Width: 180); LayoutMode: Top;
+ Group { Anchor: (Height: 96); Background: (TexturePath: "Common/Buttons/Tertiary.png", Border: 12); ItemSlot #Canister3 { Anchor: (Width: 84, Height: 84); ShowQuantity: false; } }
+ $C.@ProgressBar #Charge3 { Anchor: (Height: 10, Left: 8, Right: 8); Value: 0; } Label #ChargeText3 { Anchor: (Height: 34); Style: (FontSize: 21, TextColor: #b7dae3, HorizontalAlignment: Center, VerticalAlignment: Center); } } Group { Anchor: (Width: 14); }
+   }
+  }
+  Group { Anchor: (Height: 16); }
+  $A.@Section { Anchor: (Height: 160);
+   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "FIELD"; Style: $A.@Heading; } }
+   ItemSlot { Anchor: (Left: 26, Top: 66, Width: 72, Height: 72); ItemId: "AR_OxygenDiffuser"; ShowQuantity: false; }
+   Label #Field { Anchor: (Left: 122, Right: 22, Top: 58, Height: 92); Style: (FontSize: 22, TextColor: #bddbe1, Wrap: true); }
+  }
+  Group { Anchor: (Height: 18); }
+  Group { Anchor: (Height: 50); LayoutMode: Left; $A.@Secondary #Load { Anchor: (Width: 412, Height: 46); Text: "Load one canister"; } Group { Anchor: (Width: 16); } $A.@Secondary #Collect { Anchor: (Width: 412, Height: 46); Text: "Collect all"; } }
  }
-}
+ $A.@Rule { Anchor: (Left: 24, Right: 24, Bottom: 82, Height: 1); }
+ $A.@Secondary #Close { Anchor: (Left: 28, Bottom: 24, Width: 180, Height: 46); Text: "Close"; }
+ $A.@Primary #Toggle { Anchor: (Right: 28, Bottom: 24, Width: 330, Height: 46); Text: "Switch on"; }
+} }

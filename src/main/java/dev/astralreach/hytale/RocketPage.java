@@ -26,26 +26,30 @@ final class RocketPage extends InteractiveCustomUIPage<RocketPage.Action> {
   var player=s.getComponent(ref,Player.getComponentType());if(player!=null)player.getPageManager().openCustomPage(ref,s,new RocketPage(p,at,moon));
  }
  void labels(UICommandBuilder c,Store<EntityStore>s){
-  var r=RocketService.data(s).rockets.get(at);var f=s.getComponent(playerRef.getReference(),AstralReachPlugin.flightType);
-  c.set("#RocketTitle.Text",moon?"Lune Return Beacon":(r==null?"Rocket":r.plan.title)+" · Flight Control");
-  c.set("#Status.Text",moon?(f!=null&&f.trip!=null?"Return reserve: "+f.trip.returnUnits()+" units paid at home":"No paid journey. This beacon does not grant travel."):(r==null?"Rocket unavailable":r.traveller!=null?"Mission in progress · tank locked":r.needsRebuild?"Returned vehicle · replacement parts required":"Fuel: "+r.tank.units()+" / 9,000 units needed"));
-  c.set("#Route.Text",moon?"Return to your saved home departure point with your gathered ores.":"Home to Lune and return. Requires 9,000 units: 6,000 outward + 3,000 protected for return.");
-  c.set("#Rebuild.Visible",!moon&&r!=null&&r.needsRebuild);c.set("#Fill.Visible",!moon&&r!=null&&!r.needsRebuild&&r.traveller==null&&r.tank.units()<9000);c.set("#Launch.Visible",moon||r!=null&&!r.needsRebuild&&r.traveller==null&&r.tank.units()>=9000);
-  if(!moon&&r!=null&&r.needsRebuild)c.set("#Route.Text","Returned assemblies are credited. Missing parts: "+dev.astralreach.core.RocketRecovery.missing(r.plan,r.boosterLanded));
-  boolean fill=!moon&&r!=null&&!r.needsRebuild&&r.traveller==null&&r.tank.units()<9000,drain=!moon&&r!=null&&!r.needsRebuild&&r.traveller==null&&r.tank.units()>=1000;
-  c.set("#Fuel.Visible",fill||drain);c.set("#FillRow.Visible",fill);c.set("#Drain.Visible",drain);c.set("#Launch.Text",moon?"Board and return to Orbis":"Board and launch");
-  var fuelBounds=new com.hypixel.hytale.server.core.ui.Anchor();fuelBounds.setHeight(com.hypixel.hytale.server.core.ui.Value.of((fill?88:0)+(drain?44:0)));c.setObject("#Fuel.Anchor",fuelBounds);
-  var bounds=new com.hypixel.hytale.server.core.ui.Anchor();bounds.setWidth(com.hypixel.hytale.server.core.ui.Value.of(640));bounds.setHeight(com.hypixel.hytale.server.core.ui.Value.of(moon?360:390+(fill?88:0)+(drain?44:0)));c.setObject("#FlightPanel.Anchor",bounds);
+  var r=RocketService.data(s).rockets.get(at);var ref=playerRef.getReference();var f=s.getComponent(ref,AstralReachPlugin.flightType);var player=s.getComponent(ref,Player.getComponentType());
+  boolean paid=f!=null&&f.trip!=null,returnable=moon&&paid&&(f.trip.phase()==dev.astralreach.core.Journey.Phase.LUNE||f.trip.phase()==dev.astralreach.core.Journey.Phase.ORBIT);
+  boolean busy=!moon&&r!=null&&r.traveller!=null,rebuild=!moon&&r!=null&&r.needsRebuild,fill=!moon&&r!=null&&!rebuild&&!busy&&r.tank.units()<9000;
+  int units=moon?(paid?f.trip.returnUnits():0):r==null?0:r.tank.units();boolean sealed=ExpeditionSuit.tier(s,ref)>0;double oxygen=player==null?0:OxygenCanisters.total(player.getInventory().getCombinedStorageHotbarBackpack());boolean oxygenReady=oxygen>=240;
+  c.set("#RocketTitle.Text",moon?"RETURN TO ORBIS":"FLIGHT CONTROL · "+(r==null?"Rocket":r.plan.title));
+  c.set("#Status.Text",moon?(returnable?"Your homeward fuel is already paid":"No paid journey"):r==null?"Rocket unavailable":busy?"Mission in progress · tank locked":rebuild?"Returned vehicle · service required":fill?"Prepare the round trip":"Round-trip fuel ready");
+  c.set("#Fuel.Visible",!rebuild);c.set("#FuelProgress.Value",moon?(returnable?1:0):Math.clamp(units/9000d,0,1));c.set("#FuelCount.Text",moon?NativeUi.number(units)+" units protected":NativeUi.number(units)+" / 9,000 units");
+  c.set("#Route.Text",moon?"Reserved at departure for this homeward trip.":"6,000 units outbound\n3,000 units protected for return");
+  c.set("#Drain.Visible",!moon&&r!=null&&!rebuild&&!busy&&units>=1000);c.set("#Fill.Visible",fill);c.set("#Rebuild.Visible",rebuild);c.set("#Launch.Visible",moon||!fill&&!rebuild);
+  c.set("#Launch.Text",moon?"Board and return to Orbis":"Launch to orbit");c.set("#Launch.Disabled",moon?!returnable:!(r!=null&&!busy&&!rebuild&&units>=9000&&sealed&&oxygenReady));
+  c.set("#Preparation.Visible",!rebuild);c.set("#Suit.Text",sealed?"Ready · complete Survey suit or better":"Equip all four Survey suit pieces");c.set("#Oxygen.Text",oxygenReady?"Ready · "+NativeUi.duration(oxygen)+" oxygen reserve":"Carry at least 4:00 oxygen reserve");
+  c.set("#Help.Text",rebuild?"Returned assemblies credited. Carry "+NativeUi.materials(dev.astralreach.core.RocketRecovery.missing(r.plan,r.boosterLanded))+".":moon?"Board the landed upper stage and return to your saved platform.":busy?"Finish the active mission before changing fuel.":"Board the rocket and ascend to orbit.");
+  NativeUi.height(c,"#Help",rebuild?120:54);NativeUi.bounds(c,"#FlightPanel",900,rebuild?400:720);
  }
  @Override public void build(Ref<EntityStore>ref,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){
   trace("build");
-  c.append("Pages/AstralReach/Rocket.ui");labels(c,s);
+  c.append("Pages/AstralReach/Rocket.ui");labels(c,s);NativeUi.cue(s,playerRef);
   for(String key:new String[]{"Fill","Drain","Rebuild","Launch","Close"})e.addEventBinding(CustomUIEventBindingType.Activating,"#"+key,EventData.of("Action",key),false);
  }
  @Override public void handleDataEvent(Ref<EntityStore>ref,Store<EntityStore>s,Action a){s.getExternalData().getWorld().execute(()->{
   trace("dispatch");
   if(dismissed||!ref.isValid()||ref.getStore()!=s){trace("rejected-lifecycle");return;}var player=s.getComponent(ref,Player.getComponentType());if(player==null||player.getPageManager().getCustomPage()!=this){trace("rejected-current-page");return;}
   if(a.action.equals("Close")){close();return;}
+
   if(!RocketService.controlRange(s,ref,playerRef,at)){close();return;}
   if(a.action.equals("Launch")){if(moon){close();RocketService.returnHome(s,ref,playerRef);}else RocketService.launch(s,ref,playerRef,at);return;}
   if(!moon&&a.action.equals("Rebuild"))RocketService.rebuildLegacy(s,ref,playerRef,at);

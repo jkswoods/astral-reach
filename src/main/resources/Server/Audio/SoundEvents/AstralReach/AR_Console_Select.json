@@ -1,0 +1,13 @@
+{
+  "AudioCategory": "AR_SuitInterior",
+  "Volume": -8,
+  "MaxInstance": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/console_select.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

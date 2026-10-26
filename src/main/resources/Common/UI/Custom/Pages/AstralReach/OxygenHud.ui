@@ -1,8 +1,11 @@
 $C = "../../Common.ui";
+$A = "Astral.ui";
 Group { HitTestVisible: false;
- Group { Anchor: (Right: 28, Bottom: 150, Width: 320, Height: 100); Background: #101d27dc; Padding: (Full: 14); LayoutMode: Top;
-  Label #Oxygen { Anchor: (Height: 27); Text: "OXYGEN"; Style: (FontSize: 20, TextColor: #c8e7df, RenderBold: true); }
-  $C.@ProgressBar #OxygenFill { Anchor: (Height: 8); Value: 0; }
-  Label #Environment { Anchor: (Height: 38); Style: (FontSize: 15, TextColor: #adc3c7, Wrap: true); }
+ $A.@Section { Anchor: (Right: 28, Bottom: 148, Width: 350, Height: 142);
+  $A.@SectionHeader { Anchor: (Left: 5, Right: 5, Top: 5, Height: 32); Label { Text: "OXYGEN"; Style: (FontSize: 17, TextColor: #b4cfdf, RenderBold: true, VerticalAlignment: Center); } }
+  ItemSlot { Anchor: (Left: 16, Top: 48, Width: 42, Height: 54); ItemId: "AR_OxygenCanister"; ShowQuantity: false; }
+  $C.@ProgressBar #OxygenFill { Anchor: (Left: 76, Right: 18, Top: 48, Height: 12); Value: 0; }
+  Label #Oxygen { Anchor: (Left: 76, Right: 16, Top: 70, Height: 30); Style: (FontSize: 23, TextColor: #c8e7df, RenderBold: true); }
+  Label #Environment { Anchor: (Left: 16, Right: 16, Bottom: 10, Height: 30); Style: (FontSize: 15, TextColor: #a4bdcb, Wrap: true); }
  }
 }

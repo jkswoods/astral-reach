@@ -1,34 +1,64 @@
 $C = "../../Common.ui";
-$C.@PageOverlay {
- $C.@Container #YardPanel { Anchor: (Width: 830, Height: 650);
-  #Title { $C.@Title { @Text = "Launch Platform"; } }
-  #Content { Padding: (Full: 20); LayoutMode: Top;
-   Label #Status { Anchor: (Height: 36); Style: (FontSize: 20, TextColor: #b6dbd7, Wrap: true); }
-   Label #Footprint { Anchor: (Height: 40); Style: (FontSize: 15, TextColor: #b7cbd2, Wrap: true); }
-   Group #Plans { Anchor: (Height: 40); LayoutMode: Left;
-    $C.@TextButton #Odyssey { Anchor: (Width: 270, Height: 36); Text: "Odyssey Heavy"; }
-    Group { Anchor: (Width: 10); }
-    $C.@SecondaryTextButton #Kestrel { Anchor: (Width: 270, Height: 36); Text: "Kestrel Stack"; }
-    Group { Anchor: (Width: 10); }
-    $C.@SecondaryTextButton #Rotate { Anchor: (Width: 180, Height: 36); Text: "Rotate pad"; }
+$A = "Astral.ui";
+$C.@PageOverlay { $A.@Window #YardPanel { Anchor: (Width: 1000, Height: 780);
+ $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Label { Text: "LAUNCH PLATFORM"; Style: (FontSize: 29, TextColor: #e0e9ee, RenderBold: true, VerticalAlignment: Center); } }
+ Group { Anchor: (Left: 26, Right: 26, Top: 82, Bottom: 92); LayoutMode: Top;
+  Group #BlueprintSummary { Anchor: (Height: 170); LayoutMode: Left;
+   $A.@Section { Anchor: (Width: 220); ItemSlot #ShipIcon { Anchor: (Width: 150, Height: 150); ShowQuantity: false; } }
+   Group { Anchor: (Width: 22); }
+   Group { FlexWeight: 1; LayoutMode: Top;
+    Label #Status { Anchor: (Height: 45); Style: (FontSize: 24, TextColor: #d4e6e4, RenderBold: true, Wrap: true); }
+    Label #Footprint { Anchor: (Height: 34); Style: $A.@Muted; }
+    $A.@Rule { }
+    Label #Blueprint { Anchor: (Height: 64); Style: (FontSize: 23, TextColor: #a8cfda, Wrap: true, VerticalAlignment: Center); }
    }
-   Label #Blueprint { Anchor: (Height: 48); Style: (FontSize: 16, TextColor: #c5d4d8, Wrap: true); }
-   Group #Material0 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
-   Group #Material1 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
-   Group #Material2 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
-   Group #Material3 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
-   Group #Material4 { Anchor: (Height: 38); LayoutMode: Left; ItemSlot #Icon { Anchor: (Width: 36, Height: 36); ShowQuantity: false; } Label #Count { Anchor: (Width: 720, Height: 36); Style: (FontSize: 16, TextColor: #d8e4e4, VerticalAlignment: Center); } }
-   Group { Anchor: (Height: 44); LayoutMode: Left;
-    $C.@TextButton #Deposit { Anchor: (Width: 230, Height: 38); Text: "Supply needed parts"; }
-    Group { Anchor: (Width: 10); }
-    $C.@SecondaryTextButton #Build { Anchor: (Width: 170, Height: 38); Text: "Retry construction"; }
-    Group { Anchor: (Width: 10); }
-    $C.@SecondaryTextButton #Cancel { Anchor: (Width: 265, Height: 38); Text: "Return supplied parts"; }
-    $C.@TextButton #Flight { Anchor: (Width: 230, Height: 38); Text: "Open flight control"; }
-   }
-   Label #Recovery { Anchor: (Height: 34); Style: (FontSize: 16, TextColor: #d8b77c, Wrap: true); }
-   Label #Help { Anchor: (Height: 42); Text: "Supply the remaining parts from your inventory. Building takes 10 seconds, then fireworks mark completion."; Style: (FontSize: 14, TextColor: #b7cbd2, Wrap: true); }
-   $C.@SecondaryTextButton #Close { Anchor: (Width: 180, Height: 36); Text: "Close"; }
   }
+  Group #Plans { Anchor: (Height: 72); LayoutMode: Left;
+   $A.@Primary #Odyssey { Anchor: (Width: 300, Height: 52); Text: "Odyssey Heavy"; }
+   Group { Anchor: (Width: 14); }
+   $A.@Secondary #Kestrel { Anchor: (Width: 300, Height: 52); Text: "Kestrel Stack"; }
+   Group { Anchor: (Width: 14); }
+   $A.@Secondary #Rotate { Anchor: (Width: 300, Height: 52); Text: "Pad: North"; }
+  }
+  $A.@Section #Materials { Anchor: (Height: 380);
+   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "PARTS STILL NEEDED"; Style: $A.@Heading; } }
+   Group { Anchor: (Left: 22, Right: 22, Top: 56, Height: 34); LayoutMode: Left; Label { Anchor: (Width: 532); Text: "Part"; Style: $A.@Muted; } Label { Anchor: (Width: 150); Text: "Needed"; Style: (FontSize: 18, TextColor: #99afc2, HorizontalAlignment: Center); } Label { Anchor: (Width: 150); Text: "In pack"; Style: (FontSize: 18, TextColor: #99afc2, HorizontalAlignment: Center); } }
+   Group { Anchor: (Left: 22, Right: 22, Top: 92, Bottom: 10); LayoutMode: Top;
+Group #Material0 { Anchor: (Height: 52); LayoutMode: Top;
+ Group { Anchor: (Height: 48); LayoutMode: Left;
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
+ } $A.@Rule { } }
+Group #Material1 { Anchor: (Height: 52); LayoutMode: Top;
+ Group { Anchor: (Height: 48); LayoutMode: Left;
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
+ } $A.@Rule { } }
+Group #Material2 { Anchor: (Height: 52); LayoutMode: Top;
+ Group { Anchor: (Height: 48); LayoutMode: Left;
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
+ } $A.@Rule { } }
+Group #Material3 { Anchor: (Height: 52); LayoutMode: Top;
+ Group { Anchor: (Height: 48); LayoutMode: Left;
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
+ } $A.@Rule { } }
+Group #Material4 { Anchor: (Height: 52); LayoutMode: Top;
+ Group { Anchor: (Height: 48); LayoutMode: Left;
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
+ } $A.@Rule { } }
+   }
+  }
+  Group #Work { Anchor: (Height: 78); LayoutMode: Top; Label #WorkText { Anchor: (Height: 32); Style: $A.@Text; } $C.@ProgressBar #WorkProgress { Anchor: (Height: 16); Value: 0; } }
+  Label #Recovery { Anchor: (Height: 36); Style: (FontSize: 19, TextColor: #d9bb79, Wrap: true); }
+  Label #Help { Anchor: (Height: 48); Style: $A.@Muted; Text: "Only missing parts are supplied. Paid work pauses if the pad or clearance is blocked."; }
  }
-}
+ $A.@Rule { Anchor: (Left: 24, Right: 24, Bottom: 82, Height: 1); }
+ $A.@Secondary #Close { Anchor: (Left: 28, Bottom: 24, Width: 168, Height: 46); Text: "Close"; }
+ $A.@Secondary #Cancel { Anchor: (Left: 210, Bottom: 24, Width: 340, Height: 46); Text: "Return supplied parts"; }
+ $A.@Primary #Deposit { Anchor: (Right: 28, Bottom: 24, Width: 390, Height: 46); Text: "Supply needed parts"; }
+ $A.@Primary #Build { Anchor: (Right: 28, Bottom: 24, Width: 390, Height: 46); Text: "Retry construction"; }
+ $A.@Primary #Flight { Anchor: (Right: 28, Bottom: 24, Width: 390, Height: 46); Text: "Open flight control"; }
+} }
