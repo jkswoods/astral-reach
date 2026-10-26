@@ -42,4 +42,4 @@ The redesigned **Destinations** screen becomes available after reaching space. S
 
 Close the screen to remain in orbit. `/astral-map` reopens navigation without charging more fuel. Closing navigation does not spend the return reserve.
 
-This revised interface is a development change awaiting native interaction and visual checks. Earlier gallery screenshots show the previous layout.
+The revised interface has representative native selection and paid travel checks on Hytale 0.7.4. Further visual polish is awaiting recheck; earlier gallery screenshots show the previous layout.
