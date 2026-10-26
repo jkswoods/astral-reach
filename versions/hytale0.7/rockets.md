@@ -38,14 +38,16 @@ The model workshop also contains the independent Kestrel upper ship, Peregrine e
 
 The redesigned **Destinations** screen becomes available after reaching space. Select a route in the list or click a planet on the top-down system chart. Its details show resources, equipment, available oxygen and protected homeward fuel. Use the single travel button to land on **Lune** or return to **Orbis**. Later bodies remain **Future route** entries with travel disabled.
 
-The interface uses a simple clickable top-down system chart. Select a planet directly or use the route list. The separate 3D view and draggable map are removed; no pan or zoom controls are needed.
+The interface uses a simple clickable top-down system chart. Select a planet directly or use the route list. There are no drag, pan, zoom or separate 3D controls.
 
 <figure><a href="/assets/hytale0.7/screenshots/destinations-ui-private.png"><img src="/assets/hytale0.7/screenshots/destinations-ui-private.png" alt="Native top-down Destinations panel with Lune selected"></a><figcaption>Current private interface in Hytale 0.7.4. The separate 3D option is removed; later routes remain disabled. Appearance review continues.</figcaption></figure>
 
-During a cancellable launch, **ABORT LAUNCH** stops the active departure using its existing fuel-restoration handling. The private interface now displays a large red button, checked in Hytale0.7.4 using a temporary no-journey overlay. The updated button has not yet had a fresh paid-launch cancellation test.
+During a cancellable launch, the large red **ABORT LAUNCH** button stops the active departure and restores its reserved fuel. A local Hytale 0.7.4 test cancelled a real paid launch and returned all **9,000 units** to the rocket. The full tank persisted after a normal quit and reload.
 
 Close the screen to remain in orbit. `/astral-map` reopens navigation without charging more fuel. Closing navigation does not spend the return reserve.
 
-<figure><a href="/assets/hytale0.7/screenshots/abort-launch-ui-private.png"><img src="/assets/hytale0.7/screenshots/abort-launch-ui-private.png" alt="Large red ABORT LAUNCH button in native Hytale"></a><figcaption>Actual private Hytale0.7.4 rendering in a four-second diagnostic overlay. This capture demonstrates the button’s appearance; it is not a paid-flight cancellation.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/abort-launch-ui-private.png"><img src="/assets/hytale0.7/screenshots/abort-launch-ui-private.png" alt="Large red ABORT LAUNCH button in native Hytale"></a><figcaption>Actual private Hytale 0.7.4 capture during a paid launch, with Abort highlighted. Selecting it returned the player home and restored the reserved fuel.</figcaption></figure>
 
-The revised interface has representative native selection, clean item icons and paid travel checks on Hytale0.7.4. Map gestures and further visual refinement remain in development; earlier gallery screenshots show the previous layout.
+The revised interface has representative native selection, clean item icons, construction, paid travel and cancellation checks on Hytale 0.7.4. Human appearance, comfort, listening and multiplayer acceptance remain open. Earlier gallery screenshots show the previous layout.
+
+<figure><a href="/assets/hytale0.7/screenshots/flight-control-ui-private.png"><img src="/assets/hytale0.7/screenshots/flight-control-ui-private.png" alt="Flight Control after a cancelled launch and normal reload, with the full 9,000-unit tank"></a><figcaption>The full tank after cancelling the launch, saving and reloading. This local functional test used staged fuel and equipment; it does not establish a complete survival walkthrough.</figcaption></figure>

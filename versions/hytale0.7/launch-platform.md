@@ -54,3 +54,5 @@ The new extended-ascent candidate increases those requirements to **19×19×205*
 
 
 <figure><a href="/assets/hytale0.7/screenshots/construction-ui-private.png"><img src="/assets/hytale0.7/screenshots/construction-ui-private.png" alt="Native Kestrel construction panel with recovered assemblies and four missing frame plates"></a><figcaption>Current private construction panel in Hytale 0.7.4. Recovered assemblies are credited, and only missing quantities are shown.</figcaption></figure>
+
+<figure><a href="/assets/hytale0.7/screenshots/construction-odyssey-ui-private.png"><img src="/assets/hytale0.7/screenshots/construction-odyssey-ui-private.png" alt="Completed Odyssey Heavy construction panel with its full-height rocket preview and flight-control button"></a><figcaption>A completed Odyssey uses the same compact panel. Open Flight Control to load fuel and check expedition equipment.</figcaption></figure>
