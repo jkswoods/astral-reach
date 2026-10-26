@@ -4,7 +4,7 @@ Group {
  $A.@Section { Anchor: (Top: 30, Left: 40, Width: 540, Height: 152);
   $A.@SectionHeader { Anchor: (Left: 5, Right: 5, Top: 5, Height: 34); Label { Text: "ASTRAL REACH · FLIGHT"; Style: (FontSize: 18, TextColor: #b4cddd, RenderBold: true, VerticalAlignment: Center); } }
   Label #Stage { Anchor: (Left: 20, Right: 20, Top: 50, Height: 56); Text: "IGNITION"; Style: (FontSize: 26, TextColor: #e4edf1, Wrap: true, RenderBold: true); }
-  Group #Progress { Anchor: (Left: 20, Right: 20, Bottom: 18, Height: 18); $C.@ProgressBar #FlightProgress { Anchor: (Left: 0, Right: 76, Height: 14); Value: 0; } Label #FlightPercent { Anchor: (Right: 0, Width: 62, Height: 22); Style: (FontSize: 19, TextColor: #b1d5dc, HorizontalAlignment: End); } }
+  Group #Progress { Anchor: (Left: 20, Right: 20, Bottom: 18, Height: 18); $A.@Progress #FlightProgress { Anchor: (Left: 0, Right: 76, Height: 14); Value: 0; } Label #FlightPercent { Anchor: (Right: 0, Width: 62, Height: 22); Style: (FontSize: 19, TextColor: #b1d5dc, HorizontalAlignment: End); } }
  }
  $A.@Secondary #Abort { Anchor: (Bottom: 30, Left: 40, Width: 300, Height: 44); Text: "Abort launch"; }
 }

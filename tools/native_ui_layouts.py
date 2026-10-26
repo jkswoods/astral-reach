@@ -207,3 +207,50 @@ for p in r.glob('*.ui'):
  if p.name not in ['Astral.ui','YardSlot.ui','YardRow.ui']:
   s=p.read_text().replace('$C.@TextButton','$A.@Primary').replace('$C.@SecondaryTextButton','$A.@Secondary')
   p.write_text(s)
+
+# Reconcile the observed UI1r2 render with the exact selected working concepts.
+# Every replacement starts from the generator above, so reruns are idempotent.
+p=r/'Astral.ui';s=p.read_text()
+s=s.replace('@Text = (FontSize: 20','@Text = (FontSize: 24').replace('@Muted = (FontSize: 18','@Muted = (FontSize: 22').replace('@Heading = (FontSize: 21','@Heading = (FontName: "Secondary", FontSize: 24')
+s=s.replace('(TexturePath: "../../Common/ContainerFullPatch.png", Border: 20)','(TexturePath: "Art/WindowPatch.png", Border: 12)').replace('(TexturePath: "../../Common/ContainerPatch.png", Border: 23)','(TexturePath: "Art/PanelPatch.png", Border: 8)')
+s=s.replace('(TexturePath: "../../Common/ContainerHeaderNoRunes.png", HorizontalBorder: 35, VerticalBorder: 0)','(TexturePath: "Art/SectionHeader.png", Border: 8)')
+s=s.replace('@Header = Group { Background: (TexturePath: "Art/SectionHeader.png", Border: 8)','@Header = Group { Background: (TexturePath: "Art/TitleHeader.png", Border: 8)')
+for old,new in [('Tertiary','Row'),('Tertiary_Hovered','RowHovered'),('Tertiary_Pressed','RowPressed'),('Secondary','ControlSecondary'),('Secondary_Hovered','ControlSecondary_Hovered'),('Secondary_Pressed','ControlSecondary_Pressed')]:s=s.replace(f'(TexturePath: "../../Common/Buttons/{old}.png", Border: 12)',f'(TexturePath: "Art/{new}.png", Border: 8)')
+s=s.replace('@ButtonLabel = (...$C.@DefaultButtonLabelStyle, FontSize: 20);','@ButtonLabel = (...$C.@DefaultButtonLabelStyle, FontName: "Secondary", FontSize: 24, RenderUppercase: false, MinShrinkTextToFitFontSize: 18);')
+for old,new in [('Default','ControlPrimary'),('Hovered','ControlPrimary_Hovered'),('Pressed','ControlPrimary_Pressed'),('Disabled','ControlDisabled')]:s=s.replace('$C.@DefaultButton'+old+'Background',f'(TexturePath: "Art/{new}.png", Border: 8)')
+s+='\n@Progress = ProgressBar { Background: "Art/MeterTrack.png"; BarTexturePath: "Art/MeterFill.png"; };\n';p.write_text(s)
+for name in ['OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.ui','Ascent.ui','OrbitalMapHud.ui']:
+ p=r/name;s=p.read_text().replace('$C.@ProgressBar','$A.@Progress').replace('(TexturePath: "../../Common/Buttons/Tertiary.png", Border: 12)','(TexturePath: "Art/Row.png", Border: 8)')
+ if name=='OrbitalMap.ui':
+  s=s.replace('$C.@SecondaryTextButton','$A.@Secondary').replace('$C.@TextButton','$A.@Primary')
+  s=s.replace('FontSize: 36','FontName: "Secondary", FontSize: 38')
+  s=s.replace('Label { Text: "DESTINATIONS";','Group { Anchor: (Left: 8, Width: 42, Height: 42); Background: "Art/Compass.png"; HitTestVisible: false; } Label { Anchor: (Left: 88, Right: 250); Text: "DESTINATIONS";')
+  s=s.replace('Height: 260','Height: 258').replace('Height: 118','Height: 128').replace('Height: 146','Height: 156')
+  s=s.replace('Group { Anchor: (Height: 12); }','Group { Anchor: (Height: 6); }')
+  s=s.replace('Width: 170, Height: 170','Width: 190, Height: 190')
+  mini=''.join(f'Group #Mini{n} {{ Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_{n}.png"; HitTestVisible: false; }} ' for n in planets)
+  s=s.replace('Label #Selected { Text: "LUNE";',mini+'Label #Selected { Anchor: (Left: 40, Right: 0); Text: "LUNE";')
+  s=s.replace('Group #PreviewOrbis','Group { Anchor: (Left: 8, Right: 8, Top: 48, Bottom: 8); Background: "Art/StarField.png"; HitTestVisible: false; }\nGroup #PreviewOrbis')
+  s=s.replace('Top: 54, Height: 52','Top: 54, Height: 64').replace('Left: 4, Top: 2, Width: 48, Height: 48','Left: 4, Top: 4, Width: 56, Height: 56').replace('Left: 58, Right: 4, Top: 2, Height: 48','Left: 66, Right: 4, Top: 2, Height: 60').replace('FontSize: 18, TextColor: #d4e0e7','FontSize: 22, TextColor: #d4e0e7')
+  s=s.replace('Top: 50, Height: 42','Top: 50, Height: 48').replace('Top: 96, Height: 42','Top: 104, Height: 48').replace('Left: 4, Width: 42, Height: 42','Left: 4, Width: 46, Height: 46').replace('Left: 58, Right: 40, Top: 2, Height: 38','Left: 62, Right: 44, Top: 2, Height: 44').replace('FontSize: 19, TextColor: #cbd9e1','FontSize: 22, TextColor: #cbd9e1')
+  s=s.replace('Right: 10, Top: 9, Width: 24, Height: 24','Right: 9, Top: 9, Width: 30, Height: 30').replace('#e4c37b','#ffd46e')
+  for n in ['Rustreach','Nacre','Vesper','Umbra']:
+   start=s.index('Button #Route'+n);end=s.index('Group { Anchor: (Height: 9); }',start);row=s[start:end];row=row.replace('Right: 8, Height: 28','Right: 42, Height: 28').replace('Right: 8, Height: 26','Right: 42, Height: 26');row=row.rstrip();row=row[:-1]+f' Group {{ Anchor: (Right: 14, Top: 30, Width: 24, Height: 30); Background: "Art/Lock.png"; HitTestVisible: false; }} }} ';s=s[:start]+row+s[end:]
+ elif name=='Oxygen.ui':
+  s=s.replace('Width: 900, Height: 760','Width: 900, Height: 720').replace('Anchor: (Height: 220)','Anchor: (Height: 252)').replace('Left: 36, Right: 36, Top: 64, Bottom: 16','Width: 692, Top: 64, Bottom: 16').replace('Anchor: (Width: 180);','Anchor: (Width: 140);').replace('Anchor: (Height: 96);','Anchor: (Height: 124);').replace('Width: 84, Height: 84','Width: 104, Height: 104').replace('Height: 10, Left: 8','Height: 12, Left: 8').replace('FontSize: 21, TextColor: #b7dae3','FontSize: 24, TextColor: #b7dae3').replace('FontSize: 22, TextColor: #bddbe1','FontSize: 25, TextColor: #bddbe1')
+  # Three true gutters; no invisible fourth gutter shifts the last canister.
+  needle='Group { Anchor: (Width: 14); }';positions=[];pos=0
+  while (pos:=s.find(needle,pos))>=0:positions.append(pos);pos+=len(needle)
+  for i,pos in reversed(list(enumerate(positions))):s=s[:pos]+('Group { Anchor: (Width: 44); }' if i<3 else '')+s[pos+len(needle):]
+ if name in ['LaunchYard.ui','Rocket.ui','Oxygen.ui']:
+  s=s.replace('FontSize: 29','FontName: "Secondary", FontSize: 34').replace('FontSize: 27','FontName: "Secondary", FontSize: 34')
+  for title in ['LAUNCH PLATFORM','OXYGEN DIFFUSER']:
+   s=s.replace('Label { Text: "'+title+'";','Group { Anchor: (Left: 0, Width: 34, Height: 42); Background: "Art/RocketGlyph.png"; HitTestVisible: false; } Label { Anchor: (Left: 50, Right: 0); Text: "'+title+'";')
+  if name=='Rocket.ui':s=s.replace('Label #RocketTitle {','Group { Anchor: (Left: 0, Width: 34, Height: 42); Background: "Art/RocketGlyph.png"; HitTestVisible: false; } Label #RocketTitle { Anchor: (Left: 50, Right: 0);').replace('Label { Text: "ROUND TRIP FUEL";','Label #FuelHeading { Text: "ROUND TRIP FUEL";')
+ if name=='OxygenHud.ui':s=s.replace('FontSize: 17,','FontName: "Secondary", FontSize: 20,').replace('FontSize: 23,','FontSize: 25,')
+ p.write_text(s)
+
+p=r/'Oxygen.ui';s=p.read_text().replace('Art/RocketGlyph.png','Art/CanisterGlyph.png');p.write_text(s)
+# Keep generated sources stable and clean after conditional gutters.
+for name in ['Astral.ui','OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.ui','Ascent.ui','OrbitalMapHud.ui']:
+ p=r/name;p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n')

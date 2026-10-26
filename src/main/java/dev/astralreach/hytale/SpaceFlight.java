@@ -87,10 +87,10 @@ final class SpaceFlight {
    var r=p.getReference();if(r==null||!r.isValid()||!inOrbit(s,r))continue;var state=s.getComponent(r,AstralReachPlugin.flightType);var v=views.get(p.getUuid());
    if(v==null){v=new View();var player=s.getComponent(r,Player.getComponentType());if(player!=null){v.hud=Set.copyOf(player.getHudManager().getVisibleHudComponents());player.getHudManager().setVisibleHudComponents(p,Set.of(HudComponent.Chat));}views.put(p.getUuid(),v);}
    var uiPlayer=s.getComponent(r,Player.getComponentType());if(uiPlayer!=null&&uiPlayer.getPageManager().getCustomPage() instanceof OrbitalMapPage nav)nav.refresh(r,s);
-   if(OrbitalMapPage.viewing(p.getUuid())){if(v.vehicle!=null&&v.vehicle.isValid())s.removeEntity(v.vehicle,RemoveReason.REMOVE);v.vehicle=null;}
+   if(OrbitalMapPage.threeD(p.getUuid())){if(v.vehicle!=null&&v.vehicle.isValid())s.removeEntity(v.vehicle,RemoveReason.REMOVE);v.vehicle=null;}
    else if(v.vehicle==null||!v.vehicle.isValid()){String model=state.plan==LaunchPlan.KESTREL?"AR_KestrelShipIdle":"AR_OdysseyShipIdle";v.vehicle=RocketVisuals.spawn(s,model,new Vector3d(slot(p)+.5,202,.5),new Rotation3f());}
    state.boarded=true;CrewBoarding.hold(s,r,p,new Vector3d(slot(p)+.5,202+FlightTimeline.crewHeight(state.plan),.5));
-   long now=System.nanoTime();if(!OrbitalMapPage.viewing(p.getUuid())&&now-v.cameraAt>=100_000_000L){v.cameraAt=now;double h=FlightTimeline.upperHeight(state.plan);var target=new Vector3d(slot(p)+.5,202+h*.5,.5);camera(p,new Vector3d(target.x-55,target.y-110,target.z-120),target);}
+   long now=System.nanoTime();if(!OrbitalMapPage.threeD(p.getUuid())&&now-v.cameraAt>=100_000_000L){v.cameraAt=now;double h=FlightTimeline.upperHeight(state.plan);var target=new Vector3d(slot(p)+.5,202+h*.5,.5);camera(p,new Vector3d(target.x-55,target.y-110,target.z-120),target);}
    if(!v.mapShown&&now-v.arrival>=8_000_000_000L){v.mapShown=true;OrbitalMapPage.open(s,r,p);}
   }
   for(var id:new ArrayList<>(views.keySet())){var v=views.get(id);if(v==null||v.vehicle==null)continue;boolean present=world.getPlayerRefs().stream().anyMatch(p->p.getUuid().equals(id)&&p.getReference()!=null&&inOrbit(s,p.getReference()));if(!present){if(v.vehicle.isValid())s.removeEntity(v.vehicle,RemoveReason.REMOVE);views.remove(id);}}

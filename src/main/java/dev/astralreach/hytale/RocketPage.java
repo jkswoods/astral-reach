@@ -32,7 +32,7 @@ final class RocketPage extends InteractiveCustomUIPage<RocketPage.Action> {
   int units=moon?(paid?f.trip.returnUnits():0):r==null?0:r.tank.units();boolean sealed=ExpeditionSuit.tier(s,ref)>0;double oxygen=player==null?0:OxygenCanisters.total(player.getInventory().getCombinedStorageHotbarBackpack());boolean oxygenReady=oxygen>=240;
   c.set("#RocketTitle.Text",moon?"RETURN TO ORBIS":"FLIGHT CONTROL · "+(r==null?"Rocket":r.plan.title));
   c.set("#Status.Text",moon?(returnable?"Your homeward fuel is already paid":"No paid journey"):r==null?"Rocket unavailable":busy?"Mission in progress · tank locked":rebuild?"Returned vehicle · service required":fill?"Prepare the round trip":"Round-trip fuel ready");
-  c.set("#Fuel.Visible",!rebuild);c.set("#FuelProgress.Value",moon?(returnable?1:0):Math.clamp(units/9000d,0,1));c.set("#FuelCount.Text",moon?NativeUi.number(units)+" units protected":NativeUi.number(units)+" / 9,000 units");
+  c.set("#FuelHeading.Text",moon?"PAID RETURN FUEL":"ROUND TRIP FUEL");c.set("#Fuel.Visible",!rebuild);c.set("#FuelProgress.Value",moon?(returnable?1:0):Math.clamp(units/9000d,0,1));c.set("#FuelCount.Text",moon?NativeUi.number(units)+" units protected":NativeUi.number(units)+" / 9,000 units");
   c.set("#Route.Text",moon?"Reserved at departure for this homeward trip.":"6,000 units outbound\n3,000 units protected for return");
   c.set("#Drain.Visible",!moon&&r!=null&&!rebuild&&!busy&&units>=1000);c.set("#Fill.Visible",fill);c.set("#Rebuild.Visible",rebuild);c.set("#Launch.Visible",moon||!fill&&!rebuild);
   c.set("#Launch.Text",moon?"Board and return to Orbis":"Launch to orbit");c.set("#Launch.Disabled",moon?!returnable:!(r!=null&&!busy&&!rebuild&&units>=9000&&sealed&&oxygenReady));
