@@ -30,7 +30,14 @@ Gallery captions identify the earlier launch-platform photographs and the newer 
 
 - A full ordinary survival walkthrough from raw starting resources remains unverified; some local functional checks used staged stock materials or equipment.
 - Human visual, sound-level, comfort and real multiplayer acceptance remain pending.
-- The 0.7.* compatibility declaration does not mean every patch has been tested.
-- Lune is the implemented destination. Later worlds, their upgrade recipes, oxygen systems, interiors and freeflight remain development work.
+- The declared Hytale 0.7 range starts at 0.7.3; it does not mean every later patch has been tested.
+- Lune is the implemented destination. Later-world landing routes, interiors and freeflight remain development work. Oxygen canisters and diffuser fields have representative local tests; underwater, exhaustion and real multiplayer checks remain open.
 
 Keep complete backups when trying a supplied candidate. Use [GitHub issues](https://github.com/jkswoods/astral-reach/issues) for feedback with the exact game and mod build, and avoid including private account information.
+
+
+## Revised native controls {#revised-native-controls}
+
+A private interface candidate adds a native destination list and clickable system chart, selected resource and equipment details, clear protected fuel, simpler construction and flight panels, per-canister diffuser charge bars and compact oxygen/flight displays. Later destinations remain locked. The existing 3D chart stays available as a separate exploration view.
+
+Compilation and focused route-policy checks pass. Native UI parsing, interaction, real icon display and comparison against the selected visual concepts are still pending shared-client access. Generated designs are not gameplay evidence. Human appearance, comfort and listening approval remain separate checks.

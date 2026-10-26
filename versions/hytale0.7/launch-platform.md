@@ -14,7 +14,7 @@ Each module costs **8 iron bars + 2 nickel ingots** at the Assembly Bench. The c
 
 Craft a **Launch Construction Console** from **4 frame plates + 2 copper coils + 2 copper bars**. Place it at floor height outside an edge midpoint: its root is **14 blocks from the platform centre**.
 
-Placing the console after a complete pad lets it recognise the direction. If placed first, it initially looks north. Use **Change pad direction** before selecting a blueprint to choose another side. Keep the console and perimeter accessible.
+Placing the console after a complete pad lets it recognise the direction. If placed first, it initially looks north. Use the **Pad** direction button before selecting a blueprint to choose another side. Keep the console and perimeter accessible.
 
 <figure><a href="/assets/hytale0.7/screenshots/kestrel-platform.png"><img src="/assets/hytale0.7/screenshots/kestrel-platform.png" alt="Kestrel's lower stage on one joined 25-by-25 native platform with its separate edge console"></a><figcaption>The formed pad reads as one launch structure. It extends beyond both current rocket footprints. Native launch-platform candidate, Hytale 0.7.4.</figcaption></figure>
 
@@ -24,7 +24,7 @@ Select **Odyssey Heavy** for the first expedition. Its full-size cyan ghost show
 
 <figure><a href="/assets/hytale0.7/screenshots/launch-blueprint.png"><img src="/assets/hytale0.7/screenshots/launch-blueprint.png" alt="The native construction panel with Odyssey selected and exact required hull, engine, computer and plate quantities"></a><figcaption>The construction panel shows required, supplied and carried materials. This earlier native capture has the same construction recipe contract.</figcaption></figure>
 
-Choose **Feed needed materials** while carrying the required parts. The console takes only missing quantities. You can supply the plan in stages; paid items and partial work are saved.
+The redesigned panel lists only parts still missing, with separate **Needed** and **In pack** columns. Choose **Supply needed parts** while carrying the required parts. The console takes only missing quantities. You can supply the plan in stages; paid items and partial work are saved.
 
 | Material | Odyssey | Kestrel |
 | --- | ---: | ---: |
@@ -34,7 +34,7 @@ Choose **Feed needed materials** while carrying the required parts. The console 
 | Frame Plates | 16 | 24 |
 | Thermal Shield | — | 1 |
 
-Fully supplied construction takes **10 seconds** while the whole pad and launch column remain loaded and clear. Missing modules or obstructions pause it. Repair or clear the site to continue; use **Retry construction** if a fully supplied plan was blocked before it could start.
+Fully supplied construction takes **10 seconds** while the whole pad and launch column remain loaded and clear. The progress bar follows actual paid work. Missing modules or obstructions pause it, with a reason shown on the panel. Repair or clear the site to continue; use **Retry construction** if a fully supplied plan was blocked before it could start.
 
 ## Finish, recover and refuel {#finish-recover-and-refuel}
 
@@ -42,7 +42,7 @@ A completed build creates one owned rocket with an **empty tank**. The ghost dis
 
 <figure><a href="/assets/hytale0.7/screenshots/launch-complete.png"><img src="/assets/hytale0.7/screenshots/launch-complete.png" alt="The completed native Kestrel construction panel with every required part supplied"></a><figcaption>A completed Kestrel, with its exact supplied materials and the separate Flight Control button.</figcaption></figure>
 
-Before completion, **Cancel and recover materials** returns the exact paid items. Make room for every refund; if they cannot all fit, the console keeps everything. Cancel before changing a paid blueprint or direction. Drain and remove a finished idle rocket before starting another plan.
+Before completion, **Return supplied parts** returns the exact paid items. Make room for every refund; if they cannot all fit, the console keeps everything. Cancel before changing a paid blueprint or direction. Drain and remove a finished idle rocket before starting another plan.
 
 Choose **Open flight control** to deposit propellant. See [machines and propellant](machines.md) for the finite fuel chain.
 

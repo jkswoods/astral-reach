@@ -21,6 +21,15 @@ Gather oil shale in the frontier. Refine **2 oil shale → 1 crude hydrocarbon**
 
 Each full cell deposits **1,000 units** into a rocket and returns an empty casing. Recovering 1,000 units requires an empty casing and returns a full cell. Keep inventory space for either exchange. A rocket holds **16,000 units**.
 
-A round trip requires **8,000 units**: 4,000 for departure and 4,000 protected for the return. Eight full cells therefore fund the first expedition. No Lune mineral is needed to make this fuel.
+A round trip requires **9,000 units**: 6,000 outbound and 3,000 protected for the return. Nine full cells therefore fund the first expedition. Previously paid journeys retain their recorded return reserve. No Lune mineral is needed to make this fuel.
 
 Store finished components before mining: ordinary death drops still apply. Recipes, quantities and processing times are listed on the [recipes page](recipes.md).
+
+
+## Flight preparation and oxygen controls {#flight-preparation-and-oxygen-controls}
+
+Flight control separates trip fuel from the suit and oxygen checklist. Before departure, equip the complete Survey suit or better and carry at least four minutes of portable oxygen. The prepaid homeward return stays available when oxygen runs low.
+
+The Oxygen Diffuser's panel displays four real canister slots with individual charge bars, the eight-block field radius, occupants and estimated field time at the current consumption rate. Use **Load one canister**, **Collect all** and **Switch on/off**. Make room for collected items; the panel does not bypass inventory limits.
+
+The revised panels are being tested on the development support branch. Downloaded files may contain the earlier layout; check the chosen file's release notes.

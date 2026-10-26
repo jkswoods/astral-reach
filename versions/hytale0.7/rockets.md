@@ -32,3 +32,14 @@ The new flight candidate gives Kestrel a separate booster and upper ship. Its lo
 Both supported plans currently serve Lune. The spacecraft use decorative full-size exteriors and a compact control anchor; there is no walkable cabin or aerodynamic freeflight. Automatic passenger boarding and upper-stage landing are being tested in the latest candidate. The new third-person ascent and orbital-navigation candidate is described on [development status](status.md).
 
 The model workshop also contains the independent Kestrel upper ship, Peregrine explorer, Wren lander and additional infrastructure. Their presence in the art catalogue does not make them selectable playable vehicles. Peregrine is wider than the supported 25-block pad.
+
+
+## Select a destination in orbit {#select-a-destination-in-orbit}
+
+The redesigned **Destinations** screen becomes available after reaching space. Select a route in the list or click a planet on the top-down system chart. Its details show resources, equipment, available oxygen and protected homeward fuel. Use the single travel button to land on **Lune** or return to **Orbis**. Later bodies remain **Future route** entries with travel disabled.
+
+**Explore in 3D** opens the world chart. Drag to pan, scroll to zoom and middle-click to reset. Right-click returns to Destinations; choosing a body returns to its details. The world-chart drag and direct body click still need a physical-mouse check.
+
+Close the screen to remain in orbit. `/astral-map` reopens navigation without charging more fuel. Closing navigation does not spend the return reserve.
+
+This revised interface is a development change awaiting native interaction and visual checks. Earlier gallery screenshots show the previous layout.
