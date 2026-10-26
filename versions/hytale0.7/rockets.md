@@ -42,8 +42,10 @@ The current interface uses a single top-down system chart. Select a planet direc
 
 <figure><a href="/assets/hytale0.7/screenshots/destinations-ui-private.png"><img src="/assets/hytale0.7/screenshots/destinations-ui-private.png" alt="Native top-down Destinations panel with Lune selected"></a><figcaption>Current private interface in Hytale 0.7.4. The separate 3D option is removed; later routes remain disabled. Appearance review continues.</figcaption></figure>
 
-During a cancellable launch, **ABORT LAUNCH** stops the active departure using its existing fuel-restoration handling. The next private interface gives this control a large red button; its updated rendering still needs a native check.
+During a cancellable launch, **ABORT LAUNCH** stops the active departure using its existing fuel-restoration handling. The private interface now displays a large red button, checked in Hytale0.7.4 using a temporary no-journey overlay. The updated button has not yet had a fresh paid-launch cancellation test.
 
 Close the screen to remain in orbit. `/astral-map` reopens navigation without charging more fuel. Closing navigation does not spend the return reserve.
 
-The revised interface has representative native selection and paid travel checks on Hytale 0.7.4. Further visual polish is awaiting recheck; earlier gallery screenshots show the previous layout.
+<figure><a href="/assets/hytale0.7/screenshots/abort-launch-ui-private.png"><img src="/assets/hytale0.7/screenshots/abort-launch-ui-private.png" alt="Large red ABORT LAUNCH button in native Hytale"></a><figcaption>Actual private Hytale0.7.4 rendering in a four-second diagnostic overlay. This capture demonstrates the button’s appearance; it is not a paid-flight cancellation.</figcaption></figure>
+
+The revised interface has representative native selection, clean item icons and paid travel checks on Hytale0.7.4. Map gestures and further visual refinement remain in development; earlier gallery screenshots show the previous layout.

@@ -32,4 +32,6 @@ Flight control separates trip fuel from the suit and oxygen checklist. Before de
 
 The Oxygen Diffuser's panel displays four real canister slots with individual charge bars, the eight-block field radius, occupants and estimated field time at the current consumption rate. Use **Load one canister**, **Collect all** and **Switch on/off**. Make room for collected items; the panel does not bypass inventory limits.
 
+<figure><a href="/assets/hytale0.7/screenshots/diffuser-ui-private.png"><img src="/assets/hytale0.7/screenshots/diffuser-ui-private.png" alt="Native oxygen diffuser with one partially used canister, its charge bar and field estimate"></a><figcaption>Current private Hytale 0.7.4 interface using a real partially used canister. The field estimate changes with its charge and occupants.</figcaption></figure>
+
 The revised panels are being tested on the development support branch. Downloaded files may contain the earlier layout; check the chosen file's release notes.
