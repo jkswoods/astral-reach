@@ -1,16 +1,16 @@
 $C = "../../Common.ui";
 @Text = (FontSize: 24, TextColor: #cbd9e1, VerticalAlignment: Center);
 @Muted = (FontSize: 22, TextColor: #9aafc2, VerticalAlignment: Center, Wrap: true);
-@Heading = (FontName: "Secondary", FontSize: 24, TextColor: #b8ccdf, RenderBold: true, RenderUppercase: true, VerticalAlignment: Center, LetterSpacing: 1);
+@Heading = (FontName: "Secondary", FontSize: 21, TextColor: #b8ccdf, RenderBold: false, RenderUppercase: true, VerticalAlignment: Center, LetterSpacing: 1);
 @Window = Group { Background: (TexturePath: "Art/WindowPatch.png", Border: 12); };
 @Header = Group { Background: (TexturePath: "Art/TitleHeader.png", Border: 8); Anchor: (Height: 62); Padding: (Horizontal: 24); };
 @Section = Group { Background: (TexturePath: "Art/PanelPatch.png", Border: 8); };
-@SectionHeader = Group { Anchor: (Height: 42); Background: (TexturePath: "Art/SectionHeader.png", Border: 8); Padding: (Horizontal: 16); };
+@SectionHeader = Group { Anchor: (Height: 42); Background: (TexturePath: "Art/SectionHeader.png", Border: 4); Padding: (Horizontal: 16); };
 @Rule = Group { Anchor: (Height: 1); Background: #3c5266; };
 @RowStyle = ButtonStyle(Default: (Background: (TexturePath: "Art/Row.png", Border: 8)), Hovered: (Background: (TexturePath: "Art/RowHovered.png", Border: 8)), Pressed: (Background: (TexturePath: "Art/RowPressed.png", Border: 8)), Sounds: $C.@ButtonSounds);
-@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: (TexturePath: "Art/RowHovered.png", Border: 8)), Pressed: (Background: (TexturePath: "Art/RowPressed.png", Border: 8)), Sounds: $C.@ButtonSounds);
+@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: "Art/PlanetHover.png"), Pressed: (Background: "Art/PlanetPressed.png"), Sounds: $C.@ButtonSounds);
 
-@ButtonLabel = (...$C.@DefaultButtonLabelStyle, FontName: "Secondary", FontSize: 24, RenderUppercase: false, MinShrinkTextToFitFontSize: 18);
+@ButtonLabel = (...$C.@DefaultButtonLabelStyle, FontName: "Default", FontSize: 24, RenderBold: false, RenderUppercase: false, MinShrinkTextToFitFontSize: 18);
 @DisabledLabel = (...@ButtonLabel, TextColor: #7f8c99);
 @Primary = TextButton { Anchor: (Height: 46); Style: (Default: (Background: (TexturePath: "Art/ControlPrimary.png", Border: 8), LabelStyle: @ButtonLabel), Hovered: (Background: (TexturePath: "Art/ControlPrimary_Hovered.png", Border: 8), LabelStyle: @ButtonLabel), Pressed: (Background: (TexturePath: "Art/ControlPrimary_Pressed.png", Border: 8), LabelStyle: @ButtonLabel), Disabled: (Background: (TexturePath: "Art/ControlDisabled.png", Border: 8), LabelStyle: @DisabledLabel), Sounds: $C.@ButtonSounds); };
 @Secondary = TextButton { Anchor: (Height: 46); Style: (Default: (Background: (TexturePath: "Art/ControlSecondary.png", Border: 8), LabelStyle: @ButtonLabel), Hovered: (Background: (TexturePath: "Art/ControlSecondary_Hovered.png", Border: 8), LabelStyle: @ButtonLabel), Pressed: (Background: (TexturePath: "Art/ControlSecondary_Pressed.png", Border: 8), LabelStyle: @ButtonLabel), Disabled: (Background: (TexturePath: "Art/ControlDisabled.png", Border: 8), LabelStyle: @DisabledLabel), Sounds: $C.@ButtonSounds); };

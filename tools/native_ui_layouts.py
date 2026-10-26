@@ -26,9 +26,9 @@ for n in planets:
 nav+=['} } Group { Anchor: (Width: 14); }',
 '$A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } }',
 'Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 82); Background: "Art/SystemChart.png";']
-coords={'Orbis':(200,245,76),'Lune':(320,260,54),'Rustreach':(385,115,68),'Nacre':(360,345,72),'Vesper':(200,450,74),'Umbra':(490,425,66)}
+coords={'Orbis':(200,220,126),'Lune':(350,260,62),'Rustreach':(385,115,86),'Nacre':(360,365,90),'Vesper':(200,410,94),'Umbra':(490,425,84)}
 for n,(x,y,size) in coords.items():
- nav.append(f'''Button #Planet{n} {{ Anchor: (Left: {x}, Top: {y}, Width: {size+30}, Height: {size+32}); Style: $A.@PlanetStyle;
+ nav.append(f'''Button #Planet{n} {{ Anchor: (Left: {x}, Top: {y}, Width: {size+18}, Height: {size+32}); Style: $A.@PlanetStyle;
  Group #Ring{n} {{ Anchor: (Left: 0, Top: 0, Width: {size+6}, Height: {size+6}); Background: "Art/SelectionRing.png"; HitTestVisible: false; }}
  Group {{ Anchor: (Left: 3, Top: 3, Width: {size}, Height: {size}); Background: "Art/Planet_{n}.png"; HitTestVisible: false; }}
  Label {{ Anchor: (Left: 2, Top: {size+7}, Width: {size+30}, Height: 25); Text: "{n}"; Style: (FontSize: 19, TextColor: #d5dfe6); }} }}''')
@@ -254,3 +254,39 @@ p=r/'Oxygen.ui';s=p.read_text().replace('Art/RocketGlyph.png','Art/CanisterGlyph
 # Keep generated sources stable and clean after conditional gutters.
 for name in ['Astral.ui','OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.ui','Ascent.ui','OrbitalMapHud.ui']:
  p=r/name;p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n')
+
+# Native UI1r3 exposed Aluminium truncation at the actual playing scale.
+p=r/'OrbitalMap.ui';s=p.read_text().replace('FontSize: 22, TextColor: #d4e0e7, VerticalAlignment: Center','FontSize: 20, TextColor: #d4e0e7, VerticalAlignment: Center, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 18');p.write_text(s)
+
+# UI1r4 close comparison: the nested bevels and oversized bold titles still
+# dominated the content. Keep the original composition, with a single frame,
+# integrated section strips, lighter labels and a real high-resolution preview.
+p=r/'Astral.ui';s=p.read_text()
+s=s.replace('FontName: "Secondary", FontSize: 24, TextColor: #b8ccdf, RenderBold: true','FontName: "Secondary", FontSize: 21, TextColor: #b8ccdf, RenderBold: false')
+s=s.replace('TexturePath: "Art/SectionHeader.png", Border: 8','TexturePath: "Art/SectionHeader.png", Border: 4')
+s=s.replace('FontName: "Secondary", FontSize: 24, RenderUppercase: false','FontName: "Default", FontSize: 24, RenderBold: false, RenderUppercase: false')
+s=s.replace('@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: (TexturePath: "Art/RowHovered.png", Border: 8)), Pressed: (Background: (TexturePath: "Art/RowPressed.png", Border: 8))','@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: "Art/PlanetHover.png"), Pressed: (Background: "Art/PlanetPressed.png")')
+p.write_text(s)
+for name in ['OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.ui','Ascent.ui']:
+ p=r/name;s=p.read_text()
+ s=s.replace('$A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6,','$A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2,')
+ s=s.replace('FontName: "Secondary", FontSize: 38','FontName: "Secondary", FontSize: 32').replace('FontName: "Secondary", FontSize: 34','FontName: "Secondary", FontSize: 30')
+ s=s.replace('FontSize: 32, TextColor: #e4edf2, RenderBold: true','FontSize: 32, TextColor: #e4edf2, RenderBold: false').replace('FontSize: 30, TextColor: #e0e9ee, RenderBold: true','FontSize: 30, TextColor: #e0e9ee, RenderBold: false')
+ s=s.replace('FontSize: 30, TextColor: #e2eaf0, RenderBold: true','FontSize: 30, TextColor: #e2eaf0, RenderBold: false')
+ s=s.replace('ShowQuantity: false;', 'ShowQuantity: false; ShowQualityBackground: false;')
+ if name=='Oxygen.ui':
+  s=s.replace('Anchor: (Height: 160);','Anchor: (Height: 172);').replace('Anchor: (Height: 18);','Anchor: (Height: 6);')
+  s=s.replace('Left: 26, Top: 66, Width: 72, Height: 72','Left: 60, Top: 52, Width: 108, Height: 108').replace('Left: 122, Right: 22, Top: 58, Height: 92','Left: 250, Right: 22, Top: 52, Height: 104')
+  s=s.replace('Width: 692, Top: 64, Bottom: 16','Width: 692, Top: 60, Bottom: 12')
+  for i in range(4):
+   old=f'Group {{ Anchor: (Height: 124); Background: (TexturePath: "Art/Row.png", Border: 8); ItemSlot #Canister{i} {{ Anchor: (Width: 104, Height: 104); ShowQuantity: false; ShowQualityBackground: false; }} }}\n $A.@Progress #Charge{i} {{ Anchor: (Height: 12, Left: 8, Right: 8); Value: 0; }}'
+   new=f'Group {{ Anchor: (Height: 140); Background: (TexturePath: "Art/Row.png", Border: 8); ItemSlot #Canister{i} {{ Anchor: (Top: 8, Width: 104, Height: 104); ShowQuantity: false; ShowQualityBackground: false; }} $A.@Progress #Charge{i} {{ Anchor: (Height: 12, Left: 8, Right: 8, Bottom: 8); Value: 0; }} }}'
+   assert old in s, f'Missing canister source {i}'
+   s=s.replace(old,new)
+ if name=='LaunchYard.ui':
+  s=s.replace('Anchor: (Height: 170); LayoutMode: Left','Anchor: (Height: 230); LayoutMode: Left')
+  s=s.replace('$A.@Section { Anchor: (Width: 220); ItemSlot #ShipIcon { Anchor: (Width: 150, Height: 150); ShowQuantity: false; } }', '$A.@Section { Anchor: (Width: 440); Group #PreviewOdyssey { Anchor: (Full: 4); Background: "Art/Blueprint_Odyssey.png"; HitTestVisible: false; } Group #PreviewKestrel { Anchor: (Full: 4); Background: "Art/Blueprint_Kestrel.png"; HitTestVisible: false; } }')
+  s=s.replace('Label #Footprint { Anchor: (Height: 34); Style: $A.@Muted;','Label #Footprint { Anchor: (Height: 56); Style: (FontSize: 20, TextColor: #9aafc2, Wrap: true);')
+  # One continuous table, with gutters separating quantities from names.
+  s=s.replace('$A.@Section #Materials { Anchor: (Height: 380);','$A.@Section #Materials { Anchor: (Height: 380); Group { Anchor: (Left: 551, Width: 1, Top: 48, Bottom: 10); Background: #29465a; HitTestVisible: false; } Group { Anchor: (Left: 701, Width: 1, Top: 48, Bottom: 10); Background: #29465a; HitTestVisible: false; }')
+ p.write_text(s)

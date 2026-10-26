@@ -23,7 +23,7 @@ final class LaunchYardPage extends InteractiveCustomUIPage<RocketPage.Action>{
   c.set("#Status.Text",!formed?"Pad incomplete":ready?"Rocket complete":working?(blocked==null?"Building · "+(p.workedMillis()/100)+"%":"Construction paused"):y.selected?"Blueprint ready":"Choose a rocket");
   c.set("#Footprint.Text",LaunchYardService.present(s.getExternalData().getWorld(),at,y)+" of 25 modules · 25 × 25 pad · "+y.facing);
   c.set("#Blueprint.Text",y.selected?p.plan().title+(!y.recovered.isEmpty()?" · recovered assemblies credited":""):"First expedition: Odyssey Heavy");
-  c.set("#ShipIcon.ItemId",p.plan().artId);c.set("#Rotate.Text","Pad: "+y.facing);c.set("#Plans.Visible",!y.selected);
+  c.set("#PreviewOdyssey.Visible",p.plan()==dev.astralreach.core.LaunchPlan.ODYSSEY);c.set("#PreviewKestrel.Visible",p.plan()==dev.astralreach.core.LaunchPlan.KESTREL);c.set("#Rotate.Text","Pad: "+y.facing);c.set("#Plans.Visible",!y.selected);
   var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();
   int row=0;boolean anyCarried=false;for(var e:new TreeMap<>(p.plan().materials()).entrySet()){
    int need=p.remaining(e.getKey());if(need==0||!y.selected||ready)continue;int carried=0;
@@ -35,7 +35,7 @@ final class LaunchYardPage extends InteractiveCustomUIPage<RocketPage.Action>{
   c.set("#Recovery.Visible",y.heldFuel>0);c.set("#Recovery.Text","Saved propellant: "+NativeUi.number(y.heldFuel)+" units");
   c.set("#Help.Text",ready?"Use flight control to prepare your next expedition.":!y.selected?"Select a full-scale ghost, then supply the blueprint's parts.":working?"Paid work resumes when the complete site is loaded and clear.":!y.recovered.isEmpty()?"Returned assemblies are included. Supply only the missing parts.":"Supply only missing quantities. Other items stay in your pack.");
   c.set("#Flight.Visible",ready);c.set("#Deposit.Visible",y.selected&&!ready&&!working&&!p.funded());c.set("#Deposit.Disabled",!formed||!anyCarried);c.set("#Build.Visible",y.selected&&!ready&&!working&&p.funded());c.set("#Cancel.Visible",y.selected&&!ready);
-  int body=170+(!y.selected?72:0)+(rows>0?102+rows*52:0)+(working?78:0)+(y.heldFuel>0?36:0)+48;
+  int body=230+(!y.selected?72:0)+(rows>0?102+rows*52:0)+(working?78:0)+(y.heldFuel>0?36:0)+48;
   NativeUi.bounds(c,"#YardPanel",1000,80+body+96);
  }
  @Override public void build(Ref<EntityStore>ref,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){

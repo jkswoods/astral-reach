@@ -1,14 +1,14 @@
 $C = "../../Common.ui";
 $A = "Astral.ui";
 $C.@PageOverlay { $A.@Window #YardPanel { Anchor: (Width: 1000, Height: 780);
- $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Group { Anchor: (Left: 0, Width: 34, Height: 42); Background: "Art/RocketGlyph.png"; HitTestVisible: false; } Label { Anchor: (Left: 50, Right: 0); Text: "LAUNCH PLATFORM"; Style: (FontName: "Secondary", FontSize: 34, TextColor: #e0e9ee, RenderBold: true, VerticalAlignment: Center); } }
+ $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Group { Anchor: (Left: 0, Width: 34, Height: 42); Background: "Art/RocketGlyph.png"; HitTestVisible: false; } Label { Anchor: (Left: 50, Right: 0); Text: "LAUNCH PLATFORM"; Style: (FontName: "Secondary", FontSize: 30, TextColor: #e0e9ee, RenderBold: false, VerticalAlignment: Center); } }
  Group { Anchor: (Left: 26, Right: 26, Top: 82, Bottom: 92); LayoutMode: Top;
-  Group #BlueprintSummary { Anchor: (Height: 170); LayoutMode: Left;
-   $A.@Section { Anchor: (Width: 220); ItemSlot #ShipIcon { Anchor: (Width: 150, Height: 150); ShowQuantity: false; } }
+  Group #BlueprintSummary { Anchor: (Height: 230); LayoutMode: Left;
+   $A.@Section { Anchor: (Width: 220); ItemSlot #ShipIcon { Anchor: (Width: 150, Height: 150); ShowQuantity: false; ShowQualityBackground: false; } }
    Group { Anchor: (Width: 22); }
    Group { FlexWeight: 1; LayoutMode: Top;
     Label #Status { Anchor: (Height: 45); Style: (FontSize: 24, TextColor: #d4e6e4, RenderBold: true, Wrap: true); }
-    Label #Footprint { Anchor: (Height: 34); Style: $A.@Muted; }
+    Label #Footprint { Anchor: (Height: 56); Style: (FontSize: 20, TextColor: #9aafc2, Wrap: true); }
     $A.@Rule { }
     Label #Blueprint { Anchor: (Height: 64); Style: (FontSize: 23, TextColor: #a8cfda, Wrap: true, VerticalAlignment: Center); }
    }
@@ -20,33 +20,33 @@ $C.@PageOverlay { $A.@Window #YardPanel { Anchor: (Width: 1000, Height: 780);
    Group { Anchor: (Width: 14); }
    $A.@Secondary #Rotate { Anchor: (Width: 300, Height: 52); Text: "Pad: North"; }
   }
-  $A.@Section #Materials { Anchor: (Height: 380);
-   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "PARTS STILL NEEDED"; Style: $A.@Heading; } }
+  $A.@Section #Materials { Anchor: (Height: 380); Group { Anchor: (Left: 551, Width: 1, Top: 48, Bottom: 10); Background: #29465a; HitTestVisible: false; } Group { Anchor: (Left: 701, Width: 1, Top: 48, Bottom: 10); Background: #29465a; HitTestVisible: false; }
+   $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "PARTS STILL NEEDED"; Style: $A.@Heading; } }
    Group { Anchor: (Left: 22, Right: 22, Top: 56, Height: 34); LayoutMode: Left; Label { Anchor: (Width: 532); Text: "Part"; Style: $A.@Muted; } Label { Anchor: (Width: 150); Text: "Needed"; Style: (FontSize: 18, TextColor: #99afc2, HorizontalAlignment: Center); } Label { Anchor: (Width: 150); Text: "In pack"; Style: (FontSize: 18, TextColor: #99afc2, HorizontalAlignment: Center); } }
    Group { Anchor: (Left: 22, Right: 22, Top: 92, Bottom: 10); LayoutMode: Top;
 Group #Material0 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material1 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material2 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material3 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material4 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; } Group { Anchor: (Width: 14); }
+  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
    }

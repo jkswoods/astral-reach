@@ -1,12 +1,12 @@
 $C = "../../Common.ui";
 $A = "Astral.ui";
 $C.@PageOverlay { $A.@Window #FlightPanel { Anchor: (Width: 900, Height: 720);
- $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Group { Anchor: (Left: 0, Width: 34, Height: 42); Background: "Art/RocketGlyph.png"; HitTestVisible: false; } Label #RocketTitle { Anchor: (Left: 50, Right: 0); Text: "FLIGHT CONTROL"; Style: (FontName: "Secondary", FontSize: 34, TextColor: #e3ebf0, RenderBold: true, VerticalAlignment: Center); } }
+ $A.@Header { Anchor: (Left: 8, Right: 8, Top: 8, Height: 56); Group { Anchor: (Left: 0, Width: 34, Height: 42); Background: "Art/RocketGlyph.png"; HitTestVisible: false; } Label #RocketTitle { Anchor: (Left: 50, Right: 0); Text: "FLIGHT CONTROL"; Style: (FontName: "Secondary", FontSize: 30, TextColor: #e3ebf0, RenderBold: true, VerticalAlignment: Center); } }
  Group { Anchor: (Left: 26, Right: 26, Top: 80, Bottom: 92); LayoutMode: Top;
   Label #Status { Anchor: (Height: 44); Style: (FontSize: 23, TextColor: #a3d7d1, RenderBold: true, Wrap: true); }
   $A.@Section #Fuel { Anchor: (Height: 220);
-   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label #FuelHeading { Text: "ROUND TRIP FUEL"; Style: $A.@Heading; } }
-   ItemSlot { Anchor: (Left: 22, Top: 68, Width: 58, Height: 58); ItemId: "AR_PropellantCell"; ShowQuantity: false; }
+   $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label #FuelHeading { Text: "ROUND TRIP FUEL"; Style: $A.@Heading; } }
+   ItemSlot { Anchor: (Left: 22, Top: 68, Width: 58, Height: 58); ItemId: "AR_PropellantCell"; ShowQuantity: false; ShowQualityBackground: false; }
    $A.@Progress #FuelProgress { Anchor: (Left: 100, Right: 22, Top: 64, Height: 20); Value: 0; }
    Label #FuelCount { Anchor: (Left: 100, Right: 22, Top: 92, Height: 38); Style: (FontSize: 24, TextColor: #c2e2e7, RenderBold: true); }
    Label #Route { Anchor: (Left: 24, Right: 310, Top: 144, Height: 64); Style: $A.@Muted; }
@@ -14,11 +14,11 @@ $C.@PageOverlay { $A.@Window #FlightPanel { Anchor: (Width: 900, Height: 720);
   }
   Group { Anchor: (Height: 16); }
   $A.@Section #Preparation { Anchor: (Height: 186);
-   $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "PREPARATION"; Style: $A.@Heading; } }
-   ItemSlot { Anchor: (Left: 22, Top: 58, Width: 48, Height: 48); ItemId: "AR_Survey_Chest"; ShowQuantity: false; }
+   $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "PREPARATION"; Style: $A.@Heading; } }
+   ItemSlot { Anchor: (Left: 22, Top: 58, Width: 48, Height: 48); ItemId: "AR_Survey_Chest"; ShowQuantity: false; ShowQualityBackground: false; }
    Label #Suit { Anchor: (Left: 90, Right: 22, Top: 62, Height: 38); Style: $A.@Text; }
    $A.@Rule { Anchor: (Left: 22, Right: 22, Top: 118, Height: 1); }
-   ItemSlot { Anchor: (Left: 22, Top: 130, Width: 48, Height: 48); ItemId: "AR_OxygenCanister"; ShowQuantity: false; }
+   ItemSlot { Anchor: (Left: 22, Top: 130, Width: 48, Height: 48); ItemId: "AR_OxygenCanister"; ShowQuantity: false; ShowQualityBackground: false; }
    Label #Oxygen { Anchor: (Left: 90, Right: 22, Top: 134, Height: 38); Style: $A.@Text; }
   }
   Label #Help { Anchor: (Height: 54); Style: $A.@Muted; Text: "Board the rocket and ascend to orbit."; }
