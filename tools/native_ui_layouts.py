@@ -25,14 +25,14 @@ for n in planets:
  Label {{ Anchor: (Left: 88, Top: 48, Right: 8, Height: 26); Text: "{'Home' if n=='Orbis' else 'Available' if n=='Lune' else 'Future route'}"; Style: (FontSize: 17, TextColor: {'#78ccc8' if n=='Lune' else '#99adc1'}); }} }} Group {{ Anchor: (Height: 9); }}''')
 nav+=['} } Group { Anchor: (Width: 14); }',
 '$A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } }',
-'Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 82); Background: "Art/SystemChart.png";']
-coords={'Orbis':(200,220,126),'Lune':(350,260,62),'Rustreach':(385,115,86),'Nacre':(360,365,90),'Vesper':(200,410,94),'Umbra':(490,425,84)}
+'Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 12); Background: "Art/SystemChart.png";']
+coords={'Orbis':(200,255,126),'Lune':(350,295,62),'Rustreach':(385,150,86),'Nacre':(360,400,90),'Vesper':(200,445,94),'Umbra':(490,460,84)}
 for n,(x,y,size) in coords.items():
  nav.append(f'''Button #Planet{n} {{ Anchor: (Left: {x}, Top: {y}, Width: {size+18}, Height: {size+32}); Style: $A.@PlanetStyle;
  Group #Ring{n} {{ Anchor: (Left: 0, Top: 0, Width: {size+6}, Height: {size+6}); Background: "Art/SelectionRing.png"; HitTestVisible: false; }}
  Group {{ Anchor: (Left: 3, Top: 3, Width: {size}, Height: {size}); Background: "Art/Planet_{n}.png"; HitTestVisible: false; }}
  Label {{ Anchor: (Left: 2, Top: {size+7}, Width: {size+30}, Height: 25); Text: "{n}"; Style: (FontSize: 19, TextColor: #d5dfe6); }} }}''')
-nav+=['}', '$C.@SecondaryTextButton #Explore { Anchor: (Width: 260, Height: 46, Bottom: 18); Text: "Explore in 3D"; } }', 'Group { Anchor: (Width: 14); }',
+nav+=['} }', 'Group { Anchor: (Width: 14); }',
 'Group { Anchor: (Width: 428); LayoutMode: Top;',
 '$A.@Section { Anchor: (Height: 260); $A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6, Height: 42); Label #Selected { Text: "LUNE"; Style: $A.@Heading; } }']
 for n in planets:nav.append(f'Group #Preview{n} {{ Anchor: (Width: 170, Height: 170, Top: 50); Background: "Art/Planet_{n}.png"; }}')
@@ -285,8 +285,14 @@ for name in ['OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.
    s=s.replace(old,new)
  if name=='LaunchYard.ui':
   s=s.replace('Anchor: (Height: 170); LayoutMode: Left','Anchor: (Height: 230); LayoutMode: Left')
-  s=s.replace('$A.@Section { Anchor: (Width: 220); ItemSlot #ShipIcon { Anchor: (Width: 150, Height: 150); ShowQuantity: false; } }', '$A.@Section { Anchor: (Width: 440); Group #PreviewOdyssey { Anchor: (Full: 4); Background: "Art/Blueprint_Odyssey.png"; HitTestVisible: false; } Group #PreviewKestrel { Anchor: (Full: 4); Background: "Art/Blueprint_Kestrel.png"; HitTestVisible: false; } }')
+  old='$A.@Section { Anchor: (Width: 220); ItemSlot #ShipIcon { Anchor: (Width: 150, Height: 150); ShowQuantity: false; ShowQualityBackground: false; } }'
+  assert old in s, 'Blueprint preview source changed; update the generated page and Java selectors together'
+  s=s.replace(old, '$A.@Section { Anchor: (Width: 440); Group #PreviewOdyssey { Anchor: (Full: 4); Background: "Art/Blueprint_Odyssey.png"; HitTestVisible: false; } Group #PreviewKestrel { Anchor: (Full: 4); Background: "Art/Blueprint_Kestrel.png"; HitTestVisible: false; } }')
   s=s.replace('Label #Footprint { Anchor: (Height: 34); Style: $A.@Muted;','Label #Footprint { Anchor: (Height: 56); Style: (FontSize: 20, TextColor: #9aafc2, Wrap: true);')
   # One continuous table, with gutters separating quantities from names.
   s=s.replace('$A.@Section #Materials { Anchor: (Height: 380);','$A.@Section #Materials { Anchor: (Height: 380); Group { Anchor: (Left: 551, Width: 1, Top: 48, Bottom: 10); Background: #29465a; HitTestVisible: false; } Group { Anchor: (Left: 701, Width: 1, Top: 48, Bottom: 10); Background: #29465a; HitTestVisible: false; }')
  p.write_text(s)
+
+p=r/'Rocket.ui';s=p.read_text().replace('Label { Text: "PREPARATION";', 'Label #PreparationHeading { Text: "PREPARATION";');assert '#PreparationHeading' in s;p.write_text(s)
+assert '#PreviewOdyssey' in (r/'LaunchYard.ui').read_text()
+assert '#Explore' not in (r/'OrbitalMap.ui').read_text()

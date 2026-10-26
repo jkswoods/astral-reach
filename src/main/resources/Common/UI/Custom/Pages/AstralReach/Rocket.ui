@@ -14,7 +14,7 @@ $C.@PageOverlay { $A.@Window #FlightPanel { Anchor: (Width: 900, Height: 720);
   }
   Group { Anchor: (Height: 16); }
   $A.@Section #Preparation { Anchor: (Height: 186);
-   $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "PREPARATION"; Style: $A.@Heading; } }
+   $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label #PreparationHeading { Text: "PREPARATION"; Style: $A.@Heading; } }
    ItemSlot { Anchor: (Left: 22, Top: 58, Width: 48, Height: 48); ItemId: "AR_Survey_Chest"; ShowQuantity: false; ShowQualityBackground: false; }
    Label #Suit { Anchor: (Left: 90, Right: 22, Top: 62, Height: 38); Style: $A.@Text; }
    $A.@Rule { Anchor: (Left: 22, Right: 22, Top: 118, Height: 1); }

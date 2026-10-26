@@ -36,7 +36,7 @@ final class RocketPage extends InteractiveCustomUIPage<RocketPage.Action> {
   c.set("#Route.Text",moon?"Reserved at departure for this homeward trip.":"6,000 units outbound\n3,000 units protected for return");
   c.set("#Drain.Visible",!moon&&r!=null&&!rebuild&&!busy&&units>=1000);c.set("#Fill.Visible",fill);c.set("#Rebuild.Visible",rebuild);c.set("#Launch.Visible",moon||!fill&&!rebuild);
   c.set("#Launch.Text",moon?"Board and return to Orbis":"Launch to orbit");c.set("#Launch.Disabled",moon?!returnable:!(r!=null&&!busy&&!rebuild&&units>=9000&&sealed&&oxygenReady));
-  c.set("#Preparation.Visible",!rebuild);c.set("#Suit.Text",sealed?"Ready · complete Survey suit or better":"Equip all four Survey suit pieces");c.set("#Oxygen.Text",oxygenReady?"Ready · "+NativeUi.duration(oxygen)+" oxygen reserve":"Carry at least 4:00 oxygen reserve");
+  c.set("#Preparation.Visible",!rebuild);c.set("#PreparationHeading.Text",moon?"YOUR EQUIPMENT":"PREPARATION");c.set("#Suit.Text",moon?(sealed?"Survey suit equipped":"Suit incomplete · return available"):sealed?"Ready · complete Survey suit or better":"Equip all four Survey suit pieces");c.set("#Oxygen.Text",moon?"Portable oxygen: "+NativeUi.duration(oxygen):oxygenReady?"Ready · "+NativeUi.duration(oxygen)+" oxygen reserve":"Carry at least 4:00 oxygen reserve");
   c.set("#Help.Text",rebuild?"Returned assemblies credited. Carry "+NativeUi.materials(dev.astralreach.core.RocketRecovery.missing(r.plan,r.boosterLanded))+".":moon?"Board the landed upper stage and return to your saved platform.":busy?"Finish the active mission before changing fuel.":"Board the rocket and ascend to orbit.");
   NativeUi.height(c,"#Help",rebuild?120:54);NativeUi.bounds(c,"#FlightPanel",900,rebuild?400:720);
  }

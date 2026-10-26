@@ -19,7 +19,7 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import java.util.*;
 
-/** Native destination controls with an optional free-cursor 3D scene. */
+/** Native top-down destination controls. The separate 3D option is retired. */
 final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action>{
  static final class Action{String action="";static final BuilderCodec<Action> CODEC=BuilderCodec.builder(Action.class,Action::new).append(new KeyedCodec<>("Action",Codec.STRING),(a,v)->a.action=v,a->a.action).add().build();}
  private record Body(String subtitle,String resource0,String label0,String resource1,String label1,String equipment,String detail){}
@@ -47,10 +47,6 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
   var r=session.player.getReference();if(r==null||!r.isValid()||r.getStore()!=session.store||!SpaceFlight.inOrbit(session.store,r))return;
   session.threeD=false;session.selected=body;var player=session.store.getComponent(r,Player.getComponentType());player.getHudManager().removeCustomHud(session.player,HUD);
   if(session.scene!=null){session.scene.close();session.scene=null;}player.getPageManager().openCustomPage(r,session.store,new OrbitalMapPage(session,body));
- }
- private static void showScene(Session session){
-  var r=session.player.getReference();if(r==null||!r.isValid()||r.getStore()!=session.store)return;session.threeD=true;session.dragging=false;if(session.scene==null)session.scene=new OrbitalScene(session.store,session.player);session.scene.select(session.selected);
-  session.store.getComponent(r,Player.getComponentType()).getHudManager().addCustomHud(session.player,new CustomUIHud(session.player,HUD,7){@Override protected void build(UICommandBuilder c){c.append("Pages/AstralReach/OrbitalMapHud.ui");}});session.scene.view();
  }
  static void route(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,String name){String body=ORDER.stream().filter(v->v.equalsIgnoreCase(name)).findFirst().orElse(null);if(body==null){AstralReachPlugin.message(p,"Choose Orbis, Lune, Rustreach, Nacre, Vesper or Umbra.");return;}if(!SpaceFlight.inOrbit(s,r)){AstralReachPlugin.message(p,"Navigation becomes available after reaching space.");return;}var session=viewing.get(p.getUuid());if(session==null){session=new Session(s,p);viewing.put(p.getUuid(),session);}showDestinations(session,body);}
  private static void stop(Session session){if(!viewing.remove(session.player.getUuid(),session))return;var world=session.store.getExternalData().getWorld();var scene=session.scene;session.scene=null;if(scene!=null){if(world.isInThread())scene.close();else world.execute(scene::close);}var r=session.player.getReference();if(r!=null&&r.isValid()){var current=r.getStore();Runnable remove=()->{if(!r.isValid()||r.getStore()!=current)return;var player=current.getComponent(r,Player.getComponentType());if(player!=null){player.getHudManager().removeCustomHud(session.player,HUD);var bar=current.getComponent(r,InventoryComponent.Hotbar.getComponentType());if(bar!=null&&session.originalSlot>=0&&session.originalSlot<bar.getInventory().getCapacity()&&bar.getActiveSlot()!=session.originalSlot){bar.setActiveSlot(session.originalSlot,r,current);session.player.getPacketHandler().writeNoCache(new com.hypixel.hytale.protocol.packets.inventory.SetActiveSlot(bar.getSectionId(),session.originalSlot));}}};if(current.getExternalData().getWorld().isInThread())remove.run();else current.getExternalData().getWorld().execute(remove);}}
@@ -93,13 +89,12 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
  @Override public void build(Ref<EntityStore>r,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){
   c.append("Pages/AstralReach/OrbitalMap.ui");labels(r,c,s);NativeUi.cue(s,playerRef);
   for(String body:ORDER)for(String prefix:List.of("Route","Planet"))e.addEventBinding(CustomUIEventBindingType.Activating,"#"+prefix+body,EventData.of("Action","Select:"+body),false);
-  for(String id:List.of("Explore","Travel","Close"))e.addEventBinding(CustomUIEventBindingType.Activating,"#"+id,EventData.of("Action",id),false);
+  for(String id:List.of("Travel","Close"))e.addEventBinding(CustomUIEventBindingType.Activating,"#"+id,EventData.of("Action",id),false);
  }
  @Override public void handleDataEvent(Ref<EntityStore>r,Store<EntityStore>s,Action action){s.getExternalData().getWorld().execute(()->{
   if(!r.isValid()||r.getStore()!=s||viewing.get(playerRef.getUuid())!=session||!SpaceFlight.inOrbit(s,r))return;var player=s.getComponent(r,Player.getComponentType());if(player==null||player.getPageManager().getCustomPage()!=this)return;
   String a=action.action;if(a.equals("Close")){stop(session);close();return;}
   if(a.startsWith("Select:")){String body=a.substring(7);if(!BODIES.containsKey(body)||body.equals(selected))return;selected=body;session.selected=body;if(session.scene!=null)session.scene.select(body);NativeUi.cue(s,playerRef);var c=new UICommandBuilder();labels(r,c,s);sendUpdate(c,false);return;}
-  if(a.equals("Explore")){NativeUi.cue(s,playerRef);sceneHandoff=true;close();showScene(session);return;}
   if(!a.equals("Travel")||!selected.equals("Lune")&&!selected.equals("Orbis"))return;
   try{if(selected.equals("Lune"))ExpeditionSuit.require(s,r,1);}catch(IllegalArgumentException ex){AstralReachPlugin.message(playerRef,ex.getMessage());return;}
   NativeUi.cue(s,playerRef);stop(session);close();if(selected.equals("Lune"))RocketService.chooseLune(s,r,playerRef);else RocketService.returnHome(s,r,playerRef);

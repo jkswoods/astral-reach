@@ -90,17 +90,17 @@ for name,top,bottom in [('MeterFill.png',(96,232,225),(27,158,195)),('MeterTrack
  im=Image.new('RGBA',(256,16));d=ImageDraw.Draw(im)
  for y in range(16):d.line((0,y,255,y),fill=tuple(round(top[i]+(bottom[i]-top[i])*y/15) for i in range(3)))
  d.rectangle((0,0,255,15),outline='#4b7890',width=1);im.save(R/name)
-im=Image.new('RGB',(640,544),'#07131e');d=ImageDraw.Draw(im);rng=random.Random(84211)
+im=Image.new('RGB',(640,614),'#07131e');d=ImageDraw.Draw(im);rng=random.Random(84211)
 for _ in range(100):
- x,y=rng.randrange(640),rng.randrange(544);d.rectangle((x,y,x+1,y+1),fill=rng.choice(['#334b60','#61778c','#294257']))
-for rx,ry in [(180,135),(280,220),(390,305),(500,390)]:d.ellipse((60-rx,300-ry,60+rx,300+ry),outline='#314c61',width=1)
+ x,y=rng.randrange(640),rng.randrange(614);d.rectangle((x,y,x+1,y+1),fill=rng.choice(['#334b60','#61778c','#294257']))
+for rx,ry in [(180,135),(280,220),(390,305),(500,390)]:d.ellipse((60-rx,335-ry,60+rx,335+ry),outline='#314c61',width=1)
 # A sparse original belt of painted fragments follows the system chart's inner orbital arc.
 for i in range(42):
- t=-1.3+i*.063;x=60+217*math.cos(t)+rng.uniform(-7,7);y=300+168*math.sin(t)+rng.uniform(-6,6);size=rng.choice([2,3,4])
+ t=-1.3+i*.063;x=60+217*math.cos(t)+rng.uniform(-7,7);y=335+168*math.sin(t)+rng.uniform(-6,6);size=rng.choice([2,3,4])
  d.polygon([(x-size,y),(x-size*.6,y-size*.75),(x+size*.5,y-size),(x+size,y),(x+size*.5,y+size*.7),(x-size*.3,y+size)],fill=rng.choice(['#626267','#797a7c','#4c505a']))
  d.line((x-size*.6,y-size*.7,x+size*.4,y-size*.8),fill='#a1a1a3',width=1)
-glow=Image.new('RGBA',im.size);ImageDraw.Draw(glow).ellipse((-147,148,147,442),fill=(207,151,43,85));glow=glow.filter(ImageFilter.GaussianBlur(25));im=Image.alpha_composite(im.convert('RGBA'),glow)
-sun=Image.open(R/'Planet_Sol.png').resize((280,280));im.paste(sun,(-140,155),sun);im.convert('RGB').save(R/'SystemChart.png')
+glow=Image.new('RGBA',im.size);ImageDraw.Draw(glow).ellipse((-147,183,147,477),fill=(207,151,43,85));glow=glow.filter(ImageFilter.GaussianBlur(25));im=Image.alpha_composite(im.convert('RGBA'),glow)
+sun=Image.open(R/'Planet_Sol.png').resize((280,280));im.paste(sun,(-140,190),sun);im.convert('RGB').save(R/'SystemChart.png')
 print('Rendered original voxel relief, native nine-slice frames, glyphs and teal meter art; loaded comparison pending.')
 im=Image.new('RGB',(640,400),'#091622');d=ImageDraw.Draw(im);rng=random.Random(9440)
 for _ in range(110):
