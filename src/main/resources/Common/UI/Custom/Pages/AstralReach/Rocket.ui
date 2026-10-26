@@ -6,7 +6,7 @@ $C.@PageOverlay { $A.@Window #FlightPanel { Anchor: (Width: 900, Height: 720);
   Label #Status { Anchor: (Height: 44); Style: (FontSize: 23, TextColor: #a3d7d1, RenderBold: true, Wrap: true); }
   $A.@Section #Fuel { Anchor: (Height: 220);
    $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label #FuelHeading { Text: "ROUND TRIP FUEL"; Style: $A.@Heading; } }
-   ItemSlot { Anchor: (Left: 22, Top: 68, Width: 58, Height: 58); ItemId: "AR_PropellantCell"; ShowQuantity: false; ShowQualityBackground: false; }
+   ItemIcon { Anchor: (Left: 22, Top: 68, Width: 58, Height: 58); ItemId: "AR_PropellantCell";    ShowItemTooltip: true; }
    $A.@Progress #FuelProgress { Anchor: (Left: 100, Right: 22, Top: 64, Height: 20); Value: 0; }
    Label #FuelCount { Anchor: (Left: 100, Right: 22, Top: 92, Height: 38); Style: (FontSize: 24, TextColor: #c2e2e7, RenderBold: true); }
    Label #Route { Anchor: (Left: 24, Right: 310, Top: 144, Height: 64); Style: $A.@Muted; }
@@ -15,10 +15,10 @@ $C.@PageOverlay { $A.@Window #FlightPanel { Anchor: (Width: 900, Height: 720);
   Group { Anchor: (Height: 16); }
   $A.@Section #Preparation { Anchor: (Height: 186);
    $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label #PreparationHeading { Text: "PREPARATION"; Style: $A.@Heading; } }
-   ItemSlot { Anchor: (Left: 22, Top: 58, Width: 48, Height: 48); ItemId: "AR_Survey_Chest"; ShowQuantity: false; ShowQualityBackground: false; }
+   ItemIcon { Anchor: (Left: 22, Top: 58, Width: 48, Height: 48); ItemId: "AR_Survey_Chest";    ShowItemTooltip: true; }
    Label #Suit { Anchor: (Left: 90, Right: 22, Top: 62, Height: 38); Style: $A.@Text; }
    $A.@Rule { Anchor: (Left: 22, Right: 22, Top: 118, Height: 1); }
-   ItemSlot { Anchor: (Left: 22, Top: 130, Width: 48, Height: 48); ItemId: "AR_OxygenCanister"; ShowQuantity: false; ShowQualityBackground: false; }
+   ItemIcon { Anchor: (Left: 22, Top: 130, Width: 48, Height: 48); ItemId: "AR_OxygenCanister";    ShowItemTooltip: true; }
    Label #Oxygen { Anchor: (Left: 90, Right: 22, Top: 134, Height: 38); Style: $A.@Text; }
   }
   Label #Help { Anchor: (Height: 54); Style: $A.@Muted; Text: "Board the rocket and ascend to orbit."; }

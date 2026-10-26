@@ -185,13 +185,22 @@ Group { HitTestVisible: false;
 ''')
 (r/'Ascent.ui').write_text('''$C = "../../Common.ui";
 $A = "Astral.ui";
+@AbortLabel = (...$C.@DefaultButtonLabelStyle, FontName: "Secondary", FontSize: 30, RenderBold: true, RenderUppercase: true, TextColor: #fff3f0);
 Group {
  $A.@Section { Anchor: (Top: 30, Left: 40, Width: 540, Height: 152);
   $A.@SectionHeader { Anchor: (Left: 5, Right: 5, Top: 5, Height: 34); Label { Text: "ASTRAL REACH · FLIGHT"; Style: (FontSize: 18, TextColor: #b4cddd, RenderBold: true, VerticalAlignment: Center); } }
   Label #Stage { Anchor: (Left: 20, Right: 20, Top: 50, Height: 56); Text: "IGNITION"; Style: (FontSize: 26, TextColor: #e4edf1, Wrap: true, RenderBold: true); }
   Group #Progress { Anchor: (Left: 20, Right: 20, Bottom: 18, Height: 18); $C.@ProgressBar #FlightProgress { Anchor: (Left: 0, Right: 76, Height: 14); Value: 0; } Label #FlightPercent { Anchor: (Right: 0, Width: 62, Height: 22); Style: (FontSize: 19, TextColor: #b1d5dc, HorizontalAlignment: End); } }
  }
- $A.@Secondary #Abort { Anchor: (Bottom: 30, Left: 40, Width: 300, Height: 44); Text: "Abort launch"; }
+ TextButton #Abort { Anchor: (Bottom: 30, Left: 40, Width: 390, Height: 80); Text: "ABORT LAUNCH";
+  Style: (
+   Default: (Background: (TexturePath: "../../Common/Buttons/Destructive.png", Border: 12), LabelStyle: @AbortLabel),
+   Hovered: (Background: (TexturePath: "../../Common/Buttons/Destructive_Hovered.png", Border: 12), LabelStyle: @AbortLabel),
+   Pressed: (Background: (TexturePath: "../../Common/Buttons/Destructive_Pressed.png", Border: 12), LabelStyle: @AbortLabel),
+   Disabled: (Background: (TexturePath: "../../Common/Buttons/Disabled.png", Border: 12), LabelStyle: @AbortLabel),
+   Sounds: $C.@ButtonsCancel
+  );
+ }
 }
 ''')
 (r/'OrbitalMapHud.ui').write_text('''$A = "Astral.ui";
@@ -296,3 +305,15 @@ for name in ['OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.
 p=r/'Rocket.ui';s=p.read_text().replace('Label { Text: "PREPARATION";', 'Label #PreparationHeading { Text: "PREPARATION";');assert '#PreparationHeading' in s;p.write_text(s)
 assert '#PreviewOdyssey' in (r/'LaunchYard.ui').read_text()
 assert '#Explore' not in (r/'OrbitalMap.ui').read_text()
+
+# Actual UI1r5 ItemSlot quality suppression still left grey icon backplates.
+# Pinned native client metadata exposes a separate read-only ItemIcon element
+# with ItemId and ShowItemTooltip. These custom pages display existing items;
+# storage/debits/charge stay server-owned and the meters remain real controls.
+import re
+for p in r.glob('*.ui'):
+ def readonly_icon(match):
+  body=match.group(2).replace('ShowQuantity: false;', '').replace('ShowQualityBackground: false;', '')
+  return 'ItemIcon'+match.group(1)+'{'+body+' ShowItemTooltip: true; }'
+ s=re.sub(r'ItemSlot(\s*(?:#[A-Za-z0-9_]+)?\s*)\{([^{}]*)\}',readonly_icon,p.read_text())
+ p.write_text(s)

@@ -26,27 +26,27 @@ $C.@PageOverlay { $A.@Window #YardPanel { Anchor: (Width: 1000, Height: 780);
    Group { Anchor: (Left: 22, Right: 22, Top: 92, Bottom: 10); LayoutMode: Top;
 Group #Material0 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
+  ItemIcon #Icon { Anchor: (Width: 48, Height: 48);    ShowItemTooltip: true; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material1 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
+  ItemIcon #Icon { Anchor: (Width: 48, Height: 48);    ShowItemTooltip: true; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material2 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
+  ItemIcon #Icon { Anchor: (Width: 48, Height: 48);    ShowItemTooltip: true; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material3 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
+  ItemIcon #Icon { Anchor: (Width: 48, Height: 48);    ShowItemTooltip: true; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
 Group #Material4 { Anchor: (Height: 52); LayoutMode: Top;
  Group { Anchor: (Height: 48); LayoutMode: Left;
-  ItemSlot #Icon { Anchor: (Width: 48, Height: 48); ShowQuantity: false; ShowQualityBackground: false; } Group { Anchor: (Width: 14); }
+  ItemIcon #Icon { Anchor: (Width: 48, Height: 48);    ShowItemTooltip: true; } Group { Anchor: (Width: 14); }
   Label #Count { Anchor: (Width: 470); Style: $A.@Text; } Label #Needed { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); } Label #Carried { Anchor: (Width: 150); Style: (FontSize: 22, TextColor: #c7e1e8, HorizontalAlignment: Center, VerticalAlignment: Center); }
  } $A.@Rule { } }
    }
