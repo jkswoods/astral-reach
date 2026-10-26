@@ -33,10 +33,6 @@ public final class AstralReachPlugin extends JavaPlugin {
  public AstralReachPlugin(JavaPluginInit init){super(init);}
  @Override protected void setup(){
   instance=this;
-  // Native events also cover ChannelConnection transports that bypass the legacy Netty adapter.
-  getEventRegistry().register(com.hypixel.hytale.server.core.event.events.player.PlayerMouseButtonEvent.class,OrbitalMapPage::button);
-  getEventRegistry().register(com.hypixel.hytale.server.core.event.events.player.PlayerMouseMotionEvent.class,OrbitalMapPage::motion);
-  getEntityStoreRegistry().registerSystem(new OrbitalMapPage.Wheel());
   getCodecRegistry(IWorldGenProvider.CODEC).register("AstralOreWorld",OreWorldProvider.class,OreWorldProvider.CODEC);
   oxygenType=getEntityStoreRegistry().registerResource(OxygenRegistry.class,"AstralOxygenV1",OxygenRegistry.CODEC);
   rocketType=getEntityStoreRegistry().registerResource(RocketRegistry.class,"AstralRocketsV1",RocketRegistry.CODEC);

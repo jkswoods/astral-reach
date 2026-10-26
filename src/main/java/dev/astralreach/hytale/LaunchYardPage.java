@@ -22,7 +22,7 @@ final class LaunchYardPage extends InteractiveCustomUIPage<RocketPage.Action>{
   String blocked=LaunchYardService.data(s).blocked.get(at);
   c.set("#Status.Text",!formed?"Pad incomplete":ready?"Rocket complete":working?(blocked==null?"Building · "+(p.workedMillis()/100)+"%":"Construction paused"):y.selected?"Blueprint ready":"Choose a rocket");
   c.set("#Footprint.Text",LaunchYardService.present(s.getExternalData().getWorld(),at,y)+" of 25 modules · 25 × 25 pad · "+y.facing);
-  c.set("#Blueprint.Text",y.selected?p.plan().title+(!y.recovered.isEmpty()?" · recovered assemblies credited":""):"First expedition: Odyssey Heavy");
+  c.set("#Blueprint.Text",y.selected?p.plan().title+(!y.recovered.isEmpty()?"\nRecovered assemblies credited":""):"First expedition: Odyssey Heavy");
   c.set("#PreviewOdyssey.Visible",p.plan()==dev.astralreach.core.LaunchPlan.ODYSSEY);c.set("#PreviewKestrel.Visible",p.plan()==dev.astralreach.core.LaunchPlan.KESTREL);c.set("#Rotate.Text","Pad: "+y.facing);c.set("#Plans.Visible",!y.selected);
   var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();
   int row=0;boolean anyCarried=false;for(var e:new TreeMap<>(p.plan().materials()).entrySet()){

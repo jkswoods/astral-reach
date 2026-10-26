@@ -276,6 +276,26 @@ s=s.replace('TexturePath: "Art/SectionHeader.png", Border: 8','TexturePath: "Art
 s=s.replace('FontName: "Secondary", FontSize: 24, RenderUppercase: false','FontName: "Default", FontSize: 24, RenderBold: false, RenderUppercase: false')
 s=s.replace('@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: (TexturePath: "Art/RowHovered.png", Border: 8)), Pressed: (Background: (TexturePath: "Art/RowPressed.png", Border: 8))','@PlanetStyle = ButtonStyle(Default: (Background: #00000000), Hovered: (Background: "Art/PlanetHover.png"), Pressed: (Background: "Art/PlanetPressed.png")')
 p.write_text(s)
+
+# Framed top-down chart controls. The0.7custom-page protocol has no wheel or
+# pointer-motion binding; do not label these as direct map gestures.
+p=r/'OrbitalMap.ui';s=p.read_text()
+old='Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 12); Background: "Art/SystemChart.png";'
+assert old in s
+s=s.replace(old,'Group #ChartViewport { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 12); MaskTexturePath: "Art/ChartMask.png"; Group #ChartCanvas { Anchor: (Left: 0, Top: 0, Width: 640, Height: 614); Background: "Art/SystemChart.png";')
+for n in planets:
+ start=s.index('Button #Planet'+n);end=s.index('} }',start)+3
+ part=s[start:end].replace('Group { Anchor: (Left: 3,','Group #Glyph'+n+' { Anchor: (Left: 3,').replace('Label { Anchor: (Left: 2,','Label #PlanetLabel'+n+' { Anchor: (Left: 2,')
+ s=s[:start]+part+s[end:]
+end=s.index('\n} }\nGroup { Anchor: (Width: 14); }',s.index('#ChartCanvas'))
+s=s[:end]+'\n}'+s[end:]
+tools='Group { Anchor: (Left: 22, Top: 62, Width: 616, Height: 42); LayoutMode: Left;'
+for ident,label,width in [('PanLeft','←',44),('PanUp','↑',44),('PanDown','↓',44),('PanRight','→',44),('ZoomOut','−',44),('ZoomIn','+',44),('Fit','Fit',70)]:
+ tools+=f'$A.@Secondary #{ident} {{ Anchor: (Width: {width}, Height: 38); Text: "{label}"; }} Group {{ Anchor: (Width: 6); }}'
+tools+='Label #ZoomLevel { Anchor: (Width: 70, Height: 38); Text: "100%"; Style: (FontSize: 19, TextColor: #c0d9e5, VerticalAlignment: Center); } }'
+end=s.index('\n} }\nGroup { Anchor: (Width: 14); }',s.index('#ChartCanvas'))
+s=s[:end]+ '\n} '+tools+s[end+2:]
+p.write_text(s)
 for name in ['OrbitalMap.ui','LaunchYard.ui','Rocket.ui','Oxygen.ui','OxygenHud.ui','Ascent.ui']:
  p=r/name;s=p.read_text()
  s=s.replace('$A.@SectionHeader { Anchor: (Left: 6, Right: 6, Top: 6,','$A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2,')
@@ -317,3 +337,11 @@ for p in r.glob('*.ui'):
   return 'ItemIcon'+match.group(1)+'{'+body+' ShowItemTooltip: true; }'
  s=re.sub(r'ItemSlot(\s*(?:#[A-Za-z0-9_]+)?\s*)\{([^{}]*)\}',readonly_icon,p.read_text())
  p.write_text(s)
+
+# UI1r9: tighten the real construction summary without stretching its
+# original rocket/pad illustration or inventing structures.
+p=r/'LaunchYard.ui';s=p.read_text()
+s=s.replace('Label #Footprint { Anchor: (Height: 56);','Label #Footprint { Anchor: (Height: 40);')
+s=s.replace('Label #Blueprint { Anchor: (Height: 64);','Label #Blueprint { Anchor: (Height: 96);')
+s=s.replace('TextColor: #a8cfda, Wrap: true, VerticalAlignment: Center','TextColor: #b8e6ef, Wrap: true, VerticalAlignment: Start')
+p.write_text(s)

@@ -9,7 +9,7 @@ PALETTES={'Sol':((238,182,65),(255,231,132)),'Orbis':((48,139,193),(107,160,73))
 # hemisphere read as a terraced disc. Light both the local face and the whole
 # sphere; vary the radial surface so latitude steps do not join into bands.
 for name,(a,b) in PALETTES.items():
- size=256;scale=3;im=Image.new('RGBA',(size*scale,size*scale));d=ImageDraw.Draw(im);faces=[];radius=12;unit=9.0
+ size=256;scale=3;im=Image.new('RGBA',(size*scale,size*scale));d=ImageDraw.Draw(im);faces=[];radius=9 if name=='Lune' else 12;unit=12.0 if name=='Lune' else 9.0
  def relief(x,y,z):
   length=math.sqrt(x*x+y*y+z*z)
   if length==0:return radius
@@ -43,7 +43,18 @@ for name,(a,b) in PALETTES.items():
    sphere=max(0,sum(normal[i]*light[i] for i in range(3)));face=max(0,dx*light[0]+dy*light[1]+dz*light[2])
    # Broad material variation and a coherent dark limb remain readable at 40px.
    brush=.94+.075*math.sin(x*1.7+y*.8+z*2.4)+.045*math.sin(x*4.1-y*2.8+z*.7)
-   shade=(.50+.65*sphere)*(.82+.25*face)*brush
+   shade=(.38+.78*sphere)*(.75+.35*face)*brush
+   if name=='Lune':
+    # Face-to-light visibility makes the crater walls cast actual broad
+    # shadows. Larger voxels preserve the selected concept's block relief
+    # when this original icon is reduced to its in-game size.
+    origin=(x+dx*.55,y+dy*.55,z+dz*.55)
+    occluded=any(tuple(round(origin[i]+light[i]*t*.65) for i in range(3)) in voxels for t in range(2,15))
+    if occluded:shade*=.59
+    for cx,cy,cz,r in [(-.40,.31,.86,.255),(.31,-.22,.925,.22),(-.80,-.30,.52,.20),(.26,.76,.60,.15),(.68,.30,.67,.14),(-.13,-.72,.68,.135)]:
+     cl=math.sqrt(cx*cx+cy*cy+cz*cz);distance=math.sqrt(sum((normal[i]-v/cl)**2 for i,v in enumerate((cx,cy,cz))))/r
+     if distance<.86:shade*=.46+.35*distance
+     elif distance<1.18:shade*=1.12
    if name=='Sol':shade=.91+.15*sphere+.04*math.sin(x+y+z)
    color=tuple(min(255,max(0,int(c*shade))) for c in color)+(255,)
    faces.append((sum(q[2] for q in p)/4,[(q[0],q[1]) for q in p],color))
@@ -66,8 +77,8 @@ def panel(name,top,bottom,edge='#476780',cut=3):
   # A section heading is a strip inside its enclosing frame, not another box.
   d=ImageDraw.Draw(im);d.rectangle((0,0,w-1,h-1),outline=top,width=3);d.line((0,h-1,w-1,h-1),fill=edge,width=1)
  im.save(R/name)
-for args in [('WindowPatch.png','#102236','#091522','#54758e'),('PanelPatch.png','#0e2030','#091722','#3b617e'),('TitleHeader.png','#1d3c60','#102a46','#5d7d9b'),('SectionHeader.png','#162f47','#10283c','#355e7d'),('Row.png','#112333','#0b1b29','#315572'),('RowHovered.png','#17323e','#0c2734','#75bcc6'),('RowPressed.png','#10232d','#0b1b24','#5fadb8'),('ControlPrimary.png','#125d9f','#0b3b70','#719dba'),('ControlPrimary_Hovered.png','#2372b5','#104c82','#9bc8df'),('ControlPrimary_Pressed.png','#104f81','#092f54','#5889a6'),('ControlSecondary.png','#354353','#253243','#7c90a3'),('ControlSecondary_Hovered.png','#45596d','#304457','#a3b8c9'),('ControlSecondary_Pressed.png','#25364b','#172738','#4b7895'),('ControlDisabled.png','#2b3743','#202b36','#475869')]:panel(*args)
-im=Image.new('RGBA',(64,64),(32,107,122,20));d=ImageDraw.Draw(im);d.rectangle((1,1,62,62),outline='#62d8d2',width=2);im.save(R/'SelectedFrame.png')
+for args in [('WindowPatch.png','#102236','#091522','#54758e'),('PanelPatch.png','#0e2030','#091722','#527d9a'),('TitleHeader.png','#1d3c60','#102a46','#6d97bc'),('SectionHeader.png','#193b59','#10283c','#507e9f'),('Row.png','#112333','#0b1b29','#3e6682'),('RowHovered.png','#17323e','#0c2734','#75bcc6'),('RowPressed.png','#10232d','#0b1b24','#5fadb8'),('ControlPrimary.png','#126be3','#084ba6','#74b3f4'),('ControlPrimary_Hovered.png','#258bff','#1261c4','#b1e6ff'),('ControlPrimary_Pressed.png','#0b57ae','#083b7c','#5889a6'),('ControlSecondary.png','#354353','#253243','#7c90a3'),('ControlSecondary_Hovered.png','#45596d','#304457','#a3b8c9'),('ControlSecondary_Pressed.png','#25364b','#172738','#4b7895'),('ControlDisabled.png','#2b3743','#202b36','#475869')]:panel(*args)
+im=Image.new('RGBA',(64,64),(0,170,184,38));d=ImageDraw.Draw(im);d.rectangle((1,1,62,62),outline='#16ffed',width=4);im.save(R/'SelectedFrame.png')
 im=Image.new('RGBA',(128,128));d=ImageDraw.Draw(im);d.ellipse((3,3,124,124),outline='#78e4da',width=3);im.save(R/'SelectionRing.png')
 for name,alpha in [('PlanetHover.png',45),('PlanetPressed.png',80)]:
  im=Image.new('RGBA',(192,224));d=ImageDraw.Draw(im);d.ellipse((9,9,183,183),fill=(66,166,183,alpha),outline=(105,224,222,130),width=2);im.save(R/name)
@@ -106,3 +117,4 @@ im=Image.new('RGB',(640,400),'#091622');d=ImageDraw.Draw(im);rng=random.Random(9
 for _ in range(110):
  x,y=rng.randrange(640),rng.randrange(400);d.rectangle((x,y,x+1,y+1),fill=rng.choice(['#456078','#758c9e','#29465b']))
 im.save(R/'StarField.png')
+Image.new('RGBA',(16,16),(255,255,255,255)).save(R/'ChartMask.png')

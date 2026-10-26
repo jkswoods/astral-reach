@@ -5,6 +5,15 @@ public final class CoreTests {
  static void check(boolean b,String msg){checks++;if(!b)throw new AssertionError(msg);}
  static void reject(Runnable r,String msg){checks++;try{r.run();throw new AssertionError(msg);}catch(IllegalArgumentException|IllegalStateException expected){}}
  public static void main(String[] args){
+  var view=new ChartViewport();check(view.percent()==100&&view.left()==0&&view.top()==0,"Chart fits the original full-system composition");
+  for(int i=0;i<20;i++)view.action("ZoomIn");check(view.percent()==225&&!view.canZoomIn(),"Chart zoom is bounded even on repeated native actions");
+  for(int i=0;i<100;i++){view.action("PanLeft");view.action("PanUp");}
+  check(view.left()==0&&view.top()==0,"Chart pan cannot expose outside the upper-left image boundary");
+  for(int i=0;i<100;i++){view.action("PanRight");view.action("PanDown");}
+  check(view.left()+view.scaled(640)==640&&Math.abs(view.top()+view.scaled(614)-614)<=1,"Chart remains clipped to its lower-right boundary");
+  for(int i=0;i<20;i++)view.action("ZoomOut");check(view.left()==0&&view.top()==0&&view.percent()==100,"Zooming back to fit also clamps a previously panned view");
+  view.action("ZoomIn");view.action("PanUp");view.action("Fit");check(!view.moved()&&!view.action("Select:untrusted"),"Fit resets the chart; view controls cannot choose an invalid route");
+
   check(DestinationAccess.canTravel("Orbis",true,0),"Protected home return stays available with a missing suit or depleted oxygen");
   check(!DestinationAccess.canTravel("Lune",true,0)&&DestinationAccess.canTravel("Lune",true,1),"Lunar landing preserves its existing complete Survey suit gate");
   check(!DestinationAccess.canTravel("Orbis",false,3)&&!DestinationAccess.canTravel("Lune",false,3),"UI selection never grants an unpaid journey");

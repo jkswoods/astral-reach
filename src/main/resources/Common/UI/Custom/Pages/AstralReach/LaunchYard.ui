@@ -8,9 +8,9 @@ $C.@PageOverlay { $A.@Window #YardPanel { Anchor: (Width: 1000, Height: 780);
    Group { Anchor: (Width: 22); }
    Group { FlexWeight: 1; LayoutMode: Top;
     Label #Status { Anchor: (Height: 45); Style: (FontSize: 24, TextColor: #d4e6e4, RenderBold: true, Wrap: true); }
-    Label #Footprint { Anchor: (Height: 56); Style: (FontSize: 20, TextColor: #9aafc2, Wrap: true); }
+    Label #Footprint { Anchor: (Height: 40); Style: (FontSize: 20, TextColor: #9aafc2, Wrap: true); }
     $A.@Rule { }
-    Label #Blueprint { Anchor: (Height: 64); Style: (FontSize: 23, TextColor: #a8cfda, Wrap: true, VerticalAlignment: Center); }
+    Label #Blueprint { Anchor: (Height: 96); Style: (FontSize: 23, TextColor: #b8e6ef, Wrap: true, VerticalAlignment: Start); }
    }
   }
   Group #Plans { Anchor: (Height: 72); LayoutMode: Left;

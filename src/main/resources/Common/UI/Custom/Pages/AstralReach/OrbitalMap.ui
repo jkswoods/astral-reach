@@ -36,32 +36,33 @@ Button #RouteUmbra { Anchor: (Height: 90); Style: $A.@RowStyle;
  Label { Anchor: (Left: 88, Top: 48, Right: 42, Height: 26); Text: "Future route"; Style: (FontSize: 17, TextColor: #99adc1); }  Group { Anchor: (Right: 14, Top: 30, Width: 24, Height: 30); Background: "Art/Lock.png"; HitTestVisible: false; } } Group { Anchor: (Height: 9); }
 } } Group { Anchor: (Width: 14); }
 $A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } }
-Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 12); Background: "Art/SystemChart.png";
+Group #ChartViewport { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 12); MaskTexturePath: "Art/ChartMask.png"; Group #ChartCanvas { Anchor: (Left: 0, Top: 0, Width: 640, Height: 614); Background: "Art/SystemChart.png";
 Button #PlanetOrbis { Anchor: (Left: 200, Top: 255, Width: 144, Height: 158); Style: $A.@PlanetStyle;
  Group #RingOrbis { Anchor: (Left: 0, Top: 0, Width: 132, Height: 132); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 126, Height: 126); Background: "Art/Planet_Orbis.png"; HitTestVisible: false; }
- Label { Anchor: (Left: 2, Top: 133, Width: 156, Height: 25); Text: "Orbis"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
+ Group #GlyphOrbis { Anchor: (Left: 3, Top: 3, Width: 126, Height: 126); Background: "Art/Planet_Orbis.png"; HitTestVisible: false; }
+ Label #PlanetLabelOrbis { Anchor: (Left: 2, Top: 133, Width: 156, Height: 25); Text: "Orbis"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetLune { Anchor: (Left: 350, Top: 295, Width: 80, Height: 94); Style: $A.@PlanetStyle;
  Group #RingLune { Anchor: (Left: 0, Top: 0, Width: 68, Height: 68); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 62, Height: 62); Background: "Art/Planet_Lune.png"; HitTestVisible: false; }
- Label { Anchor: (Left: 2, Top: 69, Width: 92, Height: 25); Text: "Lune"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
+ Group #GlyphLune { Anchor: (Left: 3, Top: 3, Width: 62, Height: 62); Background: "Art/Planet_Lune.png"; HitTestVisible: false; }
+ Label #PlanetLabelLune { Anchor: (Left: 2, Top: 69, Width: 92, Height: 25); Text: "Lune"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetRustreach { Anchor: (Left: 385, Top: 150, Width: 104, Height: 128); Style: $A.@PlanetStyle;
  Group #RingRustreach { Anchor: (Left: 0, Top: 0, Width: 92, Height: 92); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 86, Height: 86); Background: "Art/Planet_Rustreach.png"; HitTestVisible: false; }
- Label { Anchor: (Left: 2, Top: 93, Width: 116, Height: 25); Text: "Rustreach"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
+ Group #GlyphRustreach { Anchor: (Left: 3, Top: 3, Width: 86, Height: 86); Background: "Art/Planet_Rustreach.png"; HitTestVisible: false; }
+ Label #PlanetLabelRustreach { Anchor: (Left: 2, Top: 93, Width: 116, Height: 25); Text: "Rustreach"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetNacre { Anchor: (Left: 360, Top: 400, Width: 108, Height: 122); Style: $A.@PlanetStyle;
  Group #RingNacre { Anchor: (Left: 0, Top: 0, Width: 96, Height: 96); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 90, Height: 90); Background: "Art/Planet_Nacre.png"; HitTestVisible: false; }
- Label { Anchor: (Left: 2, Top: 97, Width: 120, Height: 25); Text: "Nacre"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
+ Group #GlyphNacre { Anchor: (Left: 3, Top: 3, Width: 90, Height: 90); Background: "Art/Planet_Nacre.png"; HitTestVisible: false; }
+ Label #PlanetLabelNacre { Anchor: (Left: 2, Top: 97, Width: 120, Height: 25); Text: "Nacre"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetVesper { Anchor: (Left: 200, Top: 445, Width: 112, Height: 126); Style: $A.@PlanetStyle;
  Group #RingVesper { Anchor: (Left: 0, Top: 0, Width: 100, Height: 100); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 94, Height: 94); Background: "Art/Planet_Vesper.png"; HitTestVisible: false; }
- Label { Anchor: (Left: 2, Top: 101, Width: 124, Height: 25); Text: "Vesper"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
+ Group #GlyphVesper { Anchor: (Left: 3, Top: 3, Width: 94, Height: 94); Background: "Art/Planet_Vesper.png"; HitTestVisible: false; }
+ Label #PlanetLabelVesper { Anchor: (Left: 2, Top: 101, Width: 124, Height: 25); Text: "Vesper"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
 Button #PlanetUmbra { Anchor: (Left: 490, Top: 460, Width: 102, Height: 116); Style: $A.@PlanetStyle;
  Group #RingUmbra { Anchor: (Left: 0, Top: 0, Width: 90, Height: 90); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
- Group { Anchor: (Left: 3, Top: 3, Width: 84, Height: 84); Background: "Art/Planet_Umbra.png"; HitTestVisible: false; }
- Label { Anchor: (Left: 2, Top: 91, Width: 114, Height: 25); Text: "Umbra"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
-} }
+ Group #GlyphUmbra { Anchor: (Left: 3, Top: 3, Width: 84, Height: 84); Background: "Art/Planet_Umbra.png"; HitTestVisible: false; }
+ Label #PlanetLabelUmbra { Anchor: (Left: 2, Top: 91, Width: 114, Height: 25); Text: "Umbra"; Style: (FontSize: 19, TextColor: #d5dfe6); } }
+}
+} Group { Anchor: (Left: 22, Top: 62, Width: 616, Height: 42); LayoutMode: Left;$A.@Secondary #PanLeft { Anchor: (Width: 44, Height: 38); Text: "←"; } Group { Anchor: (Width: 6); }$A.@Secondary #PanUp { Anchor: (Width: 44, Height: 38); Text: "↑"; } Group { Anchor: (Width: 6); }$A.@Secondary #PanDown { Anchor: (Width: 44, Height: 38); Text: "↓"; } Group { Anchor: (Width: 6); }$A.@Secondary #PanRight { Anchor: (Width: 44, Height: 38); Text: "→"; } Group { Anchor: (Width: 6); }$A.@Secondary #ZoomOut { Anchor: (Width: 44, Height: 38); Text: "−"; } Group { Anchor: (Width: 6); }$A.@Secondary #ZoomIn { Anchor: (Width: 44, Height: 38); Text: "+"; } Group { Anchor: (Width: 6); }$A.@Secondary #Fit { Anchor: (Width: 70, Height: 38); Text: "Fit"; } Group { Anchor: (Width: 6); }Label #ZoomLevel { Anchor: (Width: 70, Height: 38); Text: "100%"; Style: (FontSize: 19, TextColor: #c0d9e5, VerticalAlignment: Center); } } }
 Group { Anchor: (Width: 14); }
 Group { Anchor: (Width: 392); LayoutMode: Top;
 $A.@Section { Anchor: (Height: 258); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Group #MiniOrbis { Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_Orbis.png"; HitTestVisible: false; } Group #MiniLune { Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_Lune.png"; HitTestVisible: false; } Group #MiniRustreach { Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_Rustreach.png"; HitTestVisible: false; } Group #MiniNacre { Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_Nacre.png"; HitTestVisible: false; } Group #MiniVesper { Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_Vesper.png"; HitTestVisible: false; } Group #MiniUmbra { Anchor: (Left: 0, Top: 8, Width: 28, Height: 28); Background: "Art/Planet_Umbra.png"; HitTestVisible: false; } Label #Selected { Anchor: (Left: 40, Right: 0); Text: "LUNE"; Style: $A.@Heading; } }
