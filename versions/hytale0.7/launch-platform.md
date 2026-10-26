@@ -51,3 +51,6 @@ Choose **Open flight control** to deposit propellant. See [machines and propella
 Choose a low site. The established launch candidate requires a **19×19×164** clear column above Odyssey's anchor, or **21×21×190** for Kestrel. The anchor sits one block above the central module.
 
 The new extended-ascent candidate increases those requirements to **19×19×205** for Odyssey and **97×97×231** for Kestrel's booster recovery airspace. Those larger clearances are part of the flight work awaiting native verification. Leave the full column below world height 320 and read the exact candidate's refusal message.
+
+
+<figure><a href="/assets/hytale0.7/screenshots/construction-ui-private.png"><img src="/assets/hytale0.7/screenshots/construction-ui-private.png" alt="Native Kestrel construction panel with recovered assemblies and four missing frame plates"></a><figcaption>Current private construction panel in Hytale 0.7.4. Recovered assemblies are credited, and only missing quantities are shown.</figcaption></figure>

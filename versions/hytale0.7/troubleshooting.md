@@ -32,7 +32,7 @@ The rocket needs eight full cells' worth of propellant, a complete platform, cle
 
 ## The map is unavailable or a body is locked {#the-map-is-unavailable-or-a-body-is-locked}
 
-Orbital navigation belongs to the newer flight candidate; see [development status](status.md). Its 3D map opens after reaching space and the booster return. `/astral-map` cannot open it from the launch pad. Lune is the current selectable landing destination. Other bodies describe the system's intended resource gates while their routes remain under development.
+Orbital navigation belongs to the newer flight candidate; see [development status](status.md). Its Destinations screen opens after reaching space and the booster return. `/astral-map` cannot open it from the launch pad. Lune is the current selectable landing destination. Other bodies describe the system's intended resource gates while their routes remain under development.
 
 ## I cannot return {#i-cannot-return}
 

@@ -38,7 +38,11 @@ The model workshop also contains the independent Kestrel upper ship, Peregrine e
 
 The redesigned **Destinations** screen becomes available after reaching space. Select a route in the list or click a planet on the top-down system chart. Its details show resources, equipment, available oxygen and protected homeward fuel. Use the single travel button to land on **Lune** or return to **Orbis**. Later bodies remain **Future route** entries with travel disabled.
 
-**Explore in 3D** opens the world chart. Drag to pan, scroll to zoom and middle-click to reset. Right-click returns to Destinations; choosing a body returns to its details. The world-chart drag and direct body click still need a physical-mouse check.
+The current interface uses a single top-down system chart. Select a planet directly or use the route list. Mouse-drag panning and scroll zoom remain under development.
+
+<figure><a href="/assets/hytale0.7/screenshots/destinations-ui-private.png"><img src="/assets/hytale0.7/screenshots/destinations-ui-private.png" alt="Native top-down Destinations panel with Lune selected"></a><figcaption>Current private interface in Hytale 0.7.4. The separate 3D option is removed; later routes remain disabled. Appearance review continues.</figcaption></figure>
+
+During a cancellable launch, **ABORT LAUNCH** stops the active departure using its existing fuel-restoration handling. The next private interface gives this control a large red button; its updated rendering still needs a native check.
 
 Close the screen to remain in orbit. `/astral-map` reopens navigation without charging more fuel. Closing navigation does not spend the return reserve.
 
