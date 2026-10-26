@@ -117,4 +117,3 @@ im=Image.new('RGB',(640,400),'#091622');d=ImageDraw.Draw(im);rng=random.Random(9
 for _ in range(110):
  x,y=rng.randrange(640),rng.randrange(400);d.rectangle((x,y,x+1,y+1),fill=rng.choice(['#456078','#758c9e','#29465b']))
 im.save(R/'StarField.png')
-Image.new('RGBA',(16,16),(255,255,255,255)).save(R/'ChartMask.png')
