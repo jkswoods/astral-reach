@@ -2,6 +2,8 @@
 
 Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.
 
+**Early development — some features may be incomplete or may not work as expected.** Experimental builds are available on CurseForge’s Release channel; read the selected file’s notes and back up world and player data before upgrading.
+
 **[Read the player guide](https://jkswoods.github.io/astral-reach/)** · [Rockets and scale](https://jkswoods.github.io/astral-reach/hytale0.7/rockets/) · [Launch platform](https://jkswoods.github.io/astral-reach/hytale0.7/launch-platform/) · [Gallery](https://jkswoods.github.io/astral-reach/hytale0.7/gallery/)
 
 ![Astral Reach — Build the next voyage](docs/assets/brand/banner-cinematic-v2.png)
@@ -10,7 +12,7 @@ Gather resources, build full-size rockets and use finite fuel for a paid expedit
 
 *Native Hytale 0.7.4 development capture: the full-size Kestrel Stack above its launch platform. Latest boarding and landing work remains under test.*
 
-Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. The current playable slice connects home-world nickel and oil shale, four fueled processors, a 25×25 multiblock launch site, ghost-blueprint construction and a paid expedition to Lune for titanium and aluminium.
+Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. The current playable slice connects home-world nickel and oil shale, four fueled processors, a 25×25 multiblock launch site, ghost-blueprint construction and a paid expedition to Lune for titanium and aluminium. Suit upgrades, portable oxygen, oxygen fields and planet-themed masonry support the expedition. The native destination chart uses clickable planets and routes; press Esc to hide it and use `/astral-map` to reopen it in orbit.
 
 | Rocket | Height | Maximum width | Launch pad |
 | --- | ---: | ---: | ---: |

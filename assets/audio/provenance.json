@@ -408,6 +408,16 @@
       "transport": "connection",
       "runtime": "Common/Sounds/AstralReach/ore_handle.ogg",
       "sha256": "50c3cc366b82b422f47c8685ec201977fff393e8260423318a09ffd05b0059c6"
+    },
+    {
+      "cue": "console_select",
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "model_id": "eleven_text_to_sound_v2",
+      "duration_seconds": 0.5,
+      "binding": "Actual panel opens and route selection, with a 180ms per-player cooldown. No hover or refresh cue.",
+      "runtime": "Common/Sounds/AstralReach/console_select.ogg",
+      "sha256": "d62445e8099c9dac0ac3751a6405429abd8c9f69df25fb54e15cec8e6536c5f0"
     }
   ],
   "notice": "Original generated recordings; subject to the generating account\u2019s ElevenLabs terms. Detailed source takes and generation provenance retained privately."

@@ -105,9 +105,9 @@ im=Image.new('RGB',(640,614),'#07131e');d=ImageDraw.Draw(im);rng=random.Random(8
 for _ in range(100):
  x,y=rng.randrange(640),rng.randrange(614);d.rectangle((x,y,x+1,y+1),fill=rng.choice(['#334b60','#61778c','#294257']))
 for rx,ry in [(180,135),(280,220),(390,305),(500,390)]:d.ellipse((60-rx,335-ry,60+rx,335+ry),outline='#314c61',width=1)
-# A sparse original belt of painted fragments follows the system chart's inner orbital arc.
+# Keep the belt close to the Sun, inside Orbis's orbit as in the selected concept.
 for i in range(42):
- t=-1.3+i*.063;x=60+217*math.cos(t)+rng.uniform(-7,7);y=335+168*math.sin(t)+rng.uniform(-6,6);size=rng.choice([2,3,4])
+ t=-1.3+i*.063;x=60+135*math.cos(t)+rng.uniform(-4,4);y=335+104*math.sin(t)+rng.uniform(-4,4);size=rng.choice([2,3,4])
  d.polygon([(x-size,y),(x-size*.6,y-size*.75),(x+size*.5,y-size),(x+size,y),(x+size*.5,y+size*.7),(x-size*.3,y+size)],fill=rng.choice(['#626267','#797a7c','#4c505a']))
  d.line((x-size*.6,y-size*.7,x+size*.4,y-size*.8),fill='#a1a1a3',width=1)
 glow=Image.new('RGBA',im.size);ImageDraw.Draw(glow).ellipse((-147,183,147,477),fill=(207,151,43,85));glow=glow.filter(ImageFilter.GaussianBlur(25));im=Image.alpha_composite(im.convert('RGBA'),glow)

@@ -63,11 +63,11 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
  @Override public void build(Ref<EntityStore>r,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){
   c.append("Pages/AstralReach/OrbitalMap.ui");labels(r,c,s);NativeUi.cue(s,playerRef);
   for(String body:ORDER)for(String prefix:List.of("Route","Planet"))e.addEventBinding(CustomUIEventBindingType.Activating,"#"+prefix+body,EventData.of("Action","Select:"+body),false);
-  for(String id:List.of("Travel","Close"))e.addEventBinding(CustomUIEventBindingType.Activating,"#"+id,EventData.of("Action",id),false);
+  e.addEventBinding(CustomUIEventBindingType.Activating,"#Travel",EventData.of("Action","Travel"),false);
  }
  @Override public void handleDataEvent(Ref<EntityStore>r,Store<EntityStore>s,Action action){s.getExternalData().getWorld().execute(()->{
   if(!r.isValid()||r.getStore()!=s||viewing.get(playerRef.getUuid())!=session||!SpaceFlight.inOrbit(s,r))return;var player=s.getComponent(r,Player.getComponentType());if(player==null||player.getPageManager().getCustomPage()!=this)return;
-  String a=action.action;if(a.equals("Close")){stop(session);close();return;}
+  String a=action.action;
   if(a.startsWith("Select:")){String body=a.substring(7);if(!BODIES.containsKey(body)||body.equals(selected))return;selected=body;session.selected=body;NativeUi.cue(s,playerRef);var c=new UICommandBuilder();labels(r,c,s);sendUpdate(c,false);return;}
   if(!a.equals("Travel")||!selected.equals("Lune")&&!selected.equals("Orbis"))return;
   try{if(selected.equals("Lune"))ExpeditionSuit.require(s,r,1);}catch(IllegalArgumentException ex){AstralReachPlugin.message(playerRef,ex.getMessage());return;}
@@ -78,5 +78,6 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
   if(viewing.get(playerRef.getUuid())!=session||!r.isValid()||r.getStore()!=s)return;
   var p=s.getComponent(r,Player.getComponentType());if(p!=null&&p.getPageManager().getCustomPage() instanceof OrbitalMapPage next&&next.session==session)return;
   stop(session);
+  AstralReachPlugin.message(playerRef,"Destinations hidden. Type /astral-map to reopen; your return fuel remains reserved.");
  });}
 }
