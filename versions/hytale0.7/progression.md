@@ -22,11 +22,9 @@ Both currently supported rockets reach Lune. A larger rocket does not yet unlock
 
 Lune is a separate persistent world with grey regolith and finite ore deposits. Mine titanium and aluminium roughly **5–14 blocks below the surface**. Bring enough tools, leave inventory room for your ores and preserve the return site.
 
-<figure><a href="/assets/hytale0.7/screenshots/lune-beacon.png"><img src="/assets/hytale0.7/screenshots/lune-beacon.png" alt="The native return beacon on Lune's grey regolith"></a><figcaption>The Lune return beacon. This is the current development terrain, captured natively after a paid flight in Hytale 0.7.4.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-lune-landing.png"><img src="/assets/hytale0.7/screenshots/astral-lune-landing.png" alt="Kestrel upper stage grounded on cratered Lune beneath the stars"></a><figcaption>An actual saved landing in Hytale 0.7.4. The ship remains beside its return control while you explore.</figcaption></figure>
 
-The beacon is at **20, 64, 16**, near the landing point at **16.5, 64, 16.5**. Use it to spend the **4,000-unit reserve already paid at home**. `/astral-return` recovers the same paid return if you lose track of the beacon.
-
-<figure><a href="/assets/hytale0.7/screenshots/lune-return.png"><img src="/assets/hytale0.7/screenshots/lune-return.png" alt="The native Lune return panel showing four thousand units paid at home"></a><figcaption>The reserve is held for the return. The beacon grants neither a free journey nor extra fuel.</figcaption></figure>
+Landing sites are assigned to the expedition. Return to the **control beside your upper stage’s landing legs** to board for the prepaid ascent and home approach. The journey spends the **3,000-unit reserve already paid at home**. **/astral-return** uses that same reserve; it does not provide a free journey, and on Lune you must be near your landing control. Older paid expeditions retain their recorded reserve.
 
 Your gathered inventory returns with you to the saved home departure point. Keep that point clear. If it is obstructed, the reserve stays held until you can retry safely.
 
@@ -42,4 +40,4 @@ The original model collection establishes this intended chain:
 | Vesper | Iridium + sulfur | Radiation Core | In development |
 | Umbra | Aetherium + void quartz | Fold Beacon | In development |
 
-The new flight candidate presents those bodies in an interactive orbital map after reaching space. Lune is its available landing choice; later routes show their progression gates and remain locked. Local native checks cover the 3D map controls and extended ascent. The complete physical boarding and upper-stage landing sequence is still under test. The Fold Beacon is the intended terminal reward for this system, rather than a sixth implemented destination.
+The Destinations screen presents those bodies in a clickable top-down chart after reaching space. Lune is the available landing choice; later routes show their progression gates and remain locked. The chart has no separate 3D, drag, pan or zoom mode. Upper-stage landings and paid returns have representative native checks; passenger, camera and on-foot presentation still need refinement. The Fold Beacon is the intended terminal reward for this system, rather than a sixth implemented destination.

@@ -6,7 +6,7 @@ title: "Troubleshooting"
 
 ## The mod does not load {#the-mod-does-not-load}
 
-Use a matching development candidate for Hytale 0.7.*, keep only one AstralReach JAR in the mods directory and enable it in the world's Mods tab. Dedicated servers require Java 25. Read [installation](installation.md) and keep the previous world/JAR pair available.
+Choose a file whose requirements include your game patch (declared range >=0.7.3 <0.8.0), keep only one AstralReach JAR in the mods directory and enable it in the world's Mods tab. Dedicated servers require Java 25. Read [installation](installation.md) and keep the previous world/JAR pair available.
 
 ## I cannot find nickel or oil shale {#i-cannot-find-nickel-or-oil-shale}
 
@@ -24,19 +24,19 @@ Missing modules, incomplete occupied cells, unloaded areas and obstructions prev
 
 ## I want to change a paid blueprint {#i-want-to-change-a-paid-blueprint}
 
-Choose **Cancel and recover materials** first. Make room for every supplied item. If the full refund cannot fit, the console keeps everything in place. A completed rocket must be drained, idle and removed by its owner before the next construction plan.
+Choose **Return supplied parts** first. Make room for every supplied item. If the full refund cannot fit, the console keeps everything in place. A completed rocket must be drained, idle and removed by its owner before the next construction plan.
 
 ## Launch is refused {#launch-is-refused}
 
-The rocket needs eight full cells' worth of propellant, a complete platform, clear launch airspace and a safe place for its owner to stand. The landing site is checked before departure is charged; the new flight prototype also checks an orbital arrival. Follow the flight-control message to clear the obstruction or complete the active journey.
+The rocket needs nine full cells’ worth of propellant (9,000 units), a complete platform, clear launch airspace, a complete Survey suit or better and at least four minutes of portable oxygen. Preflight checks orbital and lunar arrival before charging departure. Follow the flight-control message to clear the obstruction or complete the active journey.
 
 ## The map is unavailable or a body is locked {#the-map-is-unavailable-or-a-body-is-locked}
 
-Orbital navigation belongs to the newer flight candidate; see [development status](status.md). Its Destinations screen opens after reaching space and the booster return. `/astral-map` cannot open it from the launch pad. Lune is the current selectable landing destination. Other bodies describe the system's intended resource gates while their routes remain under development.
+The Destinations screen opens after reaching space and the booster return. `/astral-map` cannot open it from the launch pad. Lune is the current selectable landing destination. Other bodies describe the system's intended resource gates while their routes remain under development.
 
 ## I cannot return {#i-cannot-return}
 
-Use the Lune beacon or `/astral-return` for the same paid reserve. The new flight prototype also offers a home-return control in its map. They do not create a new journey. Keep your saved departure point clear: an obstructed home landing holds the reserve until it can be used safely.
+On Lune, stand near the control beside your landed upper stage and use it or `/astral-return` to begin the prepaid return. In orbit, use the Orbis travel action in Destinations. These controls use the same existing paid journey. Keep your saved departure point clear: an obstructed home landing holds the reserve until it can be used safely.
 
 If your saved home world is unavailable, preserve its files and restore the matching backup. Do not delete journey or world data to work around a development problem.
 

@@ -10,9 +10,9 @@ title: "Astral Reach"
 
 <p class="mod-lead">Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.</p>
 
-<div class="ar-stats"><div class="ar-stat"><strong>123.19</strong><span>blocks tall · Kestrel Stack</span></div><div class="ar-stat"><strong>25 × 25</strong><span>blocks · joined launch platform</span></div><div class="ar-stat"><strong>8,000</strong><span>finite fuel units · first round trip</span></div></div>
+<div class="ar-stats"><div class="ar-stat"><strong>123.19</strong><span>blocks tall · Kestrel Stack</span></div><div class="ar-stat"><strong>25 × 25</strong><span>blocks · joined launch platform</span></div><div class="ar-stat"><strong>9,000</strong><span>finite fuel units · first round trip</span></div></div>
 
-<figure><a href="/assets/hytale0.7/screenshots/kestrel-full.png"><img src="/assets/hytale0.7/screenshots/kestrel-full.png" alt="The complete 123-block Kestrel Stack above its launch platform in Hytale"></a><figcaption>The full Kestrel Stack, from its engines to its upper fins. Native Hytale 0.7.4. Open any photograph for its full resolution.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-kestrel-launchpad.png"><img src="/assets/hytale0.7/screenshots/astral-kestrel-launchpad.png" alt="The complete 123-block Kestrel Stack above its launch platform in Hytale"></a><figcaption>The full Kestrel Stack, from its engines to its upper fins. Native Hytale 0.7.4. Open any photograph for its full resolution.</figcaption></figure>
 
 <div class="mod-actions"><a class="mod-button" href="getting-started/">Plan your first expedition</a><a class="mod-button mod-button-secondary" href="status/">Check development status</a></div>
 
@@ -36,8 +36,8 @@ Explore [rockets and scale](rockets.md), build the [launch platform](launch-plat
 
 ## Development status {#development-status}
 
-The project targets **Hytale 0.7.\*** and remains a **development build**. This repository currently publishes documentation and curated media, with no public playable JAR download.
+Astral Reach declares **>=0.7.3 <0.8.0** support and remains early in development. Choose a compatible file from [CurseForge](https://www.curseforge.com/hytale/mods/astral-reach) or [GitHub releases](https://github.com/jkswoods/astral-reach/releases), then follow [installation](installation.md).
 
-The established resource, construction and paid Lune route has local gameplay checks. A new candidate adds sustained third-person ascent, ignition smoke, engine fire, Kestrel booster return and a space-only orbital map. The ignition crash has been repaired, and local flights have reached orbit with the booster sequence and a 3D navigation view. Physical boarding, upper-stage landing and the latest ore art are still being tested; see [development status](status.md). Human listening, comfort and real multiplayer acceptance remain open.
+The resource, construction and paid Lune route has representative local gameplay checks. Sustained third-person ascent, smoke and engine fire, Kestrel booster return, clickable orbital navigation and upper-stage landings are implemented, with presentation still under refinement. Human listening, camera comfort, full survival progression and real multiplayer acceptance remain open; see [development status](status.md).
 
-See [development status](status.md) and [installation](installation.md) before trying a supplied candidate. The [original 66-model workshop](https://astral-reach-space-workshop.serina610406.chatgpt.site/) remains a separate art catalogue, including future planets and fleet designs beyond the playable route.
+The [original 66-model workshop](https://astral-reach-space-workshop.serina610406.chatgpt.site/) remains a separate art catalogue, including future planets and fleet designs beyond the playable route.

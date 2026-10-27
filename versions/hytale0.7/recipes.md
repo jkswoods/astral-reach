@@ -44,7 +44,7 @@ A new launch site uses **25 modules**, making a **25×25** deck. Those modules a
 
 ## Ghost-blueprint construction {#ghost-blueprint-construction}
 
-Select a plan at the separate construction console, then **Feed needed materials**. A complete, clear and loaded site builds the rocket in **10 seconds**. The finished tank is empty.
+Select a plan at the separate construction console, then **Supply needed parts**. A complete, clear and loaded site builds the rocket in **10 seconds**. The finished tank is empty.
 
 | Material | Odyssey Heavy | Kestrel Stack |
 | --- | ---: | ---: |
@@ -54,6 +54,6 @@ Select a plan at the separate construction console, then **Feed needed materials
 | Nickel-steel Frame Plates | 16 | 24 |
 | Thermal Shield | — | 1 |
 
-Including the bench, four processors, Odyssey, 25 modules, console and eight initial full cells takes **302 iron bars, 74 copper bars, 93 raw nickel and 16 oil shale**. Add stock tools, bootstrap equipment and processor fuel. The first launch uses home-world resources throughout.
+Including the bench, four processors, Odyssey, 25 modules, console and nine initial full cells takes **302 iron bars, 75 copper bars, 94 raw nickel and 18 oil shale**, with one spare empty casing. Add the Suit Workbench, suit, oxygen equipment, tools and processor fuel; those requirements are additional. The first launch uses home-world resources throughout.
 
 The older Assembly recipe for Odyssey and the **8×8 Launch Deck** recipe (4 iron bars + 1 nickel ingot) remain for older items and saves. Use the [wide launch platform](launch-platform.md) for a new yard.
