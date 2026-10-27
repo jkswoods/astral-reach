@@ -4,38 +4,36 @@ title: "Native screenshots"
 
 # Native screenshots {#native-screenshots}
 
-These images show the development mod running in Hytale 0.7.4. Click a photograph to inspect it at full resolution. The rockets use their full native model size; the dimensions on [Rockets and scale](rockets.md) provide a shared scale without perspective distortion.
+These photographs show Astral Reach running in **Hytale 0.7.4**. Click an image to inspect its full resolution. The rockets use their complete native model size; [Rockets and scale](rockets.md) compares their dimensions directly.
 
 ## Full-size launchers {#full-size-launchers}
 
-<figure><a href="/assets/hytale0.7/screenshots/kestrel-full.png"><img src="/assets/hytale0.7/screenshots/kestrel-full.png" alt="Full-height Kestrel Stack and its launch platform"></a><figcaption>Kestrel Stack: 123.19 blocks high on a 25×25-block platform.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-kestrel-launchpad.png"><img src="/assets/hytale0.7/screenshots/astral-kestrel-launchpad.png" alt="Full-height Kestrel Stack above its wide launch platform"></a><figcaption>Kestrel Stack: 123.19 blocks high on a 25×25-block platform. Nearby workshop equipment gives a useful size reference.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/odyssey-full.png"><img src="/assets/hytale0.7/screenshots/odyssey-full.png" alt="Full-height Odyssey Heavy on its launch platform"></a><figcaption>Odyssey Heavy: 97.33 blocks high, with a copper-orange core and ivory boosters.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-odyssey-launchpad.png"><img src="/assets/hytale0.7/screenshots/astral-odyssey-launchpad.png" alt="Odyssey Heavy with its copper-orange core and ivory boosters"></a><figcaption>Odyssey Heavy: 97.33 blocks high, with its complete boosters and escape tower visible.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/kestrel-player-scale.png"><img src="/assets/hytale0.7/screenshots/kestrel-player-scale.png" alt="Player beside Kestrel's large lower stage"></a><figcaption>A player beside the lower stage. This is a perspective view; the scale diagram compares dimensions directly.</figcaption></figure>
+## Expedition workshop {#expedition-workshop}
 
-## Building and refuelling {#building-and-refuelling}
+The following Creative-mode display and recipe previews show the actual placed machines and native crafting screens. They illustrate appearance and controls rather than a complete survival walkthrough.
 
-<figure><a href="/assets/hytale0.7/screenshots/launch-blueprint.png"><img src="/assets/hytale0.7/screenshots/launch-blueprint.png" alt="Rocket blueprint and separate assembly console"></a><figcaption>Select a plan at the separate console to expose the ghost structure and exact material requirements.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-workshop.png"><img src="/assets/hytale0.7/screenshots/astral-workshop.png" alt="Astral workbenches, oxygen equipment and fuel processors"></a><figcaption>Assembly, suit and masonry workbenches beside the Oxygen Collector and four fueled processors.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/launch-fireworks.png"><img src="/assets/hytale0.7/screenshots/launch-fireworks.png" alt="Fireworks marking completed rocket assembly"></a><figcaption>Completed assembly celebrates once with fireworks. The rocket still needs fuel.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-suit-workbench.png"><img src="/assets/hytale0.7/screenshots/astral-suit-workbench.png" alt="Articulated arms, suit display and terminal on the Suit Workbench"></a><figcaption>The Suit Workbench surrounds its central suit display with six articulated service arms and a computer.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/flight-funded.png"><img src="/assets/hytale0.7/screenshots/flight-funded.png" alt="Native flight panel holding 8000 fuel"></a><figcaption>The funded flight panel: 8,000 fuel pays for the outbound journey and protected return.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-suit-crafting.png"><img src="/assets/hytale0.7/screenshots/astral-suit-crafting.png" alt="Native suit crafting with three equipment tiers, oxygen canister and ingredients"></a><figcaption>Choose an equipment tier and inspect its component and oxygen requirements. Creative-mode recipe preview.</figcaption></figure>
 
-## Actual takeoff {#actual-takeoff}
+<figure><a href="/assets/hytale0.7/screenshots/astral-planetary-masonry.png"><img src="/assets/hytale0.7/screenshots/astral-planetary-masonry.png" alt="Planetary Masonry Bench screen with planet tabs and bricks, airlock and column recipes"></a><figcaption>Planet tabs group the available building recipes. A recipe tab does not unlock travel to that body. Creative-mode recipe preview.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/takeoff-start.png"><img src="/assets/hytale0.7/screenshots/takeoff-start.png" alt="Odyssey lifting clear of its native launch platform at sunset"></a><figcaption>An actual paid Odyssey takeoff from the locally tested launch-platform build, captured in Hytale 0.7.4. This earlier short departure predates the new smoke, engine-fire and extended-ascent prototype.</figcaption></figure>
+## Touch down on Lune {#touch-down-on-lune}
 
-<figure><a href="/assets/hytale0.7/screenshots/takeoff-ascent.png"><img src="/assets/hytale0.7/screenshots/takeoff-ascent.png" alt="Odyssey climbing higher above the launch site"></a><figcaption>A later frame from that same native departure. It demonstrates lift-off, while the new cinematic flight remains under development.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-lune-landing.png"><img src="/assets/hytale0.7/screenshots/astral-lune-landing.png" alt="Kestrel upper stage grounded on Lune beneath a black sky and stars"></a><figcaption>An actual saved lunar landing, with the upper stage on terraced regolith beneath the stars. Passenger and landing presentation remain under refinement.</figcaption></figure>
 
-## Native orbital view {#native-orbital-view}
+<figure><a href="/assets/hytale0.7/screenshots/astral-lune-minerals.png"><img src="/assets/hytale0.7/screenshots/astral-lune-minerals.png" alt="Raised titanium and aluminium deposits against grey lunar terrain"></a><figcaption>Native raised mineral geometry on Lune. This close-up uses a Creative-mode mineral display.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/kestrel-orbit-sun.png"><img src="/assets/hytale0.7/screenshots/kestrel-orbit-sun.png" alt="Kestrel upper ship against a black star field and bright sun in Hytale"></a><figcaption>A native Hytale 0.7.4 orbital frame from the newer local flight build, captured after reloading a paid journey. This establishes the in-game sky and upper ship; the latest passenger attachment and lunar landing presentation remain under refinement.</figcaption></figure>
+## Navigation and assembly {#navigation-and-assembly}
 
-## The Lune route {#the-lune-route}
+<figure><a href="/assets/hytale0.7/screenshots/destinations-ui-private.png"><img src="/assets/hytale0.7/screenshots/destinations-ui-private.png" alt="Native top-down Destinations chart with Lune selected"></a><figcaption>Click a planet or route. The asteroid belt sits inside Orbis’s orbit. Esc hides navigation; /astral-map reopens it in orbit.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/lune-beacon.png"><img src="/assets/hytale0.7/screenshots/lune-beacon.png" alt="Return beacon on Lune's grey surface"></a><figcaption>The current destination is Lune. Its return beacon uses the saved home location.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/construction-ui-private.png"><img src="/assets/hytale0.7/screenshots/construction-ui-private.png" alt="Native launch construction panel with a rocket plan and material list"></a><figcaption>A separate assembly console shows the chosen blueprint and material contributions.</figcaption></figure>
 
-<figure><a href="/assets/hytale0.7/screenshots/lune-return.png"><img src="/assets/hytale0.7/screenshots/lune-return.png" alt="Lune return panel showing the protected return reserve"></a><figcaption>The protected 4,000-fuel return remains available after landing.</figcaption></figure>
-
-See [development status](status.md) for the new ascent candidate's verification gates and current gameplay limits.
+See [Rockets and scale](rockets.md) for launch cancellation and return-fuel controls, and [development status](status.md) for current limits.

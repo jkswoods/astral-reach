@@ -6,6 +6,8 @@ title: "Astral Reach"
 
 ![Astral Reach — build the next voyage](/assets/hytale0.7/brand/banner-cinematic-v2.png)
 
+**Early development — some features may be incomplete or may not work as expected.** Read the selected file’s notes and back up your world and player data before upgrading.
+
 <p class="mod-lead">Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.</p>
 
 <div class="ar-stats"><div class="ar-stat"><strong>123.19</strong><span>blocks tall · Kestrel Stack</span></div><div class="ar-stat"><strong>25 × 25</strong><span>blocks · joined launch platform</span></div><div class="ar-stat"><strong>8,000</strong><span>finite fuel units · first round trip</span></div></div>

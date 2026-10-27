@@ -17,7 +17,7 @@ These ships are deliberately large. Plan the launch site around the complete sil
 
 A copper-orange core, two ivory strap-on boosters, crew capsule and escape tower give Odyssey its heavy-launcher silhouette. Its initial parts and fuel come from the home-world chain. It reaches the current paid Lune route without destination minerals.
 
-<figure><a href="/assets/hytale0.7/screenshots/odyssey-full.png"><img src="/assets/hytale0.7/screenshots/odyssey-full.png" alt="Odyssey Heavy's full 97-block native silhouette on the wide launch platform"></a><figcaption>Odyssey at its complete native height. The 25×25 pad and separate console sit beneath the engine cluster. Native launch-platform development capture, Hytale 0.7.4.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/astral-odyssey-launchpad.png"><img src="/assets/hytale0.7/screenshots/astral-odyssey-launchpad.png" alt="Odyssey Heavy's full 97-block native silhouette on the wide launch platform"></a><figcaption>Odyssey at its complete native height. The 25×25 pad and separate console sit beneath the engine cluster. Native launch-platform development capture, Hytale 0.7.4.</figcaption></figure>
 
 ## Kestrel Stack {#kestrel-stack}
 
@@ -25,11 +25,11 @@ Kestrel combines a silver booster with a dark-tiled orbital ship, broad flaps, u
 
 <figure><a href="/assets/hytale0.7/screenshots/kestrel-player-scale.png"><img src="/assets/hytale0.7/screenshots/kestrel-player-scale.png" alt="A player avatar standing near Kestrel's large lower stage and platform"></a><figcaption>A ground-level player reference beside the lower stage. Perspective makes nearby objects larger; use the dimension diagram above for a true shared scale.</figcaption></figure>
 
-The new flight candidate gives Kestrel a separate booster and upper ship. Its locally tested sequence shows separation in space, the booster's flip and home-pad landing, then the orbital ship in space before navigation opens. The latest 90-second flight adds a longer ballistic fall and braking approach. Human visual and comfort acceptance remain pending.
+The current flight gives Kestrel a separate booster and upper ship. Its locally tested sequence shows separation in space, the booster's flip and home-pad landing, then the orbital ship in space before navigation opens. The latest 90-second flight adds a longer ballistic fall and braking approach. Human visual and comfort acceptance remain pending.
 
 ## Current flight limits {#current-flight-limits}
 
-Both supported plans currently serve Lune. The spacecraft use decorative full-size exteriors and a compact control anchor; there is no walkable cabin or aerodynamic freeflight. Automatic passenger boarding and upper-stage landing are being tested in the latest candidate. The new third-person ascent and orbital-navigation candidate is described on [development status](status.md).
+Both supported plans currently serve Lune. The spacecraft use decorative full-size exteriors and a compact control anchor; there is no walkable cabin or aerodynamic freeflight. Automatic passenger boarding and upper-stage landing are being tested in the current implementation. The new third-person ascent and orbital-navigation candidate is described on [development status](status.md).
 
 The model workshop also contains the independent Kestrel upper ship, Peregrine explorer, Wren lander and additional infrastructure. Their presence in the art catalogue does not make them selectable playable vehicles. Peregrine is wider than the supported 25-block pad.
 
@@ -40,14 +40,14 @@ The redesigned **Destinations** screen becomes available after reaching space. S
 
 The interface uses a simple clickable top-down system chart. Select a planet directly or use the route list. There are no drag, pan, zoom or separate 3D controls.
 
-<figure><a href="/assets/hytale0.7/screenshots/destinations-ui-private.png"><img src="/assets/hytale0.7/screenshots/destinations-ui-private.png" alt="Native top-down Destinations panel with Lune selected"></a><figcaption>Current private interface in Hytale 0.7.4. The separate 3D option is removed; later routes remain disabled. Appearance review continues.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/destinations-ui-private.png"><img src="/assets/hytale0.7/screenshots/destinations-ui-private.png" alt="Native top-down Destinations panel with Lune selected"></a><figcaption>Native Hytale 0.7.4 interface. Click a body or route; later destinations remain locked. The belt sits inside Orbis’s orbit.</figcaption></figure>
 
 During a cancellable launch, the large red **ABORT LAUNCH** button stops the active departure and restores its reserved fuel. A local Hytale 0.7.4 test cancelled a real paid launch and returned all **9,000 units** to the rocket. The full tank persisted after a normal quit and reload.
 
-Close the screen to remain in orbit. `/astral-map` reopens navigation without charging more fuel. Closing navigation does not spend the return reserve.
+Press **Esc** to hide Destinations and remain in orbit. The footer explains how to reopen it: type **`/astral-map`**. A reminder appears when the map is hidden. Hiding or reopening navigation does not spend the return reserve.
 
-<figure><a href="/assets/hytale0.7/screenshots/abort-launch-ui-private.png"><img src="/assets/hytale0.7/screenshots/abort-launch-ui-private.png" alt="Large red ABORT LAUNCH button in native Hytale"></a><figcaption>Actual private Hytale 0.7.4 capture during a paid launch, with Abort highlighted. Selecting it returned the player home and restored the reserved fuel.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/abort-launch-ui-private.png"><img src="/assets/hytale0.7/screenshots/abort-launch-ui-private.png" alt="Large red ABORT LAUNCH button in native Hytale"></a><figcaption>Actual Hytale 0.7.4 capture during a paid launch, with Abort highlighted. Selecting it returned the player home and restored the reserved fuel.</figcaption></figure>
 
-The revised interface has representative native selection, clean item icons, construction, paid travel and cancellation checks on Hytale 0.7.4. Human appearance, comfort, listening and multiplayer acceptance remain open. Earlier gallery screenshots show the previous layout.
+The revised interface has representative native selection, clean item icons, construction, paid travel and cancellation checks on Hytale 0.7.4. Human appearance, comfort, listening and multiplayer acceptance remain open. The gallery includes current native workshop and lunar photographs.
 
 <figure><a href="/assets/hytale0.7/screenshots/flight-control-ui-private.png"><img src="/assets/hytale0.7/screenshots/flight-control-ui-private.png" alt="Flight Control after a cancelled launch and normal reload, with the full 9,000-unit tank"></a><figcaption>The full tank after cancelling the launch, saving and reloading. This local functional test used staged fuel and equipment; it does not establish a complete survival walkthrough.</figcaption></figure>

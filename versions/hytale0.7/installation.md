@@ -4,6 +4,8 @@ title: "Installation"
 
 # Installation {#installation}
 
+**Early development — some features may be incomplete or may not work as expected.** Read the selected file’s notes and back up your world and player data before upgrading.
+
 This guide follows the **Hytale 0.7 support line**. Published files can lag behind branch changes; read the chosen file’s release notes for the features it includes.
 
 This guide covers Astral Reach development on the **Hytale 0.7** support line. It compiles against the official 0.7.3 server APIs; local gameplay checks use the 0.7.4 client. Other patches in the 0.7 family have not all been tested. A dedicated server needs Java 25.

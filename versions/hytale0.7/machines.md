@@ -32,6 +32,18 @@ Flight control separates trip fuel from the suit and oxygen checklist. Before de
 
 The Oxygen Diffuser's panel displays four real canister slots with individual charge bars, the eight-block field radius, occupants and estimated field time at the current consumption rate. Use **Load one canister**, **Collect all** and **Switch on/off**. Make room for collected items; the panel does not bypass inventory limits.
 
-<figure><a href="/assets/hytale0.7/screenshots/diffuser-ui-private.png"><img src="/assets/hytale0.7/screenshots/diffuser-ui-private.png" alt="Native oxygen diffuser with one partially used canister, its charge bar and field estimate"></a><figcaption>Current private Hytale 0.7.4 interface using a real partially used canister. The field estimate changes with its charge and occupants.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/diffuser-ui-private.png"><img src="/assets/hytale0.7/screenshots/diffuser-ui-private.png" alt="Native oxygen diffuser with one partially used canister, its charge bar and field estimate"></a><figcaption>Native Hytale 0.7.4 interface using a real partially used canister. The field estimate changes with its charge and occupants.</figcaption></figure>
 
-The revised panels are being tested on the development support branch. Downloaded files may contain the earlier layout; check the chosen file's release notes.
+Choose a file whose release notes include the interface and features you need. Suit, oxygen and flight presentation are still being refined.
+
+## Expedition workbenches {#expedition-workbenches}
+
+Use the **Suit Workbench** to browse the Survey, Thermal and Deep Space equipment tiers and inspect their ingredient requirements. Prepare the full suit and a charged oxygen canister before leaving breathable air. The **Oxygen Collector** fills portable canisters in breathable environments; the diffuser uses stored oxygen to support its field.
+
+<figure><a href="/assets/hytale0.7/screenshots/astral-suit-workbench.png"><img src="/assets/hytale0.7/screenshots/astral-suit-workbench.png" alt="Suit Workbench with articulated service arms and a central suit"></a><figcaption>The placed Suit Workbench in Hytale 0.7.4. Creative-mode workshop display.</figcaption></figure>
+
+<figure><a href="/assets/hytale0.7/screenshots/astral-suit-crafting.png"><img src="/assets/hytale0.7/screenshots/astral-suit-crafting.png" alt="Native suit workbench tier tabs and canister recipe"></a><figcaption>Select a tier, then a recipe to inspect the actual ingredients. Creative-mode recipe preview.</figcaption></figure>
+
+The **Planetary Masonry Bench** groups bricks, columns and airlocks by planet. Bring the required planetary materials; the recipe tabs do not make future destinations playable.
+
+<figure><a href="/assets/hytale0.7/screenshots/astral-planetary-masonry.png"><img src="/assets/hytale0.7/screenshots/astral-planetary-masonry.png" alt="Planetary masonry tabs with Lune building recipes"></a><figcaption>Planetary masonry recipes in the native crafting screen. Creative-mode recipe preview.</figcaption></figure>
