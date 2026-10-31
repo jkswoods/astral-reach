@@ -98,7 +98,7 @@ final class LunarFlight {
    if(f.leg==Leg.NONE){if(f.boarded&&f.trip.phase()==Journey.Phase.LUNE&&site!=null&&site.grounded)exit(s,r,p,f,site);continue;}
    boolean lunar=w.getName().equals("AstralLune");if(f.leg==Leg.HOME_DESCENT?!w.getWorldConfig().getUuid().equals(f.trip.homeWorld()):!lunar)continue;
    if(lunar&&site==null)continue;
-   active.add(p.getUuid());var a=actors.get(p.getUuid());String model="AR_"+(f.plan==LaunchPlan.KESTREL?"Kestrel":"Odyssey")+"Ship"+(lunar?"Landed":"Idle");
+   active.add(p.getUuid());var a=actors.get(p.getUuid());String model=f.plan.asset(lunar?"ShipLanded":"ShipIdle");
    double seconds=f.legSeconds;double altitude=f.leg==Leg.LUNE_ASCENT?FlightTimeline.returnHeight(seconds):FlightTimeline.descentHeight(seconds);
    var origin=lunar?new Vector3d(site.x+.5,site.y+FlightTimeline.landingClearance(f.plan)+altitude,site.z+.5):new Vector3d(f.x+.5,f.y+FlightTimeline.upperBase(f.plan)+altitude,f.z+.5);
    if(a==null||a.ref==null||!a.ref.isValid()||a.ref.getStore()!=s||a.leg!=f.leg){actorEnd(s,p);var spawned=StageVisuals.one(s,model,origin,null);if(spawned==null)continue;a=new Actor(spawned,f.leg,model,origin);actors.put(p.getUuid(),a);}
@@ -121,7 +121,7 @@ final class LunarFlight {
   }
   for(var e:new ArrayList<>(actors.entrySet()))if(e.getValue().ref!=null&&e.getValue().ref.getStore()==s&&!active.contains(e.getKey())){StageVisuals.clear(s,e.getValue().model,e.getValue().footprint);remove(s,e.getValue().ref);actors.remove(e.getKey(),e.getValue());}
   for(var e:d.ships.entrySet()){
-   var ship=e.getValue();var visual=d.visuals.get(e.getKey());var position=new Vector3d(ship.x+.5,ship.y+FlightTimeline.landingClearance(ship.plan),ship.z+.5);String model="AR_"+(ship.plan==LaunchPlan.KESTREL?"Kestrel":"Odyssey")+"ShipLanded";
+   var ship=e.getValue();var visual=d.visuals.get(e.getKey());var position=new Vector3d(ship.x+.5,ship.y+FlightTimeline.landingClearance(ship.plan),ship.z+.5);String model=ship.plan.asset("ShipLanded");
    boolean show=ship.grounded&&!ship.departed&&!active.contains(e.getKey())&&NativeBlocks.ticking(w,new Cell(ship.x,ship.y,ship.z));
    if(!show){remove(s,d.visuals.remove(e.getKey()));if(!active.contains(e.getKey()))StageVisuals.clear(s,model,position);continue;}
    var single=StageVisuals.one(s,model,position,visual);if(single!=null)d.visuals.put(e.getKey(),single);

@@ -46,8 +46,8 @@ public final class OreWorldProvider implements IWorldGenProvider {
   if(moon){
    int stone=map.getIndex("AR_LuneStone"),dust=map.getIndex("AR_LuneRegolith");
    for(int lx=0;lx<32;lx++)for(int lz=0;lz<32;lz++){
-    int height=LunarSurface.height(seed,x*32+lx,z*32+lz);
-    for(int y=1;y<Math.max(64,height);y++)chunk.setBlock(lx,y,lz,y>=height?BlockType.EMPTY_ID:y>=height-3?dust:stone,0,0);
+    int height=LunarSurface.height(seed,x*32+lx,z*32+lz);boolean bare=LunarSurface.rocky(seed,x*32+lx,z*32+lz);
+    for(int y=1;y<Math.max(64,height);y++)chunk.setBlock(lx,y,lz,y>=height?BlockType.EMPTY_ID:y>=height-3&&!bare?dust:stone,0,0);
     var tube=LunarTubes.column(seed,x*32+lx,z*32+lz,height);
     if(tube.present())for(int y=tube.floor()+1;y<=tube.ceiling();y++)chunk.setBlock(lx,y,lz,BlockType.EMPTY_ID,0,0);
    }
@@ -63,5 +63,35 @@ public final class OreWorldProvider implements IWorldGenProvider {
     if(host)chunk.setBlock(v.x()+dx,center+dy,v.z()+dz,id,0,0);
    }
   }
+  // This decorator runs only for newly generated chunks. Never retrofit a player's saved terrain.
+  var expeditionSites=new java.util.HashMap<dev.astralreach.core.LunarExpedition.Site,Boolean>();
+  if(moon)for(int lx=0;lx<32;lx++)for(int lz=0;lz<32;lz++){
+   int wx=x*32+lx,wz=z*32+lz;var site=dev.astralreach.core.LunarExpedition.candidate(seed,wx,wz);
+   if(Math.abs(wz-site.start()-256)>300||Math.abs(wx-site.axis(wz))>32)continue;
+   if(!expeditionSites.computeIfAbsent(site,dev.astralreach.core.LunarExpedition.Site::valid)||!dev.astralreach.core.LunarExpedition.affectedColumn(site,wx,wz))continue;
+   int top=Math.max(LunarSurface.height(seed,wx,wz)+3,site.shelter().y()+8);
+   for(int y=1;y<=top;y++){String block=dev.astralreach.core.LunarExpedition.block(site,wx,y,wz);if(block!=null){int id=block.equals("Empty")?BlockType.EMPTY_ID:map.getIndex(block);if(id==Integer.MIN_VALUE)throw new IllegalStateException("Missing expedition block "+block);chunk.setBlock(lx,y,lz,id,0,0);}}
+  }
+  var blueprintSites=new java.util.HashMap<dev.astralreach.core.BlueprintExpedition.Site,Boolean>();
+  if(moon)for(int lx=0;lx<32;lx++)for(int lz=0;lz<32;lz++){
+   int wx=x*32+lx,wz=z*32+lz;var base=dev.astralreach.core.LunarExpedition.candidate(seed,wx,wz);
+   if(Math.abs(wx-base.axis(wz))>126||Math.abs(wz-base.start()-256)>300)continue;
+   for(var kind:dev.astralreach.core.BlueprintExpedition.Kind.values()){
+    var site=dev.astralreach.core.BlueprintExpedition.at(base,kind);
+    if(!dev.astralreach.core.BlueprintExpedition.affectedColumn(site,wx,wz)||!blueprintSites.computeIfAbsent(site,dev.astralreach.core.BlueprintExpedition.Site::valid))continue;
+    for(int n=0;n<2;n++){var record=site.record(n);if(Math.abs(wx-record.x())>6||Math.abs(wz-record.z())>5)continue;
+     for(int y=Math.max(1,record.y()-8);y<=record.y()+5;y++){String block=dev.astralreach.core.BlueprintExpedition.block(site,wx,y,wz);if(block!=null){int id=block.equals("Empty")?BlockType.EMPTY_ID:map.getIndex(block);if(id==Integer.MIN_VALUE)throw new IllegalStateException("Missing blueprint outpost block "+block);chunk.setBlock(lx,y,lz,id,0,0);}}
+    }
+   }
+  }
+  if(moon)for(int lx=0;lx<32;lx++)for(int lz=0;lz<32;lz++){
+   int wx=x*32+lx,wz=z*32+lz,v=dev.astralreach.core.LunarRocks.variant(seed,wx,wz);if(v<0)continue;
+   int y=LunarSurface.height(seed,wx,wz);if(chunk.getBlock(lx,y,lz)!=BlockType.EMPTY_ID)continue;
+   int host=chunk.getBlock(lx,y-1,lz);if(host!=map.getIndex("AR_LuneStone")&&host!=map.getIndex("AR_LuneRegolith"))continue;
+   int id=map.getIndex(dev.astralreach.core.LunarRocks.id(v));if(id==Integer.MIN_VALUE)throw new IllegalStateException("Missing lunar rubble");
+   int yaw=dev.astralreach.core.LunarRocks.rotation(seed,wx,wz);var angles=com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation.values();int rotation=com.hypixel.hytale.server.core.asset.type.blocktype.config.RotationTuple.index(angles[yaw],com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation.None,com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation.None);
+   chunk.setBlock(lx,y,lz,id,rotation,0);
+  }
+
  }
 }

@@ -1,0 +1,16 @@
+{
+  "AudioCategory": "AR_SuitInterior",
+  "Volume": -18,
+  "MaxDistance": 12,
+  "StartAttenuationDistance": 2,
+  "MaxInstance": 4,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/blueprint_rover_drive.ogg"
+      ],
+      "Looping": true
+    }
+  ]
+}

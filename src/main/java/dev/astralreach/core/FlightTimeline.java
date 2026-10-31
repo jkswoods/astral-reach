@@ -21,10 +21,10 @@ public final class FlightTimeline {
  public static double boosterRoll(double t){return Math.PI*ease(t,SEPARATION,36)+Math.PI*ease(t,54,LANDING_BURN);}
  public static boolean boosterPowered(double t){return t>=BOARDING&&t<SEPARATION||t>=LANDING_BURN&&t<BOOSTER_LANDED;}
  public static double upperX(LaunchPlan plan,double t){return plan==LaunchPlan.KESTREL?-48*ease(t,SEPARATION,FREEFALL):0;}
- public static double upperBase(LaunchPlan p){return p==LaunchPlan.KESTREL?71.1885:67.325;}
- public static double upperHeight(LaunchPlan p){return p==LaunchPlan.KESTREL?52:30;}
- public static double landingClearance(LaunchPlan p){return p==LaunchPlan.KESTREL?3:9;}
- public static double crewHeight(LaunchPlan p){return p==LaunchPlan.KESTREL?38:20;}
+ public static double upperBase(LaunchPlan p){return p.upperBase;}
+ public static double upperHeight(LaunchPlan p){return p.upperHeight;}
+ public static double landingClearance(LaunchPlan p){return p.landingClearance;}
+ public static double crewHeight(LaunchPlan p){return p.crewHeight;}
  public static double descentHeight(double t){double q=Math.clamp(t/DESCENT,0,1);return 90*(1-q)*(1-q);}
  public static double returnHeight(double t){return 90*ease(t,IGNITION,RETURN_ASCENT);}
  public static String stage(double t,LaunchPlan plan){

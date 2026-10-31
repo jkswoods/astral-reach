@@ -1,0 +1,16 @@
+{
+  "AudioCategory": "AR_SuitInterior",
+  "Volume": -9,
+  "MaxDistance": 6,
+  "StartAttenuationDistance": 1,
+  "MaxInstance": 2,
+  "SpatialBlend": 0,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/blueprint_equipment_service.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

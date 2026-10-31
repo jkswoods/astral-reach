@@ -63,12 +63,16 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
  @Override public void build(Ref<EntityStore>r,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){
   c.append("Pages/AstralReach/OrbitalMap.ui");labels(r,c,s);NativeUi.cue(s,playerRef);
   for(String body:ORDER)for(String prefix:List.of("Route","Planet"))e.addEventBinding(CustomUIEventBindingType.Activating,"#"+prefix+body,EventData.of("Action","Select:"+body),false);
+  e.addEventBinding(CustomUIEventBindingType.Activating,"#Rescue",EventData.of("Action","Rescue"),false);
+  e.addEventBinding(CustomUIEventBindingType.Activating,"#Stations",EventData.of("Action","Stations"),false);
   e.addEventBinding(CustomUIEventBindingType.Activating,"#Travel",EventData.of("Action","Travel"),false);
  }
  @Override public void handleDataEvent(Ref<EntityStore>r,Store<EntityStore>s,Action action){s.getExternalData().getWorld().execute(()->{
   if(!r.isValid()||r.getStore()!=s||viewing.get(playerRef.getUuid())!=session||!SpaceFlight.inOrbit(s,r))return;var player=s.getComponent(r,Player.getComponentType());if(player==null||player.getPageManager().getCustomPage()!=this)return;
   String a=action.action;
   if(a.startsWith("Select:")){String body=a.substring(7);if(!BODIES.containsKey(body)||body.equals(selected))return;selected=body;session.selected=body;NativeUi.cue(s,playerRef);var c=new UICommandBuilder();labels(r,c,s);sendUpdate(c,false);return;}
+  if(a.equals("Rescue")){stop(session);FieldPage.open(s,r,playerRef,null,false);return;}
+  if(a.equals("Stations")){stop(session);StationService.open(s,r,playerRef);return;}
   if(!a.equals("Travel")||!selected.equals("Lune")&&!selected.equals("Orbis"))return;
   try{if(selected.equals("Lune"))ExpeditionSuit.require(s,r,1);}catch(IllegalArgumentException ex){AstralReachPlugin.message(playerRef,ex.getMessage());return;}
   NativeUi.cue(s,playerRef);stop(session);close();if(selected.equals("Lune"))RocketService.chooseLune(s,r,playerRef);else RocketService.returnHome(s,r,playerRef);

@@ -1,0 +1,45 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_Telescope.name"
+  },
+  "Icon": "Icons/Items/AR_Telescope.png",
+  "Categories": [
+    "Items.Tools"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Crystal_Void",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "Model": "Items/AstralReach/AR_Telescope.blockymodel",
+  "Texture": "Items/AstralReach/AR_Telescope.png",
+  "Interactions": {
+    "Secondary": "AR_Telescope_Zoom"
+  }
+}

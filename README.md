@@ -2,7 +2,7 @@
 
 Gather resources, build full-size rockets and use finite fuel for a paid expedition to Lune.
 
-**Early development — some features may be incomplete or may not work as expected.** Experimental builds are available on CurseForge’s Release channel; read the selected file’s notes and back up world and player data before upgrading.
+**Early development — some features may be incomplete or may not work as expected.** Experimental builds are available on CurseForge; Alpha files may require enabling alpha versions in your launcher. Read the selected file’s notes and back up world and player data before upgrading.
 
 **[Read the player guide](https://jkswoods.github.io/astral-reach/)** · [Rockets and scale](https://jkswoods.github.io/astral-reach/hytale0.7/rockets/) · [Launch platform](https://jkswoods.github.io/astral-reach/hytale0.7/launch-platform/) · [Gallery](https://jkswoods.github.io/astral-reach/hytale0.7/gallery/)
 
@@ -18,8 +18,17 @@ Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. Th
 | --- | ---: | ---: | ---: |
 | Odyssey Heavy | 97.33 blocks | 16.96 blocks | 25×25 blocks |
 | Kestrel Stack | 123.19 blocks | 19.31 blocks | 25×25 blocks |
+| Saturn V | 110.62 blocks | 11.50 blocks | 25×25 blocks |
+| Soyuz | 48.90 blocks | 9.11 blocks | 25×25 blocks |
+| Space Shuttle | 55.56 blocks | 19.99 blocks | 25×25 blocks |
 
-This branch contains the **runtime mod source and original assets**; versioned player documentation lives on `docs`. The guide follows the Hytale support branch; local client checks used Hytale 0.7.4. Check [Releases](https://github.com/jkswoods/astral-reach/releases) for compatible published files. Public documentation is available while the mod remains a development build. See [development status](https://jkswoods.github.io/astral-reach/hytale0.7/status/) before trying a candidate.
+Build personal orbital stations with nine docking airlocks, power life support with solar arrays and batteries, and watch stations cross the Orbis sky. Rescue Beacons and Field Receivers guide invited rescuers. Lunar survey expeditions unlock a permanent fuel benefit and paid recipes for a forty-minute oxygen tank and a two-seat electric rover. New outposts and terrain appear only in unexplored Lune chunks.
+
+![A lunar rover after driving across Lune](docs/assets/screenshots/lunar-rover.png)
+
+*Actual Hytale 0.7.5 gameplay. The rover uses finite Beacon Cell power; its open seats still require a suit and oxygen.*
+
+This branch contains the **runtime mod source and original assets**; versioned player documentation lives on `docs`. The guide follows the Hytale support branch; local client checks used Hytale 0.7.4 and 0.7.5. Check [Releases](https://github.com/jkswoods/astral-reach/releases) for compatible published files. Public documentation is available while the mod remains a development build. See [development status](https://jkswoods.github.io/astral-reach/hytale0.7/status/) before trying a candidate.
 
 The [original model workshop](https://astral-reach-space-workshop.serina610406.chatgpt.site/) is a separate, earlier collection of 66 editable assets and proposed planets. Its model catalogue includes future content beyond the current playable route.
 

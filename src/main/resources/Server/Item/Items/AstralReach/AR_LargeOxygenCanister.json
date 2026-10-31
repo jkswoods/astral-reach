@@ -1,0 +1,34 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_LargeOxygenCanister.name",
+    "Description": "server.astralreach.AR_LargeOxygenCanister.description"
+  },
+  "Icon": "Icons/Items/AR_LargeOxygenCanister.png",
+  "Model": "Items/AstralReach/AR_LargeOxygenCanister.blockymodel",
+  "Texture": "Items/AstralReach/AR_LargeOxygenCanister.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_BlueprintEquipment",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_EmptyLargeOxygenCanister",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralOxygen"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 60,
+    "KnowledgeRequired": false
+  },
+  "MaxDurability": 2400
+}

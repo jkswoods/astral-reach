@@ -1,0 +1,54 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_StationDeck.name"
+  },
+  "Icon": "Icons/Items/AR_StationDeck.png",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Cube",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches",
+        "ItemId": "AR_StationDeck"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#98a6aa",
+    "Textures": [
+      {
+        "All": "Blocks/AstralReach/AR_StationDeck_Side.png",
+        "Up": "Blocks/AstralReach/AR_StationDeck_Top.png",
+        "Down": "Blocks/AstralReach/AR_StationDeck_Bottom.png",
+        "Weight": 1
+      }
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_StationDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 2
+  }
+}

@@ -37,12 +37,13 @@ final class RocketService {
   var r=data(s).rockets.get(at);if(r==null||!r.owner.equals(p.getUuid())||!NativeBlocks.rocket(s.getExternalData().getWorld(),at)||!controlRange(s,ref,p,at))throw new IllegalArgumentException("Stand beside your own rocket anchor or its construction console.");
   if(r.traveller!=null)throw new IllegalArgumentException("This rocket has a paid mission in progress.");return r;
  }
+ static FlightFuel fuelCost(Store<EntityStore>s,Ref<EntityStore>ref){return FlightFuel.forPerks(FieldService.journal(s,ref).perks);}
  static void fuel(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef p,Cell at,boolean fill){
-  try{var r=usable(s,ref,p,at);if(fill?!r.tank.canFill():!r.tank.canDrain())throw new IllegalArgumentException(fill?"Tank full. Drain a cell first.":"Tank contains less than 1,000 units.");
+  try{var r=usable(s,ref,p,at);if(fill?r.tank.units()==PropellantTank.CAPACITY:r.tank.units()==0)throw new IllegalArgumentException(fill?"Tank full. Drain a cell first.":"The tank is empty.");
    var player=s.getComponent(ref,Player.getComponentType());if(player==null)return;var inv=player.getInventory().getCombinedHotbarFirst();
-   int count=0;int limit=fill?Math.max(0,(PropellantTank.ROUND_TRIP_COST-r.tank.units())/1000):1;
-   while(count<limit&&(fill?r.tank.canFill():r.tank.canDrain())&&FuelInventory.swap(inv,fill?"AR_PropellantCell":"AR_EmptyFuelCell",fill?"AR_EmptyFuelCell":"AR_PropellantCell")){if(fill)r.tank.fillCell();else r.tank.drainCell();count++;}
-   if(count==0)throw new IllegalArgumentException(fill?(r.tank.units()>=9000?"Round-trip fuel is ready.":"Carry filled propellant cells and room for their empty casings."):"Carry an empty cell and room for the filled cell.");cue(s,p,"AR_metal_handle",at);AstralReachPlugin.message(p,(fill?"Deposited ":"Recovered ")+(count*1000)+" units. Tank: "+r.tank.units()+" /16,000.");
+   var quote=fuelCost(s,ref);int count=0,moved=0;
+   while(fill?r.tank.units()<quote.total():count<1){int n=fill?FuelInventory.deposit(inv,r.tank):FuelInventory.withdraw(inv,r.tank);if(n==0)break;moved+=n;count++;}
+   if(count==0)throw new IllegalArgumentException(fill?(r.tank.canRoundTrip(quote)?"Round-trip fuel is ready.":"Carry filled propellant cells and room for their empty casings."):"Carry an empty cell and room for the filled cell.");cue(s,p,"AR_metal_handle",at);AstralReachPlugin.message(p,(fill?"Deposited ":"Recovered ")+moved+" units. Tank: "+r.tank.units()+" /16,000.");
   }catch(IllegalArgumentException ex){AstralReachPlugin.message(p,ex.getMessage());}
  }
  static void rebuildLegacy(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef p,Cell at){try{var r=usable(s,ref,p,at);if(!r.needsRebuild)return;var missing=RocketRecovery.missing(r.plan,r.boosterLanded);var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedStorageHotbarBackpack();for(var need:missing.entrySet()){int n=0;for(short slot=0;slot<inv.getCapacity();slot++){var item=inv.getItemStack(slot);if(!com.hypixel.hytale.server.core.inventory.ItemStack.isEmpty(item)&&item.getItemId().equals(need.getKey()))n+=item.getQuantity();}if(n<need.getValue())throw new IllegalArgumentException("Carry all missing parts: "+missing);}
@@ -76,14 +77,14 @@ final class RocketService {
    var r=usable(s,ref,p,at);if(r.needsRebuild)throw new IllegalArgumentException("Rebuild the missing stages before launching again. Returned assemblies are credited in the construction console.");var existing=s.getComponent(ref,AstralReachPlugin.flightType);if(existing!=null&&existing.trip!=null)throw new IllegalArgumentException("Complete your existing paid journey first.");
    ExpeditionSuit.require(s,ref,1);OxygenService.requireDeparture(s,ref);
    if(CrewBoarding.occupied(s,ref))throw new IllegalArgumentException("Leave your current mount before boarding the rocket.");
-   if(!r.tank.canRoundTrip())throw new IllegalArgumentException("Deposit nine full propellant cells: 6,000 outbound + 3,000 protected for return.");clearance(w,at);
+   var quote=fuelCost(s,ref);if(!r.tank.canRoundTrip(quote))throw new IllegalArgumentException("Store "+NativeUi.number(quote.total())+" fuel units: "+NativeUi.number(quote.outbound())+" outbound + "+NativeUi.number(quote.returning())+" protected for return. Unspent fuel stays in your tank.");clearance(w,at);
    if(!preparing.add(p.getUuid()))return;AstralReachPlugin.message(p,"Preparing orbital arrival and checking Lune's landing site. Fuel is charged only after preflight.");
    LunarFlight.prepare(p,r.plan).thenCombine(SpaceFlight.orbitLanding(p),(moon,orbit)->orbit).whenComplete((orbit,error)->w.execute(()->{preparing.remove(p.getUuid());if(error!=null){AstralReachPlugin.message(p,"Flight preparation failed; no fuel charged: "+error.getMessage());return;}
     if(!ref.isValid()||ref.getStore()!=s)return;
-    try{var rocket=usable(s,ref,p,at);ExpeditionSuit.require(s,ref,1);OxygenService.requireDeparture(s,ref);if(!rocket.tank.canRoundTrip())throw new IllegalArgumentException("Tank changed before departure.");clearance(w,at);
+    try{var rocket=usable(s,ref,p,at);ExpeditionSuit.require(s,ref,1);OxygenService.requireDeparture(s,ref);var paidQuote=fuelCost(s,ref);if(!rocket.tank.canRoundTrip(paidQuote))throw new IllegalArgumentException("Tank changed before departure.");clearance(w,at);
      var pos=s.getComponent(ref,TransformComponent.getComponentType()).getPosition();if(!safe(w,pos.x,pos.y,pos.z))throw new IllegalArgumentException("Stand on solid ground in two clear air blocks before departure.");
-     var state=new PlayerFlightState();state.homeWorldName=w.getName();state.plan=rocket.plan;state.x=at.x();state.y=at.y();state.z=at.z();state.trip=new Journey(w.getWorldConfig().getUuid(),pos.x,pos.y,pos.z,PropellantTank.LEG_COST,Journey.Phase.OUTBOUND);state.boarded=true;state.departureX=pos.x;state.departureY=pos.y;state.departureZ=pos.z;
-     rocket.tank.reserveRoundTrip();rocket.traveller=p.getUuid();s.putComponent(ref,AstralReachPlugin.flightType,state);
+     var state=new PlayerFlightState();state.homeWorldName=w.getName();state.plan=rocket.plan;state.x=at.x();state.y=at.y();state.z=at.z();state.trip=new Journey(w.getWorldConfig().getUuid(),pos.x,pos.y,pos.z,paidQuote.returning(),Journey.Phase.OUTBOUND,paidQuote.outbound());state.boarded=true;state.departureX=pos.x;state.departureY=pos.y;state.departureZ=pos.z;
+     rocket.tank.reserveRoundTrip(paidQuote);rocket.traveller=p.getUuid();s.putComponent(ref,AstralReachPlugin.flightType,state);
      departures.put(p.getUuid(),new Departure(p,at,state,orbit,System.nanoTime()+TimeUnit.SECONDS.toNanos((long)FlightTimeline.ORBIT),new HashSet<>()));
      cue(s,p,"AR_rocket_hatch",at);SpaceFlight.begin(s,ref,p);SpaceFlight.ascent(s,ref,p,at,rocket.plan,0);
      teleport(s,ref,p,w,new Transform(at.x()+.5,at.y()+FlightTimeline.upperBase(rocket.plan)+FlightTimeline.crewHeight(rocket.plan),at.z()+.5),()->{});
@@ -112,6 +113,7 @@ final class RocketService {
  static void returnHome(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef p){
   var state=s.getComponent(ref,AstralReachPlugin.flightType);var w=s.getExternalData().getWorld();
   if(state==null||state.trip==null){AstralReachPlugin.message(p,"No paid return reserve. Launch a funded round trip from your home rocket first.");return;}
+  if(state.stationOwner!=null&&w.getName().equals(SpaceFlight.ORBIT_WORLD)){StationService.returnFromStation(s,ref,p);return;}
   var trip=state.trip;if(w.getWorldConfig().getUuid().equals(trip.homeWorld())){if(trip.phase()==Journey.Phase.OUTBOUND)cancel(s,p,state);else if(trip.phase()==Journey.Phase.RETURNING&&state.leg==PlayerFlightState.Leg.NONE&&!state.boarded)finishReturn(w,p);return;}
   if(!w.getName().equals("AstralLune")&&!w.getName().equals(SpaceFlight.ORBIT_WORLD)){AstralReachPlugin.message(p,"This paid reserve returns from space or Lune.");return;}
   if(trip.phase()==Journey.Phase.OUTBOUND){state.trip=w.getName().equals(SpaceFlight.ORBIT_WORLD)?trip.orbit():trip.arrive();trip=state.trip;}
@@ -135,7 +137,7 @@ final class RocketService {
  }
  static void finishReturn(World home,PlayerRef p){var ref=p.getReference();if(ref==null||!ref.isValid())return;var s=ref.getStore();if(s.getExternalData().getWorld()!=home)return;var state=s.getComponent(ref,AstralReachPlugin.flightType);
   if(state==null||state.trip==null||state.trip.phase()!=Journey.Phase.RETURNING||!state.trip.homeWorld().equals(home.getWorldConfig().getUuid()))return;
-  var at=new Cell(state.x,state.y,state.z);var r=data(s).rockets.get(at);if(r!=null&&p.getUuid().equals(r.traveller)){r.traveller=null;r.needsRebuild=true;NativeBlocks.state(home,at,"Away");LaunchYardService.recover(s,at,r);}int spent=state.trip.returnUnits();state.trip=null;state.boarded=false;state.leg=PlayerFlightState.Leg.NONE;state.legSeconds=0;AstralReachPlugin.message(p,"Returned home. The prepaid "+spent+"-unit reserve is spent. Returned stages are credited. Rebuild the missing parts at your launch console before the next mission.");
+  var at=new Cell(state.x,state.y,state.z);var r=data(s).rockets.get(at);if(r!=null&&p.getUuid().equals(r.traveller)){r.traveller=null;r.needsRebuild=true;NativeBlocks.state(home,at,"Away");LaunchYardService.recover(s,at,r);}int spent=state.trip.returnUnits();state.trip=null;state.stationOwner=null;state.stationPort=-1;state.boarded=false;state.leg=PlayerFlightState.Leg.NONE;state.legSeconds=0;AstralReachPlugin.message(p,"Returned home. The prepaid "+spent+"-unit reserve is spent. Returned stages are credited. Rebuild the missing parts at your launch console before the next mission.");
  }
  static void chooseLune(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef p){try{ExpeditionSuit.require(s,ref,1);LunarFlight.descend(s,ref,p);}catch(IllegalArgumentException ex){AstralReachPlugin.message(p,ex.getMessage());}}
  static final class Tick extends TickingSystem<EntityStore>{
@@ -166,7 +168,14 @@ final class RocketService {
   RocketVisuals.sync(s);
   LunarFlight.tick(s,dt);
   LunarEnvironment.tick(s,dt);
+  StationSystems.tick(s,dt);
   OxygenService.tick(s,dt);
+  RescueService.tick(s,dt);
+  Observatory.tick(s);
+  StationService.tick(s);
+  StationFlyovers.tick(s);
+  var sightings=new ArrayList<FlightSightings.Sighting>();for(var dep:departures.values())if(dep.state.trip!=null&&dep.state.trip.homeWorld().equals(w.getWorldConfig().getUuid())){var rocket=d.rockets.get(dep.cell);if(rocket!=null){double seconds=departureElapsed(rocket);if(seconds>=FlightTimeline.BOARDING)sightings.add(new FlightSightings.Sighting(dep.player.getUuid(),new org.joml.Vector3d(dep.cell.x()+.5,dep.cell.y()+FlightTimeline.height(seconds)+rocket.plan.height*.5,dep.cell.z()+.5),false));}}
+  for(var p:w.getPlayerRefs()){var r=p.getReference();if(r==null||!r.isValid()||r.getStore()!=s)continue;var f=s.getComponent(r,AstralReachPlugin.flightType);if(f!=null&&f.trip!=null&&f.leg==PlayerFlightState.Leg.HOME_DESCENT)sightings.add(new FlightSightings.Sighting(p.getUuid(),new org.joml.Vector3d(f.x+.5,f.y+FlightTimeline.upperBase(f.plan)+FlightTimeline.descentHeight(f.legSeconds),f.z+.5),true));}FlightSightings.tick(s,sightings);
   SpaceFlight.tickOrbit(s);
   CrewBoarding.cleanup(s);
   OrbitalMapPage.cleanup(s);
@@ -174,7 +183,7 @@ final class RocketService {
  }
  static final class Placement extends EntityEventSystem<EntityStore,PlaceBlockEvent>{
   Placement(){super(PlaceBlockEvent.class);}@Override public Query<EntityStore>getQuery(){return PlayerRef.getComponentType();}
-  @Override public void handle(int i,ArchetypeChunk<EntityStore>c,Store<EntityStore>s,CommandBuffer<EntityStore>b,PlaceBlockEvent e){if(e.isCancelled()||e.getItemInHand()==null)return;String id=e.getItemInHand().getItemId();if(!id.equals("AR_OdysseyHeavy")&&!id.equals("AR_KestrelStack"))return;var plan=id.equals("AR_KestrelStack")?LaunchPlan.KESTREL:LaunchPlan.ODYSSEY;var p=c.getComponent(i,PlayerRef.getComponentType());var t=e.getTargetBlock();var at=new Cell(t.x,t.y,t.z);var w=s.getExternalData().getWorld();
+  @Override public void handle(int i,ArchetypeChunk<EntityStore>c,Store<EntityStore>s,CommandBuffer<EntityStore>b,PlaceBlockEvent e){if(e.isCancelled()||e.getItemInHand()==null)return;String id=e.getItemInHand().getItemId();var plan=LaunchPlan.fromArt(id);if(plan==null)return;var p=c.getComponent(i,PlayerRef.getComponentType());var t=e.getTargetBlock();var at=new Cell(t.x,t.y,t.z);var w=s.getExternalData().getWorld();
    if(w.getName().equals("AstralLune")||data(s).rockets.containsKey(at)){e.setCancelled(true);AstralReachPlugin.message(p,"Place new mission rockets in a home world, clear of existing anchors.");return;}
    w.execute(()->{if(NativeBlocks.rocket(w,at))data(s).rockets.putIfAbsent(at,new RocketRegistry.Rocket(p.getUuid(),0,plan));});
   }

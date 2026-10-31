@@ -1,0 +1,46 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_ResearchArchive.name"
+  },
+  "Icon": "Icons/Items/AR_ResearchArchive.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_ResearchArchive.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_ResearchArchive.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_ResearchArchive",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches",
+        "ItemId": "AR_FramePlate"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_FieldBlock"
+          }
+        ]
+      }
+    }
+  }
+}

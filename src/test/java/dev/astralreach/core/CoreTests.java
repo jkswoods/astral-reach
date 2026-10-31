@@ -5,6 +5,11 @@ public final class CoreTests {
  static void check(boolean b,String msg){checks++;if(!b)throw new AssertionError(msg);}
  static void reject(Runnable r,String msg){checks++;try{r.run();throw new AssertionError(msg);}catch(IllegalArgumentException|IllegalStateException expected){}}
  public static void main(String[] args){
+  ObservatoryTests.run();
+  RescueExpeditionTests.run();
+  ExpeditionPerksTests.run();
+  BlueprintRewardTests.run();
+  LunarRocksTests.run();
   check(DestinationAccess.canTravel("Orbis",true,0),"Protected home return stays available with a missing suit or depleted oxygen");
   check(!DestinationAccess.canTravel("Lune",true,0)&&DestinationAccess.canTravel("Lune",true,1),"Lunar landing preserves its existing complete Survey suit gate");
   check(!DestinationAccess.canTravel("Orbis",false,3)&&!DestinationAccess.canTravel("Lune",false,3),"UI selection never grants an unpaid journey");
@@ -34,9 +39,11 @@ public final class CoreTests {
   check(Math.abs(v0-v1)<.01&&Math.abs(FlightTimeline.boosterHeight(83.99)/.01)<.01,"Landing burn joins falling velocity and brakes to zero at the pad");
   check(Math.abs(FlightTimeline.boosterRoll(64)-Math.PI*2)<1e-8&&!FlightTimeline.boosterPowered(50)&&FlightTimeline.boosterPowered(70),"Booster aligns upright before its actual braking burn");
   check(FlightTimeline.descentHeight(0)==90&&FlightTimeline.descentHeight(24)==0&&FlightTimeline.returnHeight(28)==90,"Upper-stage descent lands and return ascent reaches transfer altitude");
-  int lo=999,hi=-999;for(int x=1000;x<1800;x+=3)for(int z=1000;z<1800;z+=3){int h=LunarSurface.height(91023,x,z);lo=Math.min(lo,h);hi=Math.max(hi,h);check(Math.abs(h-LunarSurface.height(91023,x+1,z))<=3&&Math.abs(h-LunarSurface.height(91023,x,z+1))<=3,"Continuous lunar relief across voxel and chunk boundaries");}
+  int lo=999,hi=-999;for(int x=1000;x<1800;x+=3)for(int z=1000;z<1800;z+=3){int h=LunarSurface.height(91023,x,z);lo=Math.min(lo,h);hi=Math.max(hi,h);int step=LunarSurface.rugged(91023,x,z)||LunarSurface.rugged(91023,x+1,z)||LunarSurface.rugged(91023,x,z+1)?8:3;check(Math.abs(h-LunarSurface.height(91023,x+1,z))<=step&&Math.abs(h-LunarSurface.height(91023,x,z+1))<=step,"Quiet plains remain smooth; fractured rock fields allow deliberate steep scarps across chunk boundaries");}
   check(hi-lo>=25,"Lune has broad crater relief rather than a flat sheet");
   check(LunarSurface.height(91023,16,16)==64,"Original lunar landing plateau remains compatible");
+  int[]anchorSlots={0,1,123,4095},anchorHeights={80,83,84,80};for(int i=0;i<anchorSlots.length;i++)check(LunarSurface.height(91023,LunarSurface.landingX(anchorSlots[i]),LunarSurface.landingZ(anchorSlots[i]))==anchorHeights[i],"Existing lunar landing height datums preserved from pinned pre-terrain build");
+  long anchorHash=17;for(int slot=0;slot<4096;slot++)anchorHash=anchorHash*31+LunarSurface.height(91023,LunarSurface.landingX(slot),LunarSurface.landingZ(slot));check(anchorHash==3466259298411856939L,"All4096 landing datums match the pinned pre-terrain build");
   var berths=new java.util.HashSet<String>();for(int slot=0;slot<4096;slot++){int x=LunarSurface.landingX(slot),z=LunarSurface.landingZ(slot);check(berths.add(x+","+z)&&Math.max(Math.abs(x),Math.abs(z))<14000,"Unique bounded lunar berths avoid far-coordinate jitter");}
   for(int slot:new int[]{0,1,123,4095}){int x=LunarSurface.landingX(slot),z=LunarSurface.landingZ(slot),h=LunarSurface.height(91023,x,z);for(int dx=-12;dx<=14;dx++)for(int dz=-8;dz<=8;dz++)if(Math.hypot(dx,dz)<=18)check(LunarSurface.height(91023,x+dx,z+dz)==h,"Owned landing legs and exit use a small level regolith clearing");}
 
@@ -51,6 +58,9 @@ public final class CoreTests {
   }
   for(var plan:LaunchPlan.values()){
    check(LaunchPadLayout.supports(plan)&&plan.serviceMargin()>2,"Pad is wider than the complete rocket including boosters/fins");
+   check(LaunchPlan.fromArt(plan.artId)==plan&&LaunchPlan.restore(plan.name())==plan,"Each blueprint retains its own saved identity and physical anchor");
+   check(FlightTimeline.upperBase(plan)>0&&FlightTimeline.upperHeight(plan)>FlightTimeline.crewHeight(plan)&&FlightTimeline.crewHeight(plan)>0,"Crew remains inside its own upper-stage profile");
+   for(boolean returned:new boolean[]{false,true})for(var e:RocketRecovery.recovered(plan,returned).entrySet())check(e.getValue()>0&&e.getValue()<=plan.materials().getOrDefault(e.getKey(),0),"Recovery credits are bounded by that rocket's real recipe");
    var build=new ConstructionProgress(plan);check(!build.start(true,true),"A ghost grants no free rocket");
    for(var e:plan.materials().entrySet())build.accept(e.getKey(),e.getValue());
    var supplied=build.supplied();var paidBuild=build;reject(()->paidBuild.accept("AR_FramePlate",1),"Cannot overpay a funded blueprint");check(build.supplied().equals(supplied),"Rejected overpayment preserves all supplied materials");
@@ -65,6 +75,11 @@ public final class CoreTests {
    var veins=VeinPlan.plan(91023,x,z,m);check(veins.equals(VeinPlan.plan(91023,x,z,m)),"Reproducible vein seed");check(veins.size()==8,"Finite deposit budget");
    for(var v:veins){check(v.x()>=3&&v.x()<29&&v.z()>=3&&v.z()<29,"No cross-chunk writes");check(v.depth()>=5&&v.depth()<(m?15:23),"Mineable bounded depth");check(m?v.block().equals("AR_TitaniumOre")||v.block().equals("AR_AluminiumOre"):v.block().equals("AR_NickelOre")||v.block().equals("AR_OilShale"),"No circular home ore requirement");}
   }
+  var plots=new HashSet<String>();for(int i=0;i<StationLayout.MAX_PLOTS;i++){var l=new StationLayout(i);check(plots.add(l.x()+","+l.z()),"Every permanent orbital plot has a unique saved location");check(l.z()>StationLayout.RADIUS&&Math.abs(l.x())<70000&&l.z()<140000,"Station claims cannot intersect transient flight staging or excessive coordinates");}
+  for(int i:new int[]{0,1,255,256,65535}){var l=new StationLayout(i);var seed=l.seed();check(seed.stream().map(StationLayout.Part::at).distinct().count()==seed.size(),"A paid starter places each occupied cell only once");check(seed.stream().allMatch(p->l.walkingContains(p.at().x(),p.at().y(),p.at().z())),"All parts lie in the station navigation envelope");check(seed.stream().filter(p->p.item().equals("AR_StationAirlock")).count()==9,"Every station includes nine real airlocks");for(int port=0;port<9;port++){var at=l.port(port);check(!l.contains(at.x(),at.y(),at.z()),"Docks stay outside editable area");}check(StationDocking.lanesClear(l),"All fleet pairs have clear parallel approach lanes");check(seed.stream().filter(p->p.item().equals("AR_StationCore")).count()==1&&seed.stream().filter(p->p.item().equals("AR_OxygenDiffuser")).count()==1,"One paid Core produces one permanent control and one empty oxygen device");check(seed.stream().anyMatch(p->p.at().equals(new StationLayout.Cell(l.arrival().x(),200,l.arrival().z())))&&seed.stream().noneMatch(p->l.arrivalSpace(p.at())&&p.at().y()>200),"Station arrival has solid support and two clear body cells");}
+  var owner=UUID.randomUUID();var crew=UUID.randomUUID();var stranger=UUID.randomUUID();check(StationLayout.allowed(owner,Set.of(crew),owner)&&StationLayout.allowed(owner,Set.of(crew),crew)&&!StationLayout.allowed(owner,Set.of(crew),stranger),"Only owners and explicitly invited builders have station access");reject(()->new StationLayout(-1),"Invalid negative station plot rejected");reject(()->new StationLayout(StationLayout.MAX_PLOTS),"Bounded station allocation rejects overflow");
+  for(var plan:LaunchPlan.values())for(int port=0;port<9;port++){var l=new StationLayout(0);var start=StationDocking.pose(l,port,plan,0,false);var end=StationDocking.pose(l,port,plan,12,false);check(Math.abs(end.base().z()+plan.upperHeight-l.contactZ())<1e-8,"Docked ship nose meets coupling");check(start.base().z()<end.base().z()&&end.base().z()<l.contactZ(),"Engines face away during approach");check(end.crew().z()>end.base().z()&&end.crew().z()<l.contactZ(),"Real player stays inside upper stage");check(!l.contains((int)end.target().x(),(int)end.target().y(),(int)end.target().z()),"Ships remain outside building area");check(StationDocking.pose(l,port,plan,0,true).equals(end),"Departure starts at exact saved mooring");}
+  checks+=StationPassTests.run();
   System.out.println("Astral Reach core: "+checks+" checks passed");
  }
 }

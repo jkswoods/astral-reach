@@ -1,0 +1,46 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_DamagedRelay.name"
+  },
+  "Icon": "Icons/Items/AR_DamagedRelay.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_DamagedRelay.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_DamagedRelay.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_DamagedRelay",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches",
+        "ItemId": "AR_FramePlate"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_FieldBlock"
+          }
+        ]
+      }
+    }
+  }
+}

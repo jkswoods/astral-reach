@@ -1,0 +1,16 @@
+{
+  "AudioCategory": "AudioCat_SFX",
+  "Volume": -8,
+  "MaxDistance": 8,
+  "StartAttenuationDistance": 2,
+  "MaxInstance": 3,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/station_handling.ogg"
+      ],
+      "Looping": false
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import static dev.astralreach.hytale.RocketRegistry.Cell;
 final class NativeBlocks {
  static BlockType get(World w,Cell p){var chunks=w.getChunkStore();var ref=chunks.getChunkSectionReferenceAtBlock(p.x(),p.y(),p.z());if(ref==null||!ref.isValid())return null;var section=chunks.getStore().getComponent(ref,BlockSection.getComponentType());return section==null?null:BlockType.getAssetMap().getAsset(section.get(p.x()&31,p.y()&31,p.z()&31));}
  static String base(BlockType b){if(b==null)return "";var d=b.getDefaultStateKey();return d==null?b.getId():d;}
- static boolean rocket(World w,Cell p){var id=base(get(w,p));return id.equals("AR_OdysseyHeavy")||id.equals("AR_KestrelStack");}
+ static boolean rocket(World w,Cell p){var id=base(get(w,p));return dev.astralreach.core.LaunchPlan.fromArt(id)!=null;}
  static int filler(World w,Cell p){var chunks=w.getChunkStore();var ref=chunks.getChunkSectionReferenceAtBlock(p.x(),p.y(),p.z());if(ref==null||!ref.isValid())return -1;var section=chunks.getStore().getComponent(ref,BlockSection.getComponentType());return section==null?-1:section.getFiller(p.x()&31,p.y()&31,p.z()&31);}
  static Cell root(World w,Cell p){if(get(w,p)==null)return null;var v=BlockOperations.resolveBaseBlockPosition(w.getChunkStore(),new com.hypixel.hytale.protocol.BlockPosition(p.x(),p.y(),p.z()));return new Cell(v.x,v.y,v.z);}
  static int rotation(World w,Cell p){var chunks=w.getChunkStore();var ref=chunks.getChunkSectionReferenceAtBlock(p.x(),p.y(),p.z());if(ref==null||!ref.isValid())return 0;var section=chunks.getStore().getComponent(ref,BlockSection.getComponentType());return section==null?0:section.getRotationIndex(p.x()&31,p.y()&31,p.z()&31);}

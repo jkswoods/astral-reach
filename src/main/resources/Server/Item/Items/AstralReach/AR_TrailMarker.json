@@ -1,0 +1,46 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_TrailMarker.name"
+  },
+  "Icon": "Icons/Items/AR_TrailMarker.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_TrailMarker.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_TrailMarker.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_TrailMarker",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches",
+        "ItemId": "AR_TrailMarker"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_FieldBlock"
+          }
+        ]
+      }
+    }
+  }
+}

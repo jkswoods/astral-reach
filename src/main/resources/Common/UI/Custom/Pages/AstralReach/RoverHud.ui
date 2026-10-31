@@ -1,0 +1,8 @@
+$A = "Astral.ui";
+Group { HitTestVisible: false; $A.@Section { Anchor: (Right: 28, Bottom: 306, Width: 420, Height: 142);
+$A.@SectionHeader { Anchor: (Left: 5, Right: 5, Top: 5, Height: 32); Label { Text: "LUNAR ROVER"; Style: $A.@Heading; } }
+Label #RoverPower { Anchor: (Left: 16, Right: 16, Top: 44, Height: 28); Style: (FontSize: 22, TextColor: #cbd9e1); }
+$A.@Progress #Power { Anchor: (Left: 16, Right: 120, Top: 82, Height: 12); Value: 0; }
+Label #Speed { Anchor: (Right: 16, Top: 74, Width: 96, Height: 28); Style: (FontSize: 22, TextColor: #55d9d1); }
+Label #Controls { Anchor: (Left: 16, Right: 16, Bottom: 10, Height: 28); Style: (FontSize: 15, TextColor: #9aafc2); }
+} }

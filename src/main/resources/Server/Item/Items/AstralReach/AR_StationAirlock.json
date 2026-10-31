@@ -1,0 +1,333 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_StationAirlock.name"
+  },
+  "Icon": "Icons/Items/AR_StationAirlock.png",
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D05.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_StationAirlock_D05.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "AR_StationAirlock",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_OpenStation"
+          }
+        ]
+      }
+    },
+    "State": {
+      "Definitions": {
+        "D01": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D01.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D01.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D01Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D01.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D01.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D01Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D01.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D01.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D02": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D02.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D02.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D02Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D02.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D02.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D02Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D02.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D02.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D03": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D03.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D03.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D03Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D03.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D03.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D03Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D03.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D03.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D04": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D04.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D04.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D04Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D04.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D04.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D04Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D04.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D04.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D05": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D05.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D05.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D05Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D05.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D05.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D05Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D05.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D05.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D06": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D06.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D06.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D06Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D06.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D06.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D06Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D06.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D06.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D07": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D07.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D07.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D07Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D07.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D07.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D07Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D07.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D07.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D08": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D08.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D08.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D08Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D08.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D08.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D08Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D08.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D08.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        },
+        "D09": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D09.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D09.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock"
+        },
+        "D09Open": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D09.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D09.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock_Open",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Open.blockyanim"
+        },
+        "D09Closing": {
+          "CustomModel": "Blocks/AstralReach/AR_StationAirlock_D09.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationAirlock_D09.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationAirlock",
+          "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
+        }
+      }
+    }
+  }
+}

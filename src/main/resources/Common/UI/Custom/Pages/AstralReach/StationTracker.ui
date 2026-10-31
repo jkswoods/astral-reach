@@ -1,0 +1,91 @@
+$C = "../../Common.ui";
+$A = "Astral.ui";
+$C.@PageOverlay { $A.@Window { Anchor: (Width: 1280, Height: 680);
+$A.@Header { Anchor: (Left: 10, Right: 10, Top: 10, Height: 62); Label { Anchor: (Left: 10, Width: 550); Text: "STATION TRACKER"; Style: (FontSize: 30, TextColor: #e2eaf0, RenderBold: true, VerticalAlignment: Center); } Label { Anchor: (Left: 580, Right: 8); Text: "Watch the skies of Orbis"; Style: $A.@Muted; } }
+$A.@Secondary #Own { Anchor: (Left: 28, Top: 90, Width: 117, Height: 46); Text: "Own"; }
+$A.@Secondary #Invited { Anchor: (Left: 153, Top: 90, Width: 117, Height: 46); Text: "Invited"; }
+$A.@Secondary #All { Anchor: (Left: 278, Top: 90, Width: 117, Height: 46); Text: "All"; }
+Group #OwnSelected { Anchor: (Left: 28, Top: 139, Width: 117, Height: 3); Background: #38cbd0; HitTestVisible: false; }
+Group #InvitedSelected { Anchor: (Left: 153, Top: 139, Width: 117, Height: 3); Background: #38cbd0; HitTestVisible: false; }
+Group #AllSelected { Anchor: (Left: 278, Top: 139, Width: 117, Height: 3); Background: #38cbd0; HitTestVisible: false; }
+$A.@Section { Anchor: (Left: 28, Top: 150, Width: 367, Height: 430);
+Button #Row0 { Anchor: (Left: 8, Right: 8, Top: 10, Height: 68); Style: $A.@RowStyle; ItemIcon { Anchor: (Left: 8, Top: 10, Width: 45, Height: 45); ItemId: "AR_StationCore"; ShowItemTooltip: true; } Label #Name0 { Anchor: (Left: 65, Top: 2, Width: 274, Height: 36); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Owner0 { Anchor: (Left: 65, Top: 37, Width: 274, Height: 24); Text: ""; Style: (FontSize: 18, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+Button #Row1 { Anchor: (Left: 8, Right: 8, Top: 86, Height: 68); Style: $A.@RowStyle; ItemIcon { Anchor: (Left: 8, Top: 10, Width: 45, Height: 45); ItemId: "AR_StationCore"; ShowItemTooltip: true; } Label #Name1 { Anchor: (Left: 65, Top: 2, Width: 274, Height: 36); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Owner1 { Anchor: (Left: 65, Top: 37, Width: 274, Height: 24); Text: ""; Style: (FontSize: 18, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+Button #Row2 { Anchor: (Left: 8, Right: 8, Top: 162, Height: 68); Style: $A.@RowStyle; ItemIcon { Anchor: (Left: 8, Top: 10, Width: 45, Height: 45); ItemId: "AR_StationCore"; ShowItemTooltip: true; } Label #Name2 { Anchor: (Left: 65, Top: 2, Width: 274, Height: 36); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Owner2 { Anchor: (Left: 65, Top: 37, Width: 274, Height: 24); Text: ""; Style: (FontSize: 18, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+Button #Row3 { Anchor: (Left: 8, Right: 8, Top: 238, Height: 68); Style: $A.@RowStyle; ItemIcon { Anchor: (Left: 8, Top: 10, Width: 45, Height: 45); ItemId: "AR_StationCore"; ShowItemTooltip: true; } Label #Name3 { Anchor: (Left: 65, Top: 2, Width: 274, Height: 36); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Owner3 { Anchor: (Left: 65, Top: 37, Width: 274, Height: 24); Text: ""; Style: (FontSize: 18, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+Button #Row4 { Anchor: (Left: 8, Right: 8, Top: 314, Height: 68); Style: $A.@RowStyle; ItemIcon { Anchor: (Left: 8, Top: 10, Width: 45, Height: 45); ItemId: "AR_StationCore"; ShowItemTooltip: true; } Label #Name4 { Anchor: (Left: 65, Top: 2, Width: 274, Height: 36); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Owner4 { Anchor: (Left: 65, Top: 37, Width: 274, Height: 24); Text: ""; Style: (FontSize: 18, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+}
+$A.@Section { Anchor: (Left: 412, Top: 90, Width: 500, Height: 490); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "NEXT VISIBLE PASS"; Style: $A.@Heading; } }
+Label #Countdown { Anchor: (Left: 20, Top: 70, Width: 460, Height: 90); Text: "--:--"; Style: (FontSize: 64, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #PassState { Anchor: (Left: 20, Top: 158, Width: 460, Height: 54); Text: ""; Style: (FontSize: 22, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label { Anchor: (Left: 22, Top: 206, Width: 456, Height: 26); Text: "PASS PROFILE"; Style: $A.@Heading; }
+$A.@Rule { Anchor: (Left: 34, Right: 34, Top: 354, Height: 1); }
+Label { Anchor: (Left: 22, Top: 356, Width: 100, Height: 26); Text: "RISE"; Style: $A.@Muted; }
+Label { Anchor: (Left: 210, Top: 356, Width: 100, Height: 26); Text: "PEAK"; Style: $A.@Muted; }
+Label { Anchor: (Right: 22, Top: 356, Width: 52, Height: 26); Text: "SET"; Style: $A.@Muted; }
+Group #Trace0 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace1 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace2 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace3 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace4 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace5 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace6 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace7 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace8 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace9 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace10 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace11 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace12 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace13 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace14 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace15 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace16 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace17 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace18 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace19 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace20 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace21 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace22 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace23 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace24 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace25 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace26 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace27 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace28 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace29 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace30 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace31 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace32 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace33 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace34 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace35 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace36 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace37 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace38 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #Trace39 { Anchor: (Left: 30, Top: 350, Width: 4, Height: 4); Background: #39c7cc; HitTestVisible: false; }
+Group #BearingMarker { Anchor: (Left: 30, Top: 290, Width: 10, Height: 22); Background: #3cddd5; }
+Label #Bearing { Anchor: (Left: 20, Top: 390, Width: 460, Height: 60); Text: ""; Style: (FontSize: 28, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Elevation { Anchor: (Left: 20, Top: 440, Width: 460, Height: 48); Text: ""; Style: (FontSize: 26, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+$A.@Section { Anchor: (Left: 930, Top: 90, Width: 322, Height: 490); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "STATION IDENTITY"; Style: $A.@Heading; } }
+Label #Selected { Anchor: (Left: 18, Top: 60, Width: 286, Height: 100); Text: ""; Style: (FontSize: 27, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #SelectedOwner { Anchor: (Left: 18, Top: 165, Width: 286, Height: 55); Text: ""; Style: (FontSize: 22, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #ViewHint { Anchor: (Left: 18, Top: 240, Width: 286, Height: 210); Text: "Use a telescope and aim at the indicated bearing and elevation.
+
+Clouds, terrain and daylight can obscure a pass."; Style: (FontSize: 22, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+$A.@Secondary #Previous { Anchor: (Left: 28, Top: 600, Width: 156, Height: 46); Text: "Previous"; }
+Label #Page { Anchor: (Left: 194, Top: 600, Width: 100, Height: 46); Text: "1 / 1"; Style: (FontSize: 21, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+$A.@Secondary #Next { Anchor: (Left: 295, Top: 600, Width: 100, Height: 46); Text: "Next"; }
+$A.@Secondary #Close { Anchor: (Left: 1072, Top: 600, Width: 180, Height: 46); Text: "Close"; }
+} }

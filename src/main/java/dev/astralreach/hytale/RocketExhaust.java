@@ -22,10 +22,10 @@ final class RocketExhaust {
   if(seconds<FlightTimeline.BOARDING)return;
   var data=RocketService.data(s);long now=System.nanoTime();if(now-data.exhaustAt.getOrDefault(at,0L)<160_000_000L)return;data.exhaustAt.put(at,now);
   var audience=s.getExternalData().getWorld().getPlayerRefs().stream().map(p->p.getReference()).filter(r->r!=null&&r.isValid()).toList();double cy=Math.cos(yaw),sy=Math.sin(yaw);
-  if(plan==LaunchPlan.ODYSSEY&&seconds>=FlightTimeline.SEPARATION){upper(s,plan,new org.joml.Vector3d(at.x()+.5,at.y()+FlightTimeline.height(seconds)+FlightTimeline.upperBase(plan),at.z()+.5).add(cy*FlightTimeline.upperX(plan,seconds),0,-sy*FlightTimeline.upperX(plan,seconds)),yaw);return;}
+  if(plan!=LaunchPlan.KESTREL&&seconds>=FlightTimeline.SEPARATION){upper(s,plan,new org.joml.Vector3d(at.x()+.5,at.y()+FlightTimeline.height(seconds)+FlightTimeline.upperBase(plan),at.z()+.5).add(cy*FlightTimeline.upperX(plan,seconds),0,-sy*FlightTimeline.upperX(plan,seconds)),yaw);return;}
   for(var n:engines.get(plan)){
    boolean separated=plan==LaunchPlan.KESTREL&&seconds>=FlightTimeline.SEPARATION;
-   if(plan==LaunchPlan.KESTREL&&(n.ship&&!separated||!n.ship&&!FlightTimeline.boosterPowered(seconds)))continue;
+   if(n.ship&&!separated&&plan!=LaunchPlan.SPACE_SHUTTLE||!n.ship&&!FlightTimeline.boosterPowered(seconds))continue;
    double x=n.x,y=n.y,z=n.z,roll=0,lift=FlightTimeline.height(seconds);
    double wx,wy,wz;
    if(separated&&!n.ship){var position=BoosterMotion.nozzle(at,yaw,seconds,x,y,z);wx=position.x;wy=position.y;wz=position.z;roll=FlightTimeline.boosterRoll(seconds);}

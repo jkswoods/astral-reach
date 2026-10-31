@@ -45,15 +45,17 @@ final class LaunchYardService {
  }return false;}
  static void action(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef player,Cell at,String action){try{
   var y=usable(s,ref,player,at);var p=y.progress;var w=s.getExternalData().getWorld();
-  if(action.equals("Odyssey")||action.equals("Kestrel")){
-   if(p.phase()!=ConstructionProgress.Phase.PREVIEW||!y.escrow.isEmpty()||!y.recovered.isEmpty())throw new IllegalArgumentException("Cancel and recover supplied materials before changing the blueprint.");
-   p.select(action.equals("Odyssey")?LaunchPlan.ODYSSEY:LaunchPlan.KESTREL);y.selected=true;RocketService.cue(s,player,"AR_metal_handle",at);
+  if(action.startsWith("Select:")){
+   var next=LaunchPlan.restore(action.substring(7));
+   if(y.selected||p.phase()!=ConstructionProgress.Phase.PREVIEW||!y.escrow.isEmpty()||!y.recovered.isEmpty())throw new IllegalArgumentException("Return supplied materials with Change rocket before choosing a blueprint.");
+   p.select(next);y.selected=true;RocketService.cue(s,player,"AR_Blueprint_Lock",at);
   }else if(action.equals("Rotate")){
    if(y.selected||!y.escrow.isEmpty()||p.phase()!=ConstructionProgress.Phase.PREVIEW)throw new IllegalArgumentException("Cancel the blueprint before changing the pad direction.");
    var old=y.facing;var prior=modules(at,y);y.facing=LaunchPadLayout.Facing.values()[(old.ordinal()+1)%4];if(overlap(s,at,y)){y.facing=old;throw new IllegalArgumentException("That footprint overlaps another console's pad.");}
    for(var root:prior)NativeBlocks.stateOf(w,nativeCell(root),"AR_LaunchPadModule","default");LaunchYardVisuals.remove(s,data(s).decks.remove(at));
-  }else if(action.equals("Cancel")){
+  }else if(action.equals("Cancel")||action.equals("Change")){
    if(p.phase()==ConstructionProgress.Phase.READY)throw new IllegalArgumentException("The completed rocket owns these materials. Drain and remove it before starting another blueprint.");
+   if(action.equals("Change")&&!y.recovered.isEmpty())throw new IllegalArgumentException("Returned assemblies belong to this rocket. Finish its rebuild before selecting another blueprint.");
    var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();
    if(!YardInventory.refund(inv,y.escrow))throw new IllegalArgumentException("Make room for all supplied materials before cancelling. Your exact items remain in the console.");
    y.escrow.clear();p.resetAfterRefund();for(var credit:y.recovered.entrySet())p.accept(credit.getKey(),credit.getValue());y.selected=!y.recovered.isEmpty();RocketService.cue(s,player,"AR_metal_handle",at);

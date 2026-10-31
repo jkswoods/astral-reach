@@ -14,7 +14,7 @@ import com.hypixel.hytale.server.core.universe.*;
 import com.hypixel.hytale.server.core.universe.world.*;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.universe.world.spawn.GlobalSpawnProvider;
-import com.hypixel.hytale.server.core.universe.world.worldgen.provider.FlatWorldGenProvider;
+import com.hypixel.hytale.server.core.universe.world.worldgen.provider.VoidWorldGenProvider;
 import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Rotation3f;
 import dev.astralreach.core.*;
@@ -33,16 +33,16 @@ final class SpaceFlight {
  static CompletableFuture<World> orbitLanding(PlayerRef p){
   var u=Universe.get();var w=u.getWorld(ORBIT_WORLD);CompletableFuture<World> ready;
   if(w!=null)ready=CompletableFuture.completedFuture(w);else if(u.isWorldLoadable(ORBIT_WORLD))ready=u.loadWorld(ORBIT_WORLD);else{
-   var cfg=new WorldConfig();cfg.setDisplayName("Astral Reach — Low Orbit");cfg.setWorldGenProvider(new FlatWorldGenProvider(new Color((byte)0,(byte)0,(byte)0),new FlatWorldGenProvider.Layer[]{new FlatWorldGenProvider.Layer(0,1,null,"Rock_Stone")}));cfg.setForcedWeather("AR_Space");cfg.setGameTime(java.time.Instant.parse("0001-01-01T10:00:00Z"));cfg.setGameTimePaused(true);cfg.setSpawningNPC(false);cfg.setPvpEnabled(false);cfg.setSavingPlayers(true);cfg.setSaveNewChunks(true);cfg.setSpawnProvider(new GlobalSpawnProvider(new Transform(.5,201,.5)));ready=u.makeWorld(ORBIT_WORLD,u.getWorldsPath().resolve(ORBIT_WORLD),cfg);
+   var cfg=new WorldConfig();cfg.setDisplayName("Astral Reach — Low Orbit");cfg.setWorldGenProvider(new VoidWorldGenProvider());cfg.setForcedWeather("AR_Space");cfg.setGameTime(java.time.Instant.parse("0001-01-01T10:00:00Z"));cfg.setGameTimePaused(true);cfg.setSpawningNPC(false);cfg.setPvpEnabled(false);cfg.setSavingPlayers(true);cfg.setSaveNewChunks(true);cfg.setSpawnProvider(new GlobalSpawnProvider(new Transform(.5,201,.5)));ready=u.makeWorld(ORBIT_WORLD,u.getWorldsPath().resolve(ORBIT_WORLD),cfg);
   }
   return ready.thenCompose(world->CompletableFuture.allOf(RocketService.load(world,slot(p),0),RocketService.load(world,slot(p)-32,-192),RocketService.load(world,slot(p),-160),RocketService.load(world,slot(p)+32,-128)).thenCompose(v->{var f=new CompletableFuture<World>();world.execute(()->{try{int x=slot(p);for(int dx=-2;dx<=2;dx++)for(int dz=-2;dz<=2;dz++)if(NativeBlocks.empty(world,new RocketRegistry.Cell(x+dx,200,dz)))NativeBlocks.set(world,new RocketRegistry.Cell(x+dx,200,dz),BlockType.getAssetMap().getAsset("Rock_Stone"));if(!RocketService.safe(world,x+.5,201,.5))throw new IllegalStateException("Orbital arrival platform is obstructed");f.complete(world);}catch(Exception ex){f.completeExceptionally(ex);}});return f;}));
  }
- static boolean inOrbit(Store<EntityStore>s,Ref<EntityStore>r){var f=s.getComponent(r,AstralReachPlugin.flightType);return s.getExternalData().getWorld().getName().equals(ORBIT_WORLD)&&f!=null&&f.trip!=null&&f.trip.phase()==Journey.Phase.ORBIT&&f.leg==PlayerFlightState.Leg.NONE;}
+ static boolean inOrbit(Store<EntityStore>s,Ref<EntityStore>r){var f=s.getComponent(r,AstralReachPlugin.flightType);return s.getExternalData().getWorld().getName().equals(ORBIT_WORLD)&&f!=null&&f.trip!=null&&f.trip.phase()==Journey.Phase.ORBIT&&f.leg==PlayerFlightState.Leg.NONE&&f.stationOwner==null;}
  static void begin(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p){
   begin(s,r,p,true);
  }
  static void begin(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,boolean cancellable){
-  end(s,r,p);var v=new View();var player=s.getComponent(r,Player.getComponentType());if(player!=null){v.hud=Set.copyOf(player.getHudManager().getVisibleHudComponents());player.getHudManager().setVisibleHudComponents(p,Set.of());}views.put(p.getUuid(),v);
+  Observatory.end(s,r,p);end(s,r,p);var v=new View();var player=s.getComponent(r,Player.getComponentType());if(player!=null){v.hud=Set.copyOf(player.getHudManager().getVisibleHudComponents());player.getHudManager().setVisibleHudComponents(p,Set.of());}views.put(p.getUuid(),v);
   v.page=new AscentPage(p,cancellable);if(player!=null)player.getPageManager().openCustomPage(r,s,v.page);
  }
  static void handoff(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p){var v=views.get(p.getUuid());if(v!=null&&v.page!=null)v.page.handoff=true;end(s,r,p);}
@@ -88,7 +88,7 @@ final class SpaceFlight {
    if(v==null){v=new View();var player=s.getComponent(r,Player.getComponentType());if(player!=null){v.hud=Set.copyOf(player.getHudManager().getVisibleHudComponents());player.getHudManager().setVisibleHudComponents(p,Set.of(HudComponent.Chat));}views.put(p.getUuid(),v);}
    var uiPlayer=s.getComponent(r,Player.getComponentType());if(uiPlayer!=null&&uiPlayer.getPageManager().getCustomPage() instanceof OrbitalMapPage nav)nav.refresh(r,s);
    if(OrbitalMapPage.threeD(p.getUuid())){if(v.vehicle!=null&&v.vehicle.isValid())s.removeEntity(v.vehicle,RemoveReason.REMOVE);v.vehicle=null;}
-   else if(v.vehicle==null||!v.vehicle.isValid()){String model=state.plan==LaunchPlan.KESTREL?"AR_KestrelShipIdle":"AR_OdysseyShipIdle";v.vehicle=RocketVisuals.spawn(s,model,new Vector3d(slot(p)+.5,202,.5),new Rotation3f());}
+   else if(v.vehicle==null||!v.vehicle.isValid()){String model=state.plan.asset("ShipIdle");v.vehicle=RocketVisuals.spawn(s,model,new Vector3d(slot(p)+.5,202,.5),new Rotation3f());}
    state.boarded=true;CrewBoarding.hold(s,r,p,new Vector3d(slot(p)+.5,202+FlightTimeline.crewHeight(state.plan),.5));
    long now=System.nanoTime();if(!OrbitalMapPage.threeD(p.getUuid())&&now-v.cameraAt>=100_000_000L){v.cameraAt=now;double h=FlightTimeline.upperHeight(state.plan);var target=new Vector3d(slot(p)+.5,202+h*.5,.5);camera(p,new Vector3d(target.x-55,target.y-110,target.z-120),target);}
    if(!v.mapShown&&now-v.arrival>=8_000_000_000L){v.mapShown=true;OrbitalMapPage.open(s,r,p);}

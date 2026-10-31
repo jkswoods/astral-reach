@@ -1,0 +1,28 @@
+{
+  "Type": "Wielding",
+  "IgnoreForFlaggedConditions": true,
+  "HorizontalSpeedMultiplier": 0.5,
+  "Effects": {
+    "MovementEffects": {
+      "DisableSprint": true
+    },
+    "HideFirstPersonHeldItem": true,
+    "Zoom": {
+      "MagnificationMultiplier": 6,
+      "MouseSensitivityMultiplier": 0.25,
+      "OverlayTexture": "ScreenEffects/Spyglass.png",
+      "DepthOfField": true,
+      "ForcePerspective": "FirstPerson",
+      "LodMultiplier": 3,
+      "InLerp": 0.15,
+      "OutLerp": 0.15,
+      "OverlayFade": true,
+      "OverlayFadePerSecond": 16
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Spyglass"
+    ]
+  }
+}

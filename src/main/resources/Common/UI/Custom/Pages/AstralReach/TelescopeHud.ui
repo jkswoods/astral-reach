@@ -1,0 +1,2 @@
+Group { Anchor: (Width: 800, Height: 130, Bottom: 90); Background: #071421d9; Label #Target { Anchor: (Left: 22, Right: 22, Top: 10, Height: 42); Style: (FontSize: 26, TextColor: #c6eee8, HorizontalAlignment: Center); } Label #Hint { Anchor: (Left: 22, Right: 22, Top: 58, Height: 55); Text: "TELESCOPE · Use again or change held item to exit"; Style: (FontSize: 20, TextColor: #b9cbda, HorizontalAlignment: Center); } }
+Group { Anchor: (Width: 3, Height: 16); Background: #c5e9da; }

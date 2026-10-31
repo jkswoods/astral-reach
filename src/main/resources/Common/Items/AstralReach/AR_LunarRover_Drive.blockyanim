@@ -1,0 +1,239 @@
+{
+  "formatVersion": 1,
+  "duration": 60,
+  "holdLastKeyframe": false,
+  "nodeAnimations": {
+    "WheelLF": {
+      "position": [],
+      "orientation": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 15,
+          "delta": {
+            "x": 0.7071067811865475,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.7071067811865476
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 6.123233995736766e-17
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 45,
+          "delta": {
+            "x": 0.7071067811865476,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -0.7071067811865475
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 60,
+          "delta": {
+            "x": 1.2246467991473532e-16,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -1.0
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
+    },
+    "WheelRF": {
+      "position": [],
+      "orientation": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 15,
+          "delta": {
+            "x": 0.7071067811865475,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.7071067811865476
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 6.123233995736766e-17
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 45,
+          "delta": {
+            "x": 0.7071067811865476,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -0.7071067811865475
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 60,
+          "delta": {
+            "x": 1.2246467991473532e-16,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -1.0
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
+    },
+    "WheelLB": {
+      "position": [],
+      "orientation": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 15,
+          "delta": {
+            "x": 0.7071067811865475,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.7071067811865476
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 6.123233995736766e-17
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 45,
+          "delta": {
+            "x": 0.7071067811865476,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -0.7071067811865475
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 60,
+          "delta": {
+            "x": 1.2246467991473532e-16,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -1.0
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
+    },
+    "WheelRB": {
+      "position": [],
+      "orientation": [
+        {
+          "time": 0,
+          "delta": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 15,
+          "delta": {
+            "x": 0.7071067811865475,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.7071067811865476
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 30,
+          "delta": {
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 6.123233995736766e-17
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 45,
+          "delta": {
+            "x": 0.7071067811865476,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -0.7071067811865475
+          },
+          "interpolationType": "linear"
+        },
+        {
+          "time": 60,
+          "delta": {
+            "x": 1.2246467991473532e-16,
+            "y": 0.0,
+            "z": -0.0,
+            "w": -1.0
+          },
+          "interpolationType": "linear"
+        }
+      ],
+      "shapeStretch": [],
+      "shapeVisible": [],
+      "shapeUvOffset": []
+    }
+  }
+}

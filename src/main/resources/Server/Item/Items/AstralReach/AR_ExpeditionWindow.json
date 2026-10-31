@@ -1,0 +1,37 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_ExpeditionWindow.name"
+  },
+  "Icon": "Icons/Items/AR_ExpeditionWindow.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModel": "Blocks/AstralReach/AR_ExpeditionWindow.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_ExpeditionWindow.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_ExpeditionWindow",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches",
+        "ItemId": "AR_ExpeditionWindow"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#8b9b9e"
+  }
+}

@@ -1339,5 +1339,476 @@
     ],
     "OutputQuantity": 1,
     "TimeSeconds": 4
+  },
+  "AR_SaturnV": {
+    "Input": [
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_OrbitalEnginePart",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 24
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 15
+  },
+  "AR_Soyuz": {
+    "Input": [
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_OrbitalEnginePart",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 12
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 15
+  },
+  "AR_SpaceShuttle": {
+    "Input": [
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_OrbitalEnginePart",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 24
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 15
+  },
+  "AR_StationCore": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 32
+      },
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_OxygenDiffuser",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 12
+  },
+  "AR_StationDeck": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_StationDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 2
+  },
+  "AR_StationRail": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralMasonry",
+        "Categories": [
+          "AR_StationDecor"
+        ]
+      }
+    ],
+    "OutputQuantity": 4,
+    "TimeSeconds": 2
+  },
+  "AR_StationTracker": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_Telescope": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Crystal_Void",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_SolarArray": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_StationBattery": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 8
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_StationLifeSupport": {
+    "Input": [
+      {
+        "ItemId": "AR_OxygenDiffuser",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 5
+  },
+  "AR_RescueBeacon": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_FieldReceiver": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_BeaconCell": {
+    "Input": [
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 4
+  },
+  "AR_EmptyLargeOxygenCanister": {
+    "Input": [
+      {
+        "ItemId": "AR_EmptyOxygenCanister",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralSuit",
+        "Categories": [
+          "AR_SurveySuits"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 10,
+    "KnowledgeRequired": true
+  },
+  "AR_LargeOxygenCanister": {
+    "Input": [
+      {
+        "ItemId": "AR_EmptyLargeOxygenCanister",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Processing",
+        "Id": "AstralOxygen"
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 60,
+    "KnowledgeRequired": false
+  },
+  "AR_LunarRover": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 12
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 20,
+    "KnowledgeRequired": true
   }
 }

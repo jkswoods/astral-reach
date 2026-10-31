@@ -70,6 +70,11 @@
           "Id": "AR_Components",
           "Name": "server.astralreach.components",
           "Icon": "Icons/CraftingCategories/AstralReach/Components.png"
+        },
+        {
+          "Id": "AR_Stations",
+          "Name": "server.astralreach.stations.Category",
+          "Icon": "Icons/CraftingCategories/AstralReach/StationEquipment.png"
         }
       ],
       "CompletedSoundEventId": "AR_metal_handle"

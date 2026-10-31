@@ -1,0 +1,65 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_LunarRover.name",
+    "Description": "server.astralreach.AR_LunarRover.description"
+  },
+  "Icon": "Icons/Items/AR_LunarRover.png",
+  "Model": "Items/AstralReach/AR_LunarRoverKit.blockymodel",
+  "Texture": "Items/AstralReach/AR_LunarRoverKit.png",
+  "Categories": [
+    "Items.Tools"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_BlueprintEquipment",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 12
+      },
+      {
+        "ItemId": "AR_AluminiumIngot",
+        "Quantity": 8
+      },
+      {
+        "ItemId": "AR_TitaniumIngot",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_NickelIngot",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Stations"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 20,
+    "KnowledgeRequired": true
+  },
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "AR_PlaceRover"
+        }
+      ]
+    }
+  }
+}

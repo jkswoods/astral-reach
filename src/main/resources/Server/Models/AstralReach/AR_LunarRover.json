@@ -1,0 +1,30 @@
+{
+  "Model": "Items/AstralReach/AR_LunarRover.blockymodel",
+  "Texture": "Items/AstralReach/AR_LunarRover.png",
+  "EyeHeight": 1.6,
+  "HitBox": {
+    "Min": {
+      "X": -1.36,
+      "Y": 0,
+      "Z": -1.64
+    },
+    "Max": {
+      "X": 1.36,
+      "Y": 2.58,
+      "Z": 1.64
+    }
+  },
+  "MinScale": 1,
+  "MaxScale": 1,
+  "AnimationSets": {
+    "Drive": {
+      "Animations": [
+        {
+          "Animation": "Items/AstralReach/AR_LunarRover_Drive.blockyanim",
+          "Looping": true,
+          "Speed": 1
+        }
+      ]
+    }
+  }
+}

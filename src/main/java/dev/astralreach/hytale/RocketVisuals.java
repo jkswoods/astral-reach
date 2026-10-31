@@ -17,7 +17,7 @@ import static dev.astralreach.hytale.RocketRegistry.Cell;
 final class RocketVisuals {
  private static final Map<String,Model> models=new HashMap<>();
  static Model model(){return model(LaunchPlan.ODYSSEY);}
- static Model model(LaunchPlan plan){return named(plan==LaunchPlan.ODYSSEY?"AR_OdysseyExterior":"AR_KestrelExterior");}
+ static Model model(LaunchPlan plan){return named(plan.asset("Exterior"));}
  static Model named(String name){return models.computeIfAbsent(name,key->{var asset=ModelAsset.getAssetMap().getAsset(key);if(asset==null)throw new IllegalStateException("Missing rocket model "+key);return Model.createScaledModel(asset,32);});}
  static Ref<EntityStore> spawn(Store<EntityStore>s,String name,Vector3d position,Rotation3f rotation){
   return spawn(s,named(name),position,rotation);
@@ -44,7 +44,7 @@ final class RocketVisuals {
    var at=e.getKey();var rocket=e.getValue();String state=RocketService.vehicleState(rocket);double elapsed=RocketService.departureElapsed(rocket);
    if(!NativeBlocks.rocket(w,at)||!NativeBlocks.ticking(w,at)){remove(s,data.exteriors.remove(at));data.exteriorStates.remove(at);remove(s,data.boosters.remove(at));data.boosterStates.remove(at);continue;}
    var rotation=new Rotation3f();RotationTuple.get(NativeBlocks.rotation(w,at)).applyRotationTo(rotation);var position=new Vector3d(at.x()+.5,at.y(),at.z()+.5);
-   String name=state.equals("Away")?null:state.equals("Launching")?(rocket.plan==LaunchPlan.ODYSSEY?(elapsed<dev.astralreach.core.FlightTimeline.SEPARATION?"AR_OdysseyAscent":"AR_OdysseyShip"):elapsed<dev.astralreach.core.FlightTimeline.SEPARATION?"AR_KestrelAscent":"AR_KestrelShip"):(rocket.plan==LaunchPlan.ODYSSEY?"AR_OdysseyExterior":"AR_KestrelExterior");
+   String name=state.equals("Away")?null:rocket.plan.asset(state.equals("Launching")?(elapsed<dev.astralreach.core.FlightTimeline.SEPARATION?"Ascent":"Ship"):"Exterior");
    syncPart(s,data.exteriors,data.exteriorStates,at,name,position,rotation,state.equals("Launching"));
    sound(s,data.exteriors.get(at),state.equals("Launching")&&elapsed>=dev.astralreach.core.FlightTimeline.BOARDING);
    String booster=null; // Odyssey core/solid boosters are expendable; they do not sit restored on the pad.

@@ -17,10 +17,10 @@ public final class LunarTubes {
   if(protectedSite(x,z))return SOLID;
   int channel=(int)Math.round((x-85)/384d);
   double signed=x-axis(seed,channel,z),lateral=Math.abs(signed);
-  double width=16+3*Math.sin(z/93+channel);
+  double width=16+3*Math.sin(z/93d+channel);
   if(lateral>=width)return SOLID;
   double q=lateral/width;
-  int floor=42+(int)Math.round(2*Math.sin(z/141)+2*Math.sin(channel*2+z/321d));
+  int floor=42+(int)Math.round(2*Math.sin(z/141d)+2*Math.sin(channel*2+z/321d));
   // A channel may run below a crater, but never remove the bottom eight blocks.
   floor=Math.min(floor,surface-10);floor=Math.max(8,floor);
   int vault=floor+3+(int)Math.round(17*Math.sqrt(1-q*q));

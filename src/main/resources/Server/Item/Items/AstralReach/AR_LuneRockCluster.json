@@ -1,0 +1,45 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_LuneRockCluster.name"
+  },
+  "Icon": "Icons/Items/AR_LuneRockCluster.png",
+  "Categories": [
+    "Blocks.Rocks"
+  ],
+  "MaxStack": 64,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_LunarRock",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "Group": "Stone",
+    "CustomModel": "Blocks/AstralReach/AR_LuneRockCluster.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_LuneRockCluster.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_LuneRockCluster",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "ItemId": "AR_LuneRockCluster"
+      }
+    },
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "AR_LunarDust",
+    "PhysicalMaterialId": "Stone",
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#777d86"
+  }
+}

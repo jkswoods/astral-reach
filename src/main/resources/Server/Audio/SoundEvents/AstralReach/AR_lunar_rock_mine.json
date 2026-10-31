@@ -1,0 +1,18 @@
+{
+  "Volume": -6,
+  "Pitch": 0,
+  "MaxDistance": 6,
+  "StartAttenuationDistance": 1,
+  "MaxInstance": 2,
+  "SpatialBlend": 0,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/lunar_rubble.ogg"
+      ],
+      "Volume": 0,
+      "Looping": false
+    }
+  ],
+  "AudioCategory": "AR_SuitInterior"
+}

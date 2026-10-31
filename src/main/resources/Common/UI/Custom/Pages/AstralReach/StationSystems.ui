@@ -1,0 +1,38 @@
+$C = "../../Common.ui";
+$A = "Astral.ui";
+$C.@PageOverlay { $A.@Window { Anchor: (Width: 1280, Height: 680);
+$A.@Header { Anchor: (Left: 10, Right: 10, Top: 10, Height: 62); Label { Anchor: (Left: 10, Width: 550); Text: "STATION SYSTEMS"; Style: (FontSize: 30, TextColor: #e2eaf0, RenderBold: true, VerticalAlignment: Center); } Label { Anchor: (Left: 580, Right: 8); Text: "Power and breathable air"; Style: $A.@Muted; } }
+$A.@Section { Anchor: (Left: 28, Top: 90, Width: 390, Height: 490); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "POWER BUS"; Style: $A.@Heading; } }
+ItemIcon { Anchor: (Left: 18, Top: 66, Width: 42, Height: 42); ItemId: "AR_SolarArray"; ShowItemTooltip: true; }
+Label #Solar { Anchor: (Left: 74, Top: 65, Width: 298, Height: 52); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+ItemIcon { Anchor: (Left: 18, Top: 126, Width: 42, Height: 42); ItemId: "AR_StationLifeSupport"; ShowItemTooltip: true; }
+Label #Draw { Anchor: (Left: 74, Top: 125, Width: 298, Height: 52); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label { Anchor: (Left: 18, Top: 188, Width: 350, Height: 28); Text: "BATTERY STORAGE"; Style: $A.@Heading; }
+Label #Stored { Anchor: (Left: 18, Top: 222, Width: 350, Height: 44); Text: ""; Style: (FontSize: 28, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+$A.@Progress #Battery { Anchor: (Left: 18, Right: 18, Top: 278, Height: 24); Value: 0; }
+Label #Reserve { Anchor: (Left: 18, Top: 318, Width: 350, Height: 70); Text: ""; Style: (FontSize: 23, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #DischargeNote { Anchor: (Left: 18, Top: 405, Width: 350, Height: 65); Text: "Removing a battery discharges it. No power is generated while unloaded."; Style: (FontSize: 19, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+$A.@Section { Anchor: (Left: 434, Top: 90, Width: 426, Height: 490); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "LIFE SUPPORT"; Style: $A.@Heading; } }
+Group { Anchor: (Left: 18, Top: 60, Width: 90, Height: 108); Background: (TexturePath: "Art/Row.png", Border: 8); ItemIcon #Canister0 { Anchor: (Left: 8, Top: 8, Width: 74, Height: 74); ShowItemTooltip: true; } $A.@Progress #Charge0 { Anchor: (Left: 5, Right: 5, Bottom: 5, Height: 10); Value: 0; } }
+Group { Anchor: (Left: 116, Top: 60, Width: 90, Height: 108); Background: (TexturePath: "Art/Row.png", Border: 8); ItemIcon #Canister1 { Anchor: (Left: 8, Top: 8, Width: 74, Height: 74); ShowItemTooltip: true; } $A.@Progress #Charge1 { Anchor: (Left: 5, Right: 5, Bottom: 5, Height: 10); Value: 0; } }
+Group { Anchor: (Left: 214, Top: 60, Width: 90, Height: 108); Background: (TexturePath: "Art/Row.png", Border: 8); ItemIcon #Canister2 { Anchor: (Left: 8, Top: 8, Width: 74, Height: 74); ShowItemTooltip: true; } $A.@Progress #Charge2 { Anchor: (Left: 5, Right: 5, Bottom: 5, Height: 10); Value: 0; } }
+Group { Anchor: (Left: 312, Top: 60, Width: 90, Height: 108); Background: (TexturePath: "Art/Row.png", Border: 8); ItemIcon #Canister3 { Anchor: (Left: 8, Top: 8, Width: 74, Height: 74); ShowItemTooltip: true; } $A.@Progress #Charge3 { Anchor: (Left: 5, Right: 5, Bottom: 5, Height: 10); Value: 0; } }
+Label #Oxygen { Anchor: (Left: 18, Top: 190, Width: 390, Height: 70); Text: "Select a life-support unit"; Style: (FontSize: 27, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+Label #Status { Anchor: (Left: 18, Top: 265, Width: 390, Height: 68); Text: ""; Style: (FontSize: 25, TextColor: #55d9d1, Wrap: true, VerticalAlignment: Center); }
+Label #People { Anchor: (Left: 18, Top: 350, Width: 390, Height: 40); Text: ""; Style: (FontSize: 21, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+$A.@Secondary #Load { Anchor: (Left: 18, Top: 411, Width: 128, Height: 46); Text: "Load"; }
+$A.@Secondary #Collect { Anchor: (Left: 152, Top: 411, Width: 124, Height: 46); Text: "Collect all"; }
+$A.@Secondary #Toggle { Anchor: (Left: 282, Top: 411, Width: 126, Height: 46); Text: "Disable"; }
+}
+$A.@Section { Anchor: (Left: 876, Top: 90, Width: 376, Height: 490); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "STATION NAME"; Style: $A.@Heading; } }
+$C.@TextField #CallSign { Anchor: (Left: 18, Right: 18, Top: 64, Height: 50); PlaceholderText: "Station name"; MaxLength: 32; }
+$A.@Secondary #Rename { Anchor: (Left: 180, Top: 130, Width: 178, Height: 46); Text: "Rename"; }
+Label #Coverage { Anchor: (Left: 18, Top: 214, Width: 340, Height: 218); Text: "Concourse ducts + 8m local bubble
+
+Place and load life support to supply air. A full suit and portable canister remain your emergency reserve."; Style: (FontSize: 22, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+}
+$A.@Secondary #Back { Anchor: (Left: 28, Top: 600, Width: 180, Height: 46); Text: "Back"; }
+
+Label #StationName { Anchor: (Left: 900, Top: 600, Width: 350, Height: 46); Text: ""; Style: (FontSize: 24, TextColor: #cbd9e1, Wrap: true, VerticalAlignment: Center); }
+} }

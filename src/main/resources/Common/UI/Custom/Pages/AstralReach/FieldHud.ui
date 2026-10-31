@@ -1,0 +1,5 @@
+$A = "Astral.ui";
+Group { HitTestVisible: false; $A.@Section { Anchor: (Left: 28, Top: 98, Width: 460, Height: 108);
+Label #Title { Anchor: (Left: 16, Right: 16, Top: 12, Height: 30); Style: (FontSize: 23, TextColor: #7de5da, RenderBold: true); }
+Label #Direction { Anchor: (Left: 16, Right: 16, Top: 48, Height: 48); Style: (FontSize: 21, TextColor: #cbd9e1, Wrap: true); }
+} }

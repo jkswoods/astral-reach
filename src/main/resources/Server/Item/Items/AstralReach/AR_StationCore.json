@@ -1,0 +1,81 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_StationCore.name"
+  },
+  "Icon": "Icons/Items/AR_StationCore.png",
+  "Categories": [
+    "Furniture.Benches"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches",
+        "ItemId": "AR_StationCore"
+      }
+    },
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "BlockParticleSetId": "Metal",
+    "ParticleColor": "#98a6aa",
+    "CustomModel": "Blocks/AstralReach/AR_StationCore.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_StationCore.png",
+        "Weight": 1
+      }
+    ],
+    "VariantRotation": "NESW",
+    "HitboxType": "AR_StationCore",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "AR_OpenStation"
+          }
+        ]
+      }
+    }
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "AR_FramePlate",
+        "Quantity": 32
+      },
+      {
+        "ItemId": "AR_PressureHullPart",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_FlightComputer",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "AR_CopperCoil",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "AR_OxygenDiffuser",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Components"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 12
+  }
+}

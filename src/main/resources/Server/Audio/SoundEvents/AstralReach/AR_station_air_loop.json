@@ -1,0 +1,16 @@
+{
+  "AudioCategory": "AudioCat_Ambient",
+  "Volume": -12,
+  "MaxDistance": 12,
+  "StartAttenuationDistance": 2,
+  "MaxInstance": 3,
+  "SpatialBlend": 1,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/station_air.ogg"
+      ],
+      "Looping": true
+    }
+  ]
+}

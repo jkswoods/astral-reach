@@ -35,7 +35,7 @@ Button #RouteUmbra { Anchor: (Height: 90); Style: $A.@RowStyle;
  Label { Anchor: (Left: 88, Top: 14, Right: 42, Height: 28); Text: "Umbra"; Style: (FontSize: 23, TextColor: #e0e8ea, RenderBold: true); }
  Label { Anchor: (Left: 88, Top: 48, Right: 42, Height: 26); Text: "Future route"; Style: (FontSize: 17, TextColor: #99adc1); }  Group { Anchor: (Right: 14, Top: 30, Width: 24, Height: 30); Background: "Art/Lock.png"; HitTestVisible: false; } } Group { Anchor: (Height: 9); }
 } } Group { Anchor: (Width: 14); }
-$A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } }
+$A.@Section { Anchor: (Width: 660); $A.@SectionHeader { Anchor: (Left: 2, Right: 2, Top: 2, Height: 42); Label { Text: "SYSTEM CHART"; Style: $A.@Heading; } $A.@Secondary #Stations { Anchor: (Right: 8, Top: 3, Width: 220, Height: 34); Text: "Orbis stations"; } }
 Group { Anchor: (Left: 10, Right: 10, Top: 54, Bottom: 12); Background: "Art/SystemChart.png";
 Button #PlanetOrbis { Anchor: (Left: 200, Top: 255, Width: 144, Height: 158); Style: $A.@PlanetStyle;
  Group #RingOrbis { Anchor: (Left: 0, Top: 0, Width: 132, Height: 132); Background: "Art/SelectionRing.png"; HitTestVisible: false; }
@@ -85,6 +85,6 @@ $A.@Section { Anchor: (Height: 120); $A.@SectionHeader { Anchor: (Left: 2, Right
 ItemIcon { Anchor: (Left: 16, Top: 52, Width: 44, Height: 44); ItemId: "AR_PropellantCell";    ShowItemTooltip: true; } Label #Reserve { Anchor: (Left: 74, Top: 50, Right: 14, Height: 32); Style: (FontSize: 21, TextColor: #ffd46e, RenderBold: true); } Label #Detail { Anchor: (Left: 32, Right: 24, Bottom: 8, Height: 28); Style: (FontSize: 17, TextColor: #9aafc2, Wrap: true); } }
 } }
 $A.@Rule { Anchor: (Left: 20, Right: 20, Bottom: 86, Height: 1); }
-Label { Anchor: (Left: 28, Bottom: 50, Width: 360, Height: 24); Text: "Esc · hide destinations"; Style: (FontSize: 18, TextColor: #a5b8c8, VerticalAlignment: Center); } Label { Anchor: (Left: 28, Bottom: 20, Width: 360, Height: 24); Text: "/astral-map · reopen"; Style: (FontSize: 20, TextColor: #b8dfe3, VerticalAlignment: Center); } Label #Flight { Anchor: (Left: 416, Bottom: 24, Width: 570, Height: 46); Style: (FontSize: 19, TextColor: #a5b8c8, HorizontalAlignment: Center, VerticalAlignment: Center); }
+Label { Anchor: (Left: 28, Bottom: 50, Width: 360, Height: 24); Text: "Esc · hide destinations"; Style: (FontSize: 18, TextColor: #a5b8c8, VerticalAlignment: Center); } Label { Anchor: (Left: 28, Bottom: 20, Width: 360, Height: 24); Text: "/astral-map · reopen"; Style: (FontSize: 20, TextColor: #b8dfe3, VerticalAlignment: Center); }  $A.@Secondary #Rescue { Anchor: (Left: 416, Bottom: 24, Width: 220, Height: 46); Text: "Rescue signals"; } Label #Flight { Anchor: (Left: 650, Bottom: 24, Width: 330, Height: 46); Style: (FontSize: 19, TextColor: #a5b8c8, HorizontalAlignment: Center, VerticalAlignment: Center); }
 $A.@Primary #Travel { Anchor: (Right: 28, Bottom: 24, Width: 400, Height: 46); Text: "Land on Lune"; }
 } }

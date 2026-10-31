@@ -1,0 +1,35 @@
+{
+  "formatVersion": 1,
+  "duration": 60,
+  "holdLastKeyframe": false,
+  "nodeAnimations": {
+    "BeaconLamp": {
+      "position": [],
+      "orientation": [],
+      "shapeStretch": [],
+      "shapeUvOffset": [],
+      "shapeVisible": [
+        {
+          "time": 0,
+          "delta": true
+        },
+        {
+          "time": 8,
+          "delta": false
+        },
+        {
+          "time": 16,
+          "delta": true
+        },
+        {
+          "time": 24,
+          "delta": false
+        },
+        {
+          "time": 60,
+          "delta": true
+        }
+      ]
+    }
+  }
+}

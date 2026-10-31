@@ -7,13 +7,18 @@ public final class PropellantTank {
  public PropellantTank(){this(0);}
  public PropellantTank(int units){if(units<0||units>CAPACITY)throw new IllegalArgumentException("Invalid propellant storage");this.units=units;}
  public int units(){return units;}
- public boolean canFill(){return units<=CAPACITY-CELL_UNITS;}
- public void fillCell(){if(!canFill())throw new IllegalStateException("Propellant tank is full");units=Math.addExact(units,CELL_UNITS);}
+ public boolean canFill(){return canFill(CELL_UNITS);}
+ public boolean canFill(int charge){return charge>0&&charge<=CELL_UNITS&&units<=CAPACITY-charge;}
+ public void fillCell(){fillCell(CELL_UNITS);}
+ public void fillCell(int charge){if(!canFill(charge))throw new IllegalStateException("Propellant tank is full or cell charge is invalid");units=Math.addExact(units,charge);}
  public boolean canDrain(){return units>=CELL_UNITS;}
- public void drainCell(){if(!canDrain())throw new IllegalStateException("Less than one cell of stored propellant");units-=CELL_UNITS;}
- public boolean canRoundTrip(){return units>=ROUND_TRIP_COST;}
+ public void drainCell(){drainCell(CELL_UNITS);}
+ public void drainCell(int charge){if(charge<=0||charge>CELL_UNITS||units<charge)throw new IllegalStateException("Invalid or unavailable fuel charge");units-=charge;}
+ public boolean canRoundTrip(){return canRoundTrip(FlightFuel.STANDARD);}
+ public boolean canRoundTrip(FlightFuel quote){return units>=quote.total();}
  /** Called only after full native preflight. 6,000 is paid outbound; 3,000 becomes an exclusive return reserve. */
- public int reserveRoundTrip(){if(!canRoundTrip())throw new IllegalStateException("Store 9 filled propellant cells before launch");units-=ROUND_TRIP_COST;return LEG_COST;}
+ public int reserveRoundTrip(){return reserveRoundTrip(FlightFuel.STANDARD);}
+ public int reserveRoundTrip(FlightFuel quote){if(!canRoundTrip(quote))throw new IllegalStateException("Store "+quote.total()+" propellant units before launch");units-=quote.total();return quote.returning();}
  public void cancelReservation(){cancelReservation(ROUND_TRIP_COST);}
- public void cancelReservation(int paid){if(paid!=ROUND_TRIP_COST&&paid!=8000)throw new IllegalArgumentException("Unknown paid reservation");if(units>CAPACITY-paid)throw new IllegalStateException("Cannot restore into a changed tank");units+=paid;}
+ public void cancelReservation(int paid){if(!FlightFuel.knownTotal(paid))throw new IllegalArgumentException("Unknown paid reservation");if(units>CAPACITY-paid)throw new IllegalStateException("Cannot restore into a changed tank");units+=paid;}
 }

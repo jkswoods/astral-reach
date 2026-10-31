@@ -94,6 +94,11 @@
           "Id": "AR_UmbraDecor",
           "Name": "server.astralreach.decor.Umbra",
           "Icon": "Icons/CraftingCategories/AstralReach/UmbraDecor.png"
+        },
+        {
+          "Id": "AR_StationDecor",
+          "Name": "server.astralreach.decor.Stations",
+          "Icon": "Icons/CraftingCategories/AstralReach/StationDecor.png"
         }
       ],
       "TierLevels": [

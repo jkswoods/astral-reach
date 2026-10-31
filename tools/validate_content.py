@@ -10,7 +10,19 @@ def names(node):
  yield node['name']
  for child in node.get('children',[]):yield from names(child)
 
+item_ids={p.stem for p in (ROOT/'Server/Item/Items').rglob('*.json')}
 for path in (ROOT/'Common/UI/Custom/Pages/AstralReach').glob('*.ui'):
+ source=path.read_text()
+ for item_id in re.findall(r'\bItemId\s*:\s*"(AR_[A-Za-z0-9_]+)"',source):
+  assert item_id in item_ids,(str(path),'unknown static item icon',item_id)
+ syntax=re.sub(r'"(?:\\.|[^"\\])*"|//[^\n]*','',source)
+ assert "'" not in syntax,(str(path),'stray quote outside native UI string')
+ stack=[]
+ for token in re.findall(r'[{}()\[\]]',syntax):
+  if token in '({[':stack.append(token)
+  else:assert stack and stack.pop()==dict(zip(')}]','({['))[token],(str(path),'unbalanced UI delimiters')
+ assert not stack,(str(path),'unclosed UI delimiter')
+ assert not re.search(r'(?:Group|Button|TextButton|Label|ItemIcon|ProgressBar|\$A\.@\w+)\s+#[A-Za-z0-9]*_',path.read_text()),(str(path),'native element IDs cannot contain underscores')
  for literal in re.finditer(r'"(?:\\.|[^"\\])*"',path.read_text()):
   for escape in re.finditer(r'\\(.)',literal.group()):
    assert escape.group(1) in ['\\','"'],(str(path),'unsupported static UI escape',escape.group())

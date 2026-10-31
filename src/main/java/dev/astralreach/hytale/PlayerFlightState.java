@@ -11,6 +11,8 @@ public final class PlayerFlightState implements Component<EntityStore> {
  enum Leg { NONE,LUNE_DESCENT,LUNE_ASCENT,HOME_DESCENT }
  public static final BuilderCodec<PlayerFlightState> CODEC=BuilderCodec.builder(PlayerFlightState.class,PlayerFlightState::new)
   .append(new KeyedCodec<>("PaidJourney",Codec.STRING),(p,v)->p.trip=v==null||v.isEmpty()?null:Journey.restore(v),p->p.trip==null?"":p.trip.snapshot()).add()
+  .append(new KeyedCodec<>("StationOwner",Codec.STRING),(p,v)->p.stationOwner=v==null||v.isEmpty()?null:java.util.UUID.fromString(v),p->p.stationOwner==null?"":p.stationOwner.toString()).add()
+  .append(new KeyedCodec<>("StationPort",Codec.INTEGER),(p,v)->{if(v< -1||v>8)throw new IllegalArgumentException("Invalid station port");p.stationPort=v;},p->p.stationPort).add()
   .append(new KeyedCodec<>("HomeWorldName",Codec.STRING),(p,v)->p.homeWorldName=v,p->p.homeWorldName).add()
   .append(new KeyedCodec<>("RocketX",Codec.INTEGER),(p,v)->p.x=v,p->p.x).add()
   .append(new KeyedCodec<>("RocketY",Codec.INTEGER),(p,v)->p.y=v,p->p.y).add()
@@ -22,9 +24,10 @@ public final class PlayerFlightState implements Component<EntityStore> {
   .append(new KeyedCodec<>("DepartureX",Codec.DOUBLE),(p,v)->p.departureX=v,p->p.departureX).add()
   .append(new KeyedCodec<>("DepartureY",Codec.DOUBLE),(p,v)->p.departureY=v,p->p.departureY).add()
   .append(new KeyedCodec<>("DepartureZ",Codec.DOUBLE),(p,v)->p.departureZ=v,p->p.departureZ).add().build();
+ java.util.UUID stationOwner;int stationPort=-1;
  Journey trip;String homeWorldName="AstralOrbis";LaunchPlan plan=LaunchPlan.ODYSSEY;int x,y,z;
  Leg leg=Leg.NONE;double legSeconds;boolean boarded;
  double departureX,departureY,departureZ;
  public PlayerFlightState(){}
- @Override public PlayerFlightState clone(){var p=new PlayerFlightState();p.trip=trip;p.homeWorldName=homeWorldName;p.plan=plan;p.x=x;p.y=y;p.z=z;p.leg=leg;p.legSeconds=legSeconds;p.boarded=boarded;p.departureX=departureX;p.departureY=departureY;p.departureZ=departureZ;return p;}
+ @Override public PlayerFlightState clone(){var p=new PlayerFlightState();p.trip=trip;p.stationOwner=stationOwner;p.stationPort=stationPort;p.homeWorldName=homeWorldName;p.plan=plan;p.x=x;p.y=y;p.z=z;p.leg=leg;p.legSeconds=legSeconds;p.boarded=boarded;p.departureX=departureX;p.departureY=departureY;p.departureZ=departureZ;return p;}
 }

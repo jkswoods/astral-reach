@@ -1,0 +1,86 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_StationConcourse.name"
+  },
+  "Icon": "Icons/Items/AR_StationConcourse.png",
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "Categories": [
+    "Items.Ingredients"
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "BlockSoundSetId": "Metal",
+    "PhysicalMaterialId": "Metal",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Benches"
+      }
+    },
+    "CustomModel": "Blocks/AstralReach/AR_StationConcourse.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/AstralReach/AR_StationConcourse.png",
+        "Weight": 1
+      }
+    ],
+    "HitboxType": "AR_StationConcourse",
+    "State": {
+      "Definitions": {
+        "Port": {
+          "CustomModel": "Blocks/AstralReach/AR_StationConcourse_Port.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationConcourse_Port.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationConcourse_Port"
+        },
+        "Entry": {
+          "CustomModel": "Blocks/AstralReach/AR_StationConcourse_Entry.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationConcourse_Entry.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationConcourse_Entry"
+        },
+        "Junction": {
+          "CustomModel": "Blocks/AstralReach/AR_StationConcourse_Junction.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationConcourse_Junction.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationConcourse_Junction"
+        },
+        "West": {
+          "CustomModel": "Blocks/AstralReach/AR_StationConcourse_West.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationConcourse_West.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationConcourse_West"
+        },
+        "East": {
+          "CustomModel": "Blocks/AstralReach/AR_StationConcourse_East.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/AstralReach/AR_StationConcourse_East.png",
+              "Weight": 1
+            }
+          ],
+          "HitboxType": "AR_StationConcourse_East"
+        }
+      }
+    }
+  }
+}
