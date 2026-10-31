@@ -34,6 +34,10 @@ Odyssey Heavy stands **97.33 blocks** tall. Kestrel Stack reaches **123.19 block
 
 Explore [rockets and scale](rockets.md), build the [launch platform](launch-platform.md), or browse the [native screenshot gallery](gallery.md).
 
+## Build beyond the first landing {#build-beyond-first-landing}
+
+Choose from five rocket blueprints, build a personal station in Orbis orbit, and follow survey expeditions on Lune. [Stations](stations.md) explain docking, power and oxygen; [rescue and expeditions](rescue-and-expeditions.md) cover rescue signals and permanent recipe rewards.
+
 ## Development status {#development-status}
 
 Astral Reach declares **>=0.7.3 <0.8.0** support and remains early in development. Choose a compatible file from [CurseForge](https://www.curseforge.com/hytale/mods/astral-reach) or [GitHub releases](https://github.com/jkswoods/astral-reach/releases), then follow [installation](installation.md).

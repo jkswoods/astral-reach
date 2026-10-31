@@ -4,7 +4,7 @@ title: "Development status"
 
 # Development status {#development-status}
 
-**Early development — some features may be incomplete or may not work as expected.** Astral Reach uses the Release channel on CurseForge so the experimental build is visible in the client.
+**Early development — some features may be incomplete or may not work as expected.** Choose a file from the release list and read its channel and notes. Alpha files may require enabling alpha versions in your launcher.
 
 Astral Reach is a **development project for Hytale 0.7**. This guide describes the support branch and its known limits. Available files and their release notes are listed separately on [GitHub releases](https://github.com/jkswoods/astral-reach/releases).
 
@@ -47,3 +47,26 @@ Representative native Hytale0.7.4 checks cover route-list and chart selection, d
 The latest native captures show stronger cyan selection, blue primary actions, deeper crater detail and a tighter blueprint summary. Both rocket illustrations and the missing-part construction panel were checked at playing scale and in matching enlarged views. The guide shows actual gameplay captures. Human appearance, comfort, listening and real multiplayer acceptance remain separate checks.
 
 The chart’s asteroid belt sits closer to the Sun, inside Orbis’s orbit. The landing note is inset from its frame. Press Esc to hide Destinations; the on-screen hint and dismissal reminder explain `/astral-map` to reopen it without spending fuel. These controls were checked in native Hytale 0.7.4.
+
+
+## Rocket catalogue and construction {#rocket-catalogue-and-construction}
+
+The development branch adds a five-card catalogue with original rocket thumbnails, measured dimensions and full component costs. Picking a blueprint opens its construction screen; saved selection makes that the default when the console reopens. Required, supplied and carried quantities remain server controlled. Change rocket refunds paid components before returning to selection. Returned assemblies retain their original blueprint and credit.
+
+Saturn V, Soyuz and Space Shuttle have original models, icons, ghosts, construction recipes and flight-stage assets. Representative native checks cover the catalogue, partial supply and exact refund, saved selection, complete Soyuz construction, and placement/Use on all three new items. Full new-vehicle flights, all orientation/collision cases, final human appearance, listening and real multiplayer acceptance remain open. Future range and progression differences are deliberately deferred.
+
+## Rescue and expedition preview {#rescue-and-expedition-preview}
+
+Rescue Beacons use finite Beacon Cell power and share signals only with invited players. A Field Receiver provides direction, distance and available oxygen information. Lunar survey outposts contain recoverable records and salvage. Follow [rescue and lunar expeditions](rescue-and-expeditions.md) for equipment and progression.
+
+Lost Survey awards a personal, non-stacking 5% fuel benefit. Life Support Survey unlocks the forty-minute oxygen tank recipe; Surface Mobility Survey unlocks the two-seat electric rover recipe. Both equipment rewards require two records from one matching site and normal paid crafting. Local Hytale 0.7.5 checks cover those unlocks, paid crafting, a full tank fill, normal saved progress, rover packing/redeployment and powered lunar travel with F exit.
+
+The new landscape mixes crater plains, rocky ridges, lava-tube survey routes and small mineable impact fragments. New terrain and outposts appear only in unexplored chunks; existing builds and explored terrain remain intact.
+
+Rover camera framing remains rough, and Space braking is unverified. Allow room to coast to a stop. Real passenger/rescuer behavior, sound quality and a complete ordinary survival expedition still need testing. Flight Control shows exact fuel units; the partial fuel-cell inventory bar may be unclear.
+
+## Orbital stations {#orbital-stations}
+
+One personal station per player provides a protected linear concourse, nine external docking airlocks and small starter platforms beside open construction space. Solar arrays, batteries and canister-fed life support support station building. Tracking equipment and moving sky lights make stations visible from Orbis. See [orbital stations](stations.md).
+
+Real second-client visiting, invitation revocation, every rocket/berth combination and some interrupted undocking cases remain unverified. Telescope zoom and identification also need further testing. Keep a funded route home and carry spare oxygen.

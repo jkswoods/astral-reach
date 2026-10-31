@@ -25,6 +25,16 @@
     "icon": "rocket"
   },
   {
+    "title": "Orbis orbital stations",
+    "path": "/stations",
+    "icon": "orbit"
+  },
+  {
+    "title": "Rescue and expeditions",
+    "path": "/rescue-and-expeditions",
+    "icon": "radio-tower"
+  },
+  {
     "title": "Machines and propellant",
     "path": "/machines",
     "icon": "zap"

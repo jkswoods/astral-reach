@@ -4,7 +4,7 @@ title: "Credits and notices"
 
 # Credits and notices {#credits-and-notices}
 
-Astral Reach's name, spacecraft geometry, pixel textures and guide branding are original project assets. Its heavy launchers draw on familiar large-rocket engineering silhouettes. They do not contain models from NASA, SpaceX or Galacticraft.
+Astral Reach's name, spacecraft geometry, pixel textures and guide branding are original project assets. Its heavy launchers draw on familiar large-rocket engineering silhouettes. The historical fleet takes visual inspiration from Saturn V, Soyuz and Space Shuttle, using original geometry and painted textures. Upper-stage landing and return are game adaptations. They do not contain models from NASA, SpaceX or Galacticraft.
 
 Hytale and Hypixel Studios belong to their respective owners. Astral Reach is an independent mod and is not affiliated with or endorsed by them. The in-game screenshots show Hytale running the mod. The documentation does not redistribute the game, server or proprietary game asset archives.
 

@@ -16,7 +16,7 @@ Astral Reach starts with a reachable home-world bootstrap. The first ship and pr
 | Home processors | 12 titanium ingots + 8 aluminium ingots | Press one Thermal Shield |
 | Launch site | Kestrel parts plus the shield | Larger Kestrel Stack blueprint |
 
-Both currently supported rockets reach Lune. A larger rocket does not yet unlock a second implemented planet landing.
+All five catalogue rockets currently use the same Lune route. Odyssey, Saturn V, Soyuz and Space Shuttle can use home-world materials; Kestrel retains its Thermal Shield requirement. Rocket range and further progression will be balanced later. A larger rocket does not yet unlock a second implemented landing destination.
 
 ## Explore Lune {#explore-lune}
 
@@ -24,7 +24,7 @@ Lune is a separate persistent world with grey regolith and finite ore deposits. 
 
 <figure><a href="/assets/hytale0.7/screenshots/astral-lune-landing.png"><img src="/assets/hytale0.7/screenshots/astral-lune-landing.png" alt="Kestrel upper stage grounded on cratered Lune beneath the stars"></a><figcaption>An actual saved landing in Hytale 0.7.4. The ship remains beside its return control while you explore.</figcaption></figure>
 
-Landing sites are assigned to the expedition. Return to the **control beside your upper stage’s landing legs** to board for the prepaid ascent and home approach. The journey spends the **3,000-unit reserve already paid at home**. **/astral-return** uses that same reserve; it does not provide a free journey, and on Lune you must be near your landing control. Older paid expeditions retain their recorded reserve.
+Landing sites are assigned to the expedition. Return to the **control beside your upper stage’s landing legs** to board for the prepaid ascent and home approach. The journey spends the **return reserve already paid at home**, normally 3,000 units. A new trip paid with Trajectory Optimisation reserves 2,850 instead. **/astral-return** uses that same reserve; it does not provide a free journey, and on Lune you must be near your landing control. Older paid expeditions retain their recorded reserve.
 
 Your gathered inventory returns with you to the saved home departure point. Keep that point clear. If it is obstructed, the reserve stays held until you can retry safely.
 

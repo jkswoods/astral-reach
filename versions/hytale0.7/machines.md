@@ -21,7 +21,7 @@ Gather oil shale in the frontier. Refine **2 oil shale → 1 crude hydrocarbon**
 
 Each full cell deposits **1,000 units** into a rocket and returns an empty casing. Recovering 1,000 units requires an empty casing and returns a full cell. Keep inventory space for either exchange. A rocket holds **16,000 units**.
 
-A round trip requires **9,000 units**: 6,000 outbound and 3,000 protected for the return. Nine full cells therefore fund the first expedition. Previously paid journeys retain their recorded return reserve. No Lune mineral is needed to make this fuel.
+Without an expedition bonus, a round trip requires **9,000 units**: 6,000 outbound and 3,000 protected for the return. Nine full cells therefore fund the first expedition. Previously paid journeys retain their recorded return reserve. No Lune mineral is needed to make this fuel.
 
 Store finished components before mining: ordinary death drops still apply. Recipes, quantities and processing times are listed on the [recipes page](recipes.md).
 
@@ -47,3 +47,5 @@ Use the **Suit Workbench** to browse the Survey, Thermal and Deep Space equipmen
 The **Planetary Masonry Bench** groups bricks, columns and airlocks by planet. Bring the required planetary materials; the recipe tabs do not make future destinations playable.
 
 <figure><a href="/assets/hytale0.7/screenshots/astral-planetary-masonry.png"><img src="/assets/hytale0.7/screenshots/astral-planetary-masonry.png" alt="Planetary masonry tabs with Lune building recipes"></a><figcaption>Planetary masonry recipes in the native crafting screen. Creative-mode recipe preview.</figcaption></figure>
+
+The private expedition preview adds **Trajectory Optimisation**, which reduces new rocket trips to **8,550 units**. Loading whole cells keeps the surplus in the tank. **Recover one cell** also recovers a final amount below 1,000 into a partly filled cell; Flight Control shows its exact recoverable units. Re-depositing it transfers that exact amount. Keep room for its casing or recovered cell. Returned-vehicle reconstruction keeps saved spare fuel. See [expedition rewards](rescue-and-expeditions.md#follow-the-survey).

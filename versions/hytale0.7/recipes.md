@@ -57,3 +57,15 @@ Select a plan at the separate construction console, then **Supply needed parts**
 Including the bench, four processors, Odyssey, 25 modules, console and nine initial full cells takes **302 iron bars, 75 copper bars, 94 raw nickel and 18 oil shale**, with one spare empty casing. Add the Suit Workbench, suit, oxygen equipment, tools and processor fuel; those requirements are additional. The first launch uses home-world resources throughout.
 
 The older Assembly recipe for Odyssey and the **8×8 Launch Deck** recipe (4 iron bars + 1 nickel ingot) remain for older items and saves. Use the [wide launch platform](launch-platform.md) for a new yard.
+
+## Expedition blueprint recipes {#expedition-blueprint-recipes}
+
+Private development additions. Complete the matching [lunar expedition](rescue-and-expeditions.md#unlock-expedition-blueprints) to learn each crafting recipe. Materials are still required.
+
+| Output | Inputs | Craft at | Time |
+| --- | --- | --- | ---: |
+| 1 Empty High-Capacity Oxygen Tank | 2 Empty Oxygen Canisters + 4 Aluminium Ingots + 2 Titanium Ingots + 2 Copper Coils | Suit Workbench · Survey equipment | 10 s |
+| 1 full High-Capacity Oxygen Tank | 1 matching empty tank + normal collector fuel | Oxygen Collector on Orbis | 60 s |
+| 1 Lunar Rover kit | 12 Frame Plates + 8 Aluminium Ingots + 6 Titanium Ingots + 4 Copper Coils + 4 Nickel Ingots + 1 Flight Computer | Assembly Bench · Station equipment | 20 s |
+
+The larger tank holds forty minutes of normal breathing. A newly crafted rover is empty: each existing Beacon Cell supplies fifteen minutes of moving power, with room for two cells. Native 0.7.5 checks cover paid crafting, filling, used-casing crafting, larger blueprint cards and normal equipment/recipe reload. The latest native rover attachment keeps the parked driver visible, but mounted driving sync and deliberate exit remain unfinished. Full visual/listening, pickup/redeployment, Moon motion and passenger acceptance are pending.

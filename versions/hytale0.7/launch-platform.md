@@ -16,23 +16,25 @@ Craft a **Launch Construction Console** from **4 frame plates + 2 copper coils +
 
 Placing the console after a complete pad lets it recognise the direction. If placed first, it initially looks north. Use the **Pad** direction button before selecting a blueprint to choose another side. Keep the console and perimeter accessible.
 
-<figure><a href="/assets/hytale0.7/screenshots/kestrel-platform.png"><img src="/assets/hytale0.7/screenshots/kestrel-platform.png" alt="Kestrel's lower stage on one joined 25-by-25 native platform with its separate edge console"></a><figcaption>The formed pad reads as one launch structure. It extends beyond both current rocket footprints. Native launch-platform candidate, Hytale 0.7.4.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/kestrel-platform.png"><img src="/assets/hytale0.7/screenshots/kestrel-platform.png" alt="Kestrel's lower stage on one joined 25-by-25 native platform with its separate edge console"></a><figcaption>The formed pad reads as one launch structure. It extends beyond all five rocket footprints. Native launch-platform candidate, Hytale 0.7.4.</figcaption></figure>
 
 ## Choose a ghost blueprint {#choose-a-ghost-blueprint}
 
-Select **Odyssey Heavy** for the first expedition. Its full-size cyan ghost shows where the rocket will stand. A preview accepts no fuel and cannot launch.
+An unselected console opens **Choose your rocket**. Each card shows the actual model, height, footprint and full component costs. Choose Odyssey Heavy, Kestrel Stack, Saturn V, Soyuz or Space Shuttle. Selecting a card opens construction immediately and places its full-size cyan ghost above the pad. A preview accepts no fuel and cannot launch.
 
-<figure><a href="/assets/hytale0.7/screenshots/launch-blueprint.png"><img src="/assets/hytale0.7/screenshots/launch-blueprint.png" alt="The native construction panel with Odyssey selected and exact required hull, engine, computer and plate quantities"></a><figcaption>The construction panel shows required, supplied and carried materials. This earlier native capture has the same construction recipe contract.</figcaption></figure>
+<figure><a href="/assets/hytale0.7/screenshots/rocket-catalogue-ui.png"><img src="/assets/hytale0.7/screenshots/rocket-catalogue-ui.png" alt="Five native rocket catalogue cards with model thumbnails, dimensions and full component costs; Saturn V is highlighted"></a><figcaption>Native Hytale 0.7.4 catalogue, cropped to the panel. Hover highlights the whole clickable card.</figcaption></figure>
 
-The redesigned panel lists only parts still missing, with separate **Needed** and **In pack** columns. Choose **Supply needed parts** while carrying the required parts. The console takes only missing quantities. You can supply the plan in stages; paid items and partial work are saved.
+The console remembers the selected blueprint. Reopening it, including after a normal save and reload, returns to construction. The materials table shows **Required**, **Supplied** and **In pack**. Choose **Supply carried parts** to transfer only missing quantities; you can supply the plan in stages. Paid items and partial work are saved.
 
-| Material | Odyssey | Kestrel |
-| --- | ---: | ---: |
-| Pressure Hull Sections | 6 | 6 |
-| Orbital Engine Parts | 4 | 6 |
-| Flight Computers | 1 | 2 |
-| Frame Plates | 16 | 24 |
-| Thermal Shield | — | 1 |
+| Material | Odyssey | Kestrel | Saturn V | Soyuz | Space Shuttle |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Pressure Hull Sections | 6 | 6 | 8 | 4 | 6 |
+| Orbital Engine Parts | 4 | 6 | 5 | 5 | 5 |
+| Flight Computers | 1 | 2 | 1 | 1 | 2 |
+| Frame Plates | 16 | 24 | 24 | 12 | 24 |
+| Thermal Shield | — | 1 | — | — | — |
+
+<figure><a href="/assets/hytale0.7/screenshots/rocket-construction-ui.png"><img src="/assets/hytale0.7/screenshots/rocket-construction-ui.png" alt="Native Space Shuttle construction panel with Required, Supplied and In pack columns, its full-size preview and site status"></a><figcaption>Actual construction screen on a formed pad. Supply is disabled because no required parts are carried. The launch column is checked when construction starts.</figcaption></figure>
 
 Fully supplied construction takes **10 seconds** while the whole pad and launch column remain loaded and clear. The progress bar follows actual paid work. Missing modules or obstructions pause it, with a reason shown on the panel. Repair or clear the site to continue; use **Retry construction** if a fully supplied plan was blocked before it could start.
 
@@ -42,7 +44,7 @@ A completed build creates one owned rocket with an **empty tank**. The ghost dis
 
 <figure><a href="/assets/hytale0.7/screenshots/launch-complete.png"><img src="/assets/hytale0.7/screenshots/launch-complete.png" alt="The completed native Kestrel construction panel with every required part supplied"></a><figcaption>A completed Kestrel, with its exact supplied materials and the separate Flight Control button.</figcaption></figure>
 
-Before completion, **Return supplied parts** returns the exact paid items. Make room for every refund; if they cannot all fit, the console keeps everything. Cancel before changing a paid blueprint or direction. Drain and remove a finished idle rocket before starting another plan.
+Before completion, **Change rocket** refunds the exact supplied items and returns to the catalogue. Make room for the complete refund; if it cannot fit, the console keeps the selected plan and its items. A returned spacecraft stays tied to its original blueprint and returned-part credit: **Return supplied parts** withdraws only your additional paid items. Drain and remove a finished idle rocket before starting another plan.
 
 Choose **Open flight control** to deposit propellant. See [machines and propellant](machines.md) for the finite fuel chain.
 
@@ -53,6 +55,4 @@ Choose a low site. The established launch candidate requires a **19×19×164** c
 The new extended-ascent candidate increases those requirements to **19×19×205** for Odyssey and **97×97×231** for Kestrel's booster recovery airspace. Those larger clearances are part of the flight work awaiting native verification. Leave the full column below world height 320 and read the exact candidate's refusal message.
 
 
-<figure><a href="/assets/hytale0.7/screenshots/construction-ui-private.png"><img src="/assets/hytale0.7/screenshots/construction-ui-private.png" alt="Native Kestrel construction panel with recovered assemblies and four missing frame plates"></a><figcaption>Current private construction panel in Hytale 0.7.4. Recovered assemblies are credited, and only missing quantities are shown.</figcaption></figure>
-
-<figure><a href="/assets/hytale0.7/screenshots/construction-odyssey-ui-private.png"><img src="/assets/hytale0.7/screenshots/construction-odyssey-ui-private.png" alt="Completed Odyssey Heavy construction panel with its full-height rocket preview and flight-control button"></a><figcaption>A completed Odyssey uses the same compact panel. Open Flight Control to load fuel and check expedition equipment.</figcaption></figure>
+The catalogue and construction screens are development-branch changes. Select a compatible file and read its release notes to confirm which controls it includes.
