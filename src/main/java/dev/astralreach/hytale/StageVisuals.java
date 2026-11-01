@@ -22,10 +22,10 @@ final class StageVisuals {
  static Ref<EntityStore> one(Store<EntityStore>s,String model,Vector3d position,Ref<EntityStore> preferred){
   var refs=at(s,model,position);var keep=preferred!=null&&preferred.isValid()&&preferred.getStore()==s?preferred:null;
   if(keep==null)keep=refs.stream().min(Comparator.comparingDouble(r->s.getComponent(r,TransformComponent.getComponentType()).getPosition().distanceSquared(position))).orElse(null);
-  for(var r:refs)if(r!=keep&&r.isValid())s.removeEntity(r,RemoveReason.REMOVE);
+  for(var r:refs)if(r!=keep&&r.isValid()){RocketAudio.set(s,r,false);s.removeEntity(r,RemoveReason.REMOVE);}
   if(keep==null)keep=RocketVisuals.spawn(s,model,position,new Rotation3f());
   if(keep!=null&&keep.isValid())s.getComponent(keep,TransformComponent.getComponentType()).setPosition(position);
   return keep;
  }
- static void clear(Store<EntityStore>s,String model,Vector3d position){for(var r:at(s,model,position))if(r.isValid())s.removeEntity(r,RemoveReason.REMOVE);}
+ static void clear(Store<EntityStore>s,String model,Vector3d position){for(var r:at(s,model,position))if(r.isValid()){RocketAudio.set(s,r,false);s.removeEntity(r,RemoveReason.REMOVE);}}
 }

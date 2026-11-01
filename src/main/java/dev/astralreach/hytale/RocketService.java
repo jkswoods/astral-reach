@@ -41,6 +41,7 @@ final class RocketService {
  static void fuel(Store<EntityStore>s,Ref<EntityStore>ref,PlayerRef p,Cell at,boolean fill){
   try{var r=usable(s,ref,p,at);if(fill?r.tank.units()==PropellantTank.CAPACITY:r.tank.units()==0)throw new IllegalArgumentException(fill?"Tank full. Drain a cell first.":"The tank is empty.");
    var player=s.getComponent(ref,Player.getComponentType());if(player==null)return;var inv=player.getInventory().getCombinedHotbarFirst();
+   if(fill&&CreativeSupplies.enabled(s,ref)){var quote=fuelCost(s,ref);int missing=Math.max(0,quote.total()-r.tank.units());while(missing>0){int amount=Math.min(PropellantTank.CELL_UNITS,missing);r.tank.fillCell(amount);missing-=amount;}cue(s,p,"AR_metal_handle",at);AstralReachPlugin.message(p,"Creative supply · launch and protected return fuel ready.");return;}
    var quote=fuelCost(s,ref);int count=0,moved=0;
    while(fill?r.tank.units()<quote.total():count<1){int n=fill?FuelInventory.deposit(inv,r.tank):FuelInventory.withdraw(inv,r.tank);if(n==0)break;moved+=n;count++;}
    if(count==0)throw new IllegalArgumentException(fill?(r.tank.canRoundTrip(quote)?"Round-trip fuel is ready.":"Carry filled propellant cells and room for their empty casings."):"Carry an empty cell and room for the filled cell.");cue(s,p,"AR_metal_handle",at);AstralReachPlugin.message(p,(fill?"Deposited ":"Recovered ")+moved+" units. Tank: "+r.tank.units()+" /16,000.");
@@ -52,14 +53,14 @@ final class RocketService {
  static void clearColumn(World w,Cell at,int radius,int height,boolean includeOrigin){
   // Resolve each loaded section once instead of performing a store lookup for every voxel.
   var chunks=w.getChunkStore();var sections=new HashMap<String,com.hypixel.hytale.server.core.universe.world.chunk.section.BlockSection>();
-  for(int x=at.x()-radius;x<=at.x()+radius;x++)for(int z=at.z()-radius;z<=at.z()+radius;z++)for(int y=at.y()+(includeOrigin?0:1);y<=at.y()+height;y++){
+  for(int x=at.x()-radius;x<=at.x()+radius;x++)for(int z=at.z()-radius;z<=at.z()+radius;z++)for(int y=at.y()+(includeOrigin?0:1);y<=at.y()+height&&y<320;y++){
    String key=(x>>5)+","+(y>>5)+","+(z>>5);var section=sections.get(key);if(section==null){var ref=chunks.getChunkSectionReferenceAtBlock(x,y,z);if(ref!=null&&ref.isValid())section=chunks.getStore().getComponent(ref,com.hypixel.hytale.server.core.universe.world.chunk.section.BlockSection.getComponentType());if(section==null)throw new IllegalArgumentException("Load and clear the "+(radius*2+1)+"×"+(radius*2+1)+" launch column, "+height+" blocks high.");sections.put(key,section);}
    if(section.get(x&31,y&31,z&31)!=BlockType.EMPTY_ID||section.getFiller(x&31,y&31,z&31)!=0)throw new IllegalArgumentException("Clear the "+(radius*2+1)+"×"+(radius*2+1)+" launch column, "+height+" blocks high.");
   }
  }
  static void clearance(World w,Cell at){
-  var s=w.getEntityStore().getStore();var r=data(s).rockets.get(at);var plan=r==null?LaunchPlan.ODYSSEY:r.plan;int height=plan.sweptHeight()+2,radius=plan==LaunchPlan.KESTREL?64:(int)Math.ceil(Math.max(plan.width,plan.depth)/2);
-  if(at.y()<2||at.y()+height>=320)throw new IllegalArgumentException("This blueprint needs "+height+" blocks of vertical launch clearance.");
+  var s=w.getEntityStore().getStore();var r=data(s).rockets.get(at);var plan=r==null?LaunchPlan.ODYSSEY:r.plan;int height=Math.min(plan.sweptHeight()+2,319-at.y()),radius=(int)Math.ceil(Math.max(plan.width,plan.depth)/2);
+  if(at.y()<2||at.y()+plan.buildHeight()>=320)throw new IllegalArgumentException("The standing rocket needs "+plan.buildHeight()+" clear blocks above its pad.");
   boolean yard=false;for(var e:LaunchYardService.data(s).yards.entrySet())if(LaunchYardService.anchor(e.getKey(),e.getValue()).equals(at)&&e.getValue().progress.phase()==ConstructionProgress.Phase.READY&&LaunchYardService.formed(s,e.getKey(),e.getValue())){yard=true;break;}
   if(!yard&&!NativeBlocks.base(NativeBlocks.get(w,new Cell(at.x(),at.y()-1,at.z()))).equals("AR_LaunchDeck"))throw new IllegalArgumentException("Restore the formed launch platform underneath this rocket.");
   clearColumn(w,at,radius,height,false);
@@ -155,7 +156,9 @@ final class RocketService {
     if(elapsed>=FlightTimeline.SEPARATION&&depart.cues.add("Separation"))cue(s,p,"AR_stage_separation",depart.cell);
     if(rocket.plan==LaunchPlan.KESTREL&&elapsed>=FlightTimeline.BOOSTER_LANDED&&depart.cues.add("Touchdown")){cue(s,p,"AR_rocket_touchdown",depart.cell);ParticleUtil.spawnParticleEffect("AR_IgnitionSmoke",new org.joml.Vector3d(depart.cell.x()+.5,depart.cell.y()+.3,depart.cell.z()+.5),s);}
     if(System.nanoTime()<depart.deadline)continue;
-    try{clearance(w,depart.cell);}catch(IllegalArgumentException ex){departures.remove(p.getUuid());cancel(s,p,state);AstralReachPlugin.message(p,ex.getMessage());continue;}
+    // Both preflight checks ran before fuel reservation. After ascent the crew can leave the
+    // pad section's active range; rechecking local formation here incorrectly cancels a completed flight.
+    // Home approach still checks the saved berth and its real clear landing column.
     departures.remove(p.getUuid());NativeBlocks.state(w,depart.cell,"Away");if(rocket!=null&&rocket.plan==LaunchPlan.KESTREL)rocket.boosterLanded=true;SpaceFlight.handoff(s,ref,p);
     teleport(s,ref,p,depart.orbit,new Transform(SpaceFlight.slot(p)+.5,202+FlightTimeline.crewHeight(state.plan),.5),()->{var r=p.getReference();if(r==null||!r.isValid())return;var f=r.getStore().getComponent(r,AstralReachPlugin.flightType);if(f!=null&&f.trip!=null&&f.trip.phase()==Journey.Phase.OUTBOUND)f.trip=f.trip.orbit();});continue;
    }

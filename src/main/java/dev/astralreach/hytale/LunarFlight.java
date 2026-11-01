@@ -31,14 +31,15 @@ final class LunarFlight {
     boolean found=false;for(int attempt=0;attempt<4096;attempt++,slot=(slot+1)%4096){int sx=LunarSurface.landingX(slot),sz=LunarSurface.landingZ(slot);boolean used=d.ships.values().stream().anyMatch(v->!v.owner.equals(p.getUuid())&&v.x==sx&&v.z==sz);if(!used){x=sx;z=sz;y=LunarSurface.height(91023,x,z);found=true;break;}}
     if(!found){done.completeExceptionally(new IllegalStateException("No lunar berth is available"));return;}
    }
-   final int siteX=x,siteY=y,siteZ=z;var site=retain?previous:new LandedShipRegistry.Ship(p.getUuid(),plan,x,y,z);
+   final int siteX=x,siteY=y,siteZ=z;if(retain&&previous.plan!=plan&&previous.grounded){done.completeExceptionally(new IllegalStateException("Return your existing landed stage before arriving with a different rocket."));return;}
+   var site=retain&&previous.plan==plan?previous:new LandedShipRegistry.Ship(p.getUuid(),plan,x,y,z);
    var loads=new ArrayList<CompletableFuture<Void>>();for(int dx=-32;dx<=32;dx+=32)for(int dz=-32;dz<=32;dz+=32)loads.add(RocketService.load(w,siteX+dx,siteZ+dz));
    CompletableFuture.allOf(loads.toArray(CompletableFuture[]::new)).whenComplete((v,error)->w.execute(()->{try{
     if(error!=null)throw new IllegalStateException("Lunar chunks unavailable",error);
     if(!RocketService.safe(w,siteX+14.5,siteY,siteZ+.5))throw new IllegalStateException("Lunar disembarkation point obstructed; existing blocks preserved");
     RocketService.clearColumn(w,new Cell(siteX,siteY,siteZ),7,(int)(FlightTimeline.upperHeight(plan)+FlightTimeline.landingClearance(plan)+92),true);
     var beacon=new Cell(siteX+12,siteY,siteZ);if(NativeBlocks.empty(w,beacon))NativeBlocks.set(w,beacon,BlockType.getAssetMap().getAsset("AR_ReturnBeacon"));else if(!NativeBlocks.base(NativeBlocks.get(w,beacon)).equals("AR_ReturnBeacon"))throw new IllegalStateException("Lunar return control is obstructed");
-    if(previous==null||previous.departed)d.ships.put(p.getUuid(),site);
+    if(site!=previous)d.ships.put(p.getUuid(),site);
     done.complete(w);
    }catch(Exception ex){done.completeExceptionally(ex);}}));
   });return done;});
@@ -63,7 +64,7 @@ final class LunarFlight {
    return CompletableFuture.allOf(loads.toArray(CompletableFuture[]::new)).thenCompose(v->{var done=new CompletableFuture<World>();w.execute(()->{try{
     if(!RocketService.safe(w,trip.x(),trip.y(),trip.z()))throw new IllegalStateException("Saved exit is obstructed");
     var rocket=RocketService.data(w.getEntityStore().getStore()).rockets.get(new Cell(f.x,f.y,f.z));if(rocket==null||!NativeBlocks.rocket(w,new Cell(f.x,f.y,f.z)))throw new IllegalStateException("Saved rocket berth unavailable");
-    RocketService.clearColumn(w,new Cell(f.x,(int)Math.ceil(f.y+FlightTimeline.upperBase(f.plan)),f.z),9,(int)(FlightTimeline.upperHeight(f.plan)+92),true);done.complete(w);
+    RocketService.clearColumn(w,new Cell(f.x,f.y,f.z),9,(int)(FlightTimeline.upperHeight(f.plan)+FlightTimeline.landingClearance(f.plan)+92),false);done.complete(w);
    }catch(Exception ex){done.completeExceptionally(ex);}});return done;});});
  }
  static boolean returnFromShip(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p){
@@ -79,11 +80,11 @@ final class LunarFlight {
    if(f.trip.phase()==Journey.Phase.LUNE||f.trip.phase()==Journey.Phase.ORBIT)f.trip=f.trip.beginReturn();
    f.boarded=true;f.legSeconds=0;RocketService.cue(s,p,"AR_rocket_hatch",orbit?new Cell(SpaceFlight.slot(p),202,0):new Cell(ship.x,ship.y,ship.z));
    SpaceFlight.handoff(s,r,p);
-   if(orbit){f.leg=Leg.HOME_DESCENT;RocketService.teleport(s,r,p,dest,new Transform(f.x+.5,f.y+FlightTimeline.upperBase(f.plan)+90+FlightTimeline.crewHeight(f.plan),f.z+.5),()->{});}
+   if(orbit){f.leg=Leg.HOME_DESCENT;RocketService.teleport(s,r,p,dest,new Transform(f.x+.5,f.y+FlightTimeline.landingClearance(f.plan)+90+FlightTimeline.crewHeight(f.plan),f.z+.5),()->{});}
    else{f.leg=Leg.LUNE_ASCENT;ship.departed=true;ship.grounded=false;remove(s,data(s).visuals.remove(p.getUuid()));RocketService.teleport(s,r,p,w,new Transform(ship.x+.5,ship.y+FlightTimeline.landingClearance(f.plan)+FlightTimeline.crewHeight(f.plan),ship.z+.5),()->{});}
   }));return true;
  }
- private static void remove(Store<EntityStore>s,Ref<EntityStore>r){if(r!=null&&r.isValid()&&r.getStore()==s)s.removeEntity(r,RemoveReason.REMOVE);}
+ private static void remove(Store<EntityStore>s,Ref<EntityStore>r){if(r!=null&&r.isValid()&&r.getStore()==s){RocketAudio.set(s,r,false);s.removeEntity(r,RemoveReason.REMOVE);}}
  private static void actorEnd(Store<EntityStore>s,PlayerRef p){var a=actors.get(p.getUuid());if(a!=null&&(a.ref==null||a.ref.getStore()==s)){actors.remove(p.getUuid(),a);StageVisuals.clear(s,a.model,a.footprint);remove(s,a.ref);}}
  private static void exit(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,PlayerFlightState f,LandedShipRegistry.Ship site){
   var w=s.getExternalData().getWorld();double x=site==null?f.trip.x():site.x+14.5,y=site==null?f.trip.y():site.y,z=site==null?f.trip.z():site.z+.5;
@@ -98,21 +99,21 @@ final class LunarFlight {
    if(f.leg==Leg.NONE){if(f.boarded&&f.trip.phase()==Journey.Phase.LUNE&&site!=null&&site.grounded)exit(s,r,p,f,site);continue;}
    boolean lunar=w.getName().equals("AstralLune");if(f.leg==Leg.HOME_DESCENT?!w.getWorldConfig().getUuid().equals(f.trip.homeWorld()):!lunar)continue;
    if(lunar&&site==null)continue;
-   active.add(p.getUuid());var a=actors.get(p.getUuid());String model=f.plan.asset(lunar?"ShipLanded":"ShipIdle");
+   active.add(p.getUuid());var a=actors.get(p.getUuid());boolean reseat=f.leg==Leg.HOME_DESCENT&&f.plan==LaunchPlan.KESTREL;String model=f.plan.asset(reseat?"ShipIdle":"ShipLanded");
    double seconds=f.legSeconds;double altitude=f.leg==Leg.LUNE_ASCENT?FlightTimeline.returnHeight(seconds):FlightTimeline.descentHeight(seconds);
-   var origin=lunar?new Vector3d(site.x+.5,site.y+FlightTimeline.landingClearance(f.plan)+altitude,site.z+.5):new Vector3d(f.x+.5,f.y+FlightTimeline.upperBase(f.plan)+altitude,f.z+.5);
+   var origin=lunar?new Vector3d(site.x+.5,site.y+FlightTimeline.landingClearance(f.plan)+altitude,site.z+.5):new Vector3d(f.x+.5,f.y+(reseat?FlightTimeline.upperBase(f.plan):FlightTimeline.landingClearance(f.plan))+altitude,f.z+.5);
    if(a==null||a.ref==null||!a.ref.isValid()||a.ref.getStore()!=s||a.leg!=f.leg){actorEnd(s,p);var spawned=StageVisuals.one(s,model,origin,null);if(spawned==null)continue;a=new Actor(spawned,f.leg,model,origin);actors.put(p.getUuid(),a);}
    s.getComponent(a.ref,TransformComponent.getComponentType()).setPosition(origin);
    boolean powered=f.leg!=Leg.LUNE_ASCENT||seconds>=FlightTimeline.BOARDING;
-   if(powered!=a.powered){a.powered=powered;if(powered){var audio=new AudioComponent();audio.addSound(SoundEvent.getAssetMap().getIndex("AR_rocket_thrust_loop"));s.putComponent(a.ref,AudioComponent.getComponentType(),audio);}else s.tryRemoveComponent(a.ref,AudioComponent.getComponentType());}
-   long now=System.nanoTime();if(powered&&now-a.fireAt>=160_000_000L){a.fireAt=now;RocketExhaust.upper(s,f.plan,origin,0);}
+   if(powered!=a.powered){a.powered=powered;RocketAudio.set(s,a.ref,powered);RocketExhaust.power(s,a.ref,f.plan,powered,model);}
+   long now=System.nanoTime();
    if(powered&&a.cues.add("Ignition"))RocketService.cue(s,p,"AR_rocket_ignition",new Cell((int)origin.x,(int)origin.y,(int)origin.z));
    var target=new Vector3d(origin).add(0,FlightTimeline.upperHeight(f.plan)*.5,0);String label=f.leg==Leg.LUNE_ASCENT?(seconds<3?"BOARDING · LUNE RETURN":"LUNE · UPPER-STAGE ASCENT"):lunar?"LUNE · CONTROLLED DESCENT":"ORBIS · APPROACHING LAUNCH PAD";
    SpaceFlight.cinematic(s,r,p,new Vector3d(origin).add(0,FlightTimeline.crewHeight(f.plan),0),new Vector3d(target).add(45,-3,80),target,label);
    f.legSeconds=Math.min(120,seconds+Math.clamp(dt,0,.25));
    double duration=f.leg==Leg.LUNE_ASCENT?FlightTimeline.RETURN_ASCENT:FlightTimeline.DESCENT;
    if(f.legSeconds<duration)continue;
-   if(f.leg==Leg.LUNE_ASCENT){if(now<a.retryAt||!pending.add(p.getUuid()))continue;a.retryAt=now+5_000_000_000L;home(f).whenComplete((dest,error)->w.execute(()->{pending.remove(p.getUuid());if(!r.isValid()||r.getStore()!=s)return;if(error!=null){AstralReachPlugin.message(p,"Return approach paused; saved home must be clear. Your paid marker is retained.");return;}actorEnd(s,p);SpaceFlight.handoff(s,r,p);f.leg=Leg.HOME_DESCENT;f.legSeconds=0;RocketService.teleport(s,r,p,dest,new Transform(f.x+.5,f.y+FlightTimeline.upperBase(f.plan)+90+FlightTimeline.crewHeight(f.plan),f.z+.5),()->{});}));}
+   if(f.leg==Leg.LUNE_ASCENT){if(now<a.retryAt||!pending.add(p.getUuid()))continue;a.retryAt=now+5_000_000_000L;home(f).whenComplete((dest,error)->w.execute(()->{pending.remove(p.getUuid());if(!r.isValid()||r.getStore()!=s)return;if(error!=null){AstralReachPlugin.message(p,"Return approach paused; saved home must be clear. Your paid marker is retained.");return;}actorEnd(s,p);SpaceFlight.handoff(s,r,p);f.leg=Leg.HOME_DESCENT;f.legSeconds=0;RocketService.teleport(s,r,p,dest,new Transform(f.x+.5,f.y+FlightTimeline.landingClearance(f.plan)+90+FlightTimeline.crewHeight(f.plan),f.z+.5),()->{});}));}
    else{
     RocketService.cue(s,p,"AR_rocket_touchdown",new Cell((int)origin.x,(int)origin.y,(int)origin.z));actorEnd(s,p);f.leg=Leg.NONE;f.legSeconds=0;
     if(lunar){site.grounded=true;site.departed=false;if(f.trip.phase()==Journey.Phase.ORBIT)f.trip=f.trip.arrive();}

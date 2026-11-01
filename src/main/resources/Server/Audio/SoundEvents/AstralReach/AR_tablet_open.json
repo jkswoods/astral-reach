@@ -1,0 +1,17 @@
+{
+  "Volume": -4,
+  "Pitch": 0,
+  "MaxDistance": 1,
+  "StartAttenuationDistance": 1,
+  "MaxInstance": 2,
+  "SpatialBlend": 0,
+  "Layers": [
+    {
+      "Files": [
+        "Sounds/AstralReach/tablet_open.ogg"
+      ],
+      "Volume": 0,
+      "Looping": false
+    }
+  ]
+}

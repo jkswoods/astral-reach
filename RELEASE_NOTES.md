@@ -4,16 +4,18 @@
 
 ### New in this update
 
-- Five-rocket catalogue: Odyssey Heavy, Kestrel Stack, Saturn V, Soyuz and Space Shuttle. Compare thumbnails, dimensions and component requirements, choose a blueprint, then resume its saved construction screen. Changing a blueprint refunds supplied parts first. Historical craft are gameplay adaptations; range-based progression is deferred.
-- Personal Orbis orbital stations with a protected linear concourse, nine external docking airlocks and small starter platforms beside open building space. Invite up to eight visitors; each ship receives a docking berth.
-- Station equipment: solar arrays, batteries, finite oxygen life support, station tracking, sky flyovers, sunlight glints and a telescope.
-- Rescue Beacons and Field Receivers with finite Beacon Cell power, invited signals, oxygen information and directional tracking.
-- Lunar survey expeditions with recoverable records, salvage and permanent personal rewards: 5% reduced rocket fuel use, a craftable 40-minute oxygen tank and a craftable two-seat electric lunar rover. Equipment recipes still require their materials; the rover consumes Beacon Cell charge while moving.
-- More varied new Lune terrain, lava-tube survey routes and mineable small rock decorations. New outposts and terrain require unexplored chunks; existing explored terrain and builds are preserved.
+- Explorer Tablet: craft it for two sticks and one copper bar in Astral Assembly’s first **Start here** tab. Seven illustrated chapters explain the launch platform, rockets, suits, oxygen, Lune, stations and rescue expeditions. Use the tablet to reopen it anywhere.
+- Creative Supply fills missing rocket parts and round-trip fuel without inventory materials. Adventure mode continues to consume real parts and fuel.
+- Launch-site checks use the standing rocket’s height and actual footprint, allowing normal surface pads without reserving the full animated ascent above them.
+- Soyuz strap-on boosters peel outward, upper-stage insertion continues climbing, and lunar exhaust follows each ship’s own engine mouths. Home landings use the landed upper stage and its actual foot height.
+- Oxygen diffusers show their eight-block field as a cyan spherical grid. Lunar steps respond to horizontal walking and stop while standing; torches extinguish outside oxygen and restore when carried back into breathable air.
+- Rocket completion produces a larger, staged fireworks display with a new celebration cue.
+- Repairs to station/destination navigation, the orbital Orbis sky, airlock floor joins, departure camera handoff and engine audio shutdown.
+- Partial large oxygen tanks retain their stored oxygen through diffuser save/reload.
 
 ### Getting started
 
-Use the launch console to choose a rocket. Craft a Station Core or Field Receiver at Astral Assembly to try the new orbital and expedition content. The player guide covers recipes, oxygen, docking and reward unlocks. Complete both records at one matching expedition site to learn its equipment recipe.
+Craft an Explorer Tablet at Astral Assembly for the in-game guide, then use the launch console to choose a rocket. Craft a Station Core or Field Receiver to try orbital stations and expeditions. The player guide covers recipes, oxygen, docking and reward unlocks. Complete both records at one matching expedition site to learn its equipment recipe.
 
 The rover owner uses F to board or exit; park and empty both seats, then crouch-F to pack it. A Beacon Cell supplies 15 minutes of moving power; parking does not drain it. Bring your own suit and oxygen.
 

@@ -1,0 +1,66 @@
+$C = "../../Common.ui";
+$A = "Astral.ui";
+$C.@PageOverlay { Group { Anchor: (Width: 1240, Height: 940);
+Group { HitTestVisible: false; Anchor: (Left: 85, Top: 86, Width: 1075, Height: 847); Background: #071626; }
+Group { HitTestVisible: false; Anchor: (Left: 0, Top: 0, Width: 1240, Height: 940); Background: "Art/GuideFrame.png"; }
+Group { HitTestVisible: false; Anchor: (Left: 913, Top: 97, Width: 239, Height: 110); Background: "Art/GuideOrbit.png"; }
+Group { HitTestVisible: false; Anchor: (Left: 116, Top: 122, Width: 100, Height: 74); Background: "Art/GuideGlyph.png"; }
+Label { Anchor: (Left: 240, Top: 116, Width: 660, Height: 58); Text: "ASTRAL REACH"; Style: (FontSize: 52, RenderBold: true, TextColor: #f3f0e3); }
+Label { Anchor: (Left: 245, Top: 176, Width: 650, Height: 34); Text: "ASTRAL FIELD GUIDE"; Style: (FontSize: 26, RenderBold: true, TextColor: #55d9ed, LetterSpacing: 2); }
+Group { HitTestVisible: false; Anchor: (Left: 118, Top: 218, Width: 1016, Height: 2); Background: #33536b; }
+Button #Chapter0 { Anchor: (Left: 112, Top: 240, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected0 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_GuideTablet"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "First steps"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+Button #Chapter1 { Anchor: (Left: 112, Top: 317, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected1 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_LaunchConsole"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "Launch site"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+Button #Chapter2 { Anchor: (Left: 112, Top: 394, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected2 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_OrbitalEnginePart"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "Rockets"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+Button #Chapter3 { Anchor: (Left: 112, Top: 471, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected3 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_OxygenCanister"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "Suits & oxygen"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+Button #Chapter4 { Anchor: (Left: 112, Top: 548, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected4 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_LuneRegolith"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "Lune"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+Button #Chapter5 { Anchor: (Left: 112, Top: 625, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected5 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_StationCore"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "Stations"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+Button #Chapter6 { Anchor: (Left: 112, Top: 702, Width: 300, Height: 68); Style: $A.@RowStyle;
+Group #Selected6 { HitTestVisible: false; Anchor: (Left: 2, Top: 2, Right: 2, Bottom: 2); Background: #17465a; Group { Anchor: (Left: 0, Top: 0, Width: 4, Bottom: 0); Background: #55d9ed; } }
+ItemIcon { Anchor: (Left: 14, Top: 12, Width: 44, Height: 44); ItemId: "AR_FieldReceiver"; }
+Label { Anchor: (Left: 68, Right: 7, Top: 0, Bottom: 0); Text: "Rescue & surveys"; Style: (FontSize: 23, RenderBold: true, TextColor: #cbd9e1, VerticalAlignment: Center); } }
+$A.@Section { Anchor: (Left: 424, Top: 238, Width: 716, Height: 500);
+Label #Title { Anchor: (Left: 22, Top: 16, Right: 20, Height: 42); Style: (FontSize: 36, RenderBold: true, TextColor: #f3f0e3); }
+Label #Intro { Anchor: (Left: 22, Top: 70, Right: 22, Height: 75); Style: (FontSize: 22, TextColor: #b7d3e4, Wrap: true); }
+Label { Anchor: (Left: 18, Top: 160, Width: 30, Height: 36); Text: "1"; Style: (FontSize: 28, TextColor: #55d9ed, RenderBold: true); }
+Label #StepTitle0 { Anchor: (Left: 60, Top: 154, Right: 14, Height: 30); Style: (FontSize: 24, TextColor: #f3f0e3, RenderBold: true); }
+Label #StepBody0 { Anchor: (Left: 60, Top: 189, Width: 450, Height: 72); Style: (FontSize: 20, TextColor: #b7d3e4, Wrap: true); }
+ItemIcon #StepIcon0 { Anchor: (Left: 542, Top: 193, Width: 66, Height: 66); ItemId: "AR_FramePlate"; ShowItemTooltip: true; }
+ItemIcon #StepSecond0 { Anchor: (Left: 623, Top: 193, Width: 66, Height: 66); ItemId: "AR_PropellantCell"; ShowItemTooltip: true; }
+Label { Anchor: (Left: 18, Top: 272, Width: 30, Height: 36); Text: "2"; Style: (FontSize: 28, TextColor: #55d9ed, RenderBold: true); }
+Label #StepTitle1 { Anchor: (Left: 60, Top: 266, Right: 14, Height: 30); Style: (FontSize: 24, TextColor: #f3f0e3, RenderBold: true); }
+Label #StepBody1 { Anchor: (Left: 60, Top: 301, Width: 450, Height: 72); Style: (FontSize: 20, TextColor: #b7d3e4, Wrap: true); }
+ItemIcon #StepIcon1 { Anchor: (Left: 542, Top: 305, Width: 66, Height: 66); ItemId: "AR_FramePlate"; ShowItemTooltip: true; }
+ItemIcon #StepSecond1 { Anchor: (Left: 623, Top: 305, Width: 66, Height: 66); ItemId: "AR_PropellantCell"; ShowItemTooltip: true; }
+Label { Anchor: (Left: 18, Top: 384, Width: 30, Height: 36); Text: "3"; Style: (FontSize: 28, TextColor: #55d9ed, RenderBold: true); }
+Label #StepTitle2 { Anchor: (Left: 60, Top: 378, Right: 14, Height: 30); Style: (FontSize: 24, TextColor: #f3f0e3, RenderBold: true); }
+Label #StepBody2 { Anchor: (Left: 60, Top: 413, Width: 450, Height: 72); Style: (FontSize: 20, TextColor: #b7d3e4, Wrap: true); }
+ItemIcon #StepIcon2 { Anchor: (Left: 542, Top: 417, Width: 66, Height: 66); ItemId: "AR_FramePlate"; ShowItemTooltip: true; }
+ItemIcon #StepSecond2 { Anchor: (Left: 623, Top: 417, Width: 66, Height: 66); ItemId: "AR_PropellantCell"; ShowItemTooltip: true; }
+}
+$A.@Section { Anchor: (Left: 424, Top: 750, Width: 716, Height: 100);
+ItemIcon #NextIcon { Anchor: (Left: 14, Top: 18, Width: 64, Height: 64); ItemId: "AR_ComponentPress"; }
+Label { Anchor: (Left: 95, Top: 9, Right: 18, Height: 24); Text: "YOUR NEXT STEP"; Style: (FontSize: 18, RenderBold: true, TextColor: #eeb978); }
+Label #Next { Anchor: (Left: 95, Top: 35, Right: 18, Height: 30); Style: (FontSize: 21, RenderBold: true, TextColor: #f3f0e3); }
+Label #Note { Anchor: (Left: 95, Top: 65, Right: 18, Height: 32); Style: (FontSize: 18, TextColor: #9aafc2, Wrap: true); }
+}
+Label { Anchor: (Left: 184, Top: 871, Width: 674, Height: 32); Text: "Reference guide · No free items or travel"; Style: (FontSize: 20, TextColor: #9aafc2, VerticalAlignment: Center); }
+$A.@Primary #Close { Anchor: (Left: 905, Top: 860, Width: 230, Height: 48); Text: "Close"; }
+} }

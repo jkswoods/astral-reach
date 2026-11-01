@@ -44,6 +44,7 @@ public final class AstralReachPlugin extends JavaPlugin {
   getEntityStoreRegistry().registerSystem(new RoverService.Lifecycle());getEntityStoreRegistry().registerSystem(new RoverService.Inputs());getEntityStoreRegistry().registerSystem(new RoverService.Cars());RoverTransport.start();
   rescueType=getEntityStoreRegistry().registerResource(RescueRegistry.class,"AstralRescueV1",RescueRegistry.CODEC);
   journalType=getEntityStoreRegistry().registerComponent(FieldJournal.class,"AstralFieldJournalV1",FieldJournal.CODEC);
+  getCodecRegistry(Interaction.CODEC).register("AR_GuideTablet",GuideInteraction.class,GuideInteraction.CODEC);
   getCodecRegistry(Interaction.CODEC).register("AR_FieldReceiver",FieldInteraction.class,FieldInteraction.CODEC);
   getCodecRegistry(Interaction.CODEC).register("AR_FieldBlock",FieldBlockInteraction.class,FieldBlockInteraction.CODEC);
   getEntityStoreRegistry().registerSystem(new RescueService.Placement());getEntityStoreRegistry().registerSystem(new RescueService.Breaking());
@@ -63,6 +64,7 @@ public final class AstralReachPlugin extends JavaPlugin {
   getCodecRegistry(Interaction.CODEC).register("AR_OpenRocket",RocketInteraction.class,RocketInteraction.CODEC);
   getCodecRegistry(Interaction.CODEC).register("AR_OpenLaunchYard",LaunchYardInteraction.class,LaunchYardInteraction.CODEC);
   getEntityStoreRegistry().registerSystem(new StationService.Placement());getEntityStoreRegistry().registerSystem(new StationService.Breaking());getEntityStoreRegistry().registerSystem(new StationService.Damage());
+  getEntityStoreRegistry().registerSystem(new VacuumTorches.Placement());getEntityStoreRegistry().registerSystem(new VacuumTorches.Use());
   getEntityStoreRegistry().registerSystem(new OxygenService.Breathing());getEntityStoreRegistry().registerSystem(new OxygenService.Placement());getEntityStoreRegistry().registerSystem(new OxygenService.Breaking());
   getEntityStoreRegistry().registerSystem(new LunarEnvironment.Mining());getEntityStoreRegistry().registerSystem(new RocketService.Tick());getEntityStoreRegistry().registerSystem(new RocketService.Placement());getEntityStoreRegistry().registerSystem(new RocketService.Breaking());
   getEntityStoreRegistry().registerSystem(new LaunchYardService.Placement());getEntityStoreRegistry().registerSystem(new LaunchYardService.Breaking());
@@ -118,7 +120,7 @@ public final class AstralReachPlugin extends JavaPlugin {
  private static final class Guide extends AbstractPlayerCommand {
   Guide(){super("astral-guide","Show Astral Reach acquisition and fuel steps.");requireNoPermission();}
   @Override protected void execute(CommandContext c,Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,World w){
-   message(p,"Orbis nickel → Smelter → ingots; Press makes plates/coils. Oil shale → Refinery → crude; Conditioner + empty cells → finite propellant. Processors burn gathered Fuel. Craft parts at the Astral Assembly Bench. Form25 Launch Pad Modules in a5×5 grid, place the separate edge console14 blocks from centre, select a ghost plan and feed its materials. Keep a clear launch column; each blueprint shows its actual size. Kestrel also needs room for its booster return. Equip a complete Survey suit from the upgradable Suit Workbench. Store9000 units (6000 outward +3000 return; completed Lost Survey grants5% savings on future launches), then launch in third person to orbit and select Lune. /astral-map reopens navigation only in space. Lune beacon or /astral-return uses the protected reserve. Press12 titanium +8 aluminium ingots into the first Thermal Shield.");
+   GuidePage.open(s,r,p);
   }
  }
  private static final class Return extends AbstractPlayerCommand {

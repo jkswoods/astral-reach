@@ -418,6 +418,40 @@
       "binding": "Actual panel opens and route selection, with a 180ms per-player cooldown. No hover or refresh cue.",
       "runtime": "Common/Sounds/AstralReach/console_select.ogg",
       "sha256": "d62445e8099c9dac0ac3751a6405429abd8c9f69df25fb54e15cec8e6536c5f0"
+    },
+    {
+      "cue": "tablet_open",
+      "duration_seconds": 1,
+      "filters": "highpass=f=80,lowpass=f=10500,afade=t=out:st=0.88:d=0.12,volume=-8dB",
+      "binding": "Open Explorer Tablet once",
+      "asset_ids": [
+        "AR_GuideTablet"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "model_id": "eleven_text_to_sound_v2",
+      "generation_id": "rZLH8RPxlbflE5GyyfRu",
+      "prompt": "A compact rugged field tablet powering its display: soft metal thumb switch, subtle warm digital chirp and a clean low paper-like interface tick. Quiet practical space exploration equipment, no voice,",
+      "runtime": "Common/Sounds/AstralReach/tablet_open.ogg",
+      "sha256": "4eea18f6d70239b73fbb4d67284a7245d462a051590a980409f04584f522a7c5",
+      "human_listening": "pending"
+    },
+    {
+      "cue": "rocket_build_celebration",
+      "duration_seconds": 5,
+      "filters": "highpass=f=80,lowpass=f=10500,afade=t=out:st=4.88:d=0.12,volume=-8dB",
+      "binding": "One successful construction claim; five bounded fireworks volleys; not on reload",
+      "asset_ids": [
+        "AR_LaunchConsole"
+      ],
+      "provider": "ElevenLabs",
+      "transport": "connection",
+      "model_id": "eleven_text_to_sound_v2",
+      "generation_id": "JprluagFs5PjqdonEibn",
+      "prompt": "A short satisfying rocket construction completion celebration: three distant rising firework whistles staggered across five seconds, each ending in a spacious low celebratory crackle and soft rolling ",
+      "runtime": "Common/Sounds/AstralReach/rocket_build_celebration.ogg",
+      "sha256": "84d00b5f7450d406ebbe7a4078cdc5fc3b4c331d45feaf506832eace6ce15813",
+      "human_listening": "pending"
     }
   ],
   "notice": "Original generated recordings; subject to the generating account\u2019s ElevenLabs terms. Detailed source takes and generation provenance retained privately."

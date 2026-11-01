@@ -25,6 +25,7 @@ public enum LaunchPlan {
  public static LaunchPlan fromArt(String id){for(var p:values())if(p.artId.equals(id))return p;return null;}
  public Map<String,Integer> materials(){return materials;}
  public double serviceMargin(){return (LaunchPadLayout.WIDTH-Math.max(width,depth))/2;}
+ public int buildHeight(){return (int)Math.ceil(height)+2;}
  public int sweptHeight(){return (int)Math.ceil(height+105);}
  public static LaunchPlan restore(String id){try{return valueOf(id);}catch(RuntimeException e){throw new IllegalArgumentException("Unknown rocket blueprint",e);}}
 }

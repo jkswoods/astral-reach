@@ -58,11 +58,12 @@ final class LaunchYardService {
    if(action.equals("Change")&&!y.recovered.isEmpty())throw new IllegalArgumentException("Returned assemblies belong to this rocket. Finish its rebuild before selecting another blueprint.");
    var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();
    if(!YardInventory.refund(inv,y.escrow))throw new IllegalArgumentException("Make room for all supplied materials before cancelling. Your exact items remain in the console.");
-   y.escrow.clear();p.resetAfterRefund();for(var credit:y.recovered.entrySet())p.accept(credit.getKey(),credit.getValue());y.selected=!y.recovered.isEmpty();RocketService.cue(s,player,"AR_metal_handle",at);
+   y.escrow.clear();y.creative.clear();p.resetAfterRefund();for(var credit:y.recovered.entrySet())p.accept(credit.getKey(),credit.getValue());y.selected=!y.recovered.isEmpty();RocketService.cue(s,player,"AR_metal_handle",at);
   }else if(action.equals("Deposit")){
    if(!y.selected||p.phase()!=ConstructionProgress.Phase.PREVIEW)throw new IllegalArgumentException("Select a blueprint before feeding materials.");
    if(!formed(s,at,y))throw new IllegalArgumentException("Finish all 25 five-block modules before supplying materials.");
    var needed=new HashMap<String,Integer>();for(var id:p.plan().materials().keySet())needed.put(id,p.remaining(id));
+   if(CreativeSupplies.enabled(s,ref)){for(var need:needed.entrySet())if(need.getValue()>0){p.accept(need.getKey(),need.getValue());y.creative.merge(need.getKey(),need.getValue(),Math::addExact);}RocketService.cue(s,player,"AR_metal_handle",at);start(s,at,y);LaunchYardVisuals.sync(s);return;}
    var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();var paid=YardInventory.take(inv,needed);
    for(var item:paid){p.accept(item.getItemId(),item.getQuantity());y.escrow.add(item);}if(!paid.isEmpty())RocketService.cue(s,player,"AR_metal_handle",at);
    if(p.funded())start(s,at,y);else if(paid.isEmpty())throw new IllegalArgumentException("Carry the remaining blueprint materials; unrelated items stay in your inventory.");
@@ -75,8 +76,8 @@ final class LaunchYardService {
   clearance(s,at,y);y.progress.start(true,true);
  }
  static void clearance(Store<EntityStore>s,Cell console,LaunchYardRegistry.Yard y){
-  var w=s.getExternalData().getWorld();var at=anchor(console,y);var plan=y.progress.plan();int h=plan.sweptHeight()+2,radius=(int)Math.ceil(Math.max(plan.width,plan.depth)/2);
-  if(at.y()<2||at.y()+h>=320)throw new IllegalArgumentException("Choose a lower launch site: this blueprint needs "+h+" clear blocks above the pad.");
+  var w=s.getExternalData().getWorld();var at=anchor(console,y);var plan=y.progress.plan();int h=plan.buildHeight(),radius=(int)Math.ceil(Math.max(plan.width,plan.depth)/2);
+  if(at.y()<2||at.y()+h>=320)throw new IllegalArgumentException("The standing rocket needs "+h+" clear blocks above the pad.");
   if(!NativeBlocks.empty(w,at)||RocketService.data(s).rockets.containsKey(at))throw new IllegalArgumentException("The central rocket anchor is occupied.");
   RocketService.clearColumn(w,at,radius,h,true);
  }
@@ -87,7 +88,7 @@ final class LaunchYardService {
   if(p.phase()==ConstructionProgress.Phase.ASSEMBLING&&!formed)data(s).blocked.put(at,"Restore all 25 loaded pad modules to resume.");
   if(p.phase()==ConstructionProgress.Phase.ASSEMBLING&&formed){try{clearance(s,at,y);active=true;}catch(IllegalArgumentException ex){data(s).blocked.put(at,ex.getMessage());}p.advance(millis,active);
    if(p.due()&&active){var a=anchor(at,y);if(NativeBlocks.set(w,a,BlockType.getAssetMap().getAsset(p.plan().artId))){
-    RocketService.data(s).rockets.put(a,new RocketRegistry.Rocket(y.owner,y.heldFuel,p.plan()));p.complete();y.escrow.clear();y.recovered.clear();y.heldFuel=0;active=false;
+    RocketService.data(s).rockets.put(a,new RocketRegistry.Rocket(y.owner,y.heldFuel,p.plan()));p.complete();y.escrow.clear();y.creative.clear();y.recovered.clear();y.heldFuel=0;active=false;
     // Persist the claimed flag before emitting any finite, non-authoritative visual/audio effect.
     if(p.claimCelebration())celebrate(s,at,y);
    }}
@@ -99,11 +100,15 @@ final class LaunchYardService {
  for(var player:w.getPlayerRefs()){var ref=player.getReference();if(ref!=null&&ref.isValid()&&ref.getStore()==s){var p=s.getComponent(ref,Player.getComponentType());if(p!=null&&p.getPageManager().getCustomPage() instanceof LaunchYardPage page)page.refresh(ref,s);}}
  }
  private static void celebrate(Store<EntityStore>s,Cell at,LaunchYardRegistry.Yard y){var c=center(at,y);
-  burst(s,c,0);data(s).celebrations.add(new LaunchYardRegistry.Celebration(c));
+  burst(s,c,0,y.progress.plan().height);data(s).celebrations.add(new LaunchYardRegistry.Celebration(c,y.progress.plan().height));
   for(var player:s.getExternalData().getWorld().getPlayerRefs())RocketService.cue(s,player,"AR_Rocket_Build_Complete",new Cell(c.x(),c.y()+4,c.z()));
  }
- private static void burst(Store<EntityStore>s,Cell c,int index){int[] dx={-11,11,0},dy={10,12,15},dz={10,10,12};ParticleUtil.spawnParticleEffect("Firework_GS",new org.joml.Vector3d(c.x()+.5+dx[index],c.y()+dy[index],c.z()+.5+dz[index]),s);}
- private static void tickCelebrations(Store<EntityStore>s,long millis){for(var it=data(s).celebrations.iterator();it.hasNext();){var volley=it.next();volley.elapsed+=millis;while(volley.next<3&&volley.elapsed>=volley.next*1000L){burst(s,volley.center,volley.next++);}if(volley.next==3)it.remove();}}
+ private static void burst(Store<EntityStore>s,Cell c,int index,double height){
+  // Five symmetric volleys rise outside the hull silhouette, then finish above the pad.
+  double angle=index*Math.PI*.4;double radius=17;double burstHeight=Math.max(20,height*.45)+index*(height*.12+2);
+  for(int side=0;side<4;side++){double a=angle+side*Math.PI/2;ParticleUtil.spawnParticleEffect("AR_BuildFireworks",new org.joml.Vector3d(c.x()+.5+Math.cos(a)*radius,c.y()+burstHeight,c.z()+.5+Math.sin(a)*radius),s);}
+ }
+ private static void tickCelebrations(Store<EntityStore>s,long millis){for(var it=data(s).celebrations.iterator();it.hasNext();){var volley=it.next();volley.elapsed+=millis;while(volley.next<5&&volley.elapsed>=volley.next*1200L){burst(s,volley.center,volley.next++,volley.height);}if(volley.next==5)it.remove();}}
  static final class Placement extends EntityEventSystem<EntityStore,PlaceBlockEvent>{
   Placement(){super(PlaceBlockEvent.class);}@Override public Query<EntityStore>getQuery(){return PlayerRef.getComponentType();}
   @Override public void handle(int i,ArchetypeChunk<EntityStore>chunk,Store<EntityStore>s,CommandBuffer<EntityStore>b,PlaceBlockEvent e){

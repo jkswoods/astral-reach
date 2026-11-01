@@ -1,0 +1,16 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AR_BuildSparkGold"
+    },
+    {
+      "SpawnerId": "AR_BuildSparkCyan"
+    },
+    {
+      "SpawnerId": "Star_Flash_GS"
+    }
+  ],
+  "CullDistance": 256,
+  "BoundingRadius": 100,
+  "IsImportant": true
+}

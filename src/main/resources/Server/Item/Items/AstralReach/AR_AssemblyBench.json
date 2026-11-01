@@ -67,6 +67,11 @@
       ],
       "Categories": [
         {
+          "Id": "AR_Guide",
+          "Name": "server.astralreach.fieldGuide",
+          "Icon": "Icons/CraftingCategories/AstralReach/Guide.png"
+        },
+        {
           "Id": "AR_Components",
           "Name": "server.astralreach.components",
           "Icon": "Icons/CraftingCategories/AstralReach/Components.png"

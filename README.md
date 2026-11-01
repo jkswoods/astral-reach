@@ -22,6 +22,8 @@ Astral Reach is a space exploration mod in development for **Hytale 0.7.\***. Th
 | Soyuz | 48.90 blocks | 9.11 blocks | 25×25 blocks |
 | Space Shuttle | 55.56 blocks | 19.99 blocks | 25×25 blocks |
 
+Start with the craftable **Explorer Tablet**: two sticks and one copper bar in Astral Assembly’s **Start here** tab. Its seven chapters explain your first launch, oxygen, Lune, stations and expeditions.
+
 Build personal orbital stations with nine docking airlocks, power life support with solar arrays and batteries, and watch stations cross the Orbis sky. Rescue Beacons and Field Receivers guide invited rescuers. Lunar survey expeditions unlock a permanent fuel benefit and paid recipes for a forty-minute oxygen tank and a two-seat electric rover. New outposts and terrain appear only in unexplored Lune chunks.
 
 ![A lunar rover after driving across Lune](docs/assets/screenshots/lunar-rover.png)

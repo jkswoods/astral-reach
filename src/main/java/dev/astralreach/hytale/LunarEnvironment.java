@@ -33,9 +33,10 @@ final class LunarEnvironment {
    boolean helmet=ExpeditionSuit.helmet(s,r),vacuum=OxygenService.vacuum(s);if(walker.muffled!=helmet||walker.vacuum!=vacuum){attenuate(p,helmet,vacuum);walker.vacuum=vacuum;walker.muffled=helmet;if(helmet){var t=s.getComponent(r,TransformComponent.getComponentType());if(t!=null)RocketService.cue(s,p,"AR_suit_latch",new RocketRegistry.Cell((int)t.getPosition().x,(int)t.getPosition().y,(int)t.getPosition().z));}}
    if(!foot)continue;var movement=s.getComponent(r,MovementStatesComponent.getComponentType());if(movement==null)continue;var m=movement.getMovementStates();
    // Native velocity instructions are acknowledged by the controlling client. No position correction loop.
-   if(!m.onGround&&!m.flying&&!m.climbing&&!m.inFluid&&!m.mantling&&!m.gliding){var velocity=s.getComponent(r,Velocity.getComponentType());if(velocity!=null)velocity.addInstruction(new Vector3d(0,(32d*5/6)*Math.clamp(dt,0,.1),0),null,ChangeVelocityType.Add);}
-   var transform=s.getComponent(r,TransformComponent.getComponentType());if(transform==null)continue;var pos=transform.getPosition();if(!m.onGround||m.flying){walker.last=null;walker.grounded=false;continue;}if(!walker.grounded){walker.grounded=true;if(helmet&&System.nanoTime()-walker.stepAt>350_000_000L){walker.stepAt=System.nanoTime();interior(s,r,p,"AR_lunar_step");}}
-   if(walker.last==null){walker.last=new Vector3d(pos);continue;}double distance=pos.distance(walker.last);if(distance>3){walker.last=new Vector3d(pos);continue;}if(distance<.68)continue;
+   var current=s.getComponent(r,TransformComponent.getComponentType());boolean supported=current!=null&&surfaceContact(s,current.getPosition());
+   if(!m.onGround&&!supported&&!m.flying&&!m.climbing&&!m.inFluid&&!m.mantling&&!m.gliding){var velocity=s.getComponent(r,Velocity.getComponentType());if(velocity!=null)velocity.addInstruction(new Vector3d(0,(32d*5/6)*Math.clamp(dt,0,.1),0),null,ChangeVelocityType.Add);}
+   var transform=s.getComponent(r,TransformComponent.getComponentType());if(transform==null)continue;var pos=transform.getPosition();if((!m.onGround&&!supported)||m.flying){walker.last=null;walker.grounded=false;continue;}walker.grounded=true;
+   if(walker.last==null){walker.last=new Vector3d(pos);continue;}double distance=Math.hypot(pos.x-walker.last.x,pos.z-walker.last.z);if(distance>3){walker.last=new Vector3d(pos);continue;}if(distance<.68)continue;
    if(helmet&&System.nanoTime()-walker.stepAt>300_000_000L){walker.stepAt=System.nanoTime();interior(s,r,p,"AR_lunar_step");}
    var direction=new Vector3d(pos).sub(walker.last);walker.last.set(pos);walker.left=!walker.left;double yaw=Math.atan2(-direction.x,-direction.z),side=walker.left?-.14:.14;double x=pos.x+Math.cos(yaw)*side,z=pos.z-Math.sin(yaw)*side;int ground=(int)Math.floor(pos.y-.12);var at=new RocketRegistry.Cell((int)Math.floor(x),ground,(int)Math.floor(z));var block=NativeBlocks.get(w,at);
    if(block==null||!NativeBlocks.base(block).equals("AR_LuneRegolith")||Math.abs(pos.y-(ground+1))>.22)continue;
@@ -44,6 +45,7 @@ final class LunarEnvironment {
   }
   var queue=tracks.get(s);if(queue!=null){long now=System.nanoTime();while(!queue.isEmpty()&&(queue.peekFirst().expires<now||!queue.peekFirst().ref.isValid()))remove(s,queue.removeFirst());if(queue.isEmpty())tracks.remove(s);}
  }
+ static boolean surfaceContact(Store<EntityStore>s,Vector3d pos){int y=(int)Math.floor(pos.y-.04);if(Math.abs(pos.y-y-1)>.14)return false;var block=NativeBlocks.get(s.getExternalData().getWorld(),new RocketRegistry.Cell((int)Math.floor(pos.x),y,(int)Math.floor(pos.z)));return block!=null&&!NativeBlocks.base(block).equals("Empty");}
  static void interior(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,String cue){var map=com.hypixel.hytale.server.core.asset.type.soundevent.config.SoundEvent.getAssetMap();if(map.getAsset(cue)!=null)com.hypixel.hytale.server.core.universe.world.SoundUtil.playSoundEvent2dToPlayer(p,map.getIndex(cue),com.hypixel.hytale.protocol.SoundCategory.SFX);}
  static final class Mining extends com.hypixel.hytale.component.system.EntityEventSystem<EntityStore,com.hypixel.hytale.server.core.event.events.ecs.DamageBlockEvent>{
   Mining(){super(com.hypixel.hytale.server.core.event.events.ecs.DamageBlockEvent.class);}

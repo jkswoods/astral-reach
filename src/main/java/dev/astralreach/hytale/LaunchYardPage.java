@@ -36,7 +36,7 @@ final class LaunchYardPage extends InteractiveCustomUIPage<RocketPage.Action>{
   c.set("#Dimensions.Text",String.format(Locale.ROOT,"%.1f × %.1f footprint",p.plan().width,p.plan().depth));c.set("#PreviewName.Text",p.plan().title);c.set("#PreviewHeight.Text",String.format(Locale.ROOT,"%.0f\nblocks",p.plan().height));c.set("#Footprint.Text",formed?"Pad formed · 25 / 25 modules":"Pad incomplete · restore modules");c.set("#BuildInfo.Text","Build: 10 seconds\nRound trip: "+NativeUi.number(RocketService.fuelCost(s,ref).total())+" fuel\nLoaded after assembly");
   for(var plan:LaunchPlan.values())c.set("#Preview"+plan.name().replace("_", "")+".Visible",plan==p.plan());
   var inv=s.getComponent(ref,Player.getComponentType()).getInventory().getCombinedHotbarFirst();
-  int row=0,total=0,supplied=0;boolean anyCarried=false;
+  int row=0,total=0,supplied=0;boolean anyCarried=CreativeSupplies.enabled(s,ref);
   for(String part:PARTS){Integer required=p.plan().materials().get(part);if(required==null)continue;int held=0;
    for(short slot=0;slot<inv.getCapacity();slot++){var item=inv.getItemStack(slot);if(!ItemStack.isEmpty(item)&&item.getItemId().equals(part))held+=item.getQuantity();}
    int paid=p.supplied().getOrDefault(part,0);total+=required;supplied+=paid;anyCarried|=held>0&&p.remaining(part)>0;
@@ -48,6 +48,8 @@ final class LaunchYardPage extends InteractiveCustomUIPage<RocketPage.Action>{
   c.set("#Site.Text",blocked!=null?blocked:ready?"Build complete. Open Flight Control.":working?"Launch column clear · construction active.":"Launch column checked when construction starts.");
   c.set("#Recovery.Visible",y.heldFuel>0);c.set("#Recovery.Text","Saved propellant: "+NativeUi.number(y.heldFuel)+" units");
   c.set("#Help.Text",!y.recovered.isEmpty()?"Returned parts stay with this blueprint. Supply only the missing materials.":ready?"Reopen this console any time to access Flight Control.":"Change rocket returns all supplied parts. Carry room for the full refund.");
+  if(CreativeSupplies.enabled(s,ref)&&!ready)c.set("#Help.Text","Creative: Supply fills every missing part without carrying materials.");
+  c.set("#Deposit.Text",CreativeSupplies.enabled(s,ref)?"Supply all parts · Creative":"Supply carried parts");
   c.set("#Flight.Visible",ready);c.set("#Deposit.Visible",!ready&&!working&&!p.funded());c.set("#Deposit.Disabled",!formed||!anyCarried);c.set("#Build.Visible",!ready&&!working&&p.funded());c.set("#Change.Visible",!ready&&y.recovered.isEmpty());c.set("#Cancel.Visible",!ready&&!y.recovered.isEmpty());c.set("#Cancel.Disabled",y.escrow.isEmpty());
  }
  @Override public void build(Ref<EntityStore>ref,UICommandBuilder c,UIEventBuilder e,Store<EntityStore>s){

@@ -7,7 +7,7 @@ public final class FlightTimeline {
  public static final double DESCENT=24,RETURN_ASCENT=28;
  private FlightTimeline(){}
  public static double ease(double t,double a,double b){double q=Math.clamp((t-a)/(b-a),0,1);return q*q*(3-2*q);}
- public static double height(double t){return 105*ease(t,IGNITION,SEPARATION);}
+ public static double height(double t){return 105*ease(t,IGNITION,SEPARATION)+30*ease(t,SEPARATION,ORBIT);}
  public static double boosterHeight(double t){
   if(t<=SEPARATION)return height(t);
   if(t<FREEFALL)return 105;

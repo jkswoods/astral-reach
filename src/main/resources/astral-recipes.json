@@ -1810,5 +1810,28 @@
     "OutputQuantity": 1,
     "TimeSeconds": 20,
     "KnowledgeRequired": true
+  },
+  "AR_GuideTablet": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Stick",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Guide"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 2
   }
 }

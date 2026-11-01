@@ -121,3 +121,9 @@ astralreach.AR_LifeSupportArchive.name = Life Support Field Record
 astralreach.AR_LifeSupportArchive.description = Original field terminal; recover both records at one site to learn the expedition recipe.
 astralreach.AR_RoverArchive.name = Surface Mobility Field Record
 astralreach.AR_RoverArchive.description = Original field terminal; recover both records at one site to learn the expedition recipe.
+
+astralreach.fieldGuide = Start here
+astralreach.AR_GuideTablet.name = Explorer Tablet
+astralreach.AR_GuideTablet.description = Secondary use opens your Astral Reach field guide. Recipes, flight preparation and survival advice.
+
+astralreach.unlitTorch.name = Extinguished Torch

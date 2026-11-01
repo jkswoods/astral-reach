@@ -34,7 +34,7 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
  static void open(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p){
   if(!SpaceFlight.inOrbit(s,r)){AstralReachPlugin.message(p,"Navigation becomes available after reaching space.");return;}
   if(s.getComponent(r,Player.getComponentType())==null)return;
-  var session=viewing.computeIfAbsent(p.getUuid(),id->new Session(s,p));showDestinations(session,session.selected);
+  var session=new Session(s,p);viewing.put(p.getUuid(),session);showDestinations(session,session.selected);
  }
  private static void showDestinations(Session session,String body){
   var r=session.player.getReference();if(r==null||!r.isValid()||r.getStore()!=session.store||!SpaceFlight.inOrbit(session.store,r))return;
@@ -44,7 +44,7 @@ final class OrbitalMapPage extends InteractiveCustomUIPage<OrbitalMapPage.Action
   String body=ORDER.stream().filter(v->v.equalsIgnoreCase(name)).findFirst().orElse(null);
   if(body==null){AstralReachPlugin.message(p,"Choose Orbis, Lune, Rustreach, Nacre, Vesper or Umbra.");return;}
   if(!SpaceFlight.inOrbit(s,r)){AstralReachPlugin.message(p,"Navigation becomes available after reaching space.");return;}
-  var session=viewing.computeIfAbsent(p.getUuid(),id->new Session(s,p));showDestinations(session,body);
+  var session=new Session(s,p);viewing.put(p.getUuid(),session);showDestinations(session,body);
  }
  private static void stop(Session session){viewing.remove(session.player.getUuid(),session);}
  static void close(PlayerRef p){var session=viewing.get(p.getUuid());if(session!=null)stop(session);}

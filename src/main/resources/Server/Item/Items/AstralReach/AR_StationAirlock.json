@@ -328,6 +328,10 @@
           "CustomModelAnimation": "Blocks/AstralReach/AR_StationAirlock_Close.blockyanim"
         }
       }
+    },
+    "Light": {
+      "Radius": 0,
+      "Color": "#9ba"
     }
   }
 }

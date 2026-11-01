@@ -54,8 +54,13 @@ final class SpaceFlight {
   var camera=s.getComponent(r,CameraManager.getComponentType());if(camera!=null)camera.resetCamera(p);var weather=s.getComponent(r,WeatherTracker.getComponentType());if(v!=null&&!v.weather.isEmpty()&&weather!=null&&weather.releaseOverride(r))weather.clear();
  }
  private static void weather(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,View v,String name,float seconds){
-  if(v.weather.equals(name))return;var t=s.getComponent(r,WeatherTracker.getComponentType());if(t==null)return;
-  if(name.isEmpty()){if(t.releaseOverride(r))t.clear();v.weather="";return;}int index=Weather.getAssetMap().getIndex(name);if(index>0&&t.tryClaimOverride(r,index)){t.sendWeatherIndex(p,index,seconds);v.weather=name;}
+  var t=s.getComponent(r,WeatherTracker.getComponentType());if(t==null)return;
+  if(name.isEmpty()){if(!v.weather.isEmpty()&&t.releaseOverride(r))t.clear();v.weather="";return;}
+  int index=Weather.getAssetMap().getIndex(name);if(index<=0)return;
+  // A native acknowledged crew teleport may invalidate the tracker's weather cache.
+  // Reapply the current stage after that reset instead of trusting only our View label.
+  boolean same=v.weather.equals(name);if(same&&t.getWeatherIndex()==index)return;
+  if(t.tryClaimOverride(r,index)){t.sendWeatherIndex(p,index,same?0:seconds);v.weather=name;}
  }
  static void ascent(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,RocketRegistry.Cell at,LaunchPlan plan,double seconds){
   var v=views.get(p.getUuid());if(v==null){begin(s,r,p);v=views.get(p.getUuid());}if(v==null)return;
@@ -71,7 +76,7 @@ final class SpaceFlight {
   boolean booster=plan==LaunchPlan.KESTREL&&seconds>=33&&seconds<86;double lift=booster?FlightTimeline.boosterHeight(seconds):FlightTimeline.height(seconds);double center=booster?36:seconds>=FlightTimeline.SEPARATION?FlightTimeline.upperBase(plan)+FlightTimeline.upperHeight(plan)*.5:plan.height*.5;double dx=booster?FlightTimeline.boosterX(seconds):upperX;
   var target=new Vector3d(at.x()+.5+Math.cos(yaw)*dx,at.y()+lift+center,at.z()+.5-Math.sin(yaw)*dx);double distance=booster?82:seconds>=FlightTimeline.SEPARATION?95:155;
   var camera=booster?new Vector3d(target.x-Math.cos(yaw)*distance*.52+Math.sin(yaw)*distance,target.y+14,target.z+Math.sin(yaw)*distance*.52+Math.cos(yaw)*distance):new Vector3d(target.x+Math.cos(yaw)*distance*.52+Math.sin(yaw)*distance,target.y-6,target.z-Math.sin(yaw)*distance*.52+Math.cos(yaw)*distance);
-  camera(p,camera,target);if(v.page!=null)v.page.status(FlightTimeline.stage(seconds,plan),Math.min(100,(int)(seconds/FlightTimeline.ORBIT*100)));
+  camera(p,camera,target);if(v.page!=null)v.page.status(FlightTimeline.stage(seconds,plan)+(seconds>=FlightTimeline.SEPARATION&&!booster?" · +"+Math.round(FlightTimeline.height(seconds))+" m above pad":""),Math.min(100,(int)(seconds/FlightTimeline.ORBIT*100)));
  }
  static void cinematic(Store<EntityStore>s,Ref<EntityStore>r,PlayerRef p,Vector3d crew,Vector3d position,Vector3d target,String label){
   var v=views.get(p.getUuid());if(v==null){begin(s,r,p,false);v=views.get(p.getUuid());}if(v==null)return;
@@ -81,6 +86,7 @@ final class SpaceFlight {
  static void camera(PlayerRef p,Vector3d position,Vector3d target){
   var c=new ServerCameraSettings();c.positionLerpSpeed=.15f;c.rotationLerpSpeed=.15f;c.attachedToType=AttachedToType.None;c.positionType=PositionType.Custom;c.position=new Position(position.x,position.y,position.z);c.rotationType=RotationType.Custom;var view=Rotation3f.lookAt(new Vector3d(target).sub(position));c.rotation=new Direction(view.yaw(),view.pitch(),0);c.applyLookType=ApplyLookType.Rotation;c.positionOffset=new Position(0,0,0);c.positionDistanceOffsetType=PositionDistanceOffsetType.None;c.isFirstPerson=false;c.skipCharacterPhysics=true;c.hideHeldItem=true;c.displayReticle=false;c.displayCursor=false;c.allowPitchControls=false;c.movementMultiplier=new org.joml.Vector3f();c.lookMultiplier=new org.joml.Vector2f();c.baseFov=60f;p.getPacketHandler().writeNoCache(new SetServerCamera(ClientCameraView.Custom,true,c));
  }
+ static void fromDock(PlayerRef p){var v=new View();v.arrival=System.nanoTime()-6_000_000_000L;views.put(p.getUuid(),v);}
  static void tickOrbit(Store<EntityStore>s){
   var world=s.getExternalData().getWorld();if(!world.getName().equals(ORBIT_WORLD))return;
   for(var p:world.getPlayerRefs()){

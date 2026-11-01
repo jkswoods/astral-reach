@@ -1,0 +1,17 @@
+{
+  "Parent": "Furniture_Feran_Torch",
+  "TranslationProperties": {
+    "Name": "server.astralreach.unlitTorch.name"
+  },
+  "Recipe": null,
+  "Variant": true,
+  "Light": null,
+  "Particles": [],
+  "FirstPersonParticles": [],
+  "BlockType": {
+    "Light": null,
+    "Particles": null,
+    "AmbientSoundEventId": null,
+    "Looping": false
+  }
+}

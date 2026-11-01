@@ -1,7 +1,7 @@
 {
   "Group": "AstralReach",
   "Name": "AstralReach",
-  "Version": "0.3.0",
+  "Version": "0.3.1-dev.7",
   "Description": "Original space-industrial resources, native processing, finite propellant and orbital exploration.",
   "Main": "dev.astralreach.hytale.AstralReachPlugin",
   "ServerVersion": ">=0.7.3 <0.8.0",

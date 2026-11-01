@@ -1,0 +1,49 @@
+{
+  "TranslationProperties": {
+    "Name": "server.astralreach.AR_GuideTablet.name",
+    "Description": "server.astralreach.AR_GuideTablet.description"
+  },
+  "Icon": "Icons/Items/AR_GuideTablet.png",
+  "Categories": [
+    "Items.Tools"
+  ],
+  "MaxStack": 1,
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "AR_ISS_Metal",
+  "DropOnDeath": true,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Stick",
+        "Quantity": 2
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "AstralAssembly",
+        "Categories": [
+          "AR_Guide"
+        ]
+      }
+    ],
+    "OutputQuantity": 1,
+    "TimeSeconds": 2
+  },
+  "Model": "Items/AstralReach/AR_GuideTablet.blockymodel",
+  "Texture": "Items/AstralReach/AR_GuideTablet.png",
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "AR_GuideTablet"
+        }
+      ]
+    }
+  },
+  "Scale": 0.55
+}

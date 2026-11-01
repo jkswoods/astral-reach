@@ -1,0 +1,10 @@
+{
+  "Spawners": [
+    {
+      "SpawnerId": "AR_EngineFireStream"
+    }
+  ],
+  "CullDistance": 384,
+  "BoundingRadius": 55,
+  "IsImportant": true
+}

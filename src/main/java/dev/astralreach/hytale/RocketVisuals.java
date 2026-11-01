@@ -47,6 +47,7 @@ final class RocketVisuals {
    String name=state.equals("Away")?null:rocket.plan.asset(state.equals("Launching")?(elapsed<dev.astralreach.core.FlightTimeline.SEPARATION?"Ascent":"Ship"):"Exterior");
    syncPart(s,data.exteriors,data.exteriorStates,at,name,position,rotation,state.equals("Launching"));
    sound(s,data.exteriors.get(at),state.equals("Launching")&&elapsed>=dev.astralreach.core.FlightTimeline.BOARDING);
+   var exterior=data.exteriors.get(at);if(state.equals("Launching")&&elapsed>=dev.astralreach.core.FlightTimeline.SEPARATION&&exterior!=null&&exterior.isValid()){var m=s.getComponent(exterior,ModelComponent.getComponentType());if(m!=null&&(m.getModel().getParticles()==null||m.getModel().getParticles().length==0))RocketExhaust.power(s,exterior,rocket.plan,true,name);}
    String booster=null; // Odyssey core/solid boosters are expendable; they do not sit restored on the pad.
    if(rocket.plan==LaunchPlan.KESTREL&&(state.equals("Launching")&&elapsed>=dev.astralreach.core.FlightTimeline.SEPARATION||state.equals("Away")&&rocket.boosterLanded)){
     if(elapsed>=dev.astralreach.core.FlightTimeline.BOOSTER_LANDED)rocket.boosterLanded=true;
@@ -58,10 +59,10 @@ final class RocketVisuals {
    if(state.equals("Launching"))RocketExhaust.emit(s,at,rocket.plan,elapsed,rotation.yaw());else data.exhaustAt.remove(at);
   }
  }
- private static void sound(Store<EntityStore>s,Ref<EntityStore>r,boolean powered){if(r==null||!r.isValid())return;var type=AudioComponent.getComponentType();if(powered){if(s.getComponent(r,type)==null){var a=new AudioComponent();a.addSound(com.hypixel.hytale.server.core.asset.type.soundevent.config.SoundEvent.getAssetMap().getIndex("AR_rocket_thrust_loop"));s.putComponent(r,type,a);}}else s.tryRemoveComponent(r,type);}
+ private static void sound(Store<EntityStore>s,Ref<EntityStore>r,boolean powered){RocketAudio.set(s,r,powered);}
  private static void syncPart(Store<EntityStore>s,Map<Cell,Ref<EntityStore>>refs,Map<Cell,String>states,Cell at,String name,Vector3d position,Rotation3f rotation,boolean animate){
   var ref=refs.get(at);if(name==null||!name.equals(states.get(at))){remove(s,refs.remove(at));states.remove(at);ref=null;}
   if(name!=null&&(ref==null||!ref.isValid())){ref=spawn(s,named(name),position,rotation,animate);if(ref!=null){refs.put(at,ref);states.put(at,name);}}
  }
- private static void remove(Store<EntityStore>s,Ref<EntityStore>ref){if(ref!=null&&ref.isValid())s.removeEntity(ref,RemoveReason.REMOVE);}
+ private static void remove(Store<EntityStore>s,Ref<EntityStore>ref){if(ref!=null&&ref.isValid()){RocketAudio.set(s,ref,false);s.removeEntity(ref,RemoveReason.REMOVE);}}
 }
