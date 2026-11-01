@@ -11,6 +11,7 @@ Quantities below are the current development recipes. Iron and copper entries me
 | Output | Inputs | Craft at |
 | --- | --- | --- |
 | 1 Astral Assembly Bench | 6 iron + 4 copper | Stock Workbench |
+| 1 Explorer Tablet | 2 sticks + 1 copper | Assembly Bench · Start here |
 | 1 Orbital Smelter | 8 iron + 4 copper | Assembly Bench |
 | 1 Component Press | 10 iron + 4 copper | Assembly Bench |
 | 1 Fuel Refinery | 8 iron + 6 copper | Assembly Bench |

@@ -50,9 +50,6 @@ Choose **Open flight control** to deposit propellant. See [machines and propella
 
 ## Leave airspace above the pad {#leave-airspace-above-the-pad}
 
-Choose a low site. The established launch candidate requires a **19×19×164** clear column above Odyssey's anchor, or **21×21×190** for Kestrel. The anchor sits one block above the central module.
+Keep the standing rocket’s displayed height and footprint clear, with two extra blocks above the hull and enough room below the world ceiling. The check follows the selected ship’s actual size; it does not require the whole animated flight path to fit above the pad. A Kestrel built and completed its orbital flight from a pad at Y128 during local Hytale 0.7.5 checks.
 
-The new extended-ascent candidate increases those requirements to **19×19×205** for Odyssey and **97×97×231** for Kestrel's booster recovery airspace. Those larger clearances are part of the flight work awaiting native verification. Leave the full column below world height 320 and read the exact candidate's refusal message.
-
-
-The catalogue and construction screens are development-branch changes. Select a compatible file and read its release notes to confirm which controls it includes.
+In Creative, the construction and fuel Supply buttons work without inventory ingredients. Adventure still uses paid parts and propellant.
